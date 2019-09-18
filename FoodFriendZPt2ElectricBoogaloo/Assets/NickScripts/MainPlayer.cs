@@ -54,7 +54,21 @@ public class MainPlayer : MonoBehaviour
     {
         PlayerMovement();
         LookDirection();
-        Attack();
+
+        if (myPlayer.GetButtonDown("Attack") && currentChar.attackType == "Melee")
+        {
+            currentChar.MeleeAttack(transform.position, attackDirection, transform);
+
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                health--;
+            }
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                health++;
+            }
+        }
+
     }
 
 
@@ -98,24 +112,7 @@ public class MainPlayer : MonoBehaviour
         }
     }
     
-    private void Attack()
-    {
-        if (myPlayer.GetButtonDown("Attack"))
-        {
-            GameObject attack = Instantiate(currentChar.weapon, transform.position + (attackDirection.transform.right * currentChar.offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + currentChar.attackRotationalOffset));
-            attack.transform.parent = transform;
-            attack.GetComponent<Attack>().damage = currentChar.attackDamage;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            health--;
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            health++;
-        }
-    }
+    
 
     public void HitEnemy()
     {

@@ -14,7 +14,7 @@ public class BasePlayer : ScriptableObject
     public Vector3 currentPosition;
     public Vector3 currentDirection;
 
-    [Tooltip("Can be 'Melee', 'Range', or 'Builder'")]
+    [Tooltip("Can be 'Melee', 'Ranged-Basic', 'Ranged-Burst Fire', 'Ranged-Semi Auto' or 'Builder'")]
     public string attackType;
 
     [Header("Melee Characters")]
@@ -50,7 +50,17 @@ public class BasePlayer : ScriptableObject
             bullet = null;
             drop = null;
         }
-        if (attackType == "Ranged")
+        if (attackType == "Ranged-Basic")
+        {
+            weapon = null;
+            drop = null;
+        }
+        if (attackType == "Ranged-Burst Fire")
+        {
+            weapon = null;
+            drop = null;
+        }
+        if (attackType == "Ranged-Semi Auto")
         {
             weapon = null;
             drop = null;
@@ -67,7 +77,13 @@ public class BasePlayer : ScriptableObject
     public void Update()
     {
 
-        
+    }
+
+    public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    {
+            GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
+            attack.transform.parent = parentTransform;
+            attack.GetComponent<Attack>().damage = attackDamage;
 
     }
 
