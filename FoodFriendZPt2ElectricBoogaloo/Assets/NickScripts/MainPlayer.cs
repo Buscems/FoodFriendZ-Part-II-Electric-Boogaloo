@@ -55,25 +55,27 @@ public class MainPlayer : MonoBehaviour
         PlayerMovement();
         LookDirection();
 
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            health--;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            health++;
+        }
+
         if (myPlayer.GetButtonDown("Attack"))
         {
             if (currentChar.attackType == "Melee")
             {
-                currentChar.MeleeAttack(transform.position, attackDirection, transform);              
+                currentChar.MeleeAttack(transform.position, attackDirection, transform);
             }
             if (currentChar.attackType == "Ranged-Semi Auto")
             {
                 //currentChar.RangedBasic(transform.position, attackDirection, transform);
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                health--;
-            }
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                health++;
-            }
+           
         }
 
         if (myPlayer.GetButton("Attack") && currentChar.currentFirerateTimer < 0)
@@ -133,12 +135,21 @@ public class MainPlayer : MonoBehaviour
             attackDirection.transform.right = direction;
         }
     }
-    
-    
 
-    public void HitEnemy()
-    {
-        cam.StartShake();
+
+
+    public bool HitEnemy(string tag)
+    {       
+
+        if(tag == "Projectile")
+        {
+            return true;
+        }
+        else
+        {
+            cam.StartShake();
+            return false;
+        }
     }
 
     public void GetHit(int damage)

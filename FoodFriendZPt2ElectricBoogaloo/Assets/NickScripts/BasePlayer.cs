@@ -16,7 +16,7 @@ public class BasePlayer : ScriptableObject
     [Tooltip("This will be how much the sprite should be rotated for the attack animation")]
     public float attackRotationalOffset;
 
-    [Tooltip("Can be 'Melee', 'Ranged-Basic', 'Ranged-Burst Fire', 'Ranged-Semi Auto', 'Ranged-Split Fire' or 'Builder'")]
+    [Tooltip("Can be 'Melee', 'Melee-Charge', 'Ranged-Basic', 'Ranged-Burst Fire', 'Ranged-Semi Auto', 'Ranged-Charge Fire', 'Ranged-Split Fire' or 'Builder'")]
     public string attackType;
 
     [Header("Melee Characters")]
