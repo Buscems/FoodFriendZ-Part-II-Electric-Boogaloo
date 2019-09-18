@@ -55,9 +55,16 @@ public class MainPlayer : MonoBehaviour
         PlayerMovement();
         LookDirection();
 
-        if (myPlayer.GetButtonDown("Attack") && currentChar.attackType == "Melee")
+        if (myPlayer.GetButtonDown("Attack"))
         {
-            currentChar.MeleeAttack(transform.position, attackDirection, transform);
+            if (currentChar.attackType == "Melee")
+            {
+                currentChar.MeleeAttack(transform.position, attackDirection, transform);              
+            }
+            if (currentChar.attackType == "Ranged-Semi Auto")
+            {
+                //currentChar.RangedBasic(transform.position, attackDirection, transform);
+            }
 
             if (Input.GetKeyDown(KeyCode.Z))
             {
@@ -66,6 +73,21 @@ public class MainPlayer : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.X))
             {
                 health++;
+            }
+        }
+
+        if (myPlayer.GetButton("Attack") && currentChar.currentFirerateTimer < 0)
+        {
+            currentChar.currentFirerateTimer = currentChar.firerate;
+
+            if (currentChar.attackType == "Ranged-Basic")
+            {
+                currentChar.RangedBasic(transform.position, attackDirection, transform);
+            }
+
+            if (currentChar.attackType == "Ranged-Split Fire")
+            {
+                currentChar.RangedSplit(transform.position, attackDirection, transform);
             }
         }
 

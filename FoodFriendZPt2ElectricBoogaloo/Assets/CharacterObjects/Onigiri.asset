@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: Onigiri
   m_EditorClassIdentifier: 
   speed: 7
-  currentPosition: {x: 0, y: 0, z: 0}
-  currentDirection: {x: 0, y: 0, z: 0}
-  attackType: Ranged
+  attackDamage: 5
+  attackSize: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 4.9338174, y: 3.9127803, z: 0}
+  currentDirection: {x: 0.04501235, y: -0.010534806, z: 0}
+  attackRotationalOffset: 25
+  attackType: Ranged-Basic
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
-  attackSize: {x: 0, y: 0, z: 0}
   offset: 0
   attackSpeed: 0
   isAttacking: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
+  firerate: 0.2
+  bulletSpeed: 750
   drop: {fileID: 0}
+  currentFirerateTimer: -6.9047365

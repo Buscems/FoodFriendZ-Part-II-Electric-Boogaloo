@@ -13,8 +13,10 @@ public class BasePlayer : ScriptableObject
     [HideInInspector]
     public Vector3 currentPosition;
     public Vector3 currentDirection;
+    [Tooltip("This will be how much the sprite should be rotated for the attack animation")]
+    public float attackRotationalOffset;
 
-    [Tooltip("Can be 'Melee', 'Ranged-Basic', 'Ranged-Burst Fire', 'Ranged-Semi Auto' or 'Builder'")]
+    [Tooltip("Can be 'Melee', 'Ranged-Basic', 'Ranged-Burst Fire', 'Ranged-Semi Auto', 'Ranged-Split Fire' or 'Builder'")]
     public string attackType;
 
     [Header("Melee Characters")]
@@ -25,8 +27,6 @@ public class BasePlayer : ScriptableObject
     public float offset;
     [Tooltip("This will be how fast the sword attack plays")]
     public float attackSpeed;
-    [Tooltip("This will be how much the sprite should be rotated for the attack animation")]
-    public float attackRotationalOffset;
     //[Tooltip("This is the amount that the sword will spin around the player when attacking.")]
     //public float attackRange;
     [HideInInspector]
@@ -35,11 +35,16 @@ public class BasePlayer : ScriptableObject
     [Header("Ranged Characters")]
     public GameObject bullet;
     public float firerate;
+    public float bulletSpeed;
+    [Header("Ranged-Split Fire")]
+    public float radius;
+    public int bulletsPerShot;
 
     [Header("Building Characters")]
     public GameObject drop;
 
-
+    [HideInInspector]
+    public float currentFirerateTimer = 0;
 
     // Start is called before the first frame update
     public void Start()
@@ -65,6 +70,11 @@ public class BasePlayer : ScriptableObject
             weapon = null;
             drop = null;
         }
+        if (attackType == "Ranged-Split Fire")
+        {
+            weapon = null;
+            drop = null;
+        }
         if (attackType == "builder")
         {
             weapon = null;
@@ -76,15 +86,37 @@ public class BasePlayer : ScriptableObject
     // Update is called once per frame
     public void Update()
     {
-
+        if (attackType == "Ranged-Basic" || attackType == "Ranged-Split Fire")
+        {
+            currentFirerateTimer -= Time.deltaTime;
+        }
     }
 
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
-            GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
-            attack.transform.parent = parentTransform;
-            attack.GetComponent<Attack>().damage = attackDamage;
-
+        GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
+        attack.transform.parent = parentTransform;
+        attack.GetComponent<Attack>().damage = attackDamage;
     }
 
+    public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    {
+        GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
+        attack.transform.parent = parentTransform;
+        attack.GetComponent<Attack>().damage = attackDamage;
+        attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
+    }
+
+    public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    {
+        float angleInterval = radius / bulletsPerShot;
+
+        for (int i = 0; i < bulletsPerShot; i++)
+        {
+            GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius/2) - (i*angleInterval))));
+            attack.transform.parent = parentTransform;
+            attack.GetComponent<Attack>().damage = attackDamage;
+            attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
+        }
+    }
 }
