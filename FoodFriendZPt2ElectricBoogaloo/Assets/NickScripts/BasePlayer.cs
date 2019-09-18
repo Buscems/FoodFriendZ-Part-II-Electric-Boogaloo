@@ -36,6 +36,7 @@ public class BasePlayer : ScriptableObject
     public GameObject bullet;
     public float firerate;
     public float bulletSpeed;
+    public float timeTillDespawn;
     [Header("Ranged-Split Fire")]
     public float radius;
     public int bulletsPerShot;
@@ -105,6 +106,7 @@ public class BasePlayer : ScriptableObject
         attack.transform.parent = parentTransform;
         attack.GetComponent<Attack>().damage = attackDamage;
         attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
+        attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
     }
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform)
@@ -117,6 +119,7 @@ public class BasePlayer : ScriptableObject
             attack.transform.parent = parentTransform;
             attack.GetComponent<Attack>().damage = attackDamage;
             attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
+            attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
         }
     }
 }

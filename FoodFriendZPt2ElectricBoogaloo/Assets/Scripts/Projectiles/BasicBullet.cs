@@ -8,6 +8,7 @@ public class BasicBullet : MonoBehaviour
 
     [HideInInspector]
     public float bulletSpeed;
+    [HideInInspector]
     public float timeTillDespawn;
 
     // Start is called before the first frame update
