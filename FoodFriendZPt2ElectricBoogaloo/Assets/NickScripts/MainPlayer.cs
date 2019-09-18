@@ -101,6 +101,14 @@ public class MainPlayer : MonoBehaviour
         rb.MovePosition(transform.position + (velocity * speed) * Time.deltaTime);
     }
 
+    void AnimationHandler()
+    {
+        if (direction.x > 0 && direction.y == 0)
+        {
+
+        }
+    }
+
     private void PlayerMovement()
     {
         currentChar.Update();

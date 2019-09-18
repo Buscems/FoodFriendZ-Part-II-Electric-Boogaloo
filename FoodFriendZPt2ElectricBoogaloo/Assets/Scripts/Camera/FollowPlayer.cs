@@ -12,6 +12,8 @@ public class FollowPlayer : MonoBehaviour
 
     private float distance;
 
+    public float cameraSpeed;
+
     private Vector2 velocity = Vector2.zero;
 
     // Start is called before the first frame update
@@ -35,7 +37,7 @@ public class FollowPlayer : MonoBehaviour
         {
 
             playerPos.z = -10;
-            transform.position = Vector3.Slerp(transform.position, playerPos, player.GetComponent<MainPlayer>().speed * .35f * Time.deltaTime);
+            transform.position = Vector3.Slerp(transform.position, playerPos, player.GetComponent<MainPlayer>().speed * cameraSpeed * Time.deltaTime);
         }
     }
 }
