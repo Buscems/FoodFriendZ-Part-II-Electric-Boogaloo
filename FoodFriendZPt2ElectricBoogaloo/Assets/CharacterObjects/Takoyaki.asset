@@ -13,14 +13,23 @@ MonoBehaviour:
   m_Name: Takoyaki
   m_EditorClassIdentifier: 
   speed: 0
+  attackDamage: 0
+  attackSize: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
   currentDirection: {x: 0, y: 0, z: 0}
+  attackRotationalOffset: 0
+  characterName: takoyaki
   attackType: Builder
   weapon: {fileID: 8389044837174670204, guid: 1eb51d90f497ce047829c70af12543fc, type: 3}
   awayPos: {x: 0, y: 0, z: 0}
-  attackSize: {x: 0, y: 0, z: 0}
   offset: 0
   attackSpeed: 0
   isAttacking: 0
   bullet: {fileID: 0}
+  firerate: 0
+  bulletSpeed: 0
+  timeTillDespawn: 0
+  radius: 0
+  bulletsPerShot: 0
   drop: {fileID: 0}
+  currentFirerateTimer: 0

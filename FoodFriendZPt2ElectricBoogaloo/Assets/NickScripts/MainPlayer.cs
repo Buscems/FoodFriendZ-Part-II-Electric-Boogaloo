@@ -21,6 +21,8 @@ public class MainPlayer : MonoBehaviour
 
     public BasePlayer currentChar;
 
+    public Animator anim;
+
     [HideInInspector]
     public float speed;
 
@@ -54,6 +56,8 @@ public class MainPlayer : MonoBehaviour
     {
         PlayerMovement();
         LookDirection();
+
+        AnimationHandler();
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -103,9 +107,42 @@ public class MainPlayer : MonoBehaviour
 
     void AnimationHandler()
     {
-        if (direction.x > 0 && direction.y == 0)
+        //this will be handling which character the player currently is in terms of animation
+        switch (currentChar.characterName)
         {
+            case "tofu":
+                anim.SetInteger("characterID", 1);
+                break;
 
+            case "onigiri":
+                anim.SetInteger("characterID", 2);
+                break;
+
+            case "takoyaki":
+                anim.SetInteger("characterID", 3);
+                break;
+        }
+         
+        //this will switch the animation of the current character
+        if (direction.x > 0 && direction.y < 0)
+        {
+            anim.SetFloat("Blend", 0);
+            //Debug.Log("Right Front");
+        }
+        else if (direction.x < 0 && direction.y < 0)
+        {
+            anim.SetFloat("Blend", 1);
+            //Debug.Log("Left Front");
+        }
+        else if (direction.x > 0 && direction.y > 0)
+        {
+            anim.SetFloat("Blend", 2);
+            //Debug.Log("Right Back");
+        }
+        else if (direction.x < 0 && direction.y > 0)
+        {
+            anim.SetFloat("Blend", 3);
+            //Debug.Log("Left Back");
         }
     }
 
@@ -120,6 +157,8 @@ public class MainPlayer : MonoBehaviour
 
         direction.x = myPlayer.GetAxisRaw("DirectionHorizontal");
         direction.y = myPlayer.GetAxisRaw("DirectionVertical");
+
+        Debug.Log(direction);
 
         if (velocity.x != 0)
         {
