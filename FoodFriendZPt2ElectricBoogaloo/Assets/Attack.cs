@@ -25,7 +25,7 @@ public class Attack : MonoBehaviour
         if(other.gameObject.tag == "Enemy")
         {
             //decrease the enemy's health, this will be for regular enemies as well as boss enemies
-            // other.GetComponent<BaseEnemy>();
+            other.GetComponent<BaseEnemy>().health -= damage;
             if (transform.root.GetComponent<MainPlayer>().HitEnemy(gameObject.tag))
             {
                 Destroy(gameObject);

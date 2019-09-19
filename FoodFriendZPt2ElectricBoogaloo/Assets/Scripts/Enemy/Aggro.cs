@@ -33,6 +33,7 @@ public class Aggro : MonoBehaviour
         AggroHandler();
 
         Debug.Log(aggro);
+        //Debug.Log((target[0].transform.position - currentPos).magnitude);
 
     }
 
@@ -42,7 +43,7 @@ public class Aggro : MonoBehaviour
         for (int i = 0; i < target.Length; i++)
         {
 
-            if ((target[i].transform.position - currentPos).magnitude < aggroRange && !aggro)
+            if ((target[i].transform.position - currentPos).magnitude < aggroRange)
             {
                 aggro = true;
                 currentTarget = target[i];
