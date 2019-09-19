@@ -158,8 +158,6 @@ public class MainPlayer : MonoBehaviour
         direction.x = myPlayer.GetAxisRaw("DirectionHorizontal");
         direction.y = myPlayer.GetAxisRaw("DirectionVertical");
 
-        Debug.Log(direction);
-
         if (velocity.x != 0)
         {
             currentChar.currentDirection.x = velocity.x;
