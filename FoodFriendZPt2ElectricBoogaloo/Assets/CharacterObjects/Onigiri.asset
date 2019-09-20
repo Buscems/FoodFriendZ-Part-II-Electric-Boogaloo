@@ -16,20 +16,23 @@ MonoBehaviour:
   attackDamage: 5
   attackSize: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0.049999997, y: -0.060000002, z: 0}
-  currentDirection: {x: 0.001558784, y: 0.022342572, z: 0}
+  currentDirection: {x: 0.001330675, y: 0.0027396248, z: 0}
   attackRotationalOffset: 0
   characterName: onigiri
-  attackType: 4
+  attackType: 3
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   offset: 0
   attackSpeed: 0
   isAttacking: 0
   bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  firerate: 0.2
+  firerate: 0.1
   bulletSpeed: 750
   timeTillDespawn: 1
   radius: 90
   bulletsPerShot: 5
+  bulletsPerBurst: 3
+  timeBetweenBursts: 0.5
+  firing: 0
   drop: {fileID: 0}
-  currentFirerateTimer: 0.2
+  currentFirerateTimer: -6.3465357

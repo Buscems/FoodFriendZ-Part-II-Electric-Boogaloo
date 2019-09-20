@@ -37,7 +37,7 @@ public class BasePlayer : ScriptableObject
     [HideInInspector]
     public bool isAttacking;
 
-    [Header("Ranged Characters")]
+    [Header("Variables for all ranged characters")]
     public GameObject bullet;
     public float firerate;
     public float bulletSpeed;
@@ -45,6 +45,14 @@ public class BasePlayer : ScriptableObject
     [Header("Ranged-Split Fire")]
     public float radius;
     public int bulletsPerShot;
+    [Header("Ranged-Burst Fire")]
+    public int bulletsPerBurst;
+    public float timeBetweenBursts;
+
+    [HideInInspector]
+    public bool firing = false;
+    private float timeBetweenBurstsTimer = 0;
+    private int currentBulletnum;
 
     [Header("Building Characters")]
     public GameObject drop;
@@ -87,19 +95,22 @@ public class BasePlayer : ScriptableObject
             bullet = null;
         }
 
+        currentBulletnum = bulletsPerBurst;
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire)
+        if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire)
         {
             currentFirerateTimer -= Time.deltaTime;
+            timeBetweenBurstsTimer -= Time.deltaTime;
         }
     }
 
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
+
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
         attack.transform.parent = parentTransform;
         attack.GetComponent<Attack>().damage = attackDamage;
@@ -107,6 +118,7 @@ public class BasePlayer : ScriptableObject
 
     public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
+        currentFirerateTimer = firerate;
         GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
         attack.transform.parent = parentTransform;
         attack.GetComponent<Attack>().damage = attackDamage;
@@ -116,6 +128,7 @@ public class BasePlayer : ScriptableObject
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
+        currentFirerateTimer = firerate;
         float angleInterval = radius / bulletsPerShot;
 
         for (int i = 0; i < bulletsPerShot; i++)
@@ -125,6 +138,37 @@ public class BasePlayer : ScriptableObject
             attack.GetComponent<Attack>().damage = attackDamage;
             attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
             attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
+        }
+    }
+
+    public void InitiateBurstFire()
+    {
+        if(firing == false && timeBetweenBurstsTimer < 0)
+        {
+            firing = true;
+            currentBulletnum = bulletsPerBurst;
+        }
+    }
+
+    public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    {
+        if(currentFirerateTimer < 0 && currentBulletnum > 0)
+        {
+            currentFirerateTimer = firerate;
+
+            GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
+            attack.transform.parent = parentTransform;
+            attack.GetComponent<Attack>().damage = attackDamage;
+            attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
+            attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
+
+            currentBulletnum--;
+
+            if(currentBulletnum == 0)
+            {
+                firing = false;
+                timeBetweenBurstsTimer = timeBetweenBursts;
+            }
         }
     }
 }

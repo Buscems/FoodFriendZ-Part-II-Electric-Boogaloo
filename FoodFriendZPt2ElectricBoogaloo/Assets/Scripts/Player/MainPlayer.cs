@@ -78,13 +78,17 @@ public class MainPlayer : MonoBehaviour
             {
                 currentChar.RangedBasic(transform.position, attackDirection, transform);
             }
-
-           
+        }
+        if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
+        {
+            if (currentChar.firing)
+            {
+                currentChar.BurstFire(transform.position, attackDirection, transform);
+            }
         }
 
-        if (myPlayer.GetButton("Attack") && currentChar.currentFirerateTimer < 0)
-        {
-            currentChar.currentFirerateTimer = currentChar.firerate;
+            if (myPlayer.GetButton("Attack") && currentChar.currentFirerateTimer < 0)
+        {           
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Basic)
             {
@@ -94,6 +98,10 @@ public class MainPlayer : MonoBehaviour
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
                 currentChar.RangedSplit(transform.position, attackDirection, transform);
+            }
+            if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
+            {
+                currentChar.InitiateBurstFire();
             }
         }
 
