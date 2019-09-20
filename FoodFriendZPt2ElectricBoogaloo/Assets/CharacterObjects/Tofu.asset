@@ -15,15 +15,18 @@ MonoBehaviour:
   speed: 6
   attackDamage: 25
   attackSize: {x: 0.3, y: 1, z: 1}
-  currentPosition: {x: 0.35999984, y: 0, z: 0}
-  currentDirection: {x: -1, y: -1, z: 0}
-  attackRotationalOffset: 45
+  canPierce: 0
+  pierceMultiplier: 1
+  maxAmountOfEnemiesCanPassThrough: -1
+  currentPosition: {x: 8.924592, y: 0.45518047, z: 0}
+  currentDirection: {x: 0.7367684, y: -0.41610232, z: 0}
   characterName: tofu
-  attackType: Melee
+  attackType: 0
   weapon: {fileID: 6731875821604831015, guid: 63d94ae14da88994a8a3ae72711afa21, type: 3}
   awayPos: {x: 5000, y: 5000, z: 0}
   offset: 2
   attackSpeed: 2
+  rotationalOffset: 45
   isAttacking: 1
   bullet: {fileID: 0}
   firerate: 0
@@ -31,5 +34,8 @@ MonoBehaviour:
   timeTillDespawn: 0
   radius: 0
   bulletsPerShot: 0
+  bulletsPerBurst: 0
+  timeBetweenBursts: 0
+  firing: 0
   drop: {fileID: 0}
   currentFirerateTimer: 0

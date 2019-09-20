@@ -37,6 +37,7 @@ public class BasePlayer : ScriptableObject
     public float offset;
     [Tooltip("This will be how fast the sword attack plays")]
     public float attackSpeed;
+    public float rotationalOffset;
     //[Tooltip("This is the amount that the sword will spin around the player when attacking.")]
     //public float attackRange;
     [HideInInspector]
@@ -124,12 +125,20 @@ public class BasePlayer : ScriptableObject
         attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;        
     }
 
+    private void SetMeleeVariables(GameObject attack, Transform parentTransform)
+    {
+        attack.transform.parent = parentTransform;
+        attack.GetComponent<Attack>().damage = attackDamage;
+        attack.GetComponent<Attack>().canPierce = canPierce;
+        attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
+        attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
+    }
+
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
 
-        GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-        attack.transform.parent = parentTransform;
-        attack.GetComponent<Attack>().damage = attackDamage;
+        GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
+        SetMeleeVariables(attack, parentTransform);
     }
 
     public void Builder(Vector3 pos, Transform attackDirection, Transform parentTransform)
