@@ -18,8 +18,11 @@ public class BasePlayer : ScriptableObject
 
     [Tooltip("This is the name of the character. Make it all lower case")]
     public string characterName;
-    [Tooltip("Can be 'Melee', 'Melee-Charge', 'Ranged-Basic', 'Ranged-Burst Fire', 'Ranged-Semi Auto', 'Ranged-Charge Fire', 'Ranged-Split Fire' or 'Builder'")]
-    public string attackType;
+    // [Tooltip("Can be 'Melee', 'Melee-Charge', 'Ranged-Basic', 'Ranged-Burst Fire', 'Ranged-Semi Auto', 'Ranged-Charge Fire', 'Ranged-Split Fire' or 'Builder'")]
+    //public string attackType;
+    public enum AttackType { Melee, Melee_Charge, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Charge_Fire, Ranged_Split_Fire, Builder};
+
+    public AttackType attackType;
 
     [Header("Melee Characters")]
     public GameObject weapon;
@@ -53,32 +56,32 @@ public class BasePlayer : ScriptableObject
     public void Start()
     {
         //this will be taking care of whether or not the player might accidentally have the wrong weapon for anything
-        if(attackType == "Melee")
+        if(attackType == AttackType.Melee)
         {
             bullet = null;
             drop = null;
         }
-        if (attackType == "Ranged-Basic")
+        if (attackType == AttackType.Ranged_Basic)
         {
             weapon = null;
             drop = null;
         }
-        if (attackType == "Ranged-Burst Fire")
+        if (attackType == AttackType.Ranged_Burst_Fire)
         {
             weapon = null;
             drop = null;
         }
-        if (attackType == "Ranged-Semi Auto")
+        if (attackType == AttackType.Ranged_Semi_Auto)
         {
             weapon = null;
             drop = null;
         }
-        if (attackType == "Ranged-Split Fire")
+        if (attackType == AttackType.Ranged_Split_Fire)
         {
             weapon = null;
             drop = null;
         }
-        if (attackType == "builder")
+        if (attackType == AttackType.Builder)
         {
             weapon = null;
             bullet = null;
@@ -89,7 +92,7 @@ public class BasePlayer : ScriptableObject
     // Update is called once per frame
     public void Update()
     {
-        if (attackType == "Ranged-Basic" || attackType == "Ranged-Split Fire")
+        if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire)
         {
             currentFirerateTimer -= Time.deltaTime;
         }

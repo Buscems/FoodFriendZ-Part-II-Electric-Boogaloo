@@ -15,11 +15,11 @@ MonoBehaviour:
   speed: 7
   attackDamage: 5
   attackSize: {x: 0, y: 0, z: 0}
-  currentPosition: {x: 3.5369658, y: -3.6267755, z: 0}
-  currentDirection: {x: 0.02636326, y: 0.13587219, z: 0}
-  attackRotationalOffset: 25
+  currentPosition: {x: 0.049999997, y: -0.060000002, z: 0}
+  currentDirection: {x: 0.001558784, y: 0.022342572, z: 0}
+  attackRotationalOffset: 0
   characterName: onigiri
-  attackType: Ranged-Split Fire
+  attackType: 4
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   offset: 0
@@ -32,4 +32,4 @@ MonoBehaviour:
   radius: 90
   bulletsPerShot: 5
   drop: {fileID: 0}
-  currentFirerateTimer: -1.0109745
+  currentFirerateTimer: 0.2

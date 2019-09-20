@@ -70,13 +70,13 @@ public class MainPlayer : MonoBehaviour
 
         if (myPlayer.GetButtonDown("Attack"))
         {
-            if (currentChar.attackType == "Melee")
+            if (currentChar.attackType == BasePlayer.AttackType.Melee)
             {
                 currentChar.MeleeAttack(transform.position, attackDirection, transform);
             }
-            if (currentChar.attackType == "Ranged-Semi Auto")
+            if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
             {
-                //currentChar.RangedBasic(transform.position, attackDirection, transform);
+                currentChar.RangedBasic(transform.position, attackDirection, transform);
             }
 
            
@@ -86,12 +86,12 @@ public class MainPlayer : MonoBehaviour
         {
             currentChar.currentFirerateTimer = currentChar.firerate;
 
-            if (currentChar.attackType == "Ranged-Basic")
+            if (currentChar.attackType == BasePlayer.AttackType.Ranged_Basic)
             {
                 currentChar.RangedBasic(transform.position, attackDirection, transform);
             }
 
-            if (currentChar.attackType == "Ranged-Split Fire")
+            if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
                 currentChar.RangedSplit(transform.position, attackDirection, transform);
             }
