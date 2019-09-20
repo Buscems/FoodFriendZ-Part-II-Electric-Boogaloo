@@ -9,9 +9,16 @@ public class BasePlayer : ScriptableObject
     public float attackDamage;
     [Tooltip("This is going to be the size of the weapon, z is always 1.")]
     public Vector3 attackSize;
+    [Tooltip("Can attack go through enemies, or get destroyed on collision")]
+    public bool canPierce = false;
+    [Tooltip("How much more damage does the attack do, per enemy passed through. A value of 1 means damage does not change.")]
+    public float pierceMultiplier = 1;
+    [Tooltip("How many enemies can the attack pass through before being destroyed. Keep -1 if its infinite.")]
+    public int maxAmountOfEnemiesCanPassThrough = -1;
 
     [HideInInspector]
     public Vector3 currentPosition;
+    [HideInInspector]
     public Vector3 currentDirection;
 
     [Tooltip("This is the name of the character. Make it all lower case")]
@@ -40,10 +47,6 @@ public class BasePlayer : ScriptableObject
     public float firerate;
     public float bulletSpeed;
     public float timeTillDespawn;
-    [Tooltip("Can bullet go through enemies, or get destroyed on collision")]
-    public bool canPierce = false;
-    [Tooltip("How much more damage does the bullet do, per enemy passed through. A value of 1 means damage does not change.")]
-    public float pierceMultiplier = 1;
     [Header("Ranged-Split Fire")]
     public float radius;
     public int bulletsPerShot;
@@ -114,10 +117,11 @@ public class BasePlayer : ScriptableObject
     {
         attack.transform.parent = parentTransform;
         attack.GetComponent<Attack>().damage = attackDamage;
+        attack.GetComponent<Attack>().canPierce = canPierce;
+        attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
+        attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
         attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
-        attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
-        attack.GetComponent<BasicBullet>().canPierce = canPierce;
-        attack.GetComponent<BasicBullet>().pierceMultiplier = pierceMultiplier;
+        attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;        
     }
 
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform)

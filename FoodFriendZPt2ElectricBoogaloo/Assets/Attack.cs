@@ -7,58 +7,61 @@ public class Attack : MonoBehaviour
     [HideInInspector]
     public float damage;
 
-    private bool isProjectile = false;
-    private bool isMelee = false;
-
     [HideInInspector]
-    private float pierceMultiplier = 1;
+    public bool canPierce = false;
+    [HideInInspector]
+    public float pierceMultiplier = 1;
+    [HideInInspector]
+    public int maxAmountOfEnemiesCanPassThrough = -1;
+
+    private int currentEnemiesPassed;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(gameObject.tag == "Projectile")
-        {
-            isProjectile = true;
-            pierceMultiplier = GetComponent<BasicBullet>().pierceMultiplier;
-        }
+        currentEnemiesPassed = maxAmountOfEnemiesCanPassThrough;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             //decrease the enemy's health, this will be for regular enemies as well as boss enemies
             other.GetComponent<BaseEnemy>().health -= damage;
 
-                try
+            try
+            {
+                //if attack is non pierce-able, destroy on collision with enemy
+                if (transform.root.GetComponent<MainPlayer>().HitEnemy(gameObject.tag))
                 {
-                    //if projectile destroy gameobject after doing damage to enemy
-                    if (transform.root.GetComponent<MainPlayer>().HitEnemy(gameObject.tag))
+                    if (!canPierce)
                     {
-                        if(isProjectile)
-                        {
-                            if (GetComponent<BasicBullet>().canPierce)
-                            {
-                                damage *= pierceMultiplier;
-                            }
-                            else
-                            {
-                                Destroy(gameObject);
-                            }
-                        }
+                        Destroy(gameObject);
                     }
                 }
-                catch
+            }
+            catch
+            {
+                Destroy(gameObject);
+            }
+
+            damage *= pierceMultiplier;
+
+            if (currentEnemiesPassed != -1)
+            {
+                if (currentEnemiesPassed == 0)
                 {
                     Destroy(gameObject);
                 }
 
+                currentEnemiesPassed -= 1;
+            }
         }
     }
 

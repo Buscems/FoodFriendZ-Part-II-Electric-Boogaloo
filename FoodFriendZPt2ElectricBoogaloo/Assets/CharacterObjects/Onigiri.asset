@@ -15,6 +15,9 @@ MonoBehaviour:
   speed: 7
   attackDamage: 5
   attackSize: {x: 0, y: 0, z: 0}
+  canPierce: 1
+  pierceMultiplier: 1
+  maxAmountOfEnemiesCanPassThrough: -1
   currentPosition: {x: 0.049999997, y: -0.060000002, z: 0}
   currentDirection: {x: 0.053056803, y: 0.36515564, z: 0}
   characterName: onigiri
@@ -28,8 +31,6 @@ MonoBehaviour:
   firerate: 0.1
   bulletSpeed: 750
   timeTillDespawn: 1
-  canPierce: 0
-  pierceMultiplier: 1
   radius: 90
   bulletsPerShot: 5
   bulletsPerBurst: 3

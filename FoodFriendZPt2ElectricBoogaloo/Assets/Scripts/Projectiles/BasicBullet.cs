@@ -11,11 +11,6 @@ public class BasicBullet : MonoBehaviour
     [HideInInspector]
     public float timeTillDespawn;
 
-    [HideInInspector]
-    public bool canPierce;
-    [HideInInspector]
-    public float pierceMultiplier;
-
     // Start is called before the first frame update
     void Start()
     {
