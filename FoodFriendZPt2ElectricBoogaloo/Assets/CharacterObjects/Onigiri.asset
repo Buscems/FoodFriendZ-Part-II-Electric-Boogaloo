@@ -12,20 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
   m_Name: Onigiri
   m_EditorClassIdentifier: 
-  speed: 7
-  attackDamage: 5
-  attackSize: {x: 0, y: 0, z: 0}
-  canPierce: 1
-  pierceMultiplier: 1
-  maxAmountOfEnemiesCanPassThrough: -1
-  currentPosition: {x: 0.049999997, y: -0.060000002, z: 0}
-  currentDirection: {x: 0.053056803, y: 0.36515564, z: 0}
   characterName: onigiri
   attackType: 4
+  speed: 7
+  baseDamage: 0
+  attackSize: {x: 0, y: 0, z: 0}
+  canPierce: 0
+  pierceMultiplier: 1
+  maxAmountOfEnemiesCanPassThrough: -1
+  currentPosition: {x: -0.7475106, y: -0.45488954, z: 0}
+  currentDirection: {x: -0.19948268, y: -0.10621805, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   offset: 0
   attackSpeed: 0
+  rotationalOffset: 0
+  isChargable: 1
+  maxDamage: 10
+  timeTillMaxDamage: 1
+  currentChargeTimer: 0
+  startCharging: 0
   isAttacking: 0
   bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
   firerate: 0.1
@@ -37,4 +43,4 @@ MonoBehaviour:
   timeBetweenBursts: 0.5
   firing: 0
   drop: {fileID: 0}
-  currentFirerateTimer: 0.1
+  currentFirerateTimer: -2.3526113

@@ -59,6 +59,15 @@ public class MainPlayer : MonoBehaviour
 
         AnimationHandler();
 
+        if (currentChar.startCharging)
+        {
+            currentChar.currentChargeTimer += Time.deltaTime;
+        }
+        else
+        {
+            currentChar.currentChargeTimer = 0;
+        }
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             health--;
@@ -70,38 +79,45 @@ public class MainPlayer : MonoBehaviour
 
         if (myPlayer.GetButtonDown("Attack"))
         {
-            if (currentChar.attackType == BasePlayer.AttackType.Melee)
+            if (currentChar.isChargable)
             {
-                currentChar.MeleeAttack(transform.position, attackDirection, transform);
+                StartCharge();
+            }
+            else
+            {
+                if (currentChar.attackType == BasePlayer.AttackType.Melee)
+                {
+                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage);
+                }
+                if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
+                {
+                    currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage);
+                }
             }
             if (currentChar.attackType == BasePlayer.AttackType.Builder)
             {
                 currentChar.Builder(transform.position, attackDirection, transform);
-            }
-            if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
-            {
-                currentChar.RangedBasic(transform.position, attackDirection, transform);
             }
         }
         if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
         {
             if (currentChar.firing)
             {
-                currentChar.BurstFire(transform.position, attackDirection, transform);
+                currentChar.BurstFire(transform.position, attackDirection, transform, currentChar.baseDamage);
             }
         }
 
-            if (myPlayer.GetButton("Attack") && currentChar.currentFirerateTimer < 0)
-        {           
+        if (myPlayer.GetButton("Attack") && currentChar.currentFirerateTimer < 0)
+        {
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Basic)
             {
-                currentChar.RangedBasic(transform.position, attackDirection, transform);
+                currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage);
             }
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
-                currentChar.RangedSplit(transform.position, attackDirection, transform);
+                currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage);
             }
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
             {
@@ -109,8 +125,67 @@ public class MainPlayer : MonoBehaviour
             }
         }
 
+        if (myPlayer.GetButton("Attack"))
+        {
+            if (currentChar.isChargable)
+            {
+                print(currentChar.currentChargeTimer);
+                float tempDamage = currentChar.baseDamage;
+                if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
+                {
+                    tempDamage = currentChar.maxDamage;
+
+                    if (currentChar.attackType == BasePlayer.AttackType.Melee)
+                    {
+                        currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage);
+                    }
+                    if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
+                    {
+                        currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage);
+                    }
+
+                    currentChar.currentChargeTimer = 0;
+                }
+            }
+        }
+
+        if (myPlayer.GetButtonUp("Attack"))
+        {
+            if (currentChar.isChargable)
+            {
+                float tempDamage;
+                if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
+                {
+                    tempDamage = currentChar.maxDamage;
+                }
+                else
+                {
+                    tempDamage = currentChar.maxDamage * (currentChar.currentChargeTimer / currentChar.timeTillMaxDamage);
+                }
+
+
+                if (currentChar.attackType == BasePlayer.AttackType.Melee)
+                {
+                    currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage);
+                }
+
+                if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
+                {
+                    currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage);
+                }
+
+                currentChar.currentChargeTimer = 0;
+
+                currentChar.startCharging = false;
+            }
+        }
     }
 
+    void StartCharge()
+    {
+        currentChar.startCharging = true;
+        currentChar.currentChargeTimer = 0;
+    }
 
     private void FixedUpdate()
     {
@@ -260,7 +335,8 @@ public class MainPlayer : MonoBehaviour
             currentChar.attackSize *= temp.attackSize;
             currentChar.attackSpeed *= temp.attackSpeed; //for melee
             currentChar.firerate *= temp.attackSpeed; //for projectiles
-            currentChar.attackDamage *= temp.attackDamage;
+            currentChar.baseDamage *= temp.attackDamage;
+            currentChar.maxDamage *= temp.attackDamage;
 
             Destroy(other.gameObject);
         }

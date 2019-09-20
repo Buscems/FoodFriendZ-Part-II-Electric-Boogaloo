@@ -5,11 +5,20 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BasePlayer : ScriptableObject
 {
+    [Tooltip("This is the name of the character. Make it all lower case")]
+    public string characterName;
+    public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Builder };
+    public AttackType attackType;
+
+
+    [Header("")]
     public float speed;
-    public float attackDamage;
+    public float baseDamage;
     [Tooltip("This is going to be the size of the weapon, z is always 1.")]
     public Vector3 attackSize;
     [Tooltip("Can attack go through enemies, or get destroyed on collision")]
+
+    [Header("")]
     public bool canPierce = false;
     [Tooltip("How much more damage does the attack do, per enemy passed through. A value of 1 means damage does not change.")]
     public float pierceMultiplier = 1;
@@ -21,13 +30,7 @@ public class BasePlayer : ScriptableObject
     [HideInInspector]
     public Vector3 currentDirection;
 
-    [Tooltip("This is the name of the character. Make it all lower case")]
-    public string characterName;
-    // [Tooltip("Can be 'Melee', 'Melee-Charge', 'Ranged-Basic', 'Ranged-Burst Fire', 'Ranged-Semi Auto', 'Ranged-Charge Fire', 'Ranged-Split Fire' or 'Builder'")]
-    //public string attackType;
-    public enum AttackType { Melee, Melee_Charge, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Charge_Fire, Ranged_Split_Fire, Builder};
-
-    public AttackType attackType;
+    
 
     [Header("Melee Characters")]
     public GameObject weapon;
@@ -38,6 +41,17 @@ public class BasePlayer : ScriptableObject
     [Tooltip("This will be how fast the sword attack plays")]
     public float attackSpeed;
     public float rotationalOffset;
+
+    [Header("-If Chargable (Only for 'Melee' and 'Semi-Auto' attack types)")]
+    public bool isChargable;
+    public float maxDamage;
+    public float timeTillMaxDamage;
+
+    [HideInInspector]
+    public float currentChargeTimer = 0;
+    [HideInInspector]
+    public bool startCharging = false;
+
     //[Tooltip("This is the amount that the sword will spin around the player when attacking.")]
     //public float attackRange;
     [HideInInspector]
@@ -117,7 +131,6 @@ public class BasePlayer : ScriptableObject
     private void SetBulletVariables(GameObject attack, Transform parentTransform)
     {
         attack.transform.parent = parentTransform;
-        attack.GetComponent<Attack>().damage = attackDamage;
         attack.GetComponent<Attack>().canPierce = canPierce;
         attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
         attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
@@ -128,34 +141,35 @@ public class BasePlayer : ScriptableObject
     private void SetMeleeVariables(GameObject attack, Transform parentTransform)
     {
         attack.transform.parent = parentTransform;
-        attack.GetComponent<Attack>().damage = attackDamage;
         attack.GetComponent<Attack>().canPierce = canPierce;
         attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
         attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
     }
 
-    public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
 
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
         SetMeleeVariables(attack, parentTransform);
+        attack.GetComponent<Attack>().damage = damage;
     }
 
     public void Builder(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
 
         GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-        attack.GetComponent<Attack>().damage = attackDamage;
+        attack.GetComponent<Attack>().damage = baseDamage;
     }
 
-    public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
         currentFirerateTimer = firerate;
         GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform);
+        attack.GetComponent<Attack>().damage = damage;
     }
 
-    public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
         currentFirerateTimer = firerate;
         float angleInterval = radius / bulletsPerShot;
@@ -164,6 +178,7 @@ public class BasePlayer : ScriptableObject
         {
             GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius/2) - (i*angleInterval))));
             SetBulletVariables(attack, parentTransform);
+            attack.GetComponent<Attack>().damage = damage;
         }
     }
 
@@ -176,7 +191,7 @@ public class BasePlayer : ScriptableObject
         }
     }
 
-    public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
         if(currentFirerateTimer < 0 && currentBulletnum > 0)
         {
@@ -184,6 +199,7 @@ public class BasePlayer : ScriptableObject
 
             GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
             SetBulletVariables(attack, parentTransform);
+            attack.GetComponent<Attack>().damage = damage;
 
             currentBulletnum--;
 
