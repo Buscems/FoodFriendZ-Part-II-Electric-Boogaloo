@@ -7,11 +7,20 @@ public class Attack : MonoBehaviour
     [HideInInspector]
     public float damage;
 
+    private bool isProjectile = false;
+    private bool isMelee = false;
+
+    [HideInInspector]
+    private float pierceMultiplier = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(gameObject.tag == "Projectile")
+        {
+            isProjectile = true;
+            pierceMultiplier = GetComponent<BasicBullet>().pierceMultiplier;
+        }
     }
 
     // Update is called once per frame
@@ -26,17 +35,30 @@ public class Attack : MonoBehaviour
         {
             //decrease the enemy's health, this will be for regular enemies as well as boss enemies
             other.GetComponent<BaseEnemy>().health -= damage;
-            try
-            {
-                if (transform.root.GetComponent<MainPlayer>().HitEnemy(gameObject.tag))
+
+                try
+                {
+                    //if projectile destroy gameobject after doing damage to enemy
+                    if (transform.root.GetComponent<MainPlayer>().HitEnemy(gameObject.tag))
+                    {
+                        if(isProjectile)
+                        {
+                            if (GetComponent<BasicBullet>().canPierce)
+                            {
+                                damage *= pierceMultiplier;
+                            }
+                            else
+                            {
+                                Destroy(gameObject);
+                            }
+                        }
+                    }
+                }
+                catch
                 {
                     Destroy(gameObject);
                 }
-            }
-            catch
-            {
-                Destroy(gameObject);
-            }
+
         }
     }
 

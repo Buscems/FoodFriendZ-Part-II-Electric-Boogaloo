@@ -40,6 +40,10 @@ public class BasePlayer : ScriptableObject
     public float firerate;
     public float bulletSpeed;
     public float timeTillDespawn;
+    [Tooltip("Can bullet go through enemies, or get destroyed on collision")]
+    public bool canPierce = false;
+    [Tooltip("How much more damage does the bullet do, per enemy passed through. A value of 1 means damage does not change.")]
+    public float pierceMultiplier = 1;
     [Header("Ranged-Split Fire")]
     public float radius;
     public int bulletsPerShot;
@@ -106,6 +110,16 @@ public class BasePlayer : ScriptableObject
         }
     }
 
+    private void SetBulletVariables(GameObject attack, Transform parentTransform)
+    {
+        attack.transform.parent = parentTransform;
+        attack.GetComponent<Attack>().damage = attackDamage;
+        attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
+        attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
+        attack.GetComponent<BasicBullet>().canPierce = canPierce;
+        attack.GetComponent<BasicBullet>().pierceMultiplier = pierceMultiplier;
+    }
+
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
 
@@ -125,10 +139,7 @@ public class BasePlayer : ScriptableObject
     {
         currentFirerateTimer = firerate;
         GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-        attack.transform.parent = parentTransform;
-        attack.GetComponent<Attack>().damage = attackDamage;
-        attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
-        attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
+        SetBulletVariables(attack, parentTransform);
     }
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform)
@@ -139,10 +150,7 @@ public class BasePlayer : ScriptableObject
         for (int i = 0; i < bulletsPerShot; i++)
         {
             GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius/2) - (i*angleInterval))));
-            attack.transform.parent = parentTransform;
-            attack.GetComponent<Attack>().damage = attackDamage;
-            attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
-            attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
+            SetBulletVariables(attack, parentTransform);
         }
     }
 
@@ -162,10 +170,7 @@ public class BasePlayer : ScriptableObject
             currentFirerateTimer = firerate;
 
             GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-            attack.transform.parent = parentTransform;
-            attack.GetComponent<Attack>().damage = attackDamage;
-            attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
-            attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
+            SetBulletVariables(attack, parentTransform);
 
             currentBulletnum--;
 
