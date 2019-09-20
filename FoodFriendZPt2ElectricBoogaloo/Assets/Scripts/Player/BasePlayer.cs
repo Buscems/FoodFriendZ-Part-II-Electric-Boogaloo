@@ -13,8 +13,6 @@ public class BasePlayer : ScriptableObject
     [HideInInspector]
     public Vector3 currentPosition;
     public Vector3 currentDirection;
-    [Tooltip("This will be how much the sprite should be rotated for the attack animation")]
-    public float attackRotationalOffset;
 
     [Tooltip("This is the name of the character. Make it all lower case")]
     public string characterName;
@@ -111,15 +109,22 @@ public class BasePlayer : ScriptableObject
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
 
-        GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
+        GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         attack.transform.parent = parentTransform;
+        attack.GetComponent<Attack>().damage = attackDamage;
+    }
+
+    public void Builder(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    {
+
+        GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         attack.GetComponent<Attack>().damage = attackDamage;
     }
 
     public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
         currentFirerateTimer = firerate;
-        GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
+        GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         attack.transform.parent = parentTransform;
         attack.GetComponent<Attack>().damage = attackDamage;
         attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
@@ -156,7 +161,7 @@ public class BasePlayer : ScriptableObject
         {
             currentFirerateTimer = firerate;
 
-            GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + attackRotationalOffset));
+            GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
             attack.transform.parent = parentTransform;
             attack.GetComponent<Attack>().damage = attackDamage;
             attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;

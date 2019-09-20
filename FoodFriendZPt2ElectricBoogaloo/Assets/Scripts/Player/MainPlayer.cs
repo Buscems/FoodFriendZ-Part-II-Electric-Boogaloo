@@ -74,6 +74,10 @@ public class MainPlayer : MonoBehaviour
             {
                 currentChar.MeleeAttack(transform.position, attackDirection, transform);
             }
+            if (currentChar.attackType == BasePlayer.AttackType.Builder)
+            {
+                currentChar.Builder(transform.position, attackDirection, transform);
+            }
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
             {
                 currentChar.RangedBasic(transform.position, attackDirection, transform);
