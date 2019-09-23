@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1208179059}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,6 +187,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   playerNum: 1
+  usingMouse: 1
+  mouseCursor: {fileID: 0}
   attackDirection: {fileID: 346718319}
   currentChar: {fileID: 11400000, guid: 15482a04ad74dd040856a81e05842bce, type: 2}
   anim: {fileID: 1208179059}
