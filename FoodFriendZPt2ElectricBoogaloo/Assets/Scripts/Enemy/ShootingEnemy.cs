@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ShootingEnemy : MonoBehaviour
 {
-    /*[Tooltip("Length of the Raycast shooting from the FRONT of the enemy")]
+    [Tooltip("Length of the Raycast shooting from the FRONT of the enemy")]
     public float rayLength;
-    [Tooltip("Length of the Raycast shooting from the LEFT of the enemy")]
+    /*[Tooltip("Length of the Raycast shooting from the LEFT of the enemy")]
     public float leftLength;
     [Tooltip("Length of the Raycast shooting from the RIGHT of the enemy")]
     public float rightLength;*/
 
     BaseEnemy baseEnemy;
 
+    [Tooltip("Check box if you are using a beam as the way your enemy shoots")]
     public bool beam;
+    [Tooltip("Place your Beam object here")]
+    public GameObject beamObject;
 
     [Tooltip("Check the box if you want the enemy to have a limited amount of bullets to shoot before reloading")]
     public bool Clip;
@@ -50,11 +53,11 @@ public class ShootingEnemy : MonoBehaviour
     
     void Update()
     {
-        /*currentPos = transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(currentPos, transform.up, rayLength);
-        RaycastHit2D Left = Physics2D.Raycast(currentPos, transform.right *-1, leftLength);
+        currentPos = transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(currentPos, transform.position * -1, rayLength);
+        Debug.DrawRay(currentPos, transform.position * -1 ,Color.red, rayLength);
+        /*RaycastHit2D Left = Physics2D.Raycast(currentPos, transform.right *-1, leftLength);
         RaycastHit2D Right = Physics2D.Raycast(currentPos, transform.right, rightLength);
-        Debug.DrawRay(currentPos, transform.up, Color.red, rayLength);
 
         if(hit.collider != null)
         {
@@ -79,7 +82,20 @@ public class ShootingEnemy : MonoBehaviour
 
         if (beam)
         {
-            
+            Clip = false;
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.gameObject.name);
+                if (hit.collider.gameObject.name == "Player")
+                {
+                    Instantiate(beamObject, this.transform.position, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Destroy(beamObject);
+            }
+           
         }
 
         if (Clip)
