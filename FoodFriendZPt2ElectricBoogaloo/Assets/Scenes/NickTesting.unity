@@ -550,6 +550,81 @@ Transform:
   m_Father: {fileID: 1499699919}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1080514230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6807544951602156156, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_Name
+      value: MouseCursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 835aa8e4432661d4ca6d4207115bf88e, type: 3}
+--- !u!1 &1080514231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6807544951602156156, guid: 835aa8e4432661d4ca6d4207115bf88e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1080514230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1082281693
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,8 +774,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 5
   aggroTimerMax: 2
+  aggro: 0
   target:
   - {fileID: 0}
+  currentTarget: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1240718333
 MonoBehaviour:
@@ -716,6 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   speed: 3
+  aggroScript: {fileID: 0}
 --- !u!61 &1240718334
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1472,11 +1550,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 822394764877458807, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player1
-      objectReference: {fileID: 0}
     - target: {fileID: 822394764877458804, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1532,6 +1605,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: mouseCursor
+      value: 
+      objectReference: {fileID: 1080514231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
 --- !u!1001 &2262396296300520139

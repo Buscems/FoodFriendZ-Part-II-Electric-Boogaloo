@@ -15,6 +15,10 @@ public class MainPlayer : MonoBehaviour
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
 
+    [Tooltip("Turn on if the player is using the mouse")]
+    public bool usingMouse;
+    public GameObject mouseCursor;
+
     Vector3 direction;
 
     public Transform attackDirection;
@@ -242,9 +246,17 @@ public class MainPlayer : MonoBehaviour
         velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
         velocity.y = myPlayer.GetAxisRaw("MoveVertical");
 
-        direction.x = myPlayer.GetAxisRaw("DirectionHorizontal");
-        direction.y = myPlayer.GetAxisRaw("DirectionVertical");
-
+        if (!usingMouse)
+        {
+            mouseCursor.SetActive(false);
+            direction.x = myPlayer.GetAxisRaw("DirectionHorizontal");
+            direction.y = myPlayer.GetAxisRaw("DirectionVertical");
+        }
+        if (usingMouse)
+        {
+            mouseCursor.SetActive(true);
+            direction = new Vector3((mouseCursor.transform.position.x - this.transform.position.x), (mouseCursor.transform.position.y - this.transform.position.y)).normalized;
+        }
         if (velocity.x != 0)
         {
             currentChar.currentDirection.x = velocity.x;
@@ -266,6 +278,9 @@ public class MainPlayer : MonoBehaviour
         {
             attackDirection.transform.right = direction;
         }
+
+
+
     }
 
 
