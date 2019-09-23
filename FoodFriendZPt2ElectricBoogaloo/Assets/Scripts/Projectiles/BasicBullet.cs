@@ -10,11 +10,25 @@ public class BasicBullet : MonoBehaviour
     public float bulletSpeed;
     [HideInInspector]
     public float timeTillDespawn;
+    [HideInInspector]
+    public bool canBounce;
+    //[HideInInspector]
+    public Vector3 velocity;
+
+    public BoxCollider2D top;
+    public BoxCollider2D bottom;
+    public BoxCollider2D left;
+    public BoxCollider2D right;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        velocity = transform.right * bulletSpeed * Time.deltaTime;
+
+        transform.rotation = Quaternion.identity;
+
     }
 
     private void Update()
@@ -25,11 +39,35 @@ public class BasicBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = transform.right * bulletSpeed * Time.deltaTime;
+        rb.velocity = velocity;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (canBounce && collision.gameObject.tag != "Player1" && collision.gameObject.tag != "Projectile")
+        {
+            if (top.IsTouching(collision))
+            {
+                velocity.y *= -1;
+            }
+            if (bottom.IsTouching(collision))
+            {
+                velocity.y *= -1;
+            }
+            if (right.IsTouching(collision))
+            {
+                velocity.x *= -1;
+            }
+            if (left.IsTouching(collision))
+            {
+                velocity.x *= -1;
+            }
+        }
     }
 }

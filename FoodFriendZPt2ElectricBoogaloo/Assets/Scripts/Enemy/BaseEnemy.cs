@@ -14,6 +14,10 @@ public class BaseEnemy : MonoBehaviour
 
     Animator anim;
 
+    //variables for other enemy scripts to reference
+    [HideInInspector]
+    public Aggro aggroScript;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -21,6 +25,9 @@ public class BaseEnemy : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
+
+        //referencing any scripts that other enemies might need to
+        aggroScript = GetComponent<Aggro>();
 
     }
 

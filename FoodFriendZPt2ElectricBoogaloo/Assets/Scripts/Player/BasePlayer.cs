@@ -9,7 +9,7 @@ public class BasePlayer : ScriptableObject
     public string characterName;
     public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Builder };
     public AttackType attackType;
-
+    
 
     [Header("")]
     public float speed;
@@ -31,7 +31,7 @@ public class BasePlayer : ScriptableObject
     public Vector3 currentDirection;
 
     
-
+    
     [Header("Melee Characters")]
     public GameObject weapon;
     [Tooltip("This is the position the weapon will be at when it is not being used.")]
@@ -62,6 +62,7 @@ public class BasePlayer : ScriptableObject
     public float firerate;
     public float bulletSpeed;
     public float timeTillDespawn;
+    public bool canBounce;
     [Header("Ranged-Split Fire")]
     public float radius;
     public int bulletsPerShot;
@@ -135,7 +136,8 @@ public class BasePlayer : ScriptableObject
         attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
         attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
         attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
-        attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;        
+        attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
+        attack.GetComponent<BasicBullet>().canBounce = canBounce;
     }
 
     private void SetMeleeVariables(GameObject attack, Transform parentTransform)

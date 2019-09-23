@@ -129,7 +129,7 @@ public class MainPlayer : MonoBehaviour
         {
             if (currentChar.isChargable)
             {
-                print(currentChar.currentChargeTimer);
+                //print(currentChar.currentChargeTimer);
                 float tempDamage = currentChar.baseDamage;
                 if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
                 {
