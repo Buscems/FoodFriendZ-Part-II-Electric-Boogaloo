@@ -344,7 +344,7 @@ public class MainPlayer : MonoBehaviour
     {
         if(other.gameObject.tag == "StatBoost")
         {
-            BasePowerUp temp = other.gameObject.GetComponent<BasePowerUp>();
+            PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
             currentChar.speed *= temp.movementSpeed;
             currentChar.attackSize *= temp.attackSize;
