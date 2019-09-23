@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Spinning : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public float rotateSpeed;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        transform.Rotate(rotateSpeed, 0, 0);
     }
 }

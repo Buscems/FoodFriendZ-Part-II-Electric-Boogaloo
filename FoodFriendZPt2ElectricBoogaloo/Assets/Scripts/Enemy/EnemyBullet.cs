@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
 
-    MainPlayer Player;
+
 
     [HideInInspector]
     public float speed;
@@ -19,7 +19,6 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = this.GetComponent<MainPlayer>();
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -37,9 +36,15 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player1")
         {
-            Player.health = Player.health - damage;
+            collision.GetComponent<MainPlayer>().health -= damage;
+            Destroy(this.gameObject);
+        }
+
+        if (collision.tag == "Wall")
+        {
+            Destroy(this.gameObject);
         }
     }
 }
