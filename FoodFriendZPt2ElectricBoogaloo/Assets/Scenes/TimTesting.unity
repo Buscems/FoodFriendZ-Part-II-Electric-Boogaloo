@@ -281,6 +281,96 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.players.Array.data[1]._defaultMouseMaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.mouseMaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.mouseMaps.Array.data[0].actionElementMaps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._id
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._name
+      value: Enter
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._descriptiveName
+      value: Action0
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._userAssignable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.data[5]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actionIdCounter
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.players.Array.data[1]._defaultMouseMaps.Array.data[0]._enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.mouseMapIdCounter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.mouseMaps.Array.data[0].actionElementMaps.Array.data[0]._actionId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.mouseMaps.Array.data[0].actionElementMaps.Array.data[0]._elementType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.mouseMaps.Array.data[0].actionElementMaps.Array.data[0]._elementIdentifierId
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60e88b968cc08742bc9e00db1882491, type: 3}
 --- !u!1001 &896002739
@@ -354,6 +444,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: mouseCursor
+      value: 
+      objectReference: {fileID: 1556889111}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: usingMouse
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
@@ -440,6 +540,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1556889111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6807544951602156156, guid: 835aa8e4432661d4ca6d4207115bf88e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6807544950717951083}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1595654526
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,3 +699,72 @@ MonoBehaviour:
   health: 5
   speed: 2
   aggroScript: {fileID: 0}
+--- !u!1001 &6807544950717951083
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6807544951602156156, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_Name
+      value: MouseCursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807544951602156145, guid: 835aa8e4432661d4ca6d4207115bf88e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 835aa8e4432661d4ca6d4207115bf88e, type: 3}
