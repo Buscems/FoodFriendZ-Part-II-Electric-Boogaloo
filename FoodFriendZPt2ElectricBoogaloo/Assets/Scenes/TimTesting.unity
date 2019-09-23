@@ -452,6 +452,8 @@ GameObject:
   - component: {fileID: 1595654527}
   - component: {fileID: 1595654529}
   - component: {fileID: 1595654531}
+  - component: {fileID: 1595654530}
+  - component: {fileID: 1595654532}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -533,13 +535,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e607ea33f07d1419a20e94ce6d3027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beam: 0
   Clip: 1
   coroutineTime: 2
-  Enemy: {fileID: 1787970142}
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 8389044837174670204, guid: 1eb51d90f497ce047829c70af12543fc,
+    type: 3}
   projectileSpeed: 5
   fireRate: 4
   clipSize: 10
+--- !u!114 &1595654530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595654526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggroRange: 15
+  aggroTimerMax: 8
+  aggro: 0
+  target:
+  - {fileID: 0}
+  currentTarget: {fileID: 0}
+  currentPos: {x: 0, y: 0, z: 0}
 --- !u!54 &1595654531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -556,9 +578,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1787970142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 822394764877458807, guid: 84bc0511b46d0ed41a52cefe75499541,
-    type: 3}
-  m_PrefabInstance: {fileID: 896002739}
+--- !u!114 &1595654532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595654526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  speed: 2
+  aggroScript: {fileID: 0}

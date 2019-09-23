@@ -12,11 +12,13 @@ public class Aggro : MonoBehaviour
 
     float aggroTimer;
 
-    bool aggro;
+    [HideInInspector]
+    public bool aggro;
 
     [Tooltip("This will be for how many players are in the game just in case we think about doing multiplayer")]
     public Transform[] target;
-    Transform currentTarget;
+    [HideInInspector]
+    public Transform currentTarget;
 
     [HideInInspector]
     public Vector3 currentPos;
@@ -32,7 +34,7 @@ public class Aggro : MonoBehaviour
     {
         AggroHandler();
 
-        Debug.Log(aggro);
+        //Debug.Log(aggro);
         //Debug.Log((target[0].transform.position - currentPos).magnitude);
 
     }

@@ -11,6 +11,8 @@ public class ShootingEnemy : MonoBehaviour
     [Tooltip("Length of the Raycast shooting from the RIGHT of the enemy")]
     public float rightLength;*/
 
+    BaseEnemy baseEnemy;
+
     public bool beam;
 
     [Tooltip("Check the box if you want the enemy to have a limited amount of bullets to shoot before reloading")]
@@ -19,8 +21,6 @@ public class ShootingEnemy : MonoBehaviour
     [Tooltip("Amount of time the enemy will take to reload its weapon")]
     public float coroutineTime;
 
-    [Tooltip("Enemy Game Object that you want to link")]
-    public GameObject Enemy;
     [Tooltip("Projectile Game Object that you want to link")]
     public GameObject Projectile;
 
@@ -42,6 +42,9 @@ public class ShootingEnemy : MonoBehaviour
     {
         startPos = transform.position;
         currentClip = clipSize;
+
+        //referencing the base script to derive from variables of other scripts
+        baseEnemy = this.GetComponent<BaseEnemy>();
     }
 
     
@@ -63,10 +66,15 @@ public class ShootingEnemy : MonoBehaviour
             }
         }*/
 
-        if (Time.time > nextShot)
+        if (baseEnemy.aggroScript.aggro)
         {
-            nextShot = Time.time + fireRate;
-            Instantiate(Projectile, transform.position, transform.rotation);
+            if (Time.time > nextShot)
+            {
+                nextShot = Time.time + fireRate;
+                var bullet = Instantiate(Projectile, this.transform.position, Quaternion.identity);
+                bullet.GetComponent<EnemyBullet>().velocity = (baseEnemy.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
+                bullet.GetComponent<EnemyBullet>().speed = projectileSpeed;
+            }
         }
 
         if (beam)
