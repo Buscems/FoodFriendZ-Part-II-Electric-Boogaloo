@@ -20,11 +20,11 @@ MonoBehaviour:
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  currentPosition: {x: -0.043411188, y: -0.28550786, z: 0}
-  currentDirection: {x: -0.19561303, y: -0.8476564, z: 0}
-  weapon: {fileID: 0}
+  currentPosition: {x: 0.049999997, y: -0.060000002, z: 0}
+  currentDirection: {x: -0.033779424, y: -0.12915662, z: 0}
+  weapon: {fileID: 1791375524048153698, guid: f7e7f35abf30248cf9b3141b572bf0c6, type: 3}
   awayPos: {x: 5000, y: 5000, z: 0}
-  offset: 2
+  offset: 0.2
   attackSpeed: 2
   rotationalOffset: 45
   isChargable: 0
@@ -37,6 +37,7 @@ MonoBehaviour:
   firerate: 0
   bulletSpeed: 0
   timeTillDespawn: 0
+  canBounce: 0
   radius: 0
   bulletsPerShot: 0
   bulletsPerBurst: 0
