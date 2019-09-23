@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+
+    MainPlayer Player;
+
     [HideInInspector]
     public float speed;
     [HideInInspector]
     public Vector3 velocity;
+
+    public int damage;
 
     Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Player = this.GetComponent<MainPlayer>();
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -30,4 +35,11 @@ public class EnemyBullet : MonoBehaviour
         rb.MovePosition(transform.position + velocity * speed * Time.deltaTime);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            Player.health = Player.health - damage;
+        }
+    }
 }

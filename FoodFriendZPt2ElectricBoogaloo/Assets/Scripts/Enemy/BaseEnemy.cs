@@ -5,15 +5,13 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BaseEnemy : MonoBehaviour
 {
-    MainPlayer Player;
 
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
     public float health;
     [Tooltip("How fast we want the enemy to move")]
     public float speed;
-    [Tooltip("Damage output to player")]
-    public int damage;
+
 
     Animator anim;
 
@@ -24,7 +22,6 @@ public class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        Player = this.GetComponent<MainPlayer>();
         if (GetComponent<Animator>() != null)
         {
             anim = GetComponent<Animator>();
@@ -60,10 +57,5 @@ public class BaseEnemy : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-    }
-
-    public void DamageDealt(int damage)
-    {
-        Player.health = Player.health - damage;
     }
 }
