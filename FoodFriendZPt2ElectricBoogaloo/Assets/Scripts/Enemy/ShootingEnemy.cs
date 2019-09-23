@@ -4,18 +4,39 @@ using UnityEngine;
 
 public class ShootingEnemy : MonoBehaviour
 {
-
+    /*[Tooltip("Length of the Raycast shooting from the FRONT of the enemy")]
     public float rayLength;
+    [Tooltip("Length of the Raycast shooting from the LEFT of the enemy")]
     public float leftLength;
-    public float rightLength;
+    [Tooltip("Length of the Raycast shooting from the RIGHT of the enemy")]
+    public float rightLength;*/
 
+    public bool beam;
+
+    [Tooltip("Check the box if you want the enemy to have a limited amount of bullets to shoot before reloading")]
+    public bool Clip;
+    private bool Reloading;
+    [Tooltip("Amount of time the enemy will take to reload its weapon")]
+    public float coroutineTime;
+
+    [Tooltip("Enemy Game Object that you want to link")]
     public GameObject Enemy;
+    [Tooltip("Projectile Game Object that you want to link")]
     public GameObject Projectile;
+
+    [Tooltip("Speed of the projectile")]
+    public float projectileSpeed;
+    private float nextShot;
+    [Tooltip("Rate at which projectiles are fired")]
+    public float fireRate;
+    [Tooltip("Amount of projectiles enemy will shoot before it has to reload")]
     public float clipSize;
-    public float currentClip;
+    private float currentClip;
 
     private Vector2 currentPos;
     private Vector2 startPos;
+
+    private IEnumerator coroutine;
 
     void Start()
     {
@@ -26,7 +47,7 @@ public class ShootingEnemy : MonoBehaviour
     
     void Update()
     {
-        currentPos = transform.position;
+        /*currentPos = transform.position;
         RaycastHit2D hit = Physics2D.Raycast(currentPos, transform.up, rayLength);
         RaycastHit2D Left = Physics2D.Raycast(currentPos, transform.right *-1, leftLength);
         RaycastHit2D Right = Physics2D.Raycast(currentPos, transform.right, rightLength);
@@ -40,18 +61,41 @@ public class ShootingEnemy : MonoBehaviour
                 Instantiate(Projectile, currentPos, Quaternion.identity);
                 currentClip--;
             }
-        }
+        }*/
 
-        if(currentClip == 0)
+        if (Time.time > nextShot)
         {
-            Reload();
+            nextShot = Time.time + fireRate;
+            Instantiate(Projectile, transform.position, transform.rotation);
+        }
+
+        if (beam)
+        {
+            
+        }
+
+        if (Clip)
+        {
+            if (currentClip == 0)
+            {
+                Reloading = true;
+            }
+            if (Reloading)
+            {
+                StartCoroutine(Reload());
+            }
         }
     }
 
-    void Reload()
+    IEnumerator Reload()
     {
+        Reloading = false;
+        Debug.Log("Starting Coroutine " + Time.time);
+        yield return new WaitForSeconds(coroutineTime);
+        Debug.Log("Ending Coroutine " + Time.time);
         currentClip = clipSize;
-        //Add courotine
     }
+
+    
 
 }
