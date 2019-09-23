@@ -5,7 +5,7 @@ using UnityEngine;
 public class smallEnemy : MonoBehaviour
 {
 
-    public float speed;
+    public enemyMovement move;
     public Rigidbody2D rb;
     public GameObject player;
     private Vector3 playerPos;
@@ -20,6 +20,6 @@ public class smallEnemy : MonoBehaviour
     void Update()
     {
         playerPos = player.transform.position;
-        Vector2.MoveTowards(transform.position, playerPos, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, playerPos, move.speed * Time.deltaTime);
     }
 }
