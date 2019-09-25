@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DashEnemy : MonoBehaviour
 {
-   public GameObject player;
-    public enemyMovement move;
+    public GameObject player;
     private Vector3 playerPos;
 
     public bool track;
@@ -15,10 +14,13 @@ public class DashEnemy : MonoBehaviour
     public float trackTime;
     public float followTime;
 
+    BaseEnemy baseEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine (Tracker());
+        baseEnemy = GetComponent<BaseEnemy>();
     }
 
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class DashEnemy : MonoBehaviour
             Debug.Log("track is true");
         }
         if (follow == true){
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, move.speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
             Debug.Log("follow is true");
         }
         /*

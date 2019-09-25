@@ -11,7 +11,6 @@ public class TankEnemy : MonoBehaviour
       */
 
     public GameObject player;
-    public enemyMovement move;
     private Vector3 playerPos;
 
     public bool follow;
@@ -24,12 +23,15 @@ public class TankEnemy : MonoBehaviour
 
     public BoxCollider2D attackRadius;
 
+    BaseEnemy baseEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
         attackRadius.enabled = false;
         follow = true;
         StartCoroutine(following());
+        baseEnemy = GetComponent<BaseEnemy>();
     }
 
     // Update is called once per frame
@@ -39,7 +41,7 @@ public class TankEnemy : MonoBehaviour
 
         if (follow == true){
             attackRadius.enabled = false;
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, move.speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
         }
         
         if (attack == true){

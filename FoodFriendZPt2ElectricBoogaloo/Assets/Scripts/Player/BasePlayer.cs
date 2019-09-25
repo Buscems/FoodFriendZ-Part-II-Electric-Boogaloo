@@ -143,7 +143,7 @@ public class BasePlayer : ScriptableObject
     private void SetMeleeVariables(GameObject attack, Transform parentTransform)
     {
         attack.transform.parent = parentTransform;
-        attack.GetComponent<Attack>().canPierce = canPierce;
+        //attack.GetComponent<Attack>().canPierce = canPierce;
         attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
         attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
     }

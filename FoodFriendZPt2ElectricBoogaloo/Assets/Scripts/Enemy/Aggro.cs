@@ -47,8 +47,8 @@ public class Aggro : MonoBehaviour
 
             if ((target[i].transform.position - currentPos).magnitude < aggroRange)
             {
-                aggro = true;
                 currentTarget = target[i];
+                aggro = true;
                 aggroTimer = aggroTimerMax;
             }
             else

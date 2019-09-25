@@ -4,33 +4,42 @@ using UnityEngine;
 
 public class Tracking : MonoBehaviour
 {
-    public GameObject player;
-    public enemyMovement move;
-    private Vector3 playerPos;
+    Vector3 playerPos;
 
     public bool track;
 
     public bool follow;
 
+    [Tooltip("How long we want the enemy to sit still and track the player")]
     public float trackTime;
-    public float followTime;
+    //[Tooltip("How long we want the enemy to take to get to it's destination")]
+    //public float followTime;
+
+    BaseEnemy baseEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine (Tracker());
+        baseEnemy = GetComponent<BaseEnemy>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (track == true){
-            playerPos = player.transform.position;
-            Debug.Log("track is true");
-        }
-        if (follow == true){
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, move.speed * Time.deltaTime);
-            Debug.Log("follow is true");
+        //only run this code when the enemy is actually aggroed to the player
+        if (baseEnemy.aggroScript.aggro)
+        {
+            if (track == true)
+            {
+                playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+                //Debug.Log("track is true");
+            }
+            if (follow == true)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
+                //Debug.Log("follow is true");
+            }
         }
         /*
         if (trackTimeStart >= maxTrackTime){
@@ -58,7 +67,10 @@ public class Tracking : MonoBehaviour
 
     IEnumerator Follow(){
         follow = true;
-        yield return new WaitForSeconds(followTime);
+        while(transform.position != playerPos)
+        {
+            yield return null;
+        }
         follow = false;
         StartCoroutine(Tracker());
     }
