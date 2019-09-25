@@ -20,10 +20,18 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("This is how many enemies you want the spawner to spawn before destroying itself")]
     public int maxEnemies;
 
+    Queue<GameObject> enemies = new Queue<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        for(int i = 0; i < enemyType.Length; i++)
+        {
+            enemies.Enqueue(enemyType[i]);
+        }
+
+        StartCoroutine(SpawnEnemies());
+
     }
 
     // Update is called once per frame
@@ -32,15 +40,29 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    IEnumerator spawnEnemies()
+    IEnumerator SpawnEnemies()
     {
         for (int i = 0; i < maxEnemies; i++)
         {
             yield return new WaitForSeconds(Random.Range(spawnTimer.x, spawnTimer.y));
-
+            if(spawning == SpawnType.SingleEnemy)
+            {
+                Instantiate(enemies.Peek(), transform.position, Quaternion.identity);
+            }
+            if (spawning == SpawnType.TurnMultipleEnemy)
+            {
+                Instantiate(enemies.Peek(), transform.position, Quaternion.identity);
+                var current = enemies.Dequeue();
+                enemies.Enqueue(current);
+            }
+            if (spawning == SpawnType.RandomMultipleEnemy)
+            {
+                Instantiate(enemyType[Random.Range(0, enemyType.Length)], transform.position, Quaternion.identity);
+            }
         }
-        
 
+        Destroy(this.gameObject);
+        
     }
 
 }
