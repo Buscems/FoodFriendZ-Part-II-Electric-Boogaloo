@@ -5,8 +5,6 @@ using UnityEngine;
 public class smallEnemy : MonoBehaviour
 {
 
-    public Rigidbody2D rb;
-    public GameObject player;
     private Vector3 playerPos;
 
     BaseEnemy baseEnemy;
@@ -20,7 +18,12 @@ public class smallEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerPos = player.transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
+
+        if (baseEnemy.aggroScript.aggro)
+        {
+            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
+        }
     }
+
 }

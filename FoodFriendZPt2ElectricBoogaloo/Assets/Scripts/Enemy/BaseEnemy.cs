@@ -39,7 +39,7 @@ public class BaseEnemy : MonoBehaviour
         itemDrop = false;
         if(Random.Range(0, dropRate) == 0)
         {
-            itemDrop = true;
+            //itemDrop = true;
         }
 
         //referencing any scripts that other enemies might need to
@@ -51,11 +51,16 @@ public class BaseEnemy : MonoBehaviour
     public void Update()
     {
 
-        if(health <= 0)
+            
+
+    }
+
+    private void LateUpdate()
+    {
+        if (health <= 0)
         {
             Death();
-        }    
-
+        }
     }
 
     void Death()

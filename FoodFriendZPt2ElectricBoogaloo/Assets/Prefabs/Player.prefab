@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 346718319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackDirection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698901465}
   - component: {fileID: 698901466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 822394764877458803}
   - component: {fileID: 1208179063}
   - component: {fileID: 1208179059}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ MonoBehaviour:
   usingMouse: 1
   mouseCursor: {fileID: 0}
   attackDirection: {fileID: 346718319}
-  currentChar: {fileID: 11400000, guid: 15482a04ad74dd040856a81e05842bce, type: 2}
+  currentChar: {fileID: 11400000, guid: e80f294d16518d346b4645390c672b84, type: 2}
   anim: {fileID: 1208179059}
   speed: 0
 --- !u!50 &822394764877458803

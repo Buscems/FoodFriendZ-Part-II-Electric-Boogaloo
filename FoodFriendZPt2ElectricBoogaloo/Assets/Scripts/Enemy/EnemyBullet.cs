@@ -36,7 +36,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player1")
+        if(collision.tag == "Player1" || collision.tag == "Player2")
         {
             collision.GetComponent<MainPlayer>().health -= damage;
             Destroy(this.gameObject);
