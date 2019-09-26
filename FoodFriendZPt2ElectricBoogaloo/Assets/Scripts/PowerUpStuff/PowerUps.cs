@@ -12,7 +12,8 @@ public class PowerUps : MonoBehaviour
     public float attackSpeed = 1;
     public float attackDamage = 1;
 
-    public int healAmt;
+    public float timer;
+    public float maxTimer;
 
 
     //this gives drop down menu selects, make new line write name then put comma
@@ -66,9 +67,9 @@ public class PowerUps : MonoBehaviour
         switch (currentPowerUp)
         {
             //case 1
-            case PowerUpTypes.Heal:
+            case PowerUpTypes.SlowTime:
 
-                healAmt = 2;
+                //WRITE STUFF HERE
                 
                 float timer = 2;
                 yield return new WaitForSeconds(timer);
