@@ -144,8 +144,23 @@ public class BasePlayer : ScriptableObject
     {
         attack.transform.parent = parentTransform;
         //attack.GetComponent<Attack>().canPierce = canPierce;
-        attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
-        attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
+        if (attack.transform.childCount > 0)
+        {
+            foreach (Transform child in attack.transform)
+            {
+                try
+                {
+                    child.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
+                    child.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
+                }
+                catch { }
+            }
+        }
+        else
+        {
+            attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
+            attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
+        }
     }
 
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
@@ -153,7 +168,23 @@ public class BasePlayer : ScriptableObject
 
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
         SetMeleeVariables(attack, parentTransform);
-        attack.GetComponent<Attack>().damage = damage;
+
+        if (attack.transform.childCount > 0)
+        {
+            foreach (Transform child in attack.transform)
+            {
+                try
+                {
+                    child.GetComponent<Attack>().damage = damage;
+                }
+                catch { }
+            }
+        }
+        else
+        {
+            attack.GetComponent<Attack>().damage = damage;
+        }
+       
     }
 
     public void Builder(Vector3 pos, Transform attackDirection, Transform parentTransform)

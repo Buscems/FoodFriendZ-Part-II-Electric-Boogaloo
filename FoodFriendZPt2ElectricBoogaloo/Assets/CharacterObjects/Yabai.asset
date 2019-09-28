@@ -10,38 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: Takoyaki
+  m_Name: Yabai
   m_EditorClassIdentifier: 
-  characterName: takoyaki
-  attackType: 4
-  speed: 5
-  baseDamage: 0
+  characterName: onigiri
+  attackType: 5
+  speed: 7
+  baseDamage: 10
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  currentPosition: {x: 7.3585544, y: -1.1460719, z: 0}
-  currentDirection: {x: 0.34212232, y: -0.25088972, z: 0}
+  currentPosition: {x: 0.053617634, y: -0.05581297, z: 0}
+  currentDirection: {x: 0.0046369275, y: 0.0043171393, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   offset: 0
   attackSpeed: 0
   rotationalOffset: 0
   isChargable: 0
-  maxDamage: 0
-  timeTillMaxDamage: 0
+  maxDamage: 10
+  timeTillMaxDamage: 1
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  firerate: 0.2
+  bullet: {fileID: 0}
+  firerate: 0.1
   bulletSpeed: 750
   timeTillDespawn: 1
-  canBounce: 0
-  radius: 30
-  bulletsPerShot: 3
-  bulletsPerBurst: 0
-  timeBetweenBursts: 0
-  firing: 1
+  canBounce: 1
+  radius: 90
+  bulletsPerShot: 5
+  bulletsPerBurst: 3
+  timeBetweenBursts: 0.5
+  firing: 0
   drop: {fileID: 4049022442695697508, guid: 840089a4ee0433149a83c6df387b59f2, type: 3}
-  currentFirerateTimer: -2.8448384
+  currentFirerateTimer: -2.2915077

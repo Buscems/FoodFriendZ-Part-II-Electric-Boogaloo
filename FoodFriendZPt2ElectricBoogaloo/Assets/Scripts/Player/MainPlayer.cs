@@ -35,10 +35,22 @@ public class MainPlayer : MonoBehaviour
 
     private CameraShake cam;
 
+    [Header("Current Party")]
+    public BasePlayer triangle;
+    public BasePlayer square;
+    public BasePlayer circle;
+    [HideInInspector]
+    public BasePlayer cross;
+
+    [Header("Big boi array of every playable character in the game")]
+    public BasePlayer[] allCharacters;
+
+    private bool isHolding = false;
+
 
     private void Awake()
     {
-
+        cross = currentChar;
         //Rewired Code
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
@@ -60,9 +72,57 @@ public class MainPlayer : MonoBehaviour
     {
         PlayerMovement();
         LookDirection();
-
+        AttackLogic();
         AnimationHandler();
+        SwapLogic();
 
+
+       //temp health testing
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            health--;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            health++;
+        }
+
+    }
+
+    private void SwapLogic()
+    {
+        if (myPlayer.GetButtonDown("Hold"))
+        {
+            isHolding = true;
+        }
+        if (myPlayer.GetButtonUp("Hold"))
+        {
+            isHolding = false;
+        }
+
+        if (isHolding)
+        {
+            if (myPlayer.GetButtonDown("Cross"))
+            {
+                currentChar = cross;
+            }
+            if (myPlayer.GetButtonDown("Square"))
+            {
+                currentChar = square;
+            }
+            if (myPlayer.GetButtonDown("Triangle"))
+            {
+                currentChar = triangle;
+            }
+            if (myPlayer.GetButtonDown("Circle"))
+            {
+                currentChar = circle;
+            }
+        }
+    }
+
+    private void AttackLogic()
+    {
         if (currentChar.startCharging)
         {
             currentChar.currentChargeTimer += Time.deltaTime;
@@ -72,14 +132,6 @@ public class MainPlayer : MonoBehaviour
             currentChar.currentChargeTimer = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            health--;
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            health++;
-        }
 
         if (myPlayer.GetButtonDown("Attack"))
         {
