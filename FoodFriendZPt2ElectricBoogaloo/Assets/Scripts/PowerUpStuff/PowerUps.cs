@@ -11,6 +11,7 @@ public class PowerUps : MonoBehaviour
     public float attackSize = 1;
     public float attackSpeed = 1;
     public float attackDamage = 1;
+    public float healAmount = 0;
 
     public float timer;
     public float maxTimer;
@@ -20,7 +21,7 @@ public class PowerUps : MonoBehaviour
     //if last line, do not put comma at end of word
     public enum PowerUpTypes
     {
-        Null,
+        Null,//see this one has a comma
         Heal,
         DebuffRemove,
         SlowTime,
@@ -46,6 +47,8 @@ public class PowerUps : MonoBehaviour
         AttackDmgHitProportion,
         PaasivePoison,
         ExtraLife,
+        EnemyConfusion,
+        HealthGainPerDMG,
         FatalChance//last one so no comma
 
     }//END OF ENUMS
@@ -76,10 +79,28 @@ public class PowerUps : MonoBehaviour
                 break;
 
             //case2
-            case PowerUpTypes.StunAttack:
+            case PowerUpTypes.AttackSpeedHealthProportion:
 
                 break;
 
+            //case3
+            case PowerUpTypes.AttackSpeedDamageProportion:
+
+                break;
+
+            //case4
+            case PowerUpTypes.EnemyConfusion:
+
+                break;
+            //case5
+            case PowerUpTypes.HealthGainPerDMG:
+
+                break;    
+            //case6
+            case PowerUpTypes.Heal:
+
+                break;
+            //case last - null for base stats - DO NOT FILL IN LEAVE BLANK
             case PowerUpTypes.Null:
 
                 break;
