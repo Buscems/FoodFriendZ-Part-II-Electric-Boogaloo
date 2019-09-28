@@ -31,6 +31,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         rb.MovePosition(transform.position + velocity * speed * Time.deltaTime);
     }
 
