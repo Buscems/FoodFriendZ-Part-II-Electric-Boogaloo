@@ -80,7 +80,7 @@ public class ShootingEnemy : MonoBehaviour
             }
         }
 
-        if (beam)
+        /*if (beam)
         {
             Clip = false;
             if (hit.collider != null)
@@ -96,7 +96,7 @@ public class ShootingEnemy : MonoBehaviour
                 Destroy(beamObject);
             }
            
-        }
+        }*/
 
         if (Clip)
         {
