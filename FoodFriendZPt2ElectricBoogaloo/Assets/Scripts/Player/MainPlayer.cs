@@ -75,6 +75,7 @@ public class MainPlayer : MonoBehaviour
         AttackLogic();
         AnimationHandler();
         SwapLogic();
+        DodgeLogic();
 
 
        //temp health testing
@@ -87,6 +88,20 @@ public class MainPlayer : MonoBehaviour
             health++;
         }
 
+    }
+
+    private void DodgeLogic()
+    {
+        print("current dwt " + currentChar.currentDodgeTime);
+
+        if (myPlayer.GetButtonDown("Dodge"))
+        {
+            if(currentChar.currentDodgeWaitTime < 0)
+            {
+                currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
+                currentChar.currentDodgeTime = currentChar.dodgeLength;
+            }
+        }
     }
 
     private void SwapLogic()
@@ -292,7 +307,7 @@ public class MainPlayer : MonoBehaviour
     private void PlayerMovement()
     {
         currentChar.Update();
-        speed = currentChar.speed;
+        speed = currentChar.speed * currentChar.currentDodgeSpeedMultiplier;
         currentChar.currentPosition = this.transform.position;
 
         velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
@@ -353,7 +368,10 @@ public class MainPlayer : MonoBehaviour
 
     public void GetHit(int damage)
     {
-        health -= damage;
+        if (currentChar.currentDodgeTime < 0)
+        {
+            health -= damage;
+        }
     }
 
     //these two methods are for ReWired, if any of you guys have any questions about it I can answer them, but you don't need to worry about this for working on the game - Buscemi

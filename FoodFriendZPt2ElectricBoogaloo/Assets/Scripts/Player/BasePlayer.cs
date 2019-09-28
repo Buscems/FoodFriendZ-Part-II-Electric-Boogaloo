@@ -14,6 +14,21 @@ public class BasePlayer : ScriptableObject
     [Header("")]
     public float speed;
     public float baseDamage;
+    public float dodgeSpeedMultiplier = 1;
+
+    [HideInInspector]
+    public float currentDodgeSpeedMultiplier;
+
+    public float dodgeLength = 1;
+
+    [HideInInspector]
+    public float currentDodgeTime = -1000;
+
+    public float dodgeWaitTime = 1;
+
+    [HideInInspector]
+    public float currentDodgeWaitTime = 0;
+
     [Tooltip("This is going to be the size of the weapon, z is always 1.")]
     public Vector3 attackSize;
     [Tooltip("Can attack go through enemies, or get destroyed on collision")]
@@ -84,6 +99,8 @@ public class BasePlayer : ScriptableObject
     // Start is called before the first frame update
     public void Start()
     {
+        currentDodgeSpeedMultiplier = 1;
+
         //this will be taking care of whether or not the player might accidentally have the wrong weapon for anything
         if(attackType == AttackType.Melee)
         {
@@ -122,6 +139,19 @@ public class BasePlayer : ScriptableObject
     // Update is called once per frame
     public void Update()
     {
+        if(currentDodgeTime > 0)
+        {
+            currentDodgeSpeedMultiplier = dodgeSpeedMultiplier;
+        }
+        else
+        {
+            currentDodgeSpeedMultiplier = 1;
+        }
+
+        currentDodgeWaitTime -= Time.deltaTime;
+        currentDodgeTime -= Time.deltaTime;
+
+
         if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire)
         {
             currentFirerateTimer -= Time.deltaTime;
