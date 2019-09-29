@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346718318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -16.59161}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.595379, y: 5.595379, z: 5.595379}
   m_Children: []
   m_Father: {fileID: 822394764877458804}
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 8072250368288326826, guid: 20e13519dda565a4580b94c26c01d5e9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -190,9 +190,14 @@ MonoBehaviour:
   usingMouse: 1
   mouseCursor: {fileID: 0}
   attackDirection: {fileID: 346718319}
-  currentChar: {fileID: 11400000, guid: e80f294d16518d346b4645390c672b84, type: 2}
+  currentChar: {fileID: 11400000, guid: 15482a04ad74dd040856a81e05842bce, type: 2}
   anim: {fileID: 1208179059}
   speed: 0
+  triangle: {fileID: 0}
+  square: {fileID: 0}
+  circle: {fileID: 0}
+  cross: {fileID: 0}
+  allCharacters: []
 --- !u!50 &822394764877458803
 Rigidbody2D:
   serializedVersion: 4

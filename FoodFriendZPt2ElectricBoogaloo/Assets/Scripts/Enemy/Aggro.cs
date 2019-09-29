@@ -12,7 +12,7 @@ public class Aggro : MonoBehaviour
 
     float aggroTimer;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool aggro;
 
     [Tooltip("This will be for how many players are in the game just in case we think about doing multiplayer")]
@@ -23,16 +23,24 @@ public class Aggro : MonoBehaviour
     [HideInInspector]
     public Vector3 currentPos;
 
+    private void Awake()
+    {
+        aggro = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         target[0] = GameObject.FindGameObjectWithTag("Player1").transform;
+        aggro = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         AggroHandler();
+
+        currentPos = this.transform.position;
 
         //Debug.Log(aggro);
         //Debug.Log((target[0].transform.position - currentPos).magnitude);
@@ -65,9 +73,9 @@ public class Aggro : MonoBehaviour
 
             if (aggroTimer <= 0)
             {
-                aggroTimer = aggroTimerMax;
                 aggro = false;
                 currentTarget = null;
+                aggroTimer = aggroTimerMax;
             }
 
         }

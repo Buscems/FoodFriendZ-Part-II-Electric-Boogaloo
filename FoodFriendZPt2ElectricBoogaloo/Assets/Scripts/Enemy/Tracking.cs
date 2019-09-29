@@ -17,11 +17,13 @@ public class Tracking : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    bool startLoop;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine (Tracker());
         baseEnemy = GetComponent<BaseEnemy>();
+        startLoop = false;
     }
 
     // Update is called once per frame
@@ -30,6 +32,12 @@ public class Tracking : MonoBehaviour
         //only run this code when the enemy is actually aggroed to the player
         if (baseEnemy.aggroScript.aggro)
         {
+            if (!startLoop)
+            {
+                Debug.Log("YEr");
+                StartCoroutine(Tracker());
+                startLoop = true;
+            }
             if (track == true)
             {
                 playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
@@ -41,6 +49,16 @@ public class Tracking : MonoBehaviour
                 //Debug.Log("follow is true");
             }
         }
+        else
+        {
+            StopAllCoroutines();
+            track = false;
+            follow = false;
+            playerPos = this.transform.position;
+            startLoop = false;
+        }
+
+
         /*
         if (trackTimeStart >= maxTrackTime){
             track = false;

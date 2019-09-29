@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeEnemy : MonoBehaviour
 {
 
-    BaseEnemy BaseEnemy;
+    BaseEnemy baseEnemy;
     Tracking Tracking;
     MainPlayer MainPlayer;
     Rigidbody2D rb;
@@ -29,7 +29,7 @@ public class MeleeEnemy : MonoBehaviour
     void Start()
     {
         Tracking = this.GetComponent<Tracking>();
-        BaseEnemy = this.GetComponent<BaseEnemy>();
+        baseEnemy = this.GetComponent<BaseEnemy>();
         MainPlayer = this.GetComponent<MainPlayer>();
         rb = this.GetComponent<Rigidbody2D>();
         startPos = transform.position;
@@ -39,11 +39,11 @@ public class MeleeEnemy : MonoBehaviour
     void Update()
     {
 
-        if (BaseEnemy.aggroScript.aggro)
+        if (baseEnemy.aggroScript.aggro)
         {
             if (Tracking.follow)
             {
-                BaseEnemy.speed = BaseEnemy.speed * 2;
+                baseEnemy.speed = baseEnemy.speed * 2;
             }
         }
     }

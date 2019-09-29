@@ -92,7 +92,7 @@ public class MainPlayer : MonoBehaviour
 
     private void DodgeLogic()
     {
-        print("current dwt " + currentChar.currentDodgeTime);
+        //print("current dwt " + currentChar.currentDodgeTime);
 
         if (myPlayer.GetButtonDown("Dodge"))
         {

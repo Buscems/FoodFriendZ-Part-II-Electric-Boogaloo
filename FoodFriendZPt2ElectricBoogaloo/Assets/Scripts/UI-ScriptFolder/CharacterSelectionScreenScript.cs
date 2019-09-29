@@ -23,6 +23,13 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public Button BackToTitleScreen;
     public Button PlayGame;
 
+    public EventSystem events;
+
+    private void Start()
+    {
+        
+    }
+
     public void BackToTitleScreenFunction()
     {
         Debug.Log("Loading TitleScreen");

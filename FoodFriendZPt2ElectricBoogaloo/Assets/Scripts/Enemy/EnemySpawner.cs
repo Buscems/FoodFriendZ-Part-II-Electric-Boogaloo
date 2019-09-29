@@ -22,22 +22,32 @@ public class EnemySpawner : MonoBehaviour
 
     Queue<GameObject> enemies = new Queue<GameObject>();
 
+    public Aggro aggroScript;
+
+    bool startSpawning;
+
     // Start is called before the first frame update
     void Start()
     {
+
         for(int i = 0; i < enemyType.Length; i++)
         {
             enemies.Enqueue(enemyType[i]);
         }
 
-        StartCoroutine(SpawnEnemies());
-
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+
+        if (aggroScript.aggro && !startSpawning)
+        {
+            //Debug.Log("Spawn");
+            StartCoroutine(SpawnEnemies());
+            startSpawning = true;
+        }
+
     }
 
     IEnumerator SpawnEnemies()

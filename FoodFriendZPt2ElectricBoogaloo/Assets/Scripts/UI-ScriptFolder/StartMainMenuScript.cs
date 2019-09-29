@@ -12,6 +12,8 @@ public class StartMainMenuScript : MonoBehaviour
      * 
      */
 
+    public EventSystem events;
+
     static float t = 0.0f; //starting value for lerp
 
     [Header("Lerping Colors")]

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
 public class BaseEnemy : MonoBehaviour
 {
 
@@ -15,7 +14,6 @@ public class BaseEnemy : MonoBehaviour
     Animator anim;
 
     //variables for other enemy scripts to reference
-    [HideInInspector]
     public Aggro aggroScript;
 
     [Header("Item Drop Rate")]
@@ -41,9 +39,6 @@ public class BaseEnemy : MonoBehaviour
         {
             //itemDrop = true;
         }
-
-        //referencing any scripts that other enemies might need to
-        aggroScript = GetComponent<Aggro>();
 
     }
 
