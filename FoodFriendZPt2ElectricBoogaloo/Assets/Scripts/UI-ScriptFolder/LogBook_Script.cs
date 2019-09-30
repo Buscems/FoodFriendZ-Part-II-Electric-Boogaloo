@@ -30,6 +30,12 @@ public class LogBook_Script : MonoBehaviour
     public GameObject FloorsPanel;
     public GameObject EnemiesPanel;
 
+    public void Start()
+    {
+        //as default
+        CurrentTab_Display.text = ("Characters");
+    }
+
     #region all buttons
     //Character tab
     public void CharacterButtonFunction()
@@ -65,7 +71,7 @@ public class LogBook_Script : MonoBehaviour
         Debug.Log("Opening Enemies Tab");
         CurrentTab_Display.text = ("Enemies");
     }
-    
+
     //Back button tab
     public void BackButtonFunction()
     {
