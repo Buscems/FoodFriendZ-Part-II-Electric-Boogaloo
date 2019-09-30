@@ -16,6 +16,12 @@ MonoBehaviour:
   attackType: 3
   speed: 7
   baseDamage: 0
+  dodgeSpeedMultiplier: 1
+  currentDodgeSpeedMultiplier: 0
+  dodgeLength: 1
+  currentDodgeTime: -1000
+  dodgeWaitTime: 1
+  currentDodgeWaitTime: 0
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
@@ -37,7 +43,7 @@ MonoBehaviour:
   firerate: 0.1
   bulletSpeed: 750
   timeTillDespawn: 1
-  canBounce: 1
+  canBounce: 0
   radius: 90
   bulletsPerShot: 5
   bulletsPerBurst: 3

@@ -19,7 +19,8 @@ public class BaseEnemy : MonoBehaviour
     [Header("Item Drop Rate")]
     public GameObject[] items;
 
-    [Tooltip("How often the enemy will actually drop an item \n \n The closer the number is to 0, the more likely it will be to drop an item")]
+    [Tooltip("How often the enemy will actually drop an item \n \n The closer the number is to 1, the more likely it will be to drop an item")]
+    [Range(0, 1)]
     public float dropRate;
 
     [Tooltip("How much money the enemy will drop when killed")]
@@ -46,10 +47,10 @@ public class BaseEnemy : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
-        itemDrop = false;
-        if(Random.Range(0, dropRate) == 0)
+        if(Random.Range(0f, 1f) <= dropRate)
         {
-            //itemDrop = true;
+            Debug.Log("Cool");
+            itemDrop = true;
         }
 
     }

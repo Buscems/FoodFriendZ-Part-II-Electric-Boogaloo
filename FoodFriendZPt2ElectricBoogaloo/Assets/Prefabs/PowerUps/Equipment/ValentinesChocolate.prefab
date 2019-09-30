@@ -70,8 +70,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9176bb912ce30eb4aa6fdc3a783f7d0a, type: 3}
-  m_Color: {r: 0.9290123, g: 0, b: 1, a: 0.44705883}
+  m_Sprite: {fileID: -2912212835571794183, guid: f06b5372286038e43b6395f609100250,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12edf85a889318f40883efcacba11b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpName: ValntinesChocolate
+  powerUpName: ValentinesChocolate
   movementSpeed: 1
   attackSize: 1
   attackSpeed: 1
@@ -115,11 +116,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.12}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

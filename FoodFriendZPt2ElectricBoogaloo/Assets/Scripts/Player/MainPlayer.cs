@@ -423,6 +423,8 @@ public class MainPlayer : MonoBehaviour
             currentChar.baseDamage *= temp.attackDamage;
             currentChar.maxDamage *= temp.attackDamage;
 
+            Debug.Log(other.name);
+
             Destroy(other.gameObject);
         }
     }

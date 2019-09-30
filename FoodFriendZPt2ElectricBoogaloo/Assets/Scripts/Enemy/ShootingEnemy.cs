@@ -27,9 +27,13 @@ public class ShootingEnemy : MonoBehaviour
     [Tooltip("Projectile Game Object that you want to link")]
     public GameObject Projectile;
 
+    [Tooltip("Projectile Damage")]
+    public int bulletDamage;
+
     [Tooltip("Speed of the projectile")]
     public float projectileSpeed;
     private float nextShot;
+
     [Tooltip("Rate at which projectiles are fired")]
     public float fireRate;
     [Tooltip("Amount of projectiles enemy will shoot before it has to reload")]
@@ -51,11 +55,12 @@ public class ShootingEnemy : MonoBehaviour
     }
 
     
+
     void Update()
     {
         currentPos = transform.position;
         RaycastHit2D hit = Physics2D.Raycast(currentPos, transform.position * -1, rayLength);
-        Debug.DrawRay(currentPos, transform.position * -1 ,Color.red, rayLength);
+        //Debug.DrawRay(currentPos, transform.position * -1 ,Color.red, rayLength);
         /*RaycastHit2D Left = Physics2D.Raycast(currentPos, transform.right *-1, leftLength);
         RaycastHit2D Right = Physics2D.Raycast(currentPos, transform.right, rightLength);
 
@@ -77,6 +82,7 @@ public class ShootingEnemy : MonoBehaviour
                 var bullet = Instantiate(Projectile, this.transform.position, Quaternion.identity);
                 bullet.GetComponent<EnemyBullet>().velocity = (baseEnemy.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
                 bullet.GetComponent<EnemyBullet>().speed = projectileSpeed;
+                bullet.GetComponent<EnemyBullet>().damage = bulletDamage;
             }
         }
 

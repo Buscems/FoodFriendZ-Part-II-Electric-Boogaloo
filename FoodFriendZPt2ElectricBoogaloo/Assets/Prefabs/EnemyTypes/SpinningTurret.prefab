@@ -77,8 +77,18 @@ MonoBehaviour:
   health: 5
   speed: 0
   aggroScript: {fileID: 1771624388262519801}
-  items: []
-  dropRate: 0
+  items:
+  - {fileID: 1188008098122328144, guid: dd93acb6d278b674dbeb1c8d12605d02, type: 3}
+  - {fileID: 6024263376733084149, guid: 3cf102483f0a48849bba2a79c3884f09, type: 3}
+  - {fileID: 5987431524022525153, guid: 508c240110b9ab84e85af60c7b6e3def, type: 3}
+  - {fileID: 7109659021501123068, guid: b2ecc68bc8460fc47862fb649e94ea9c, type: 3}
+  - {fileID: 1102815877644695261, guid: abe6dd9aab39e754daf22d0ff43c8928, type: 3}
+  - {fileID: 4024102898815256532, guid: 5cbdd23711b90d44cbadd9630d17ebfe, type: 3}
+  - {fileID: 551530364281563291, guid: ed3a1b9b203850644a72513faa3cea38, type: 3}
+  - {fileID: 4543157069601003370, guid: ec19f75c4f97f4b4eb349867ba1e2e34, type: 3}
+  - {fileID: 7281940281577464585, guid: 0f5757bc2f80b6e41bd0ef7a18b1a5ef, type: 3}
+  - {fileID: 6031768757373064001, guid: cd07df8db0de3274994b8ec80df44b94, type: 3}
+  dropRate: 0.03
   money: 0
 --- !u!114 &1771624388262519801
 MonoBehaviour:

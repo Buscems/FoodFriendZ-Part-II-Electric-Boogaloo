@@ -11,7 +11,7 @@ public class EnemyBullet : MonoBehaviour
     public float speed;
     [HideInInspector]
     public Vector3 velocity;
-
+    [HideInInspector]
     public int damage;
 
     Rigidbody2D rb;
@@ -39,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if(collision.tag == "Player1" || collision.tag == "Player2")
         {
-            collision.GetComponent<MainPlayer>().health -= damage;
+            collision.GetComponent<MainPlayer>().GetHit(damage);
             Destroy(this.gameObject);
         }
 
