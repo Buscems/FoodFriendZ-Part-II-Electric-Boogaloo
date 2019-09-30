@@ -605,14 +605,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12edf85a889318f40883efcacba11b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+  baseStats: {fileID: 0}
   powerUpName: 
   movementSpeed: 1
   attackSize: 1
   attackSpeed: 1
   attackDamage: 1
   healAmount: 0
-  timer: 0
-  maxTimer: 0
+  vampHeal: 0
+  stunTimer: 0
+  maxStunTimer: 0
   currentPowerUp: 0
 --- !u!1 &1432795269
 GameObject:
@@ -2073,6 +2076,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe6dd9aab39e754daf22d0ff43c8928, type: 3}
+--- !u!1001 &8386417768251655662
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7694880819570668524, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_Name
+      value: BanannaPeel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.635
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901934639749070019, guid: 106dcac4661e13f4ea7f4053f012f84f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 106dcac4661e13f4ea7f4053f012f84f, type: 3}
 --- !u!1001 &8401096136792139166
 PrefabInstance:
   m_ObjectHideFlags: 0

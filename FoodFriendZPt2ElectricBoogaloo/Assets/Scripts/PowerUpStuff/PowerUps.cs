@@ -22,9 +22,9 @@ public class PowerUps : MonoBehaviour
     public int healAmount = 0;
     public float vampHeal = 0;
 
-    [Header("Timre Things")]
-    public float timer;
-    public float maxTimer;
+    [Header("Timer Things")]
+    public float stunTimer;
+    public float maxStunTimer;
 
 
     public void Start()
@@ -105,12 +105,18 @@ public class PowerUps : MonoBehaviour
                 break;
 
             //case4
-            case PowerUpTypes.EnemyConfusion:
+            case PowerUpTypes.StunAttack:
+                stats.stunTimer = 5;
 
                 break;
             //case5
             case PowerUpTypes.HealthGainPerDMG:
-                stats.health += Mathf.RoundToInt((baseStats.baseDamage * vampHeal));              
+
+                int totalVampHeal = Mathf.RoundToInt((baseStats.baseDamage * vampHeal));
+                if (totalVampHeal >= 1)
+                {
+                    healAmount += totalVampHeal;
+                }
 
                 break;    
             //case6

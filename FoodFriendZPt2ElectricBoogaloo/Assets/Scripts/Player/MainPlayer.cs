@@ -30,6 +30,10 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector]
     public float speed;
 
+    [HideInInspector]
+    public float stunTimer;
+    public float maxStunTimer;
+
     Rigidbody2D rb;
     Vector3 velocity;
 
@@ -70,8 +74,8 @@ public class MainPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        PlayerMovement();
+        if (stunTimer <= 0) { PlayerMovement(); }
+        else { stunTimer -= Time.deltaTime; }
 
         LookDirection();
         AttackLogic();
