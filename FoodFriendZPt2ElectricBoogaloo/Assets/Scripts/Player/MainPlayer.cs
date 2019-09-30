@@ -70,7 +70,9 @@ public class MainPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         PlayerMovement();
+
         LookDirection();
         AttackLogic();
         AnimationHandler();
@@ -426,6 +428,7 @@ public class MainPlayer : MonoBehaviour
             currentChar.firerate *= temp.attackSpeed; //for projectiles
             currentChar.baseDamage *= temp.attackDamage;
             currentChar.maxDamage *= temp.attackDamage;
+            health += temp.healAmount;
 
             Debug.Log(other.name);
 

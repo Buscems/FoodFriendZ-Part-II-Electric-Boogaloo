@@ -10,6 +10,12 @@ public class GUI_Script : MonoBehaviour
      * HOW TO MAKE HEART/HEALTH SYSTEM - UNITY TUTORIAL
      * https://www.youtube.com/watch?v=3uyolYVsiWc
      */
+    [Header("DEBUG")]
+
+
+    [Header("ScreenOverLays")]
+    public GameObject guiOverlay;
+    public GameObject gameOverOverlay;
 
     public GameObject CharacterCompassParent;
 
@@ -25,7 +31,6 @@ public class GUI_Script : MonoBehaviour
     public Sprite FullHeart;
     public Sprite EmptyHeart;
 
-
     [Header("EquiptmentToolBar")]
     public GameObject EquiptMentToolBar;
 
@@ -37,4 +42,12 @@ public class GUI_Script : MonoBehaviour
 
     [Header("Money")]
     public int money;
+
+
+    //GameOver Test
+    public void GameOverTestButtonFunction()
+    {
+        guiOverlay.SetActive(false);
+        gameOverOverlay.SetActive(true);
+    }
 }

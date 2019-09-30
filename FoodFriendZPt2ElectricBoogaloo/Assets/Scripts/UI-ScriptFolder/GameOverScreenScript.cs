@@ -12,16 +12,19 @@ public class GameOverScreenScript : MonoBehaviour
      *
      */
 
+    [Header("Buttons")]
     public Button RestartButton;
     public Button ExitButton;
 
     public void RestartButtonFunction()
     {
         Debug.Log("Restarting Game");
+        SceneManager.LoadScene("GameplayScreen");
     }
 
     public void ExitButtonFunction()
     {
         Debug.Log("Loading Main Menu");
+        SceneManager.LoadScene("TitleScreen");
     }
 }
