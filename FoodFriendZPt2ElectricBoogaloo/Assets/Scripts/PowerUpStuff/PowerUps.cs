@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
+    public MainPlayer stats;
+    public BasePlayer baseStats;
+
     [Tooltip("Power-Up Names")]
     public string powerUpName = "";
 
+    [Header ("Base Stats")]
     public float movementSpeed = 1;
     public float attackSize = 1;
     public float attackSpeed = 1;
     public float attackDamage = 1;
-    public float healAmount = 0;
 
+    [Header("Healing")]
+    public float healAmount = 0;
+    public float vampHeal = 0;
+
+    [Header("Timre Things")]
     public float timer;
     public float maxTimer;
 
@@ -94,11 +102,12 @@ public class PowerUps : MonoBehaviour
                 break;
             //case5
             case PowerUpTypes.HealthGainPerDMG:
+                stats.health += Mathf.RoundToInt((baseStats.baseDamage * vampHeal));              
 
                 break;    
             //case6
             case PowerUpTypes.Heal:
-
+                
                 break;
             //case last - null for base stats - DO NOT FILL IN LEAVE BLANK
             case PowerUpTypes.Null:
