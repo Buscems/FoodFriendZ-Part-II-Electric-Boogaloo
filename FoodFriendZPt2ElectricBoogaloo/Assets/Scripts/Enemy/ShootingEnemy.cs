@@ -69,7 +69,7 @@ public class ShootingEnemy : MonoBehaviour
             }
         }*/
 
-        if (baseEnemy.aggroScript.aggro)
+        if (baseEnemy.aggroScript.aggro && currentClip > 0)
         {
             if (Time.time > nextShot)
             {
@@ -114,9 +114,9 @@ public class ShootingEnemy : MonoBehaviour
     IEnumerator Reload()
     {
         Reloading = false;
-        Debug.Log("Starting Coroutine " + Time.time);
+        //Debug.Log("Starting Coroutine " + Time.time);
         yield return new WaitForSeconds(coroutineTime);
-        Debug.Log("Ending Coroutine " + Time.time);
+        //Debug.Log("Ending Coroutine " + Time.time);
         currentClip = clipSize;
     }
 

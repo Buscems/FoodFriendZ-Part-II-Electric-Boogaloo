@@ -27,9 +27,21 @@ public class BaseEnemy : MonoBehaviour
 
     bool itemDrop;
 
+    GameObject objectToDestroy;
+
     // Start is called before the first frame update
     public void Start()
     {
+        //this is making sure that if there are any parents of the main object, it knows to destroy the parent so that nothing is left behind.
+        if(this.gameObject.transform.parent != null)
+        {
+            objectToDestroy = this.gameObject.transform.parent.gameObject;
+        }
+        else
+        {
+            objectToDestroy = this.gameObject;
+        }
+
         if (GetComponent<Animator>() != null)
         {
             anim = GetComponent<Animator>();
@@ -74,8 +86,14 @@ public class BaseEnemy : MonoBehaviour
         }
         if(anim == null)
         {
-            Destroy(this.gameObject);
+            DestroyThisObject();
         }
 
     }
+
+    public void DestroyThisObject()
+    {
+        Destroy(objectToDestroy);
+    }
+
 }

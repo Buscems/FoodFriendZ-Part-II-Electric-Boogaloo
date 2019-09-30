@@ -12,8 +12,8 @@ public class Tracking : MonoBehaviour
 
     [Tooltip("How long we want the enemy to sit still and track the player")]
     public float trackTime;
-    //[Tooltip("How long we want the enemy to take to get to it's destination")]
-    //public float followTime;
+    [Tooltip("How long we want the enemy to take to get to it's destination")]
+    public float followTime;
 
     BaseEnemy baseEnemy;
 
@@ -34,7 +34,7 @@ public class Tracking : MonoBehaviour
         {
             if (!startLoop)
             {
-                Debug.Log("YEr");
+                Debug.Log("Yer");
                 StartCoroutine(Tracker());
                 startLoop = true;
             }
@@ -51,11 +51,7 @@ public class Tracking : MonoBehaviour
         }
         else
         {
-            StopAllCoroutines();
-            track = false;
-            follow = false;
-            playerPos = this.transform.position;
-            startLoop = false;
+            ResetTrack();
         }
 
 
@@ -76,6 +72,23 @@ public class Tracking : MonoBehaviour
         */
     }
 
+    void ResetTrack()
+    {
+        StopAllCoroutines();
+        track = false;
+        follow = false;
+        playerPos = this.transform.position;
+        startLoop = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "TilesHere")
+        {
+            ResetTrack();
+        }
+    }
+
     IEnumerator Tracker(){
         track = true;
         yield return new WaitForSeconds(trackTime);
@@ -85,10 +98,7 @@ public class Tracking : MonoBehaviour
 
     IEnumerator Follow(){
         follow = true;
-        while(transform.position != playerPos)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(followTime);
         follow = false;
         StartCoroutine(Tracker());
     }
