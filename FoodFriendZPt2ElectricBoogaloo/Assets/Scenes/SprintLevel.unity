@@ -43540,6 +43540,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27c411d8eee326343a954929e3e2f259, type: 3}
+--- !u!1 &1553194858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5019032375997857798, guid: 56dcdea09138c094dae9cf53e26a63ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 69782567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1553194859
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553194858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b96a902023ebe24f82846176d9da517, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1693346085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 822394764877458804, guid: 84bc0511b46d0ed41a52cefe75499541,
@@ -52163,7 +52188,7 @@ PrefabInstance:
     - target: {fileID: 4728474277593573591, guid: b91fdbffcd24a2641afba4a5a43bf87c,
         type: 3}
       propertyPath: m_Name
-      value: ShootingEnemy
+      value: RottingOnion
       objectReference: {fileID: 0}
     - target: {fileID: 4728474277593573588, guid: b91fdbffcd24a2641afba4a5a43bf87c,
         type: 3}

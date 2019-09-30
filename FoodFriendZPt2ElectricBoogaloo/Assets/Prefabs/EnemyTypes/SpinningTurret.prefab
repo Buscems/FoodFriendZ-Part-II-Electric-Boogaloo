@@ -125,6 +125,7 @@ MonoBehaviour:
   bullet: {fileID: 8389044837174670204, guid: 1eb51d90f497ce047829c70af12543fc, type: 3}
   timeInBetweenBullets: 0.1
   bulletSpeed: 8
+  bulletDamage: 1
 --- !u!50 &1771624388262519804
 Rigidbody2D:
   serializedVersion: 4
@@ -215,8 +216,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9176bb912ce30eb4aa6fdc3a783f7d0a, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -8508513199483457622, guid: 1afc08141eae90e4cb32aceadf9c9157,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -16,7 +16,8 @@ public class Attack : MonoBehaviour
 
     private int currentEnemiesPassed;
 
-    bool isBomb;
+    [HideInInspector]
+    public bool isBomb;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,17 @@ public class Attack : MonoBehaviour
                     currentEnemiesPassed -= 1;
                 }
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //this is for the cherry bomb, if you want to change it you can, I did this really fast and it's really bad and specific to basically only these types of interactions
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Cherry Bomb");
+            collision.GetComponent<BaseEnemy>().health -= damage;
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), this.GetComponent<CircleCollider2D>());
         }
     }
 

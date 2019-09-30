@@ -225,6 +225,10 @@ public class BasePlayer : ScriptableObject
         GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         attack.GetComponent<Attack>().damage = baseDamage;
         attack.GetComponent<CircleCollider2D>().radius = dropRadius;
+        if(this.characterName == "cherry")
+        {
+            attack.GetComponent<Attack>().isBomb = true;
+        }
     }
 
     public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)

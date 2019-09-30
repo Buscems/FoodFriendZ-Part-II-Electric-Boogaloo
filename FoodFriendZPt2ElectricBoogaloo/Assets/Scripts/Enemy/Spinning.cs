@@ -14,6 +14,8 @@ public class Spinning : MonoBehaviour
     public float timeInBetweenBullets;
     public float bulletSpeed;
 
+    public int bulletDamage;
+
     BaseEnemy baseEnemy;
     bool isShooting;
 
@@ -54,6 +56,7 @@ public class Spinning : MonoBehaviour
             var temp = Instantiate(bullet, transform.position, Quaternion.identity);
             temp.GetComponent<EnemyBullet>().velocity = this.transform.up;
             temp.GetComponent<EnemyBullet>().speed = bulletSpeed;
+            temp.GetComponent<EnemyBullet>().damage = bulletDamage;
             yield return new WaitForSeconds(timeInBetweenBullets);
         }
         isShooting = false;

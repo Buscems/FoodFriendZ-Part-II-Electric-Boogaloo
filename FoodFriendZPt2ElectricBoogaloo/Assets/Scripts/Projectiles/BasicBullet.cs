@@ -69,5 +69,11 @@ public class BasicBullet : MonoBehaviour
                 velocity.x *= -1;
             }
         }
+
+        if(!canBounce && collision.gameObject.tag == "TilesHere")
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 }

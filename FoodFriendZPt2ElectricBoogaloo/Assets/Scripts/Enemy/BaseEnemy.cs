@@ -30,6 +30,9 @@ public class BaseEnemy : MonoBehaviour
 
     GameObject objectToDestroy;
 
+    public enum EnemyType { Corn, FishBones, RottingOnion, MoldyFood};
+    EnemyType currentType;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -47,6 +50,10 @@ public class BaseEnemy : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
+        else if(this.transform.parent.GetComponent<Animator>() != null)
+        {
+            anim = this.transform.parent.GetComponent<Animator>();
+        }
         if(Random.Range(0f, 1f) <= dropRate)
         {
             Debug.Log("Cool");
@@ -58,8 +65,38 @@ public class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        if (anim != null && aggroScript.aggro)
+        {
+            AnimationHandler();
+        }
 
-            
+    }
+
+    void AnimationHandler()
+    {
+        Vector3 direction = (aggroScript.currentTarget.position - aggroScript.currentPos).normalized;
+
+        //this will switch the animation of the current character
+        if ( direction.x > 0 && direction.y < 0)
+        {
+            anim.SetFloat("Blend", 0);
+            //Debug.Log("Right Front");
+        }
+        else if (direction.x < 0 && direction.y < 0)
+        {
+            anim.SetFloat("Blend", 1);
+            //Debug.Log("Left Front");
+        }
+        else if (direction.x > 0 && direction.y > 0)
+        {
+            anim.SetFloat("Blend", 2);
+            //Debug.Log("Right Back");
+        }
+        else if (direction.x < 0 && direction.y > 0)
+        {
+            anim.SetFloat("Blend", 3);
+            //Debug.Log("Left Back");
+        }
 
     }
 
@@ -91,6 +128,8 @@ public class BaseEnemy : MonoBehaviour
             DestroyThisObject();
         }
         */
+
+        DestroyThisObject();
 
     }
 
