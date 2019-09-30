@@ -40,6 +40,10 @@ public class BasePlayer : ScriptableObject
     [Tooltip("How many enemies can the attack pass through before being destroyed. Keep -1 if its infinite.")]
     public int maxAmountOfEnemiesCanPassThrough = -1;
 
+
+    [Tooltip("This will be how far the weapon is from the player when it is activated.")]
+    public float offset;
+
     [HideInInspector]
     public Vector3 currentPosition;
     [HideInInspector]
@@ -51,8 +55,6 @@ public class BasePlayer : ScriptableObject
     public GameObject weapon;
     [Tooltip("This is the position the weapon will be at when it is not being used.")]
     public Vector3 awayPos;
-    [Tooltip("This will be how far the weapon is from the player when it is activated.")]
-    public float offset;
     [Tooltip("This will be how fast the sword attack plays")]
     public float attackSpeed;
     public float rotationalOffset;
