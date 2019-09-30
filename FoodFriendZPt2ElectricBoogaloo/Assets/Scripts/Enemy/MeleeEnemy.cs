@@ -28,9 +28,9 @@ public class MeleeEnemy : MonoBehaviour
 
     void Start()
     {
-        Tracking = this.GetComponent<Tracking>();
-        baseEnemy = this.GetComponent<BaseEnemy>();
-        MainPlayer = this.GetComponent<MainPlayer>();
+        Tracking = GetComponent<Tracking>();
+        baseEnemy = GetComponent<BaseEnemy>();
+        MainPlayer = GetComponent<MainPlayer>();
         rb = this.GetComponent<Rigidbody2D>();
         startPos = transform.position;
     }
