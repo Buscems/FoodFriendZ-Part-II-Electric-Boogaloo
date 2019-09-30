@@ -21,6 +21,10 @@ public class PauseMenuScript : MonoBehaviour
 
     public static bool IsGamePaused = false;   //used to tell other scripts
 
+    [Header("Overlay Elements")]
+    public GameObject PauseMenuOverlay;
+    public GameObject OptionsOverlay;
+
     [Header("Parent GameObjects")]
     public GameObject PauseButtonParent;
 
@@ -53,6 +57,8 @@ public class PauseMenuScript : MonoBehaviour
         }
     }
 
+
+    #region all button functions
     void Pause()
     {
         PauseMenuUI.SetActive(true);
@@ -63,6 +69,8 @@ public class PauseMenuScript : MonoBehaviour
     public void OptionsButtonFunction()
     {
         Debug.Log("Calling Options Menu");
+        PauseMenuOverlay.SetActive(false);
+        OptionsOverlay.SetActive(true);
     }
 
     public void ResumeGameButtonFunction()
@@ -76,11 +84,14 @@ public class PauseMenuScript : MonoBehaviour
     {
         Time.timeScale = 1f;            //Sets time back to normal before loading another scene
         Debug.Log("Reseting Run");
+        SceneManager.LoadScene("GameplayScreen");
     }
 
     public void ExitGameButtonFunction()
     {
         Time.timeScale = 1f;            //Sets time back to normal before loading another scene
         Debug.Log("Going to MainMenu");
+        SceneManager.LoadScene("TitleScreen");
     }
+    #endregion
 }

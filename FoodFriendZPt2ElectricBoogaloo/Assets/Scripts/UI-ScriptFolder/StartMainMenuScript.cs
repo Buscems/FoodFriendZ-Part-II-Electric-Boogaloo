@@ -12,8 +12,6 @@ public class StartMainMenuScript : MonoBehaviour
      * 
      */
 
-    public EventSystem events;
-
     static float t = 0.0f; //starting value for lerp
 
     [Header("Lerping Colors")]
@@ -25,10 +23,14 @@ public class StartMainMenuScript : MonoBehaviour
     public TextMeshProUGUI TitleInscruction;
 
     [Header("Parent GameObjects")]
-    public GameObject TitleButtonParent;
+    public GameObject OptionsMenuParent;
+    public GameObject MainMenuParent;
     public GameObject CreditScreenParent;
+    public GameObject LogBookParent;
 
     [Header("Buttons")]
+    public GameObject TitleButtonParent;
+    [Space]
     public Button StartButton;
     public Button OptionsButton;
     public Button CreditsButton;
@@ -66,6 +68,7 @@ public class StartMainMenuScript : MonoBehaviour
         }
     }
 
+    #region all buttons
     //Start Button
     public void StartButtonFunction()
     {
@@ -77,11 +80,15 @@ public class StartMainMenuScript : MonoBehaviour
     public void LogBookButtonFunction()
     {
         Debug.Log("Opening Log Book");
+        LogBookParent.SetActive(true);
+        MainMenuParent.SetActive(false);
     }
 
     //Options Button
     public void OptionsButtonFunction()
     {
+        OptionsMenuParent.SetActive(true);
+        MainMenuParent.SetActive(false);
         Debug.Log("Opening options menu");
     }
 
@@ -91,8 +98,7 @@ public class StartMainMenuScript : MonoBehaviour
         CreditScreenParent.SetActive(true);
 
         //turn off all other elements
-        TitleButtonParent.SetActive(false);
-        TitleCard.enabled = false;
+        MainMenuParent.SetActive(false);
     }
 
     //Quit Button
@@ -101,4 +107,5 @@ public class StartMainMenuScript : MonoBehaviour
         Application.Quit();     //This should work in the build. Doesn't work in editor because it would close Unity
         Debug.Log("Quitting Game");
     }
+    #endregion
 }

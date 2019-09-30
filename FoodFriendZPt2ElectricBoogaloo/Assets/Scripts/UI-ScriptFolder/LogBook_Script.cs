@@ -13,6 +13,9 @@ public class LogBook_Script : MonoBehaviour
 {
     public TextMeshProUGUI CurrentTab_Display;
 
+    public GameObject TitleScreenOverlay;
+    public GameObject LogBookScreenOverlay;
+
     [Header("Buttons")]
     public Button CharactersButton;
     public Button ItemButton;
@@ -27,6 +30,7 @@ public class LogBook_Script : MonoBehaviour
     public GameObject FloorsPanel;
     public GameObject EnemiesPanel;
 
+    #region all buttons
     //Character tab
     public void CharacterButtonFunction()
     {
@@ -61,4 +65,12 @@ public class LogBook_Script : MonoBehaviour
         Debug.Log("Opening Enemies Tab");
         CurrentTab_Display.text = ("Enemies");
     }
+    
+    //Back button tab
+    public void BackButtonFunction()
+    {
+        TitleScreenOverlay.SetActive(true);
+        LogBookScreenOverlay.SetActive(false);
+    }
+    #endregion
 }
