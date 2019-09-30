@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 3333019552208117152}
   - component: {fileID: 1931200788}
   m_Layer: 10
-  m_Name: Turkey
+  m_Name: BigMoldyFood
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2565543698613490713, guid: 663e58a8fdbc1c742a30058c66a95813,
+  m_Sprite: {fileID: 1490373968885121651, guid: 3aab7b3f24f684643a45f7dfe4defb9f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -162,7 +162,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3, y: 1.45}
+    oldSize: {x: 1.6, y: 0.8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

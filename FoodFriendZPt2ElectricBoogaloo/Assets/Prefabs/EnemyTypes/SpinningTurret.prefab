@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1771624388262519801}
   - component: {fileID: 1499232440247048202}
   - component: {fileID: 1771624388262519804}
+  - component: {fileID: 6024770198151065846}
   m_Layer: 10
   m_Name: turret
   m_TagString: Enemy
@@ -147,6 +148,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &6024770198151065846
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771624388262519805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b96a902023ebe24f82846176d9da517, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5019032375997857798
 GameObject:
   m_ObjectHideFlags: 0
