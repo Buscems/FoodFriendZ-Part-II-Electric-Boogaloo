@@ -4,18 +4,34 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
+    [HideInInspector]
+    public MainPlayer stats;
+    [HideInInspector]
+    public BasePlayer baseStats;
+
     [Tooltip("Power-Up Names")]
     public string powerUpName = "";
 
+    [Header ("Base Stats")]
     public float movementSpeed = 1;
     public float attackSize = 1;
     public float attackSpeed = 1;
     public float attackDamage = 1;
-    public float healAmount = 0;
 
-    public float timer;
-    public float maxTimer;
+    [Header("Healing")]
+    public int healAmount = 0;
+    public float vampHeal = 0;
 
+    [Header("Timer Things")]
+    public float stunTimer;
+    public float maxStunTimer;
+
+
+    public void Start()
+    {
+        stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
+        baseStats = stats.currentChar;
+    }
 
     //this gives drop down menu selects, make new line write name then put comma
     //if last line, do not put comma at end of word
@@ -89,16 +105,23 @@ public class PowerUps : MonoBehaviour
                 break;
 
             //case4
-            case PowerUpTypes.EnemyConfusion:
+            case PowerUpTypes.StunAttack:
+                stats.stunTimer = 5;
 
                 break;
             //case5
             case PowerUpTypes.HealthGainPerDMG:
 
+                int totalVampHeal = Mathf.RoundToInt((baseStats.baseDamage * vampHeal));
+                if (totalVampHeal >= 1)
+                {
+                    healAmount += totalVampHeal;
+                }
+
                 break;    
             //case6
             case PowerUpTypes.Heal:
-
+                
                 break;
             //case last - null for base stats - DO NOT FILL IN LEAVE BLANK
             case PowerUpTypes.Null:

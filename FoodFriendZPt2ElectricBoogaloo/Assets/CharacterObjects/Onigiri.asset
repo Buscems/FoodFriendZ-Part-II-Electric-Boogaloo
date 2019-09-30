@@ -26,11 +26,11 @@ MonoBehaviour:
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
+  offset: 0.75
   currentPosition: {x: -4.6827736, y: 6.7532387, z: 0}
   currentDirection: {x: -0.031214183, y: 0.19576772, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
-  offset: 0
   attackSpeed: 0
   rotationalOffset: 0
   isChargable: 1
@@ -50,4 +50,5 @@ MonoBehaviour:
   timeBetweenBursts: 0.5
   firing: 0
   drop: {fileID: 0}
+  dropRadius: 0
   currentFirerateTimer: 0.9287608
