@@ -273,6 +273,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546783293}
   m_CullTransparentMesh: 0
+--- !u!1 &592970504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1230838766}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 592970505}
+  m_Layer: 0
+  m_Name: knightIMPACTeffect (4) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &592970505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1230838766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592970504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &632418670
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +491,7 @@ SpriteRenderer:
   m_Size: {x: 7.96, y: 8.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &676462786
@@ -504,6 +534,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.96, y: 8.19}
   m_EdgeRadius: 0
+--- !u!1001 &715576860
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.4897885
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.14527719
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.56640625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.82412624
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617062857507310, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_Name
+      value: Tofu Slash
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
 --- !u!1001 &737439055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -628,6 +715,36 @@ Transform:
   - {fileID: 2265542972100103431}
   m_Father: {fileID: 1499699919}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1215436774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6731875822278274060}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1215436775}
+  m_Layer: 0
+  m_Name: knightIMPACTeffect (3) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1215436775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6731875822278274060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215436774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1230838766
 PrefabInstance:
@@ -1046,7 +1163,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -1176,7 +1293,7 @@ SpriteRenderer:
   m_Size: {x: 7.96, y: 8.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1536089205
@@ -1282,7 +1399,7 @@ SpriteRenderer:
   m_Size: {x: 7.96, y: 8.19}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1670531322
@@ -2393,7 +2510,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -2575,7 +2692,7 @@ PrefabInstance:
     - target: {fileID: 6395150998634023899, guid: 764722ef3d241ac4083b9240f08a6730,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6395150998634023899, guid: 764722ef3d241ac4083b9240f08a6730,
         type: 3}
