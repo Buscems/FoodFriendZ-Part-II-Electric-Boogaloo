@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: Yabai
+  m_Name: Cherry
   m_EditorClassIdentifier: 
-  characterName: onigiri
+  characterName: cherry
   attackType: 5
   speed: 7
-  baseDamage: 1
+  baseDamage: 5
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1012.8007
+  currentDodgeTime: -1077.9365
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -12.776938
+  currentDodgeWaitTime: -77.82712
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  currentPosition: {x: -18.929096, y: 17.373571, z: 0}
-  currentDirection: {x: -0.20466672, y: -1, z: 0}
+  currentPosition: {x: -15.045448, y: -9.840646, z: 0}
+  currentDirection: {x: -0.83482033, y: 0.3956021, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   offset: 0
@@ -50,4 +50,5 @@ MonoBehaviour:
   timeBetweenBursts: 0.5
   firing: 0
   drop: {fileID: 4049022442695697508, guid: 840089a4ee0433149a83c6df387b59f2, type: 3}
+  dropRadius: 2
   currentFirerateTimer: -2.2915077

@@ -279,6 +279,10 @@ public class MainPlayer : MonoBehaviour
             case "takoyaki":
                 anim.SetInteger("characterID", 3);
                 break;
+            case "cherry":
+                anim.SetInteger("characterID", 4);
+                break;
+
         }
          
         //this will switch the animation of the current character

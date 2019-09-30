@@ -92,6 +92,8 @@ public class BasePlayer : ScriptableObject
 
     [Header("Building Characters")]
     public GameObject drop;
+    [Tooltip("How large of a radius the spawned item will have")]
+    public float dropRadius;
 
     [HideInInspector]
     public float currentFirerateTimer = 0;
@@ -222,6 +224,7 @@ public class BasePlayer : ScriptableObject
 
         GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         attack.GetComponent<Attack>().damage = baseDamage;
+        attack.GetComponent<CircleCollider2D>().radius = dropRadius;
     }
 
     public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)

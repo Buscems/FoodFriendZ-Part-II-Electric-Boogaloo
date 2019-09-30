@@ -16,6 +16,8 @@ public class Attack : MonoBehaviour
 
     private int currentEnemiesPassed;
 
+    bool isBomb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,32 +37,35 @@ public class Attack : MonoBehaviour
             //decrease the enemy's health, this will be for regular enemies as well as boss enemies
             other.GetComponent<BaseEnemy>().health -= damage;
 
-            try
+            if (!isBomb)
             {
-                //if attack is non pierce-able, destroy on collision with enemy
-                if (transform.root.GetComponent<MainPlayer>().HitEnemy(gameObject.tag))
+                try
                 {
-                    if (!canPierce)
+                    //if attack is non pierce-able, destroy on collision with enemy
+                    if (transform.root.GetComponent<MainPlayer>().HitEnemy(gameObject.tag))
                     {
-                        Destroy(gameObject);
+                        if (!canPierce)
+                        {
+                            Destroy(gameObject);
+                        }
                     }
                 }
-            }
-            catch
-            {
-                Destroy(gameObject);
-            }
-
-            damage *= pierceMultiplier;
-
-            if (currentEnemiesPassed != -1)
-            {
-                if (currentEnemiesPassed == 0)
+                catch
                 {
                     Destroy(gameObject);
                 }
 
-                currentEnemiesPassed -= 1;
+                damage *= pierceMultiplier;
+
+                if (currentEnemiesPassed != -1)
+                {
+                    if (currentEnemiesPassed == 0)
+                    {
+                        Destroy(gameObject);
+                    }
+
+                    currentEnemiesPassed -= 1;
+                }
             }
         }
     }

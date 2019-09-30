@@ -15,18 +15,18 @@ MonoBehaviour:
   characterName: tofu
   attackType: 0
   speed: 6
-  baseDamage: 5
+  baseDamage: 1
   dodgeSpeedMultiplier: 2
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.25
-  currentDodgeTime: -38.79004
+  currentDodgeTime: -50.96955
   dodgeWaitTime: 2
-  currentDodgeWaitTime: -36.789913
+  currentDodgeWaitTime: -48.969425
   attackSize: {x: 0.3, y: 1, z: 1}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  currentPosition: {x: 19.335365, y: -5.8216763, z: 0}
+  currentPosition: {x: -6, y: 0, z: 0}
   currentDirection: {x: -0.16555984, y: 0.09479182, z: 0}
   weapon: {fileID: 1791375524048153698, guid: f7e7f35abf30248cf9b3141b572bf0c6, type: 3}
   awayPos: {x: 5000, y: 5000, z: 0}
@@ -50,4 +50,5 @@ MonoBehaviour:
   timeBetweenBursts: 0
   firing: 0
   drop: {fileID: 0}
+  dropRadius: 0
   currentFirerateTimer: 0

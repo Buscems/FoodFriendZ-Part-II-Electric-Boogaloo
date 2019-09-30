@@ -79,6 +79,7 @@ public class BaseEnemy : MonoBehaviour
             Instantiate(items[Random.Range(0, items.Length)], transform.position, Quaternion.identity);
         }
 
+        /*
         //if there is an animation for death
         if (anim != null)
         {
@@ -89,6 +90,7 @@ public class BaseEnemy : MonoBehaviour
         {
             DestroyThisObject();
         }
+        */
 
     }
 

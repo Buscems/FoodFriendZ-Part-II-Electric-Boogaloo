@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 3518955493352640538}
   - component: {fileID: 1973797849005375013}
   - component: {fileID: 4473644114682443014}
+  - component: {fileID: 1675159111}
   m_Layer: 0
-  m_Name: YabaiOilPaintSolarized (1)
+  m_Name: CherryBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4049022442695697508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.94, y: -1.69, z: 0}
-  m_LocalScale: {x: 0.129, y: 0.129, z: 0.129}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,8 +70,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ab1a75bb437615544b155ab50ed776d4, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 9174681048781450856, guid: a06e5a9dc1a57bc46ac807785dd05289,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,6 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  canPierce: 0
+  pierceMultiplier: 1
+  maxAmountOfEnemiesCanPassThrough: -1
 --- !u!58 &4473644114682443014
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -109,4 +114,23 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.095
+  m_Radius: 1
+--- !u!95 &1675159111
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049022442695697508}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07a5b259796e6784993885a44a8d026a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
