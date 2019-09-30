@@ -82,7 +82,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void ResetRunButtonFunction()
     {
-        Time.timeScale = 1f;            //Sets time back to normal before loading another scene
+        Time.timeScale = 1f;            //Sets time back to normal before loading another scene [May affect animator]
         Debug.Log("Reseting Run");
         SceneManager.LoadScene("GameplayScreen");
     }
