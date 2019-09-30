@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
+    [HideInInspector]
     public MainPlayer stats;
+    [HideInInspector]
     public BasePlayer baseStats;
 
     [Tooltip("Power-Up Names")]
@@ -17,13 +19,19 @@ public class PowerUps : MonoBehaviour
     public float attackDamage = 1;
 
     [Header("Healing")]
-    public float healAmount = 0;
+    public int healAmount = 0;
     public float vampHeal = 0;
 
     [Header("Timre Things")]
     public float timer;
     public float maxTimer;
 
+
+    public void Start()
+    {
+        stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
+        baseStats = stats.currentChar;
+    }
 
     //this gives drop down menu selects, make new line write name then put comma
     //if last line, do not put comma at end of word
