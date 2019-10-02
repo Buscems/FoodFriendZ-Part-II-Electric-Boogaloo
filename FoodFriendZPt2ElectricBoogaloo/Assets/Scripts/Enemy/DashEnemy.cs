@@ -16,11 +16,16 @@ public class DashEnemy : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    Vector3 direction;
+
+    Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine (Tracker());
         baseEnemy = GetComponent<BaseEnemy>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -29,10 +34,6 @@ public class DashEnemy : MonoBehaviour
         if (track == true){
             playerPos = player.transform.position;
             Debug.Log("track is true");
-        }
-        if (follow == true){
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
-            Debug.Log("follow is true");
         }
         /*
         if (trackTimeStart >= maxTrackTime){
@@ -49,6 +50,16 @@ public class DashEnemy : MonoBehaviour
             }
         }
         */
+    }
+    
+    private void FixedUpdate()
+    {
+        if (follow == true)
+        {
+
+            //transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
+            Debug.Log("follow is true");
+        }
     }
 
     IEnumerator Tracker(){
