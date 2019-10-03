@@ -23,12 +23,15 @@ public class PathfindingAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+    BaseEnemy baseEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        baseEnemy = GetComponent<BaseEnemy>();
 
         InvokeRepeating("UpdatePath", 0, .5f);
 
@@ -36,7 +39,11 @@ public class PathfindingAI : MonoBehaviour
 
     void UpdatePath()
     {
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
+        if (baseEnemy.aggroScript.aggro)
+        {
+            target = baseEnemy.aggroScript.currentTarget;
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
+        }
     }
 
     void OnPathComplete(Path p)

@@ -399,7 +399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &567305665
 Rigidbody2D:
   serializedVersion: 4
@@ -461,7 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83980db72f9b2b45bdfde10d3e5a337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1693346085}
   speed: 5
   nextWaypointDistance: 0.5
 --- !u!212 &567305668
@@ -53444,7 +53443,7 @@ PrefabInstance:
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: usingMouse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
