@@ -10,7 +10,7 @@ public class PathfindingAI : MonoBehaviour
     //https://www.youtube.com/watch?v=jvtFUfJ6CP8
     //I plan on making this work a little differently so that it will work for all of the different levels we might want
 
-    public Transform target;
+    Transform target;
 
     public float speed;
     public float nextWaypointDistance;
@@ -30,8 +30,13 @@ public class PathfindingAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
+        InvokeRepeating("UpdatePath", 0, .5f);
 
+    }
+
+    void UpdatePath()
+    {
+        seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
     void OnPathComplete(Path p)
