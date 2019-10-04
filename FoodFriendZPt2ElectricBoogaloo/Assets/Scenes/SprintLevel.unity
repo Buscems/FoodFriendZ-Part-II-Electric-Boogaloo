@@ -290,11 +290,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -7393407239666381191, guid: efb92a5f68928fd4e912503aa772f121,
-        type: 3}
-      propertyPath: aggroRange
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6390628040462881751, guid: efb92a5f68928fd4e912503aa772f121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -382,6 +377,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7393407239666381191, guid: efb92a5f68928fd4e912503aa772f121,
+        type: 3}
+      propertyPath: aggroRange
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb92a5f68928fd4e912503aa772f121, type: 3}
@@ -44748,11 +44748,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrackingEnemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: -7393407239666381191, guid: efb92a5f68928fd4e912503aa772f121,
-        type: 3}
-      propertyPath: aggroRange
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6390628040462881751, guid: efb92a5f68928fd4e912503aa772f121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44812,6 +44807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7393407239666381191, guid: efb92a5f68928fd4e912503aa772f121,
+        type: 3}
+      propertyPath: aggroRange
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb92a5f68928fd4e912503aa772f121, type: 3}
@@ -53017,11 +53017,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooting/SpawningSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: -7393407239666381191, guid: efb92a5f68928fd4e912503aa772f121,
-        type: 3}
-      propertyPath: aggroRange
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6390628040462881751, guid: efb92a5f68928fd4e912503aa772f121,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53103,6 +53098,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7393407239666381191, guid: efb92a5f68928fd4e912503aa772f121,
+        type: 3}
+      propertyPath: aggroRange
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb92a5f68928fd4e912503aa772f121, type: 3}
@@ -53247,11 +53247,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4903966373799120216, guid: 0b51ff908a2bd9845a0dae857bac6202,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1693346085}
     - target: {fileID: 4903966373799120217, guid: 0b51ff908a2bd9845a0dae857bac6202,
         type: 3}
       propertyPath: m_BackGroundColor.a
@@ -53272,6 +53267,11 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4903966373799120216, guid: 0b51ff908a2bd9845a0dae857bac6202,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1693346085}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b51ff908a2bd9845a0dae857bac6202, type: 3}
 --- !u!1 &2146578955
