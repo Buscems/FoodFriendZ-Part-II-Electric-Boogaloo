@@ -24,7 +24,7 @@ public class BaseEnemy : MonoBehaviour
     public float dropRate;
 
     [Tooltip("How much money the enemy will drop when killed")]
-    public float money;
+    public int money;
 
     bool itemDrop;
 
@@ -105,6 +105,7 @@ public class BaseEnemy : MonoBehaviour
         if (health <= 0)
         {
             Death();
+            aggroScript.target[0].GetComponent<MainPlayer>().currency += money;
         }
     }
 

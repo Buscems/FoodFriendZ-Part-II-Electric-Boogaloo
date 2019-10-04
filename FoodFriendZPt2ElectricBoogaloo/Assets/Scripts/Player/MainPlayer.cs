@@ -4,14 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
 using Rewired.ControllerExtensions;
+using TMPro;
 
 public class MainPlayer : MonoBehaviour
 {
     public int health;
+    [HideInInspector]
+    public int currency;
+
 
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
     private Player myPlayer;
+    private TextMeshProUGUI currencyText;
     [Header("Rewired")]
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
@@ -76,6 +81,7 @@ public class MainPlayer : MonoBehaviour
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         CheckController(myPlayer);
+        currencyText = GameObject.Find("MoneyCount").GetComponent<TextMeshProUGUI>();
         cam = GameObject.Find("Main Camera").GetComponent<CameraShake>();
 
         try
@@ -127,6 +133,8 @@ public class MainPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currencyText.SetText("" + currency);
+
         if (stunTimer <= 0) { PlayerMovement(); }
         else { stunTimer -= Time.deltaTime; }
 
