@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
   m_Name: Takoyaki
   m_EditorClassIdentifier: 
+  hudIcon: {fileID: -5435086016833673295, guid: 526345c04a1d89f4eaf9bb9643030873,
+    type: 3}
   characterName: takoyaki
   attackType: 4
   speed: 5
@@ -19,15 +21,15 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -26.779135
+  currentDodgeTime: -29.211353
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -25.779154
+  currentDodgeWaitTime: -28.211372
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0.75
-  currentPosition: {x: -12.163236, y: 15.939046, z: 0}
+  currentPosition: {x: -21, y: -13, z: 0}
   currentDirection: {x: 0.1505908, y: -0.011533157, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
@@ -51,4 +53,4 @@ MonoBehaviour:
   firing: 1
   drop: {fileID: 4049022442695697508, guid: 840089a4ee0433149a83c6df387b59f2, type: 3}
   dropRadius: 0
-  currentFirerateTimer: -2.0318034
+  currentFirerateTimer: -4.4640236

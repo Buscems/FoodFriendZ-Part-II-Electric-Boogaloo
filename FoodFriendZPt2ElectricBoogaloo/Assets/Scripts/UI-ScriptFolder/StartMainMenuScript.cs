@@ -12,6 +12,8 @@ public class StartMainMenuScript : MonoBehaviour
      * 
      */
 
+    [SerializeField] Animator myAnimationController;
+
     static float t = 0.0f; //starting value for lerp
 
     [Header("Lerping Colors")]
@@ -38,12 +40,12 @@ public class StartMainMenuScript : MonoBehaviour
     public Button QuitButton;
 
     bool IsOnTitleScreen;
+    bool didPlayerPressAnyKey;
 
     void Awake()
     {
         //Default Title Screen elements
         TitleCard.enabled = true;
-        TitleButtonParent.SetActive(false);
         TitleInscruction.enabled = true;
 
         CreditScreenParent.SetActive(false);
@@ -54,6 +56,18 @@ public class StartMainMenuScript : MonoBehaviour
 
     void Update()
     {
+        //bool logic
+        if (IsOnTitleScreen)
+        {
+            didPlayerPressAnyKey = false;
+        }
+        else
+        {
+            didPlayerPressAnyKey = true;
+        }
+
+        //animations
+        myAnimationController.SetBool("playerPressedAnyKey", didPlayerPressAnyKey);  //sets bool in the animator
 
         //Game Juice (TitleInstruction)
         TitleInscruction.color = Color.Lerp(TitleInstruction_StartColor, TitleInstruction_EndColor, Mathf.Sin(Time.time));       //color
@@ -61,9 +75,6 @@ public class StartMainMenuScript : MonoBehaviour
         if (Input.anyKey && IsOnTitleScreen)
         {
             TitleInscruction.enabled = false;
-
-            TitleButtonParent.SetActive(true);
-
             IsOnTitleScreen = false;
         }
     }

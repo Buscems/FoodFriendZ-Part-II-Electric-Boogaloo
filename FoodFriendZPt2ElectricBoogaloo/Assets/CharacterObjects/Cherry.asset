@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
   m_Name: Cherry
   m_EditorClassIdentifier: 
+  hudIcon: {fileID: 242840349670548076, guid: b314120d3722ba14597edcc3b1e5efb8, type: 3}
   characterName: cherry
   attackType: 5
   speed: 7
@@ -19,18 +20,18 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1077.9365
+  currentDodgeTime: -1079.1932
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -77.82712
+  currentDodgeWaitTime: -79.08471
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  currentPosition: {x: -15.045448, y: -9.840646, z: 0}
-  currentDirection: {x: -0.83482033, y: 0.3956021, z: 0}
+  offset: 0
+  currentPosition: {x: -18.131306, y: -13.035864, z: 0}
+  currentDirection: {x: 1, y: -0.0117648505, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
-  offset: 0
   attackSpeed: 0
   rotationalOffset: 0
   isChargable: 0
