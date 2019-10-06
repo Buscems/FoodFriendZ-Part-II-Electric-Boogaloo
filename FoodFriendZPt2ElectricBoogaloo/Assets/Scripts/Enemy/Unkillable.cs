@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinMelee : MonoBehaviour
+public class Unkillable : MonoBehaviour
 {
     BaseEnemy baseEnemy;
-    Spinning spin;
+
+    private float starthealth;
 
     void Start()
     {
         baseEnemy = GetComponent<BaseEnemy>();
-        spin = GetComponent<Spinning>();
+
+        starthealth = baseEnemy.health;
+        
     }
 
     
     void Update()
     {
-
-        if (spin.meleeDelete)
+        if(baseEnemy.health <= 1)
         {
-            Destroy(gameObject);
+            baseEnemy.health = starthealth;
         }
-
     }
 }
