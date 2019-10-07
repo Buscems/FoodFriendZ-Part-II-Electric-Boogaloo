@@ -21,7 +21,7 @@ public class Phaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (baseEnemy.aggroScript.aggro)
+        if (baseEnemy.aggroScript.aggro == true)
         {
             playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
             transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
@@ -30,7 +30,7 @@ public class Phaser : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall"){
+        if (collision.gameObject.tag == "TilesHere"){
             phase.enabled = false;
         }
         else{
