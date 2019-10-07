@@ -14,7 +14,7 @@ public class Spinning : MonoBehaviour
 
     public float MeleePause;
     public GameObject meleeObject;
-    public GameObject meleePos;
+    //public GameObject meleePos;
     public float DownTime;
 
     public float rotateSpeed;
@@ -40,6 +40,8 @@ public class Spinning : MonoBehaviour
         SpinMelee = GetComponent<SpinMelee>();
 
         spinSpeed = rotateSpeed;
+
+        meleeObject.SetActive(false);
 
     }
 
@@ -91,14 +93,15 @@ public class Spinning : MonoBehaviour
         if (meleeDelete == false)
         {
             rotateSpeed = spinSpeed;
-            Instantiate(meleeObject, meleePos.transform.position, transform.rotation);
+            meleeObject.SetActive(true);
+            yield return new WaitForSeconds(MeleePause);
             meleeDelete = true;
         }
-        yield return new WaitForSeconds(MeleePause);
+        
         if (meleeDelete)
         {
-            Debug.Log("down time");
             rotateSpeed = 0;
+            meleeObject.SetActive(false);
             yield return new WaitForSeconds(DownTime);
             meleeDelete = false;
         }
