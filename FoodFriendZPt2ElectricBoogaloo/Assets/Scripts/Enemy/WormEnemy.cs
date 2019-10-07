@@ -14,10 +14,13 @@ private Vector2 movementPerSecond;
 
 public CircleCollider2D alert;
 
+    public BaseEnemy enemy;
+
 void Start()
 {
     latestDirectionChangeTime = 0f;
     calcuateNewMovementVector();
+        enemy = GetComponent<BaseEnemy>();
 }
 
 void calcuateNewMovementVector()
