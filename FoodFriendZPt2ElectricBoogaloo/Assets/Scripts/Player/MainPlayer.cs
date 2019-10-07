@@ -102,34 +102,34 @@ public class MainPlayer : MonoBehaviour
 
         cam = GameObject.Find("Main Camera").GetComponent<CameraShake>();
 
-       // try
-       // {
-            upCharacter = GameObject.Find("Up_Character").GetComponent<Image>();
-            upHighlight = GameObject.Find("Up_Highlight").GetComponent<Image>();
+        // try
+        // {
+        upCharacter = GameObject.Find("Up_Character").GetComponent<Image>();
+        upHighlight = GameObject.Find("Up_Highlight").GetComponent<Image>();
 
-            downCharacter = GameObject.Find("Down_Character").GetComponent<Image>();
-            downHighlight = GameObject.Find("Down_Highlight").GetComponent<Image>();
+        downCharacter = GameObject.Find("Down_Character").GetComponent<Image>();
+        downHighlight = GameObject.Find("Down_Highlight").GetComponent<Image>();
 
-            leftCharacter = GameObject.Find("Left_Character").GetComponent<Image>();
-            leftHighlight = GameObject.Find("Left_Highlight").GetComponent<Image>();
+        leftCharacter = GameObject.Find("Left_Character").GetComponent<Image>();
+        leftHighlight = GameObject.Find("Left_Highlight").GetComponent<Image>();
 
-            rightCharacter = GameObject.Find("Right_Character").GetComponent<Image>();
-            rightHighlight = GameObject.Find("Right_Highlight").GetComponent<Image>();
-      //  }
-      //  catch { }
+        rightCharacter = GameObject.Find("Right_Character").GetComponent<Image>();
+        rightHighlight = GameObject.Find("Right_Highlight").GetComponent<Image>();
+        //  }
+        //  catch { }
 
         upHighlight.enabled = false;
         leftHighlight.enabled = false;
         rightHighlight.enabled = false;
         downHighlight.enabled = true;
 
-        if(triangle != null)
+        if (triangle != null)
         {
             upCharacter.sprite = triangle.hudIcon;
         }
         if (square != null)
         {
-           leftCharacter.sprite = square.hudIcon;
+            leftCharacter.sprite = square.hudIcon;
         }
         if (circle != null)
         {
@@ -142,6 +142,14 @@ public class MainPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speedMultiplier = 1;
+
+        attackSizeMultiplier = 1;
+        attackSpeedMultiplier = 1;
+        firerateMultiplier = 1;
+        baseDamageMulitplier = 1;
+        maxDamageMultiplier = 1;
+
         Cursor.visible = false;
         currentChar.Start();
         rb = GetComponent<Rigidbody2D>();
@@ -161,7 +169,7 @@ public class MainPlayer : MonoBehaviour
         DodgeLogic();
 
 
-       //temp health testing
+        //temp health testing
         if (Input.GetKeyDown(KeyCode.Z))
         {
             health--;
@@ -179,7 +187,7 @@ public class MainPlayer : MonoBehaviour
 
         if (myPlayer.GetButtonDown("Dodge"))
         {
-            if(currentChar.currentDodgeWaitTime < 0)
+            if (currentChar.currentDodgeWaitTime < 0)
             {
                 currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                 currentChar.currentDodgeTime = currentChar.dodgeLength;
@@ -261,7 +269,7 @@ public class MainPlayer : MonoBehaviour
             {
                 if (currentChar.attackType == BasePlayer.AttackType.Melee)
                 {
-                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage* baseDamageMulitplier);
+                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
                 }
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
@@ -334,7 +342,7 @@ public class MainPlayer : MonoBehaviour
                 }
                 else
                 {
-                    tempDamage = (currentChar.maxDamage*maxDamageMultiplier) * (currentChar.currentChargeTimer / currentChar.timeTillMaxDamage);
+                    tempDamage = (currentChar.maxDamage * maxDamageMultiplier) * (currentChar.currentChargeTimer / currentChar.timeTillMaxDamage);
                 }
 
 
@@ -363,7 +371,8 @@ public class MainPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + (velocity * (speed*speedMultiplier)) * Time.deltaTime);
+        print(attackSpeedMultiplier);
+        rb.MovePosition(transform.position + (velocity * (speed)) * Time.deltaTime);
     }
 
     void AnimationHandler()
@@ -387,7 +396,7 @@ public class MainPlayer : MonoBehaviour
                 break;
 
         }
-         
+
         //this will switch the animation of the current character
         if (direction.x > 0 && direction.y < 0)
         {
@@ -414,7 +423,7 @@ public class MainPlayer : MonoBehaviour
     private void PlayerMovement()
     {
         currentChar.Update();
-        speed = currentChar.speed * currentChar.currentDodgeSpeedMultiplier;
+        speed = (currentChar.speed * speedMultiplier) * currentChar.currentDodgeSpeedMultiplier;
         currentChar.currentPosition = this.transform.position;
 
         velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
@@ -460,9 +469,9 @@ public class MainPlayer : MonoBehaviour
 
 
     public bool HitEnemy(string tag)
-    {       
+    {
 
-        if(tag == "Projectile")
+        if (tag == "Projectile")
         {
             return true;
         }

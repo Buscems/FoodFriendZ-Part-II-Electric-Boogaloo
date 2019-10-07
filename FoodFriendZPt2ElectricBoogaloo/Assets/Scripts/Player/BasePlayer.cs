@@ -117,6 +117,13 @@ public class BasePlayer : ScriptableObject
     // Start is called before the first frame update
     public void Start()
     {
+        dodgeSpeedMultiplier = 1;
+        attackSizeMultiplier = 1;
+        attackSpeedMultiplier = 1;
+        firerateMultiplier = 1;
+        baseDamageMulitplier = 1;
+        maxDamageMultiplier = 1;
+
         currentDodgeSpeedMultiplier = 1;
 
         //this will be taking care of whether or not the player might accidentally have the wrong weapon for anything
