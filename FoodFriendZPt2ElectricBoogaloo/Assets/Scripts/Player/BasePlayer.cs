@@ -102,6 +102,18 @@ public class BasePlayer : ScriptableObject
     [HideInInspector]
     public float currentFirerateTimer = 0;
 
+
+    [HideInInspector]
+    public float attackSizeMultiplier = 1;
+    [HideInInspector]
+    public float attackSpeedMultiplier = 1;
+    [HideInInspector]
+    public float firerateMultiplier = 1;
+    [HideInInspector]
+    public float baseDamageMulitplier = 1;
+    [HideInInspector]
+    public float maxDamageMultiplier = 1;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -165,6 +177,17 @@ public class BasePlayer : ScriptableObject
         }
     }
 
+
+    public void SetMultipliers(float _attackSize, float _attackSpeed, float _firerate, float _baseDamage, float _maxDamage)
+    {
+        attackSizeMultiplier = _attackSize;
+        attackSpeedMultiplier = _attackSpeed;
+        firerateMultiplier = _firerate;
+        baseDamageMulitplier = _baseDamage;
+        maxDamageMultiplier = _maxDamage;
+    }
+
+
     private void SetBulletVariables(GameObject attack, Transform parentTransform)
     {
         attack.transform.parent = parentTransform;
@@ -227,7 +250,7 @@ public class BasePlayer : ScriptableObject
     {
 
         GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-        attack.GetComponent<Attack>().damage = baseDamage;
+        attack.GetComponent<Attack>().damage = baseDamage * baseDamageMulitplier;
         attack.GetComponent<CircleCollider2D>().radius = dropRadius;
         if(this.characterName == "cherry")
         {
@@ -237,7 +260,7 @@ public class BasePlayer : ScriptableObject
 
     public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
-        currentFirerateTimer = firerate;
+        currentFirerateTimer = firerate * firerateMultiplier;
         GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform);
         attack.GetComponent<Attack>().damage = damage;
@@ -245,7 +268,7 @@ public class BasePlayer : ScriptableObject
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
-        currentFirerateTimer = firerate;
+        currentFirerateTimer = firerate * firerateMultiplier;
         float angleInterval = radius / bulletsPerShot;
 
         for (int i = 0; i < bulletsPerShot; i++)
@@ -269,7 +292,7 @@ public class BasePlayer : ScriptableObject
     {
         if(currentFirerateTimer < 0 && currentBulletnum > 0)
         {
-            currentFirerateTimer = firerate;
+            currentFirerateTimer = firerate * firerateMultiplier;
 
             GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
             SetBulletVariables(attack, parentTransform);

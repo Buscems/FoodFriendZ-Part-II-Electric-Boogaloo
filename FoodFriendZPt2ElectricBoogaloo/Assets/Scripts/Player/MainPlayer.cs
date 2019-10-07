@@ -35,6 +35,21 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector]
     public float speed;
 
+
+    [HideInInspector]
+    private float speedMultiplier = 1;
+
+    [HideInInspector]
+    public float attackSizeMultiplier = 1;
+    [HideInInspector]
+    public float attackSpeedMultiplier = 1;
+    [HideInInspector]
+    public float firerateMultiplier = 1;
+    [HideInInspector]
+    public float baseDamageMulitplier = 1;
+    [HideInInspector]
+    public float maxDamageMultiplier = 1;
+
     [HideInInspector]
     public float stunTimer;
     public float maxStunTimer;
@@ -87,8 +102,8 @@ public class MainPlayer : MonoBehaviour
 
         cam = GameObject.Find("Main Camera").GetComponent<CameraShake>();
 
-        try
-        {
+       // try
+       // {
             upCharacter = GameObject.Find("Up_Character").GetComponent<Image>();
             upHighlight = GameObject.Find("Up_Highlight").GetComponent<Image>();
 
@@ -100,8 +115,8 @@ public class MainPlayer : MonoBehaviour
 
             rightCharacter = GameObject.Find("Right_Character").GetComponent<Image>();
             rightHighlight = GameObject.Find("Right_Highlight").GetComponent<Image>();
-        }
-        catch { }
+      //  }
+      //  catch { }
 
         upHighlight.enabled = false;
         leftHighlight.enabled = false;
@@ -192,6 +207,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = true;
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             }
             if (myPlayer.GetButtonDown("Square"))
             {
@@ -200,6 +216,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = true;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             }
             if (myPlayer.GetButtonDown("Triangle"))
             {
@@ -208,6 +225,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             }
             if (myPlayer.GetButtonDown("Circle"))
             {
@@ -216,6 +234,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = true;
                 downHighlight.enabled = false;
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             }
         }
     }
@@ -242,11 +261,11 @@ public class MainPlayer : MonoBehaviour
             {
                 if (currentChar.attackType == BasePlayer.AttackType.Melee)
                 {
-                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage);
+                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage* baseDamageMulitplier);
                 }
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
-                    currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage);
+                    currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
                 }
             }
             if (currentChar.attackType == BasePlayer.AttackType.Builder)
@@ -258,7 +277,7 @@ public class MainPlayer : MonoBehaviour
         {
             if (currentChar.firing)
             {
-                currentChar.BurstFire(transform.position, attackDirection, transform, currentChar.baseDamage);
+                currentChar.BurstFire(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
         }
 
@@ -267,12 +286,12 @@ public class MainPlayer : MonoBehaviour
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Basic)
             {
-                currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage);
+                currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
-                currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage);
+                currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
             {
@@ -285,10 +304,10 @@ public class MainPlayer : MonoBehaviour
             if (currentChar.isChargable)
             {
                 //print(currentChar.currentChargeTimer);
-                float tempDamage = currentChar.baseDamage;
+                float tempDamage = currentChar.baseDamage * baseDamageMulitplier;
                 if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
                 {
-                    tempDamage = currentChar.maxDamage;
+                    tempDamage = currentChar.maxDamage * maxDamageMultiplier;
 
                     if (currentChar.attackType == BasePlayer.AttackType.Melee)
                     {
@@ -311,11 +330,11 @@ public class MainPlayer : MonoBehaviour
                 float tempDamage;
                 if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
                 {
-                    tempDamage = currentChar.maxDamage;
+                    tempDamage = currentChar.maxDamage * maxDamageMultiplier;
                 }
                 else
                 {
-                    tempDamage = currentChar.maxDamage * (currentChar.currentChargeTimer / currentChar.timeTillMaxDamage);
+                    tempDamage = (currentChar.maxDamage*maxDamageMultiplier) * (currentChar.currentChargeTimer / currentChar.timeTillMaxDamage);
                 }
 
 
@@ -344,7 +363,7 @@ public class MainPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + (velocity * speed) * Time.deltaTime);
+        rb.MovePosition(transform.position + (velocity * (speed*speedMultiplier)) * Time.deltaTime);
     }
 
     void AnimationHandler()
@@ -500,18 +519,26 @@ public class MainPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "StatBoost")
+        if (other.gameObject.tag == "StatBoost")
         {
             PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
-            currentChar.speed *= temp.movementSpeed;
-            currentChar.attackSize *= temp.attackSize;
-            currentChar.attackSpeed *= temp.attackSpeed; //for melee
-            currentChar.firerate *= temp.attackSpeed; //for projectiles
-            currentChar.baseDamage *= temp.attackDamage;
-            currentChar.maxDamage *= temp.attackDamage;
+            speedMultiplier += currentChar.speed * temp.movementSpeed;
+            //currentChar.speed *= temp.movementSpeed;
+            attackSizeMultiplier += currentChar.attackSize.x * temp.attackSize;
+            //currentChar.attackSize *= temp.attackSize;
+            attackSpeedMultiplier += currentChar.attackSpeed * temp.attackSpeed;
+            //currentChar.attackSpeed *= temp.attackSpeed; //for melee
+            firerateMultiplier += currentChar.firerate * temp.attackSpeed;
+            //currentChar.firerate *= temp.attackSpeed; //for projectiles
+            baseDamageMulitplier += currentChar.baseDamage * temp.attackDamage;
+            //currentChar.baseDamage *= temp.attackDamage;
+            maxDamageMultiplier += currentChar.maxDamage * temp.attackDamage;
+            //currentChar.maxDamage *= temp.attackDamage;
             health += temp.healAmount;
 
+
+            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             Debug.Log(other.name);
 
             Destroy(other.gameObject);
