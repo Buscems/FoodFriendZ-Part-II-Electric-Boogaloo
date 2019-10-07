@@ -44,6 +44,10 @@ public class MainPlayer : MonoBehaviour
 
     private CameraShake cam;
 
+    [Header("Powerup Variables")]
+
+
+
     [Header("Current Party")]
     public BasePlayer triangle;
     public BasePlayer square;
