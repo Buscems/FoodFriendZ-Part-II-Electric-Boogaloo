@@ -48,7 +48,7 @@ public class WaterEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "TilesHere")
         {
             Debug.Log("CHANGE");
             calcuateNewMovementVector();

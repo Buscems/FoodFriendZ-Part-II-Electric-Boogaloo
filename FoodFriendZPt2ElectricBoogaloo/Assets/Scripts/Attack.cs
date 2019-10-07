@@ -19,6 +19,8 @@ public class Attack : MonoBehaviour
     [HideInInspector]
     public bool isBomb;
 
+    public GameObject explosionParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,5 +87,10 @@ public class Attack : MonoBehaviour
     public void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    public void Exploison()
+    {
+        Instantiate(explosionParticles,gameObject.transform.position, Quaternion.identity);
     }
 }

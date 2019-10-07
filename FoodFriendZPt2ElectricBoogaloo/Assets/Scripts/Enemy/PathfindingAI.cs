@@ -11,8 +11,7 @@ public class PathfindingAI : MonoBehaviour
     //I plan on making this work a little differently so that it will work for all of the different levels we might want
 
     Transform target;
-
-    public float speed;
+    float speed;
     public float nextWaypointDistance;
     
     
@@ -35,6 +34,8 @@ public class PathfindingAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         baseEnemy = GetComponent<BaseEnemy>();
+
+        speed = baseEnemy.speed;
 
         InvokeRepeating("UpdatePath", 0, .5f);
 
