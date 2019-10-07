@@ -82,7 +82,11 @@ public class PathfindingAI : MonoBehaviour
             currentWaypoint++;
         }
 
-        rb.MovePosition(rb.position + force);
+        //only apply force to the enemy if they are in aggro
+        if (baseEnemy.aggroScript.aggro)
+        {
+            rb.MovePosition(rb.position + force);
+        }
 
     }
 }
