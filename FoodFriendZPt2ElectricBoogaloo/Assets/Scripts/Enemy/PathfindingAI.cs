@@ -25,9 +25,12 @@ public class PathfindingAI : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    bool move;
+
     // Start is called before the first frame update
     void Start()
     {
+        move = true;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -85,8 +88,23 @@ public class PathfindingAI : MonoBehaviour
         //only apply force to the enemy if they are in aggro
         if (baseEnemy.aggroScript.aggro)
         {
-            rb.MovePosition(rb.position + force);
+            //this is going to be in case any enemies want a staggered type of movement
+            if (move)
+            {
+                rb.MovePosition(rb.position + force);
+            }
         }
 
     }
+
+    public void StartMove()
+    {
+        move = true;
+    }
+
+    public void StopMove()
+    {
+        move = false;
+    }
+
 }
