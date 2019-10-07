@@ -37,7 +37,7 @@ public class MainPlayer : MonoBehaviour
 
 
     [HideInInspector]
-    private float speedMultiplier;
+    private float speedMultiplier = 1;
 
     [HideInInspector]
     public float attackSizeMultiplier = 1;
@@ -102,8 +102,8 @@ public class MainPlayer : MonoBehaviour
 
         cam = GameObject.Find("Main Camera").GetComponent<CameraShake>();
 
-        try
-        {
+       // try
+       // {
             upCharacter = GameObject.Find("Up_Character").GetComponent<Image>();
             upHighlight = GameObject.Find("Up_Highlight").GetComponent<Image>();
 
@@ -115,8 +115,8 @@ public class MainPlayer : MonoBehaviour
 
             rightCharacter = GameObject.Find("Right_Character").GetComponent<Image>();
             rightHighlight = GameObject.Find("Right_Highlight").GetComponent<Image>();
-        }
-        catch { }
+      //  }
+      //  catch { }
 
         upHighlight.enabled = false;
         leftHighlight.enabled = false;
@@ -207,6 +207,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = true;
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             }
             if (myPlayer.GetButtonDown("Square"))
             {
@@ -215,6 +216,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = true;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             }
             if (myPlayer.GetButtonDown("Triangle"))
             {
@@ -223,6 +225,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             }
             if (myPlayer.GetButtonDown("Circle"))
             {
@@ -231,6 +234,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = true;
                 downHighlight.enabled = false;
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             }
         }
     }
