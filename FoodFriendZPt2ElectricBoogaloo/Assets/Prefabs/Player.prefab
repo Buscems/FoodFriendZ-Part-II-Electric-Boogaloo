@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 822394764877458804}
   - component: {fileID: 822394764877458805}
   - component: {fileID: 822394764877458806}
+  - component: {fileID: 6304427049510114146}
   - component: {fileID: 822394764877458803}
   - component: {fileID: 1208179063}
   - component: {fileID: 1208179059}
@@ -186,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 4
+  currency: 0
   playerNum: 1
   usingMouse: 1
   mouseCursor: {fileID: 0}
@@ -193,11 +195,27 @@ MonoBehaviour:
   currentChar: {fileID: 11400000, guid: 15482a04ad74dd040856a81e05842bce, type: 2}
   anim: {fileID: 1208179059}
   speed: 0
+  stunTimer: 0
+  maxStunTimer: 0
   triangle: {fileID: 0}
   square: {fileID: 0}
   circle: {fileID: 0}
   cross: {fileID: 0}
   allCharacters: []
+--- !u!114 &6304427049510114146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822394764877458807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b469074f685f0d848976cf4eb0e359b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData: {fileID: 0}
+  canSave: 0
 --- !u!50 &822394764877458803
 Rigidbody2D:
   serializedVersion: 4

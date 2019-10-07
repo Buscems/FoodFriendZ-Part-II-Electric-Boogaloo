@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class SpinMelee : MonoBehaviour
 {
-    // Start is called before the first frame update
+    BaseEnemy baseEnemy;
+    Spinning spin;
+
     void Start()
     {
-        
+        baseEnemy = GetComponent<BaseEnemy>();
+        spin = GetComponent<Spinning>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+
+        if (spin.meleeDelete)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

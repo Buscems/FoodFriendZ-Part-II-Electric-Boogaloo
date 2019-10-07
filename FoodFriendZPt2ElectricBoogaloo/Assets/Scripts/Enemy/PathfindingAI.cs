@@ -23,12 +23,18 @@ public class PathfindingAI : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
+    BaseEnemy baseEnemy;
+
+    bool move;
+
     // Start is called before the first frame update
     void Start()
     {
+        move = true;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        baseEnemy = GetComponent<BaseEnemy>();
 
         InvokeRepeating("UpdatePath", 0, .5f);
 
@@ -36,7 +42,11 @@ public class PathfindingAI : MonoBehaviour
 
     void UpdatePath()
     {
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
+        if (baseEnemy.aggroScript.aggro)
+        {
+            target = baseEnemy.aggroScript.currentTarget;
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
+        }
     }
 
     void OnPathComplete(Path p)
@@ -75,7 +85,26 @@ public class PathfindingAI : MonoBehaviour
             currentWaypoint++;
         }
 
-        rb.MovePosition(rb.position + force);
+        //only apply force to the enemy if they are in aggro
+        if (baseEnemy.aggroScript.aggro)
+        {
+            //this is going to be in case any enemies want a staggered type of movement
+            if (move)
+            {
+                rb.MovePosition(rb.position + force);
+            }
+        }
 
     }
+
+    public void StartMove()
+    {
+        move = true;
+    }
+
+    public void StopMove()
+    {
+        move = false;
+    }
+
 }

@@ -40,6 +40,13 @@ public class Parry : MonoBehaviour
             playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
             transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
         }*/
+
+        
+    }
+
+    private void LateUpdate()
+    {
+        //rb.moveposition(transform.position + vector3 direction * speed * time.deltatime);
     }
 
     void Block()

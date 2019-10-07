@@ -18,12 +18,11 @@ public class GUI_Script : MonoBehaviour
     public GameObject CharacterCompassParent;
 
     [Header("TemporaryHearts")]
-    public TextMeshProUGUI TemporaryHeartNumDisplay;
     public int Temporaryhealth;
 
     [Header("Hearts")]
-    public float health;                        //player HP
-    public int MaxNumOfHeartContainers;         //Max player HP (<= hearts) 
+    public int health;                        //player HP
+    private int maxNumOfHeartContainers;         //Max player HP (<= hearts) 
 
     public Image[] hearts;                     //Number of ALL heart IMGs in the SCENE
     public Sprite FullHeart;
@@ -31,6 +30,8 @@ public class GUI_Script : MonoBehaviour
     public Sprite EmptyHeart;
     [Space]
     public Sprite TempHeart;
+
+    private MainPlayer player; 
 
 
     [Header("EquiptmentToolBar")]
@@ -44,16 +45,28 @@ public class GUI_Script : MonoBehaviour
 
     [Header("Money")]
     public int money;
+    private TextMeshProUGUI currencyText;
     public TextMeshProUGUI MoneyCountDisplay;
+
+    private void Start()
+    {
+        maxNumOfHeartContainers = hearts.Length;
+        player = GameObject.Find("Player").GetComponent<MainPlayer>();
+        currencyText = GameObject.Find("MoneyCount").GetComponent<TextMeshProUGUI>();
+    }
 
     public void Update()
     {
+        currencyText.SetText("" + player.currency);
+        health = player.health;
+
         #region hp display system
         //[HEARTS]
         //sets limit on heart containers
-        if (health > MaxNumOfHeartContainers)
+        if (health > maxNumOfHeartContainers)
         {
-            health = MaxNumOfHeartContainers;
+            health = maxNumOfHeartContainers;
+            player.health = health;
         }
 
         //checks to see full hearts based on health
@@ -69,7 +82,7 @@ public class GUI_Script : MonoBehaviour
             }
 
             //limit on heart containers displayed
-            if (i < MaxNumOfHeartContainers)
+            if (i < maxNumOfHeartContainers)
             {
                 hearts[i].enabled = true;
             }

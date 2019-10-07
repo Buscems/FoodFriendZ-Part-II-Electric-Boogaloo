@@ -10,6 +10,9 @@ public class BaseEnemy : MonoBehaviour
     public float health;
     [Tooltip("How fast we want the enemy to move")]
     public float speed;
+    [Tooltip("How much damage this enemy deals to the player when the player runs into them (Should only be between 0 and 1)")]
+    [Range(0,1)]
+    public int walkIntoDamage;
 
     Animator anim;
 
@@ -24,14 +27,11 @@ public class BaseEnemy : MonoBehaviour
     public float dropRate;
 
     [Tooltip("How much money the enemy will drop when killed")]
-    public float money;
+    public int money;
 
     bool itemDrop;
 
     GameObject objectToDestroy;
-
-    public enum EnemyType { Corn, FishBones, RottingOnion, MoldyFood};
-    EnemyType currentType;
 
     // Start is called before the first frame update
     public void Start()
@@ -105,6 +105,7 @@ public class BaseEnemy : MonoBehaviour
         if (health <= 0)
         {
             Death();
+            aggroScript.target[0].GetComponent<MainPlayer>().currency += money;
         }
     }
 
@@ -136,6 +137,14 @@ public class BaseEnemy : MonoBehaviour
     public void DestroyThisObject()
     {
         Destroy(objectToDestroy);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "PLayer2")
+        {
+            collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
+        }
     }
 
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BasePlayer : ScriptableObject
 {
+    public Sprite hudIcon;
+
     [Tooltip("This is the name of the character. Make it all lower case")]
     public string characterName;
     public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Builder };

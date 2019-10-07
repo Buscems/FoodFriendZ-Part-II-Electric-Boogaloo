@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
   m_Name: Tofu
   m_EditorClassIdentifier: 
+  hudIcon: {fileID: 1002645427171640083, guid: 6370625e5cfd74127b0c87c620cc99b6, type: 3}
   characterName: tofu
   attackType: 0
   speed: 6
@@ -19,22 +20,22 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 2
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.25
-  currentDodgeTime: -50.96955
+  currentDodgeTime: -409.1484
   dodgeWaitTime: 2
-  currentDodgeWaitTime: -48.969425
-  attackSize: {x: 0.3, y: 1, z: 1}
+  currentDodgeWaitTime: -407.14816
+  attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  currentPosition: {x: -6, y: 0, z: 0}
-  currentDirection: {x: -0.16555984, y: 0.09479182, z: 0}
+  offset: 0.75
+  currentPosition: {x: 3.9139798, y: -13.194514, z: 0}
+  currentDirection: {x: 1, y: 1, z: 0}
   weapon: {fileID: 1791375524048153698, guid: f7e7f35abf30248cf9b3141b572bf0c6, type: 3}
   awayPos: {x: 5000, y: 5000, z: 0}
-  offset: 0.75
-  attackSpeed: 2
+  attackSpeed: 1
   rotationalOffset: 45
   isChargable: 0
-  maxDamage: 109.350006
+  maxDamage: 5
   timeTillMaxDamage: 1
   currentChargeTimer: 0
   startCharging: 0

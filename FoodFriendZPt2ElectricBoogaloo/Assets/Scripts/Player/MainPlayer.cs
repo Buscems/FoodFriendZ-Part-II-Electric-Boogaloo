@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Rewired;
 using Rewired.ControllerExtensions;
+using TMPro;
 
 public class MainPlayer : MonoBehaviour
 {
     public int health;
+    [HideInInspector]
+    public int currency;
+
 
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
@@ -39,6 +44,10 @@ public class MainPlayer : MonoBehaviour
 
     private CameraShake cam;
 
+    [Header("Powerup Variables")]
+
+
+
     [Header("Current Party")]
     public BasePlayer triangle;
     public BasePlayer square;
@@ -52,6 +61,22 @@ public class MainPlayer : MonoBehaviour
     private bool isHolding = false;
 
 
+
+
+
+    private Image upCharacter;
+    private Image upHighlight;
+
+    private Image downCharacter;
+    private Image downHighlight;
+
+    private Image leftCharacter;
+    private Image leftHighlight;
+
+    private Image rightCharacter;
+    private Image rightHighlight;
+
+
     private void Awake()
     {
         cross = currentChar;
@@ -59,7 +84,44 @@ public class MainPlayer : MonoBehaviour
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         CheckController(myPlayer);
+
         cam = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+
+        try
+        {
+            upCharacter = GameObject.Find("Up_Character").GetComponent<Image>();
+            upHighlight = GameObject.Find("Up_Highlight").GetComponent<Image>();
+
+            downCharacter = GameObject.Find("Down_Character").GetComponent<Image>();
+            downHighlight = GameObject.Find("Down_Highlight").GetComponent<Image>();
+
+            leftCharacter = GameObject.Find("Left_Character").GetComponent<Image>();
+            leftHighlight = GameObject.Find("Left_Highlight").GetComponent<Image>();
+
+            rightCharacter = GameObject.Find("Right_Character").GetComponent<Image>();
+            rightHighlight = GameObject.Find("Right_Highlight").GetComponent<Image>();
+        }
+        catch { }
+
+        upHighlight.enabled = false;
+        leftHighlight.enabled = false;
+        rightHighlight.enabled = false;
+        downHighlight.enabled = true;
+
+        if(triangle != null)
+        {
+            upCharacter.sprite = triangle.hudIcon;
+        }
+        if (square != null)
+        {
+           leftCharacter.sprite = square.hudIcon;
+        }
+        if (circle != null)
+        {
+            rightCharacter.sprite = circle.hudIcon;
+        }
+
+        downCharacter.sprite = cross.hudIcon;
     }
 
     // Start is called before the first frame update
@@ -126,18 +188,34 @@ public class MainPlayer : MonoBehaviour
             if (myPlayer.GetButtonDown("Cross"))
             {
                 currentChar = cross;
+                upHighlight.enabled = false;
+                leftHighlight.enabled = false;
+                rightHighlight.enabled = false;
+                downHighlight.enabled = true;
             }
             if (myPlayer.GetButtonDown("Square"))
             {
                 currentChar = square;
+                upHighlight.enabled = false;
+                leftHighlight.enabled = true;
+                rightHighlight.enabled = false;
+                downHighlight.enabled = false;
             }
             if (myPlayer.GetButtonDown("Triangle"))
             {
                 currentChar = triangle;
+                upHighlight.enabled = true;
+                leftHighlight.enabled = false;
+                rightHighlight.enabled = false;
+                downHighlight.enabled = false;
             }
             if (myPlayer.GetButtonDown("Circle"))
             {
                 currentChar = circle;
+                upHighlight.enabled = false;
+                leftHighlight.enabled = false;
+                rightHighlight.enabled = true;
+                downHighlight.enabled = false;
             }
         }
     }
