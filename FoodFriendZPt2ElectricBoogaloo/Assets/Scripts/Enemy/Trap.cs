@@ -23,15 +23,11 @@ public class Trap : MonoBehaviour
     
     void Update()
     {
-        if (baseEnemy.aggroScript.aggro)
-        {
-            mainPlayer.currentChar.speed = 0;
-            StartCoroutine(Trapped());
-        }
 
         if (done)
         {
             Debug.Log("self destruct");
+            mainPlayer.health -= 1;
             Destroy(gameObject);
         }
     }
@@ -43,5 +39,14 @@ public class Trap : MonoBehaviour
         Debug.Log("end trap");
         mainPlayer.currentChar.speed = resetSpeed;
         done = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
+        {
+            mainPlayer.currentChar.speed = 0;
+            StartCoroutine(Trapped());
+        }
     }
 }
