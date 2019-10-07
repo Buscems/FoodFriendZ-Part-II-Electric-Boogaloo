@@ -4906,7 +4906,7 @@ GameObject:
   - component: {fileID: 5604785699656018275}
   m_Layer: 0
   m_Name: Tofu Slash
-  m_TagString: Untagged
+  m_TagString: Slash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5051,3 +5051,5 @@ MonoBehaviour:
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
+  isBomb: 0
+  explosionParticles: {fileID: 0}

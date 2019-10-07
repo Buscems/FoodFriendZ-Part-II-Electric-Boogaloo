@@ -27,7 +27,7 @@ public class KoopaLikeEnemy : MonoBehaviour
     void Update()
     {
         if (notDizzy == true && enemy.aggroScript.aggro){
-            track.follow = true;
+            
         }
         
 
@@ -41,17 +41,14 @@ public class KoopaLikeEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (notDizzy && collision.gameObject.tag == "Player1"){
+        if (notDizzy && collision.gameObject.tag == "Slash"){
             notDizzy = false;
             enemy.aggroScript.aggro = false;
-            track.follow = false;
+            track.StopAllCoroutines();
             track.track = false;
+            track.follow = false;
             isDizzy = true;
         }
-        /*if (isDizzy == true && collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
-        {
-            isDizzy = false;
-            isSpinning = true;
-        }*/
+        
     }
 }
