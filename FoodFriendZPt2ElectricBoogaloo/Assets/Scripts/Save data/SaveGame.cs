@@ -117,9 +117,9 @@ public class SaveGame : MonoBehaviour
         }
 
 
-        //make temp array (this one is a 2D array), (the arrays in the GameData script) 
+        //make temp array, (the real array is in the GameData script) 
         //please refer to GameData script for correct format of each array
-        string[] tempGameStats = new string[5];
+        int[] tempGameStats = new int[5];
 
 
 
@@ -135,7 +135,7 @@ public class SaveGame : MonoBehaviour
 
         //finally send data to the instance of the GameData script we just made
         //note that this doesnt save to file on computer yet
-        gameData.SetVariables(tempGameStats);
+        gameData.GameStats = tempGameStats;
     }
 
     public void SaveToBinaryFormat()
