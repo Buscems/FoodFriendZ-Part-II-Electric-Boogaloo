@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9035051304761692043}
   - component: {fileID: 134611094864714724}
   - component: {fileID: 3904228946352895635}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sugar
   m_TagString: StatBoost
   m_Icon: {fileID: 0}
@@ -97,10 +97,10 @@ MonoBehaviour:
   stats: {fileID: 0}
   baseStats: {fileID: 0}
   powerUpName: Sugar
-  movementSpeed: 1
-  attackSize: 1
-  attackSpeed: 1.2
-  attackDamage: 1
+  movementSpeed: 0
+  attackSize: 0
+  attackSpeed: 0.2
+  attackDamage: 0
   healAmount: 0
   vampHeal: 0
   stunTimer: 0

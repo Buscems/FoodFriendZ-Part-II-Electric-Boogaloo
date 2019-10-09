@@ -41,7 +41,10 @@ public class Spinning : MonoBehaviour
 
         spinSpeed = rotateSpeed;
 
-        meleeObject.SetActive(false);
+        if (melee)
+        {
+            meleeObject.SetActive(false);
+        }
 
     }
 

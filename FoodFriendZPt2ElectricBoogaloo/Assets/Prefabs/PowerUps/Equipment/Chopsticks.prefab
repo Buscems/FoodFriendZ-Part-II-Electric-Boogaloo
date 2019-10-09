@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8116711836082843845}
   - component: {fileID: 8785932196165450306}
   - component: {fileID: 558047895913887408}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Chopsticks
   m_TagString: StatBoost
   m_Icon: {fileID: 0}
@@ -97,10 +97,10 @@ MonoBehaviour:
   stats: {fileID: 0}
   baseStats: {fileID: 0}
   powerUpName: Chopsticks
-  movementSpeed: 1
-  attackSize: 1.2
-  attackSpeed: 1
-  attackDamage: 1
+  movementSpeed: 0
+  attackSize: 0.2
+  attackSpeed: 0
+  attackDamage: 0
   healAmount: 0
   vampHeal: 0
   stunTimer: 0

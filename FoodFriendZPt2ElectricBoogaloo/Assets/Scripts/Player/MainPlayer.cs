@@ -371,7 +371,7 @@ public class MainPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print(attackSpeedMultiplier);
+        //print(attackSpeedMultiplier);
         rb.MovePosition(transform.position + (velocity * (speed)) * Time.deltaTime);
     }
 
@@ -532,17 +532,17 @@ public class MainPlayer : MonoBehaviour
         {
             PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
-            speedMultiplier += currentChar.speed * temp.movementSpeed;
+            speedMultiplier += temp.movementSpeed;
             //currentChar.speed *= temp.movementSpeed;
-            attackSizeMultiplier += currentChar.attackSize.x * temp.attackSize;
+            attackSizeMultiplier += temp.attackSize;
             //currentChar.attackSize *= temp.attackSize;
-            attackSpeedMultiplier += currentChar.attackSpeed * temp.attackSpeed;
+            attackSpeedMultiplier += temp.attackSpeed;
             //currentChar.attackSpeed *= temp.attackSpeed; //for melee
-            firerateMultiplier += currentChar.firerate * temp.attackSpeed;
+            firerateMultiplier += temp.attackSpeed;
             //currentChar.firerate *= temp.attackSpeed; //for projectiles
-            baseDamageMulitplier += currentChar.baseDamage * temp.attackDamage;
+            baseDamageMulitplier += temp.attackDamage;
             //currentChar.baseDamage *= temp.attackDamage;
-            maxDamageMultiplier += currentChar.maxDamage * temp.attackDamage;
+            maxDamageMultiplier += temp.attackDamage;
             //currentChar.maxDamage *= temp.attackDamage;
             health += temp.healAmount;
 

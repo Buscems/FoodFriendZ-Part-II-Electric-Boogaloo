@@ -16,9 +16,13 @@ public class EnemyBullet : MonoBehaviour
 
     Rigidbody2D rb;
 
+    [HideInInspector]
+    public bool slowBullet;
+
     // Start is called before the first frame update
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -40,6 +44,10 @@ public class EnemyBullet : MonoBehaviour
         if(collision.tag == "Player1" || collision.tag == "Player2")
         {
             collision.GetComponent<MainPlayer>().GetHit(damage);
+            if (slowBullet)
+            {
+                //do a thing that would start making the character be slow
+            }
             Destroy(this.gameObject);
         }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7179449690797928688}
   - component: {fileID: 3987774445226452789}
   - component: {fileID: 2590911075407522971}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PepperGrinder
   m_TagString: StatBoost
   m_Icon: {fileID: 0}
@@ -93,13 +93,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12edf85a889318f40883efcacba11b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+  baseStats: {fileID: 0}
   powerUpName: PepperGrinder
-  movementSpeed: 1
-  attackSize: 1.2
-  attackSpeed: 1
-  attackDamage: 1
-  timer: 0
-  maxTimer: 0
+  movementSpeed: 0
+  attackSize: 0.2
+  attackSpeed: 0
+  attackDamage: 0
+  healAmount: 0
+  vampHeal: 0
+  stunTimer: 0
+  maxStunTimer: 0
   currentPowerUp: 0
 --- !u!61 &2590911075407522971
 BoxCollider2D:
@@ -117,7 +121,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
