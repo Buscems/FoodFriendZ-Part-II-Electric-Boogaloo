@@ -98,6 +98,8 @@ public class BasePlayer : ScriptableObject
     public GameObject drop;
     [Tooltip("How large of a radius the spawned item will have")]
     public float dropRadius;
+    [Tooltip("How much force to push enemies back if this is a bomb")]
+    public float explosionForce;
 
     [HideInInspector]
     public float currentFirerateTimer = 0;
@@ -261,6 +263,8 @@ public class BasePlayer : ScriptableObject
         attack.GetComponentInChildren<CircleCollider2D>().radius = dropRadius;
         if(this.characterName == "cherry")
         {
+            attack.GetComponentInChildren<Attack>().force = explosionForce;
+            attack.GetComponentInChildren<Attack>().radius = dropRadius;
             attack.GetComponentInChildren<Attack>().isBomb = true;
         }
     }

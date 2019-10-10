@@ -18,6 +18,10 @@ public class Attack : MonoBehaviour
 
     [HideInInspector]
     public bool isBomb;
+    [HideInInspector]
+    public float force;
+    [HideInInspector]
+    public float radius;
 
     public GameObject explosionParticles;
 
@@ -30,6 +34,17 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this is going to be for any bomb characters or other types of explosions
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+
+        foreach (Collider2D nearbyObject in colliders)
+        {
+            Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce2D(force, transform.position, radius);
+            }
+        }
 
     }
 
@@ -37,11 +52,12 @@ public class Attack : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            //decrease the enemy's health, this will be for regular enemies as well as boss enemies
-            other.GetComponent<BaseEnemy>().health -= damage;
-
             if (!isBomb)
             {
+                //decrease the enemy's health, this will be for regular enemies as well as boss enemies
+                other.GetComponent<BaseEnemy>().health -= damage;
+
+            
                 try
                 {
                     //if attack is non pierce-able, destroy on collision with enemy
@@ -70,16 +86,6 @@ public class Attack : MonoBehaviour
                     currentEnemiesPassed -= 1;
                 }
             }
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        //this is for the cherry bomb, if you want to change it you can, I did this really fast and it's really bad and specific to basically only these types of interactions
-        if(collision.gameObject.tag == "Enemy")
-        {
-            collision.GetComponent<BaseEnemy>().health -= damage;
-            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), this.GetComponent<CircleCollider2D>());
         }
     }
 
