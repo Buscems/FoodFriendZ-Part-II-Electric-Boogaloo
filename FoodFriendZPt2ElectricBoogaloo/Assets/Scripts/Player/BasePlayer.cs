@@ -261,7 +261,7 @@ public class BasePlayer : ScriptableObject
         attack.GetComponentInChildren<CircleCollider2D>().radius = dropRadius;
         if(this.characterName == "cherry")
         {
-            attack.GetComponent<Attack>().isBomb = true;
+            attack.GetComponentInChildren<Attack>().isBomb = true;
         }
     }
 
