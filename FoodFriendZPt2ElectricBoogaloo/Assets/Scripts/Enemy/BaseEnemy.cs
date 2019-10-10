@@ -56,7 +56,7 @@ public class BaseEnemy : MonoBehaviour
         }
         if(Random.Range(0f, 1f) <= dropRate)
         {
-            Debug.Log("Cool");
+            //Debug.Log("Cool");
             itemDrop = true;
         }
 

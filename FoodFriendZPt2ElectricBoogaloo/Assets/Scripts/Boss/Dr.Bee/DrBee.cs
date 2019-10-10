@@ -5,7 +5,7 @@ using UnityEngine;
 public class DrBee : MonoBehaviour
 {
 
-    BaseEnemy baseEnemy;
+    BaseBoss baseBoss;
 
     Vector3 direction;
 
@@ -16,16 +16,12 @@ public class DrBee : MonoBehaviour
     enum BossState { StageOne, StageTwo, Stage3 }
     BossState state;
 
-    float maxHealth;
-    float healthPercent;
-
     // Start is called before the first frame update
     void Start()
     {
-        baseEnemy = GetComponent<BaseEnemy>();
-        rb = GetComponent<Rigidbody2D>();
 
-        maxHealth = baseEnemy.health;
+        baseBoss= GetComponent<BaseBoss>();
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
@@ -33,7 +29,7 @@ public class DrBee : MonoBehaviour
     void Update()
     {
 
-        healthPercent = baseEnemy.health / maxHealth;
+        
 
     }
 }
