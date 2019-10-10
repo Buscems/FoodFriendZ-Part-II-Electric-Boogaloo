@@ -257,8 +257,8 @@ public class BasePlayer : ScriptableObject
     {
 
         GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-        attack.GetComponent<Attack>().damage = baseDamage * baseDamageMulitplier;
-        attack.GetComponent<CircleCollider2D>().radius = dropRadius;
+        attack.GetComponentInChildren<Attack>().damage = baseDamage * baseDamageMulitplier;
+        attack.GetComponentInChildren<CircleCollider2D>().radius = dropRadius;
         if(this.characterName == "cherry")
         {
             attack.GetComponent<Attack>().isBomb = true;

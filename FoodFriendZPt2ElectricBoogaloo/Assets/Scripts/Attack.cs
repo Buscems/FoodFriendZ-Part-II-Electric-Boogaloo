@@ -78,7 +78,6 @@ public class Attack : MonoBehaviour
         //this is for the cherry bomb, if you want to change it you can, I did this really fast and it's really bad and specific to basically only these types of interactions
         if(collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Cherry Bomb");
             collision.GetComponent<BaseEnemy>().health -= damage;
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), this.GetComponent<CircleCollider2D>());
         }
