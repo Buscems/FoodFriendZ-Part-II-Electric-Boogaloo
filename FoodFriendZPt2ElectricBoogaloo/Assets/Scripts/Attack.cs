@@ -42,35 +42,38 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this is going to be for any bomb characters or other types of explosions
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
-
-        foreach (Collider2D nearbyObject in colliders)
+        if (Time.timeScale != 0)
         {
-            Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.AddExplosionForce2D(force, transform.position, radius);
-            }
-        }
+            //this is going to be for any bomb characters or other types of explosions
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
 
-        if (enemy != null)
-        {
-            if (isPinshot)
+            foreach (Collider2D nearbyObject in colliders)
             {
-                enemy.transform.position = transform.position;
-            }
-            if (isNeedler)
-            {
-                transform.position = enemy.transform.position;
-                timeBeforeExplosion -= Time.deltaTime;
-
-                if (timeBeforeExplosion < 0)
+                Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
+                if (rb != null)
                 {
-                    print(enemy.GetComponent<BaseEnemy>().health);
-                    enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
-                    print(enemy.GetComponent<BaseEnemy>().health);
-                    GetComponent<BasicBullet>().timeTillDespawn = -6;
+                    rb.AddExplosionForce2D(force, transform.position, radius);
+                }
+            }
+
+            if (enemy != null)
+            {
+                if (isPinshot)
+                {
+                    enemy.transform.position = transform.position;
+                }
+                if (isNeedler)
+                {
+                    transform.position = enemy.transform.position;
+                    timeBeforeExplosion -= Time.deltaTime;
+
+                    if (timeBeforeExplosion < 0)
+                    {
+                        print(enemy.GetComponent<BaseEnemy>().health);
+                        enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                        print(enemy.GetComponent<BaseEnemy>().health);
+                        GetComponent<BasicBullet>().timeTillDespawn = -6;
+                    }
                 }
             }
         }

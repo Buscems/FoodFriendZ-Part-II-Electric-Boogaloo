@@ -180,23 +180,26 @@ public class BasePlayer : ScriptableObject
     // Update is called once per frame
     public void Update()
     {
-        if(currentDodgeTime > 0)
+        if (Time.timeScale != 0)
         {
-            currentDodgeSpeedMultiplier = dodgeSpeedMultiplier;
-        }
-        else
-        {
-            currentDodgeSpeedMultiplier = 1;
-        }
+            if (currentDodgeTime > 0)
+            {
+                currentDodgeSpeedMultiplier = dodgeSpeedMultiplier;
+            }
+            else
+            {
+                currentDodgeSpeedMultiplier = 1;
+            }
 
-        currentDodgeWaitTime -= Time.deltaTime;
-        currentDodgeTime -= Time.deltaTime;
+            currentDodgeWaitTime -= Time.deltaTime;
+            currentDodgeTime -= Time.deltaTime;
 
 
-        if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire)
-        {
-            currentFirerateTimer -= Time.deltaTime;
-            timeBetweenBurstsTimer -= Time.deltaTime;
+            if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire)
+            {
+                currentFirerateTimer -= Time.deltaTime;
+                timeBetweenBurstsTimer -= Time.deltaTime;
+            }
         }
     }
 

@@ -159,24 +159,30 @@ public class MainPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stunTimer <= 0) { PlayerMovement(); }
-        else { stunTimer -= Time.deltaTime; }
-
-        LookDirection();
-        AttackLogic();
-        AnimationHandler();
-        SwapLogic();
-        DodgeLogic();
-
-
-        //temp health testing
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (myPlayer.GetButtonDown("Pause"))
         {
-            health--;
+            if(Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+            
         }
-        if (Input.GetKeyDown(KeyCode.X))
+
+        if (Time.timeScale != 0)
         {
-            health++;
+            if (stunTimer <= 0) { PlayerMovement(); }
+            else { stunTimer -= Time.deltaTime; }
+
+            LookDirection();
+            AttackLogic();
+            AnimationHandler();
+            SwapLogic();
+            DodgeLogic();
+
         }
 
     }
