@@ -9,7 +9,7 @@ public class BasicBullet : MonoBehaviour
     [HideInInspector]
     public float bulletSpeed;
     [HideInInspector]
-    public float timeTillDespawn;
+    public float timeTillDespawn; 
     [HideInInspector]
     public bool canBounce;
     //[HideInInspector]
@@ -42,6 +42,14 @@ public class BasicBullet : MonoBehaviour
 
     }
 
+    public void SetVariables(float _bulletSpeed, float _timeTillDespawn, bool _canBounce)
+    {
+        bulletSpeed = _bulletSpeed;
+        timeTillDespawn = _timeTillDespawn;
+        canBounce = _canBounce;
+    }
+
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -70,10 +78,7 @@ public class BasicBullet : MonoBehaviour
             }
         }
 
-        if(!canBounce && collision.gameObject.tag == "TilesHere")
-        {
-            Destroy(this.gameObject);
-        }
+       
 
     }
 }

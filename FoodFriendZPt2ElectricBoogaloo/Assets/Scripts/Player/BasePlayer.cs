@@ -88,6 +88,12 @@ public class BasePlayer : ScriptableObject
     [Header("Ranged-Burst Fire")]
     public int bulletsPerBurst;
     public float timeBetweenBursts;
+    [Header("Needler/Pinshot")]
+    public bool isNeedler;
+    public bool isPinshot;
+    public float explosionDamage;
+    public float timeBeforeExplosion;
+
 
     [HideInInspector]
     public bool firing = false;
@@ -100,6 +106,11 @@ public class BasePlayer : ScriptableObject
     public float dropRadius;
     [Tooltip("How much force to push enemies back if this is a bomb")]
     public float explosionForce;
+
+
+
+
+
 
     [HideInInspector]
     public float currentFirerateTimer = 0;
@@ -200,12 +211,8 @@ public class BasePlayer : ScriptableObject
     private void SetBulletVariables(GameObject attack, Transform parentTransform)
     {
         attack.transform.parent = parentTransform;
-        attack.GetComponent<Attack>().canPierce = canPierce;
-        attack.GetComponent<Attack>().maxAmountOfEnemiesCanPassThrough = maxAmountOfEnemiesCanPassThrough;
-        attack.GetComponent<Attack>().pierceMultiplier = pierceMultiplier;
-        attack.GetComponent<BasicBullet>().bulletSpeed = bulletSpeed;
-        attack.GetComponent<BasicBullet>().timeTillDespawn = timeTillDespawn;
-        attack.GetComponent<BasicBullet>().canBounce = canBounce;
+        attack.GetComponent<Attack>().SetBulletVariables(canPierce, maxAmountOfEnemiesCanPassThrough, pierceMultiplier, isPinshot, isNeedler, timeBeforeExplosion, explosionDamage);
+        attack.GetComponent<BasicBullet>().SetVariables(bulletSpeed, timeTillDespawn, canBounce);
     }
 
     private void SetMeleeVariables(GameObject attack, Transform parentTransform)

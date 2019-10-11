@@ -14,7 +14,7 @@ public class Attack : MonoBehaviour
     [HideInInspector]
     public int maxAmountOfEnemiesCanPassThrough = -1;
 
-    private int currentEnemiesPassed;
+    private int currentEnemiesPassed =-1;
 
     [HideInInspector]
     public bool isBomb;
@@ -24,6 +24,14 @@ public class Attack : MonoBehaviour
     public float radius;
 
     public GameObject explosionParticles;
+
+    private GameObject enemy = null;
+
+
+    bool isPinshot;
+    bool isNeedler;
+    float timeBeforeExplosion;
+    float explosionDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +54,62 @@ public class Attack : MonoBehaviour
             }
         }
 
+        if (enemy != null)
+        {
+            if (isPinshot)
+            {
+                enemy.transform.position = transform.position;
+            }
+            if (isNeedler)
+            {
+                transform.position = enemy.transform.position;
+                timeBeforeExplosion -= Time.deltaTime;
+
+                if (timeBeforeExplosion < 0)
+                {
+                    print(enemy.GetComponent<BaseEnemy>().health);
+                    enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                    print(enemy.GetComponent<BaseEnemy>().health);
+                    GetComponent<BasicBullet>().timeTillDespawn = -6;
+                }
+            }
+        }
+
+    }
+
+    public void SetBulletVariables(bool _canPierce, int _maxAmountOfEnemiesCanPassThrough, float _pierceMultiplier, bool _isPinshot, bool _isNeedler, float _timeBeforeExplosion, float _explosionDamage)
+    {
+        canPierce = _canPierce;
+        maxAmountOfEnemiesCanPassThrough = _maxAmountOfEnemiesCanPassThrough;
+        pierceMultiplier = _pierceMultiplier;
+        isPinshot = _isPinshot;
+        isNeedler = _isNeedler;
+        timeBeforeExplosion = _timeBeforeExplosion;
+        explosionDamage = _explosionDamage;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(gameObject.tag == "Projectile")
+        {
+            if (other.gameObject.tag == "TilesHere")
+            {
+                try
+                {
+                    if (isPinshot)
+                    {
+                        enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                        GetComponent<BasicBullet>().timeTillDespawn = -6;
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                    }
+                }
+                catch { }
+            }
+        }
+
         if (other.gameObject.tag == "Enemy")
         {
             if (!isBomb)
@@ -57,7 +117,6 @@ public class Attack : MonoBehaviour
                 //decrease the enemy's health, this will be for regular enemies as well as boss enemies
                 other.GetComponent<BaseEnemy>().health -= damage;
 
-            
                 try
                 {
                     //if attack is non pierce-able, destroy on collision with enemy
@@ -65,13 +124,13 @@ public class Attack : MonoBehaviour
                     {
                         if (!canPierce)
                         {
-                            Destroy(gameObject);
+                            DestroyBullet(other.gameObject);
                         }
                     }
                 }
                 catch
                 {
-                    Destroy(gameObject);
+                    DestroyBullet(other.gameObject);
                 }
 
                 damage *= pierceMultiplier;
@@ -80,22 +139,57 @@ public class Attack : MonoBehaviour
                 {
                     if (currentEnemiesPassed == 0)
                     {
-                        Destroy(gameObject);
+                        DestroyBullet(other.gameObject);
                     }
 
                     currentEnemiesPassed -= 1;
                 }
             }
         }
+
+       // if(other.gameObject.tag == "")
+    }
+
+    public void DestroyBullet(GameObject _enemy)
+    {
+        if (isPinshot || isNeedler)
+        {
+            if (enemy == null)
+            {
+                print("fdghdxhxdghxfgh0");
+                GetComponent<BasicBullet>().timeTillDespawn = 11111111;
+                damage = 0;
+                enemy = _enemy;
+            }
+        }
+        else
+        {
+            try
+            {
+                if (transform.parent.name.Contains("Holder"))
+                {
+                    Destroy(transform.parent.gameObject);
+                }
+            }
+            catch { Destroy(gameObject); }
+        }
     }
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        try
+        {
+            if (transform.parent.name.Contains("Holder"))
+            {
+                Destroy(transform.parent.gameObject);
+            }
+        }
+        catch { Destroy(gameObject); }
     }
+
 
     public void Exploison()
     {
-        Instantiate(explosionParticles,gameObject.transform.position, Quaternion.identity);
+        Instantiate(explosionParticles, gameObject.transform.position, Quaternion.identity);
     }
 }
