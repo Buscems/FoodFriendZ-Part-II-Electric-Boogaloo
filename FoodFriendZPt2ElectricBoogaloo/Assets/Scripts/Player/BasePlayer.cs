@@ -16,6 +16,9 @@ public class BasePlayer : ScriptableObject
     [Header("")]
     public float speed;
     public float baseDamage;
+    [Range(0.0f, 1.0f)]
+    public float critChance;
+    public float critDamageMulitiplier = 1;
     public float dodgeSpeedMultiplier = 1;
 
     [HideInInspector]
@@ -241,6 +244,12 @@ public class BasePlayer : ScriptableObject
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
 
+        float randNum = Random.Range(0, 1);
+        if(randNum < critChance)
+        {
+            damage *= critDamageMulitiplier;
+        }
+
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
         SetMeleeVariables(attack, parentTransform);
 
@@ -264,9 +273,15 @@ public class BasePlayer : ScriptableObject
 
     public void Builder(Vector3 pos, Transform attackDirection, Transform parentTransform)
     {
+        float damage = baseDamage * baseDamageMulitplier;
+        float randNum = Random.Range(0, 1);
+        if (randNum < critChance)
+        {
+            damage *= critDamageMulitiplier;
+        }
 
         GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-        attack.GetComponentInChildren<Attack>().damage = baseDamage * baseDamageMulitplier;
+        attack.GetComponentInChildren<Attack>().damage = damage;
         attack.GetComponentInChildren<CircleCollider2D>().radius = dropRadius;
         if(this.characterName == "cherry")
         {
@@ -278,6 +293,11 @@ public class BasePlayer : ScriptableObject
 
     public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
+        float randNum = Random.Range(0, 1);
+        if (randNum < critChance)
+        {
+            damage *= critDamageMulitiplier;
+        }
         currentFirerateTimer = firerate * firerateMultiplier;
         GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform);
@@ -286,6 +306,11 @@ public class BasePlayer : ScriptableObject
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
+        float randNum = Random.Range(0, 1);
+        if (randNum < critChance)
+        {
+            damage *= critDamageMulitiplier;
+        }
         currentFirerateTimer = firerate * firerateMultiplier;
         float angleInterval = radius / bulletsPerShot;
 
@@ -308,7 +333,12 @@ public class BasePlayer : ScriptableObject
 
     public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
-        if(currentFirerateTimer < 0 && currentBulletnum > 0)
+        float randNum = Random.Range(0, 1);
+        if (randNum < critChance)
+        {
+            damage *= critDamageMulitiplier;
+        }
+        if (currentFirerateTimer < 0 && currentBulletnum > 0)
         {
             currentFirerateTimer = firerate * firerateMultiplier;
 
