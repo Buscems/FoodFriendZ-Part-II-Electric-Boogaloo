@@ -14,6 +14,9 @@ public class ItemHandler : MonoBehaviour
     //holds one of each stat boost you pick up
     List<GameObject> statBoostGameObjects = new List<GameObject>();
 
+    //since we have two colliders on the player theres a chance the stat boost collides wih both colliders in the same frame which causes you to pick up the stat boost twice, this bool makes sure that doesnt happen
+    bool canPickUp = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +31,9 @@ public class ItemHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "StatBoost")
+        if (other.gameObject.tag == "StatBoost" && canPickUp)
         {
+            canPickUp = false;
             bool flag = false;
             int counter = 1;
 
@@ -63,4 +67,10 @@ public class ItemHandler : MonoBehaviour
             }
         }
     }
+
+    private void LateUpdate()
+    {
+        canPickUp = true;
+    }
+
 }
