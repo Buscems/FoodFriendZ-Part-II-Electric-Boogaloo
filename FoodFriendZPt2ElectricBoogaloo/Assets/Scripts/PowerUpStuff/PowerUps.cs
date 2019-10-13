@@ -35,6 +35,11 @@ public class PowerUps : MonoBehaviour
     public float stunTimer;
     public float maxStunTimer;
 
+    public enum Rarity { wellDone, mediumWell, mediumRare, rare }
+    [Header("Rarity")]
+    [Tooltip("This will be how rare the item is so that it will have different chances to appear depending on rarity")]
+    public Rarity rarity;
+
 
     public void Start()
     {
