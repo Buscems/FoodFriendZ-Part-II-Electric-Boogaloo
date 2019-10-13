@@ -11,6 +11,8 @@ public class Phaser : MonoBehaviour
 
     public BoxCollider2D phase;
 
+    public bool midPhase;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,16 +28,33 @@ public class Phaser : MonoBehaviour
             playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
             transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
         }
+
+        if (midPhase == true){
+            phase.enabled = false;
+        }
+
+        if (midPhase == false){
+            phase.enabled = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "TilesHere"){
+        if (collision.gameObject.tag == "TilesHere")
+        {
             phase.enabled = false;
+            Debug.Log("entered");
         }
-        else{
+        else if (collision.gameObject.tag == "Floor")
+        {
             phase.enabled = true;
+            Debug.Log("off");
+        }
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
+        {
+            collision.GetComponent<MainPlayer>().GetHit(1);
         }
     }
-}
+    }
+
 

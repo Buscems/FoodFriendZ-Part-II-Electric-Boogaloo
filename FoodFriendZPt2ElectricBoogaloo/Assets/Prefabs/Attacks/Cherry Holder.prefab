@@ -58,11 +58,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1747628256198301914}
     m_Modifications:
-    - target: {fileID: 4049022442695697508, guid: 840089a4ee0433149a83c6df387b59f2,
-        type: 3}
-      propertyPath: m_Name
-      value: CherryBomb
-      objectReference: {fileID: 0}
     - target: {fileID: 325325263526656423, guid: 840089a4ee0433149a83c6df387b59f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -117,6 +112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049022442695697508, guid: 840089a4ee0433149a83c6df387b59f2,
+        type: 3}
+      propertyPath: m_Name
+      value: CherryBomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840089a4ee0433149a83c6df387b59f2, type: 3}

@@ -91,6 +91,8 @@ public class MainPlayer : MonoBehaviour
     private Image rightCharacter;
     private Image rightHighlight;
 
+    bool touchingChest;
+    ChestScript currentChest;
 
     private void Awake()
     {
@@ -182,6 +184,12 @@ public class MainPlayer : MonoBehaviour
             AnimationHandler();
             SwapLogic();
             DodgeLogic();
+
+            //this is for interacting with a chest
+            if (touchingChest && myPlayer.GetButtonDown("Cross"))
+            {
+                currentChest.OpenChest();
+            }
 
         }
 
@@ -558,6 +566,13 @@ public class MainPlayer : MonoBehaviour
 
             Destroy(other.gameObject);
         }
+
+        if(other.gameObject.tag == "Chest")
+        {
+            touchingChest = true;
+            currentChest = other.gameObject.GetComponentInParent<ChestScript>();
+        }
+
     }
 
 }

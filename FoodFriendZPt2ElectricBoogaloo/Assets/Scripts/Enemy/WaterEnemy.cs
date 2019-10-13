@@ -7,8 +7,8 @@ public class WaterEnemy : MonoBehaviour
     //code from https://answers.unity.com/questions/1359733/moving-an-enemy-randomly.html
 
     private float latestDirectionChangeTime;
-    private readonly float directionChangeTime = 1f;
-    private float characterVelocity = 5f;
+    private readonly float directionChangeTime = 3f;
+    private float characterVelocity = 3f;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
 
@@ -51,6 +51,14 @@ public class WaterEnemy : MonoBehaviour
         if (collision.gameObject.tag == "TilesHere")
         {
             Debug.Log("CHANGE");
+            calcuateNewMovementVector();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "TilesHere"){
+            Debug.Log("change");
             calcuateNewMovementVector();
         }
     }

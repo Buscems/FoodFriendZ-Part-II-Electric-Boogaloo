@@ -21,6 +21,19 @@ public class water : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.gameObject.tag == "Player1")
+        {
+            collision.GetComponent<MainPlayer>().speed -= 2;
+            Debug.Log("slowww");
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player1")
+        {
+            other.GetComponent<MainPlayer>().speed++;
+            Debug.Log("fastttt");
+        }
+    }
 }
