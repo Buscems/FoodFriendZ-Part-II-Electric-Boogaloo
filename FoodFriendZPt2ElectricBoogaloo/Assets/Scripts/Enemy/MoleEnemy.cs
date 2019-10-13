@@ -34,7 +34,7 @@ public class MoleEnemy : MonoBehaviour
     {
         if (under == true)
         {
-            if (baseEnemy.aggroScript.aggro)
+            if (baseEnemy.aggroScript.aggro == true)
             {
                 underground.enabled = false;
                 playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
@@ -43,6 +43,7 @@ public class MoleEnemy : MonoBehaviour
         }
         if (jump == true){
             underground.enabled = true;
+            baseEnemy.aggroScript.aggro = false;
         }
     }
 
@@ -50,6 +51,7 @@ public class MoleEnemy : MonoBehaviour
         //the timer where the enemy is underground and follows the player
         under = true;
         confused = false;
+        baseEnemy.aggroScript.aggro = true;
         yield return new WaitForSeconds(underTime);
         StartCoroutine(readyingUp());
     }
@@ -58,6 +60,7 @@ public class MoleEnemy : MonoBehaviour
         //the timer where the enemy stops and winds up the jump
         aboutToJump = true;
         under = false;
+        baseEnemy.aggroScript.aggro = false;
         yield return new WaitForSeconds(aboutToJumpTime);
         StartCoroutine(jumping());
     }

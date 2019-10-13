@@ -29,7 +29,6 @@ public class TankEnemy : MonoBehaviour
     void Start()
     {
         attackRadius.enabled = false;
-        follow = true;
         StartCoroutine(following());
         baseEnemy = GetComponent<BaseEnemy>();
     }
@@ -69,5 +68,13 @@ public class TankEnemy : MonoBehaviour
         yield return new WaitForSeconds(attackTime);
         attack = true;
         StartCoroutine(following());
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2" && attack == true)
+        {
+            collision.GetComponent<MainPlayer>().GetHit(1);
+        }
     }
 }
