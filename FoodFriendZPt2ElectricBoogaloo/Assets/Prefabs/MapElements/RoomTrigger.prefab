@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4017292364759856884}
   - component: {fileID: 4017292364759856885}
-  - component: {fileID: 571763834377267961}
+  - component: {fileID: 4017292364759856891}
   m_Layer: 0
   m_Name: RoomTrigger
   m_TagString: LockedRoomTrigger
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &571763834377267961
+--- !u!114 &4017292364759856891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,4 +70,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05382c814cc65b45b4a7d3a6911befe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors: []
+  doors:
+  - {fileID: 0}
