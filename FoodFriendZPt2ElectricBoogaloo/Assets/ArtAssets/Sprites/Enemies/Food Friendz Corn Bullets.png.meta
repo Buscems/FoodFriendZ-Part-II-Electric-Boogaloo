@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 1afc08141eae90e4cb32aceadf9c9157
+guid: f06e3bfe4da30426bb59c1c28f90b4db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3837876494301086993
-    second: Food Friendz Corn Turret_0
+      213: -5549909744788508478
+    second: Food Friendz Corn Bullets_0
   - first:
-      213: 6504478533408617807
-    second: Food Friendz Corn Turret_1
+      213: 7857702215549851131
+    second: Food Friendz Corn Bullets_1
   - first:
-      213: -2791423411083400353
-    second: Food Friendz Corn Turret_2
-  - first:
-      213: -8508513199483457622
-    second: Food Friendz Corn Turret_3
+      213: 1170215979356122223
+    second: Food Friendz Corn Bullets_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -54,10 +51,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -92,28 +89,17 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 2
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Food Friendz Corn Turret_0
+      name: Food Friendz Corn Bullets_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 4
-        width: 26
-        height: 27
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +107,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6acf2f07b0f7709479807dade00a2041
-      internalID: -3837876494301086993
+      spriteID: 02bcd2e08a9d141c9be0f2a2246a627e
+      internalID: -5549909744788508478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Food Friendz Corn Turret_1
+      name: Food Friendz Corn Bullets_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 4
-        width: 26
-        height: 27
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +128,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d1c2cafdf4e7724eb378f29dcaa4350
-      internalID: 6504478533408617807
+      spriteID: 4f02a6bbb12224edeb174ca4dd7f2327
+      internalID: 7857702215549851131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Food Friendz Corn Turret_2
+      name: Food Friendz Corn Bullets_2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 4
-        width: 26
-        height: 27
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,29 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 129af6f9e13256d41a3a7b3a4b384c34
-      internalID: -2791423411083400353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Food Friendz Corn Turret_3
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 4
-        width: 26
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42b1b4bde4cf20e43a02f2cc7301e181
-      internalID: -8508513199483457622
+      spriteID: 465f18038eac2438da0ccec53b348356
+      internalID: 1170215979356122223
       vertices: []
       indices: 
       edges: []
@@ -193,7 +158,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 830ab45062f12bd43b0758719c9cf8d8
+    spriteID: 97127e5144bd54445854c66df305ab46
     internalID: 0
     vertices: []
     indices: 
