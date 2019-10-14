@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossRoomTrigger : MonoBehaviour
+public class RoomTrigger : MonoBehaviour
 {
 
     [Tooltip("This is how many triggers need to be activated when the player gets into the room, to lock them in")]
