@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
+  m_Name: Onigiri
+  m_EditorClassIdentifier: 
+  hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
+  characterName: onigiri
+  attackType: 3
+  speed: 3
+  baseDamage: 1
+  critChance: 0
+  critDamageMulitiplier: 1
+  dodgeSpeedMultiplier: 1
+  currentDodgeSpeedMultiplier: 1
+  dodgeLength: 1
+  currentDodgeTime: -518.82837
+  dodgeWaitTime: 1
+  currentDodgeWaitTime: -517.82806
+  attackSize: {x: 0, y: 0, z: 0}
+  canPierce: 0
+  pierceMultiplier: 1
+  maxAmountOfEnemiesCanPassThrough: -1
+  offset: 0.75
+  currentPosition: {x: -8.819992, y: -13.083912, z: 0}
+  currentDirection: {x: 1, y: 1, z: 0}
+  weapon: {fileID: 0}
+  awayPos: {x: 0, y: 0, z: 0}
+  attackSpeed: 0
+  rotationalOffset: 0
+  isChargable: 0
+  maxDamage: 1
+  timeTillMaxDamage: 1
+  currentChargeTimer: 0
+  startCharging: 0
+  isAttacking: 0
+  bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
+  firerate: 0.1
+  bulletSpeed: 750
+  timeTillDespawn: 1
+  canBounce: 0
+  radius: 90
+  bulletsPerShot: 5
+  bulletsPerBurst: 3
+  timeBetweenBursts: 0.5
+  isNeedler: 0
+  isPinshot: 1
+  explosionDamage: 1
+  timeBeforeExplosion: 1
+  firing: 0
+  drop: {fileID: 0}
+  dropRadius: 0
+  explosionForce: 0
+  currentFirerateTimer: 0.1
+  attackSizeMultiplier: 1
+  attackSpeedMultiplier: 1
+  firerateMultiplier: 1
+  baseDamageMulitplier: 1
+  maxDamageMultiplier: 1

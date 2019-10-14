@@ -1,0 +1,59 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyBullet : MonoBehaviour
+{
+
+
+
+    [HideInInspector]
+    public float speed;
+    [HideInInspector]
+    public Vector3 velocity;
+    [HideInInspector]
+    public int damage;
+
+    Rigidbody2D rb;
+
+    [HideInInspector]
+    public bool slowBullet;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        rb = GetComponent<Rigidbody2D>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void FixedUpdate()
+    {
+        
+        rb.MovePosition(transform.position + velocity * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player1" || collision.tag == "Player2")
+        {
+            collision.GetComponent<MainPlayer>().GetHit(damage);
+            if (slowBullet)
+            {
+                //do a thing that would start making the character be slow
+            }
+            Destroy(this.gameObject);
+        }
+
+        if (collision.tag == "TilesHere")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+}

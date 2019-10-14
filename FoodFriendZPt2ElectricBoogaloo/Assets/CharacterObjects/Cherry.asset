@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
+  m_Name: Cherry
+  m_EditorClassIdentifier: 
+  hudIcon: {fileID: 242840349670548076, guid: b314120d3722ba14597edcc3b1e5efb8, type: 3}
+  characterName: cherry
+  attackType: 5
+  speed: 4
+  baseDamage: 5
+  dodgeSpeedMultiplier: 1
+  currentDodgeSpeedMultiplier: 1
+  dodgeLength: 1
+  currentDodgeTime: -1079.1932
+  dodgeWaitTime: 1
+  currentDodgeWaitTime: -79.08471
+  attackSize: {x: 0, y: 0, z: 0}
+  canPierce: 0
+  pierceMultiplier: 1
+  maxAmountOfEnemiesCanPassThrough: -1
+  offset: 0
+  currentPosition: {x: -18.131306, y: -13.035864, z: 0}
+  currentDirection: {x: 1, y: -0.0117648505, z: 0}
+  weapon: {fileID: 0}
+  awayPos: {x: 0, y: 0, z: 0}
+  attackSpeed: 0
+  rotationalOffset: 0
+  isChargable: 0
+  maxDamage: 10
+  timeTillMaxDamage: 1
+  currentChargeTimer: 0
+  startCharging: 0
+  isAttacking: 0
+  bullet: {fileID: 0}
+  firerate: 0.5
+  bulletSpeed: 750
+  timeTillDespawn: 1
+  canBounce: 0
+  radius: 90
+  bulletsPerShot: 5
+  bulletsPerBurst: 3
+  timeBetweenBursts: 0.5
+  firing: 0
+  drop: {fileID: 1747628256198301912, guid: 6f2f641a7f16a402c82cf443779019ea, type: 3}
+  dropRadius: 2
+  currentFirerateTimer: -2.2915077
