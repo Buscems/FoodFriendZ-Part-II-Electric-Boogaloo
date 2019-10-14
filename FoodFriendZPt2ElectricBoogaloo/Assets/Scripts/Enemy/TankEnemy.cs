@@ -31,6 +31,7 @@ public class TankEnemy : MonoBehaviour
         attackRadius.enabled = false;
         StartCoroutine(following());
         baseEnemy = GetComponent<BaseEnemy>();
+        player = baseEnemy.aggroScript.target[0].gameObject;
     }
 
     // Update is called once per frame
