@@ -535,8 +535,6 @@ public class MainPlayer : MonoBehaviour
                     Debug.LogError("Player Num is 0, please change to a number > 0");
                     break;
             }
-
-
         }
     }
 
@@ -572,6 +570,8 @@ public class MainPlayer : MonoBehaviour
             touchingChest = true;
             currentChest = other.gameObject.GetComponentInParent<ChestScript>();
         }
+
+      
 
     }
 
