@@ -12,13 +12,6 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector]
     public int currency;
 
-    [Header("Audio")]
-    public AudioSource audioSource;
-    [Tooltip("These are the players sound clips")]
-    /*
-     * 1 = deathSound
-     */
-    public AudioClip[] clips;
 
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
@@ -197,12 +190,6 @@ public class MainPlayer : MonoBehaviour
             {
                 currentChest.OpenChest();
             }
-
-        }
-
-        if(health <= 0)
-        {
-            //death happens here
 
         }
 
