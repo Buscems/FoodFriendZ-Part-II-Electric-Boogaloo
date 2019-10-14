@@ -39,6 +39,6 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public void PlayGameFunction()
     {
         Debug.Log("Loading GameplayScene");
-        SceneManager.LoadScene("GameplayScreen");
+        SceneManager.LoadScene("SprintLevel");
     }
 }
