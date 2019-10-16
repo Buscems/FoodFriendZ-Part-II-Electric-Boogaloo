@@ -60,7 +60,7 @@ public class ChestScript : MonoBehaviour
         }
         else if (rarityChance <= mediumRareChance)
         {
-            currentPowerup = mr[Random.Range(0, wd.Length)];
+            currentPowerup = mr[Random.Range(0, mr.Length)];
         }
         else if (rarityChance <= rareChance)
         {

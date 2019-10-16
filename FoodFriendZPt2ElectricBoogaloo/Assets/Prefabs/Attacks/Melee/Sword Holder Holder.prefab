@@ -38,6 +38,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6315533299590641264}
     m_Modifications:
+    - target: {fileID: 1617062857507310, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_Name
+      value: Sword Holder
+      objectReference: {fileID: 0}
     - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -81,10 +85,6 @@ PrefabInstance:
     - target: {fileID: 4197695724177430, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617062857507310, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
-      propertyPath: m_Name
-      value: Sword Holder
       objectReference: {fileID: 0}
     - target: {fileID: 4336566615380784, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -149,6 +149,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065181376598519654, guid: c6d0c278001f64fdf9740d6d0045d2dd,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065181376598519654, guid: c6d0c278001f64fdf9740d6d0045d2dd,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 5.61
       objectReference: {fileID: 0}
     - target: {fileID: 212839508136622588, guid: c6d0c278001f64fdf9740d6d0045d2dd,
         type: 3}
