@@ -26,10 +26,14 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public EventSystem events;
 
     public Sprite[] characterSprites;
+    public Image[] characterButtons;
 
     private void Start()
     {
-        
+        for(int i = 0; i < characterButtons.Length; i++)
+        {
+            characterButtons[i].sprite = characterSprites[i];
+        }
     }
 
     public void BackToTitleScreenFunction()
