@@ -25,6 +25,8 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     public EventSystem events;
 
+    public Sprite[] characterSprites;
+
     private void Start()
     {
         

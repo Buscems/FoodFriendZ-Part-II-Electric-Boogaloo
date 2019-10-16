@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 803552421}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &83644686
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewiredInputManager: {fileID: 1811829337}
   useAllRewiredGamePlayers: 0
-  useRewiredSystemPlayer: 0
+  useRewiredSystemPlayer: 1
   rewiredPlayerIds: 00000000
   usePlayingPlayersOnly: 0
   playerMice: []
@@ -1424,6 +1424,7 @@ MonoBehaviour:
   CreditsButton: {fileID: 2061951916}
   LogButton: {fileID: 4216672}
   QuitButton: {fileID: 2073891078}
+  es: {fileID: 83644685}
 --- !u!95 &350234130
 Animator:
   serializedVersion: 3

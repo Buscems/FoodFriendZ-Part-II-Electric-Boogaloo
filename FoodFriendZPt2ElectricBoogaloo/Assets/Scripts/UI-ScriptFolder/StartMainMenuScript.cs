@@ -39,6 +39,8 @@ public class StartMainMenuScript : MonoBehaviour
     public Button LogButton;
     public Button QuitButton;
 
+    public EventSystem es;
+
     bool IsOnTitleScreen;
     bool didPlayerPressAnyKey;
 
@@ -76,6 +78,7 @@ public class StartMainMenuScript : MonoBehaviour
         {
             TitleInscruction.enabled = false;
             IsOnTitleScreen = false;
+            es.SetSelectedGameObject(StartButton.gameObject);
         }
     }
 
