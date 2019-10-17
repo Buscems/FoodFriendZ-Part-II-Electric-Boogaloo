@@ -17,6 +17,8 @@ public class OptionsMenu_Script : MonoBehaviour
     public GameObject DefaultScreenOverlay; //Title Screen or GUI
     public GameObject OptionsScreenOverlay;
 
+    public Button startButton;
+    public EventSystem es;
 
     public Slider VolumeSlider;
     public float volume;
@@ -24,6 +26,7 @@ public class OptionsMenu_Script : MonoBehaviour
 
     public void BackButtonFunction()
     {
+        es.SetSelectedGameObject(startButton.gameObject);
         DefaultScreenOverlay.SetActive(true);
         OptionsScreenOverlay.SetActive(false);
     }

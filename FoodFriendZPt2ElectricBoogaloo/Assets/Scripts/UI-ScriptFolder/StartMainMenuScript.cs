@@ -38,6 +38,9 @@ public class StartMainMenuScript : MonoBehaviour
     public Button CreditsButton;
     public Button LogButton;
     public Button QuitButton;
+    public Button optionsBack;
+    public Button creditsBack;
+    public Button logBookCharacters;
 
     public EventSystem es;
 
@@ -94,6 +97,7 @@ public class StartMainMenuScript : MonoBehaviour
     public void LogBookButtonFunction()
     {
         Debug.Log("Opening Log Book");
+        es.SetSelectedGameObject(logBookCharacters.gameObject);
         LogBookParent.SetActive(true);
         MainMenuParent.SetActive(false);
     }
@@ -103,6 +107,7 @@ public class StartMainMenuScript : MonoBehaviour
     {
         OptionsMenuParent.SetActive(true);
         MainMenuParent.SetActive(false);
+        es.SetSelectedGameObject(optionsBack.gameObject);
         Debug.Log("Opening options menu");
     }
 
@@ -110,7 +115,7 @@ public class StartMainMenuScript : MonoBehaviour
     public void CreditsButtonFunction()
     {
         CreditScreenParent.SetActive(true);
-
+        es.SetSelectedGameObject(creditsBack.gameObject);
         //turn off all other elements
         MainMenuParent.SetActive(false);
     }

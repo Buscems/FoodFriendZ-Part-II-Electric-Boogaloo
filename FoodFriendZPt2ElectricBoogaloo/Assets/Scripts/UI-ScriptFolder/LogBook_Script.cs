@@ -30,6 +30,10 @@ public class LogBook_Script : MonoBehaviour
     public GameObject FloorsPanel;
     public GameObject EnemiesPanel;
 
+    public EventSystem es;
+
+    public Button startButton;
+
     public void Start()
     {
         //as default
@@ -75,6 +79,7 @@ public class LogBook_Script : MonoBehaviour
     //Back button tab
     public void BackButtonFunction()
     {
+        es.SetSelectedGameObject(startButton.gameObject);
         TitleScreenOverlay.SetActive(true);
         LogBookScreenOverlay.SetActive(false);
     }

@@ -11,8 +11,12 @@ public class CreditsScreen_Script : MonoBehaviour
     public GameObject TitleScreenOverlay;
     public GameObject CreditsScreenOverlay;
 
+    public EventSystem es;
+    public Button startButton;
+
     public void BackButtonFunction()
     {
+        es.SetSelectedGameObject(startButton.gameObject);
         TitleScreenOverlay.SetActive(true);
         CreditsScreenOverlay.SetActive(false);
     }
