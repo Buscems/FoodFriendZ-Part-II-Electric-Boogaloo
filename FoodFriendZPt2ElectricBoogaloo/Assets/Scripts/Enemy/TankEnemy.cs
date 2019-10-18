@@ -24,12 +24,15 @@ public class TankEnemy : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    public PathfindingAI path;
+
     // Start is called before the first frame update
     void Start()
     {
         attackRadius.enabled = false;
         StartCoroutine(following());
         baseEnemy = GetComponent<BaseEnemy>();
+        path = GetComponent<PathfindingAI>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class TankEnemy : MonoBehaviour
     {
 
         if (follow == true){
+            path.enabled = true;
             attackRadius.enabled = false;
             baseEnemy.aggroScript.aggro = true;
             playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
@@ -44,6 +48,7 @@ public class TankEnemy : MonoBehaviour
         
         if (windUp == true){
             baseEnemy.aggroScript.aggro = false;
+            path.enabled = false;
         }
 
         if (attack == true){

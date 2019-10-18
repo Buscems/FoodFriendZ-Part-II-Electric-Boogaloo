@@ -20,6 +20,8 @@ public class MoleEnemy : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    public PathfindingAI path;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class MoleEnemy : MonoBehaviour
         baseEnemy = GetComponent<BaseEnemy>();
         underground.enabled = false;
         StartCoroutine(following());
+        path = GetComponent<PathfindingAI>();
     }
 
     // Update is called once per frame
@@ -38,12 +41,17 @@ public class MoleEnemy : MonoBehaviour
             {
                 underground.enabled = false;
                 playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
-                transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
+                path.enabled = true;
             }
         }
+
+        if (aboutToJump == true){
+            path.enabled = false;
+        }
+
         if (jump == true){
             underground.enabled = true;
-            baseEnemy.aggroScript.aggro = false;
+            
         }
     }
 
