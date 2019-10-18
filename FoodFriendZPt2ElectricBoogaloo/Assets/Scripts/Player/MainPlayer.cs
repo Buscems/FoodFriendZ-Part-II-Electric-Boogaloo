@@ -332,7 +332,13 @@ public class MainPlayer : MonoBehaviour
             {
                 currentChar.InitiateBurstFire();
             }
+            if (currentChar.attackType == BasePlayer.AttackType.Boomerang)
+            {
+                currentChar.RangedBoomerang(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+            }
         }
+
+        print(currentChar.attackType);
 
         if (myPlayer.GetButton("Attack"))
         {

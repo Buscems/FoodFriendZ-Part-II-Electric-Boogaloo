@@ -12,6 +12,10 @@ public class BasicBullet : MonoBehaviour
     public float timeTillDespawn; 
     [HideInInspector]
     public bool canBounce;
+    [HideInInspector]
+    public bool isBoomerang;
+    [HideInInspector]
+    public float timeBeforeReturning;
     //[HideInInspector]
     public Vector3 velocity;
 
@@ -19,6 +23,9 @@ public class BasicBullet : MonoBehaviour
     public BoxCollider2D bottom;
     public BoxCollider2D left;
     public BoxCollider2D right;
+
+    [HideInInspector]
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +40,20 @@ public class BasicBullet : MonoBehaviour
 
     private void Update()
     {
-        timeTillDespawn -= Time.deltaTime;
-
-        if (timeTillDespawn < 0)
+        if (!isBoomerang)
         {
-            Destroy(gameObject);
+            timeTillDespawn -= Time.deltaTime;
+            if (timeTillDespawn < 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
+
+        if (isBoomerang)
+        {
+            timeBeforeReturning -= Time.deltaTime;
+        }
     }
 
     public void SetVariables(float _bulletSpeed, float _timeTillDespawn, bool _canBounce)
@@ -53,7 +67,19 @@ public class BasicBullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = velocity;
+        if (isBoomerang && timeBeforeReturning < 0)
+        {
+            Vector3 origRot = player.transform.eulerAngles;
+            Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            float str = Mathf.Min(1 * Time.deltaTime, 1);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
+            rb.velocity = transform.forward * bulletSpeed;
+            transform.eulerAngles = origRot;
+        }
+        else
+        {
+            rb.velocity = velocity;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -78,6 +104,14 @@ public class BasicBullet : MonoBehaviour
             }
         }
 
+
+        if(collision.gameObject.tag == "Player1")
+        {
+            if (isBoomerang && timeBeforeReturning < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
        
 
     }

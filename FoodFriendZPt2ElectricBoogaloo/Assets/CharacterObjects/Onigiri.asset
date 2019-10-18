@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
   characterName: onigiri
-  attackType: 3
+  attackType: 5
   speed: 3
   baseDamage: 1
   critChance: 0
@@ -22,16 +22,16 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -518.82837
+  currentDodgeTime: -1110.9844
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -517.82806
+  currentDodgeWaitTime: -1109.984
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0.75
-  currentPosition: {x: -8.819992, y: -13.083912, z: 0}
-  currentDirection: {x: 1, y: 1, z: 0}
+  currentPosition: {x: 485.69724, y: -32.557358, z: 0}
+  currentDirection: {x: -0.29635745, y: -0.08509273, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -43,23 +43,24 @@ MonoBehaviour:
   startCharging: 0
   isAttacking: 0
   bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  firerate: 0.1
-  bulletSpeed: 750
-  timeTillDespawn: 1
+  firerate: 0.25
+  bulletSpeed: 501.2
+  timeTillDespawn: 10
   canBounce: 0
   radius: 90
   bulletsPerShot: 5
   bulletsPerBurst: 3
   timeBetweenBursts: 0.5
   isNeedler: 0
-  isPinshot: 1
+  isPinshot: 0
   explosionDamage: 1
   timeBeforeExplosion: 1
+  timeBeforeReturning: 0.87
   firing: 0
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: 0.1
+  currentFirerateTimer: -6.2901125
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1

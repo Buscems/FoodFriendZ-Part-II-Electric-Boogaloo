@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6395150998634022948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.953, y: 1.966, z: 0}
+  m_LocalPosition: {x: -3.953, y: 1.966, z: 10}
   m_LocalScale: {x: 0.313, y: 0.313, z: 0.313}
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,11 +103,14 @@ MonoBehaviour:
   bulletSpeed: 0
   timeTillDespawn: 3
   canBounce: 0
+  isBoomerang: 0
+  timeBeforeReturning: 0
   velocity: {x: 0, y: 0, z: 0}
   top: {fileID: 2994403496668391241}
   bottom: {fileID: 9062566882680410951}
   left: {fileID: -7520301734095244156}
   right: {fileID: 6502664742631439924}
+  player: {fileID: 0}
 --- !u!50 &6395150998634023896
 Rigidbody2D:
   serializedVersion: 4
