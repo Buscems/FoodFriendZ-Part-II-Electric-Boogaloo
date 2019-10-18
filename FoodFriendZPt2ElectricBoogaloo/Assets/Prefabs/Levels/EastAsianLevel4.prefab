@@ -1,5 +1,98 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &151755213852379012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3641313140276977728}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4114191552592592696}
+  m_Layer: 0
+  m_Name: phaser enemy (1) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4114191552592592696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3641313140276977728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151755213852379012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3251145628879303881}
+  m_Father: {fileID: 3641313141329408661}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1573213992244697299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3641313140276977728}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3251145628879303881}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3251145628879303881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2276262552885384329, guid: 1c69e7f6e15e3354d9960d719747fae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3641313140276977728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573213992244697299}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4114191552592592696}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1645437869874897051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3641313139780297102}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7591288412939078831}
+  m_Layer: 0
+  m_Name: phaser enemy (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7591288412939078831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3641313139780297102}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645437869874897051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3251145628382721287}
+  m_Father: {fileID: 3641313141329408661}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3641313139987652333
 GameObject:
   m_ObjectHideFlags: 0
@@ -72741,7 +72834,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!66 &3641313141320819002
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -72792,8 +72885,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 495275211550688872}
-  - {fileID: 3251145628879303881}
-  - {fileID: 3251145628382721287}
+  - {fileID: 4114191552592592696}
+  - {fileID: 7591288412939078831}
   - {fileID: 2074409684265560045}
   - {fileID: 2074409683974731828}
   - {fileID: 2074409683452798625}
@@ -72819,6 +72912,37 @@ Transform:
   - {fileID: 798800396230424241}
   m_Father: {fileID: 3641313139987652334}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6917756921935864167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3641313139780297102}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3251145628382721287}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3251145628382721287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2276262552885384329, guid: 1c69e7f6e15e3354d9960d719747fae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3641313139780297102}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917756921935864167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7591288412939078831}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3641313139442483539
 PrefabInstance:
@@ -73586,11 +73710,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3641313141329408661}
     m_Modifications:
-    - target: {fileID: 2276262552885384330, guid: 1c69e7f6e15e3354d9960d719747fae4,
-        type: 3}
-      propertyPath: m_Name
-      value: phaser enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 2276262552885384329, guid: 1c69e7f6e15e3354d9960d719747fae4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73646,14 +73765,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2276262552885384330, guid: 1c69e7f6e15e3354d9960d719747fae4,
+        type: 3}
+      propertyPath: m_Name
+      value: phaser enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c69e7f6e15e3354d9960d719747fae4, type: 3}
---- !u!4 &3251145628382721287 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2276262552885384329, guid: 1c69e7f6e15e3354d9960d719747fae4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3641313139780297102}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3641313139827003896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74045,11 +74163,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3641313141329408661}
     m_Modifications:
-    - target: {fileID: 2276262552885384330, guid: 1c69e7f6e15e3354d9960d719747fae4,
-        type: 3}
-      propertyPath: m_Name
-      value: phaser enemy (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 2276262552885384329, guid: 1c69e7f6e15e3354d9960d719747fae4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -74105,14 +74218,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2276262552885384330, guid: 1c69e7f6e15e3354d9960d719747fae4,
+        type: 3}
+      propertyPath: m_Name
+      value: phaser enemy (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c69e7f6e15e3354d9960d719747fae4, type: 3}
---- !u!4 &3251145628879303881 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2276262552885384329, guid: 1c69e7f6e15e3354d9960d719747fae4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3641313140276977728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3641313140342060365
 PrefabInstance:
   m_ObjectHideFlags: 0

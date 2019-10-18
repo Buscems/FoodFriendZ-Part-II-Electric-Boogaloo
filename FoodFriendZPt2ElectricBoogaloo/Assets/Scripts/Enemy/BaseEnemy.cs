@@ -46,6 +46,8 @@ public class BaseEnemy : MonoBehaviour
             objectToDestroy = this.gameObject;
         }
 
+        aggroScript = GetComponent<Aggro>();
+
         if (GetComponent<Animator>() != null)
         {
             anim = GetComponent<Animator>();
@@ -130,7 +132,7 @@ public class BaseEnemy : MonoBehaviour
         }
         */
 
-        DestroyThisObject();
+        Destroy(gameObject);
 
     }
 

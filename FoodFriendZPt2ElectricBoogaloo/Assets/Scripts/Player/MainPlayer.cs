@@ -399,7 +399,9 @@ public class MainPlayer : MonoBehaviour
     private void FixedUpdate()
     {
         //print(attackSpeedMultiplier);
-        rb.MovePosition(transform.position + (velocity * (speed)) * Time.deltaTime);
+        Vector3 currentPos = transform.position;
+        currentPos.z = 1;
+        rb.MovePosition(currentPos + (velocity * (speed)) * Time.deltaTime);
     }
 
     void AnimationHandler()

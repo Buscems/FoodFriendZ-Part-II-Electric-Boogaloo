@@ -25,6 +25,8 @@ public class Aggro : MonoBehaviour
 
     private void Awake()
     {
+        target[0] = GameObject.FindGameObjectWithTag("Player1").transform;
+        currentTarget = target[0];
         aggro = false;
     }
 
@@ -40,6 +42,7 @@ public class Aggro : MonoBehaviour
     {
         AggroHandler();
 
+        //currentPos = this.transform.position;
         currentPos = this.transform.position;
 
         //Debug.Log(aggro);
