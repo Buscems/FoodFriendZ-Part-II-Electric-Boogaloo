@@ -40,8 +40,9 @@ public class GoToNextLevel : MonoBehaviour
         }
 
         Destroy(currentScene);
-        currentScene = Instantiate(levels[newNumber], transform.position, Quaternion.identity);
+        currentScene = Instantiate(levels[newNumber], Vector3.zero, Quaternion.identity);
         Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
+        print(spawnPoint);
         player.transform.position = spawnPoint;
         camera.transform.position = spawnPoint;
 

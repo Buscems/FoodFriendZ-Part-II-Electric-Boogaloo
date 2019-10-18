@@ -402,6 +402,8 @@ public class MainPlayer : MonoBehaviour
         Vector3 currentPos = transform.position;
         currentPos.z = 1;
         rb.MovePosition(currentPos + (velocity * (speed)) * Time.deltaTime);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     void AnimationHandler()
@@ -476,6 +478,7 @@ public class MainPlayer : MonoBehaviour
         if (velocity.y != 0)
         {
             currentChar.currentDirection.y = velocity.y;
+
         }
     }
 
