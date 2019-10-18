@@ -19,6 +19,8 @@ public class Tracking : MonoBehaviour
 
     bool startLoop;
 
+    public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {

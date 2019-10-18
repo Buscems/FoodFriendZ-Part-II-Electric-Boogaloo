@@ -10,7 +10,6 @@ public class TankEnemy : MonoBehaviour
      * 3. timer for AOE attack
       */
 
-    public GameObject player;
     private Vector3 playerPos;
 
     public bool follow;
@@ -31,19 +30,22 @@ public class TankEnemy : MonoBehaviour
         attackRadius.enabled = false;
         StartCoroutine(following());
         baseEnemy = GetComponent<BaseEnemy>();
-        player = baseEnemy.aggroScript.target[0].gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerPos = player.transform.position;
 
         if (follow == true){
             attackRadius.enabled = false;
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
+            baseEnemy.aggroScript.aggro = true;
+            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
         }
         
+        if (windUp == true){
+            baseEnemy.aggroScript.aggro = false;
+        }
+
         if (attack == true){
             attackRadius.enabled = true;
         }

@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 6526373558256602870}
   - component: {fileID: 6526373558256602872}
   - component: {fileID: 8418095989756897908}
+  - component: {fileID: 498047308}
   m_Layer: 10
   m_Name: phaser enemy 1
   m_TagString: Enemy
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 3
   speed: 2
   walkIntoDamage: 1
   aggroScript: {fileID: 8418095989756897911}
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 17
+  aggroRange: 3
   aggroTimerMax: 2
   aggro: 0
   target:
@@ -314,5 +315,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseEnemy: {fileID: 8418095989756897910}
-  phase: {fileID: 8418095989756897909}
+  phase: {fileID: 498047308}
   midPhase: 0
+  rb: {fileID: 8418095989756897906}
+--- !u!61 &498047308
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418095989756897907}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.000000007450581, y: -0.007836886}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18555425, y: 0.24163}
+  m_EdgeRadius: 0

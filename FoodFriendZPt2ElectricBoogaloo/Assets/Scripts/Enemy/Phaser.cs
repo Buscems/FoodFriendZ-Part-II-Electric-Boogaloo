@@ -13,6 +13,8 @@ public class Phaser : MonoBehaviour
 
     public bool midPhase;
 
+    public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class Phaser : MonoBehaviour
         if (baseEnemy.aggroScript.aggro == true)
         {
             playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
+            
         }
 
         if (midPhase == true){
@@ -42,13 +44,14 @@ public class Phaser : MonoBehaviour
     {
         if (collision.gameObject.tag == "TilesHere")
         {
+            midPhase = true;
             phase.enabled = false;
             Debug.Log("entered");
         }
-        else if (collision.gameObject.tag == "Floor")
+        else
         {
+            midPhase = false;
             phase.enabled = true;
-            Debug.Log("off");
         }
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {

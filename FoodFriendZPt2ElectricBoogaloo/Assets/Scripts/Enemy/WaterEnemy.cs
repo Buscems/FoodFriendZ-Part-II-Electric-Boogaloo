@@ -12,6 +12,7 @@ public class WaterEnemy : MonoBehaviour
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
 
+
     public CircleCollider2D alert;
 
     public GameObject water;
