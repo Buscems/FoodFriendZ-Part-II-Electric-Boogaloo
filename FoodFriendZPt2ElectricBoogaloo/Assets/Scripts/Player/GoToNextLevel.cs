@@ -39,12 +39,16 @@ public class GoToNextLevel : MonoBehaviour
             newNumber = Random.Range(0, levels.Length);
         }
 
-        Destroy(currentScene);
-        currentScene = Instantiate(levels[newNumber], Vector3.zero, Quaternion.identity);
-        Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
-        print(spawnPoint);
-        player.transform.position = spawnPoint;
-        camera.transform.position = spawnPoint;
+        try
+        {
+            Destroy(currentScene);
+            currentScene = Instantiate(levels[newNumber], Vector3.zero, Quaternion.identity);
+            Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
+            print(spawnPoint);
+            player.transform.position = spawnPoint;
+            camera.transform.position = spawnPoint;
+        }
+        catch { }
 
     }
 }
