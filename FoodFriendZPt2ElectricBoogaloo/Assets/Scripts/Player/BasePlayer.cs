@@ -119,6 +119,8 @@ public class BasePlayer : ScriptableObject
 
     [HideInInspector]
     public float currentFirerateTimer = 0;
+    [HideInInspector]
+    public float currentAttackSpeedTimer = 0;
 
 
     [HideInInspector]
@@ -207,6 +209,10 @@ public class BasePlayer : ScriptableObject
                 currentFirerateTimer -= Time.deltaTime;
                 timeBetweenBurstsTimer -= Time.deltaTime;
             }
+            if (attackType == AttackType.Melee)
+             {
+                currentAttackSpeedTimer -= Time.deltaTime;
+            }
         }
     }
 
@@ -269,6 +275,7 @@ public class BasePlayer : ScriptableObject
 
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
         SetMeleeVariables(attack, parentTransform);
+        currentAttackSpeedTimer = attackSpeed;
 
         if (attack.transform.childCount > 0)
         {

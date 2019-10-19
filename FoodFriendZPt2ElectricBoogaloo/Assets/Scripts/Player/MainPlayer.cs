@@ -189,7 +189,6 @@ public class MainPlayer : MonoBehaviour
 
     void Update()
     {
-
         if (myPlayer.GetButtonDown("Pause"))
         {
             if (Time.timeScale == 0)
@@ -331,7 +330,7 @@ public class MainPlayer : MonoBehaviour
             }
             else
             {
-                if (currentChar.attackType == BasePlayer.AttackType.Melee)
+                if (currentChar.attackType == BasePlayer.AttackType.Melee && currentChar.currentAttackSpeedTimer < 0)
                 {
                     currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
                 }
@@ -387,7 +386,7 @@ public class MainPlayer : MonoBehaviour
                 {
                     tempDamage = currentChar.maxDamage * maxDamageMultiplier;
 
-                    if (currentChar.attackType == BasePlayer.AttackType.Melee)
+                    if (currentChar.attackType == BasePlayer.AttackType.Melee && currentChar.currentAttackSpeedTimer < 0)
                     {
                         currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage);
                     }
