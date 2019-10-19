@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
+using UnityEngine.SceneManagement;
 using Rewired.ControllerExtensions;
 using TMPro;
 
@@ -96,7 +97,6 @@ public class MainPlayer : MonoBehaviour
 
 
 
-
     private Image upCharacter;
     private Image upHighlight;
 
@@ -114,6 +114,9 @@ public class MainPlayer : MonoBehaviour
 
     bool touchingChest;
     ChestScript currentChest;
+
+    public TextMeshProUGUI youDiedText;
+
 
     #region Awake METHOD
     private void Awake()
@@ -179,6 +182,8 @@ public class MainPlayer : MonoBehaviour
         Cursor.visible = false;
         currentChar.Start();
         rb = GetComponent<Rigidbody2D>();
+
+        youDiedText.gameObject.SetActive(false);
     }
     #endregion
 
@@ -197,29 +202,40 @@ public class MainPlayer : MonoBehaviour
             }
         }
 
-        if (Time.timeScale != 0)
+
+        if (health > 0)
         {
-            if (stunTimer <= 0) { PlayerMovement(); }
-            else { stunTimer -= Time.deltaTime; }
-
-            LookDirection();
-            AttackLogic();
-            AnimationHandler();
-            SwapLogic();
-            DodgeLogic();
-
-            //this is for interacting with a chest
-            if (touchingChest && myPlayer.GetButtonDown("Cross"))
+            if (Time.timeScale != 0)
             {
-                currentChest.OpenChest();
+                if (stunTimer <= 0) { PlayerMovement(); }
+                else { stunTimer -= Time.deltaTime; }
+
+                LookDirection();
+                AttackLogic();
+                AnimationHandler();
+                SwapLogic();
+                DodgeLogic();
+
+                //this is for interacting with a chest
+                if (touchingChest && myPlayer.GetButtonDown("Cross"))
+                {
+                    currentChest.OpenChest();
+                }
+
             }
-
         }
-
-        if (health <= 0)
+        else
         {
-            //death happens here
+            Time.timeScale = 0;
 
+            GetComponent<ScreenTransition>().fadeObject.color = new Color(0, 0, 0, 1);
+            youDiedText.gameObject.SetActive(true);
+
+            if (myPlayer.GetButtonDown("Cross"))
+            {
+                Time.timeScale = 1;
+                SceneManager.LoadScene("Dans licc center");
+            }
         }
 
     }
