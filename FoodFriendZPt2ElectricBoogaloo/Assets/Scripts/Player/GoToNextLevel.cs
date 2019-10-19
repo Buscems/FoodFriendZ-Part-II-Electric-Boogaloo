@@ -19,7 +19,7 @@ public class GoToNextLevel : MonoBehaviour
         camera = GameObject.Find("Main Camera");
         int randNumber = Random.Range(0, levels.Length);
         currentScene = Instantiate(levels[randNumber], transform.position, Quaternion.identity);
-        Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
+        Vector3 spawnPoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform.position;
         player.transform.position = spawnPoint;
         camera.transform.position = spawnPoint;
     }
