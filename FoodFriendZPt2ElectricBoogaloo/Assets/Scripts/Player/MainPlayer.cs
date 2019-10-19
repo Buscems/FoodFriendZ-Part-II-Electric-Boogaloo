@@ -39,6 +39,7 @@ public class MainPlayer : MonoBehaviour
 
     public Animator anim;
 
+    #region Stats Hidden in the Inspector
     [HideInInspector]
     public float speed;
 
@@ -60,6 +61,12 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector]
     public float stunTimer;
     public float maxStunTimer;
+
+    //chance based stats
+    float stunChance = 0;
+    float burnChance = 0;
+    #endregion
+
 
     Rigidbody2D rb;
     Vector3 velocity;
@@ -108,6 +115,7 @@ public class MainPlayer : MonoBehaviour
     bool touchingChest;
     ChestScript currentChest;
 
+    #region Awake METHOD
     private void Awake()
     {
         cross = currentChar;
@@ -154,8 +162,9 @@ public class MainPlayer : MonoBehaviour
 
         downCharacter.sprite = cross.hudIcon;
     }
+    #endregion
 
-    // Start is called before the first frame update
+    #region Start METHOD
     void Start()
     {
         currentPoofTimer = maxPoofTime;
@@ -170,15 +179,15 @@ public class MainPlayer : MonoBehaviour
         Cursor.visible = false;
         currentChar.Start();
         rb = GetComponent<Rigidbody2D>();
-
     }
+    #endregion
 
-    // Update is called once per frame
     void Update()
     {
+
         if (myPlayer.GetButtonDown("Pause"))
         {
-            if(Time.timeScale == 0)
+            if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
             }
@@ -186,7 +195,6 @@ public class MainPlayer : MonoBehaviour
             {
                 Time.timeScale = 0;
             }
-            
         }
 
         if (Time.timeScale != 0)
@@ -208,7 +216,7 @@ public class MainPlayer : MonoBehaviour
 
         }
 
-        if(health <= 0)
+        if (health <= 0)
         {
             //death happens here
 
@@ -417,7 +425,6 @@ public class MainPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //print(attackSpeedMultiplier);
         Vector3 currentPos = transform.position;
         currentPos.z = 1;
         rb.MovePosition(currentPos + (velocity * (speed)) * Time.deltaTime);
@@ -479,11 +486,11 @@ public class MainPlayer : MonoBehaviour
         velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
         velocity.y = myPlayer.GetAxisRaw("MoveVertical");
 
-        if(velocity.x > .3f || velocity.y > .3f || velocity.x < -.3f || velocity.y < -.3f)
+        if (velocity.x > .3f || velocity.y > .3f || velocity.x < -.3f || velocity.y < -.3f)
         {
             currentPoofTimer -= Time.deltaTime;
 
-            if(currentPoofTimer < 0)
+            if (currentPoofTimer < 0)
             {
                 GameObject poof = Instantiate(walkPuff, transform.position, Quaternion.identity);
                 Vector3 size = poof.transform.eulerAngles / 3;
@@ -525,12 +532,7 @@ public class MainPlayer : MonoBehaviour
         {
             attackDirection.transform.right = direction;
         }
-
-
-
     }
-
-
 
     public bool HitEnemy(string tag)
     {
@@ -590,6 +592,7 @@ public class MainPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        #region Stat Boosters
         if (other.gameObject.tag == "StatBoost")
         {
             PowerUps temp = other.gameObject.GetComponent<PowerUps>();
@@ -614,15 +617,14 @@ public class MainPlayer : MonoBehaviour
 
             Destroy(other.gameObject);
         }
+        #endregion
 
-        if(other.gameObject.tag == "Chest")
+        #region Chest
+        if (other.gameObject.tag == "Chest")
         {
             touchingChest = true;
             currentChest = other.gameObject.GetComponentInParent<ChestScript>();
         }
-
-      
-
+        #endregion
     }
-
 }
