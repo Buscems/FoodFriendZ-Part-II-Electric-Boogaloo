@@ -83,6 +83,10 @@ public class MainPlayer : MonoBehaviour
     private bool isHolding = false;
 
 
+    public GameObject dashPoof;
+    public GameObject swapPuff;
+    public GameObject walkPuff;
+
 
 
 
@@ -97,6 +101,9 @@ public class MainPlayer : MonoBehaviour
 
     private Image rightCharacter;
     private Image rightHighlight;
+
+    public float maxPoofTime;
+    private float currentPoofTimer;
 
     bool touchingChest;
     ChestScript currentChest;
@@ -151,6 +158,7 @@ public class MainPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentPoofTimer = maxPoofTime;
         speedMultiplier = 1;
 
         attackSizeMultiplier = 1;
@@ -218,6 +226,7 @@ public class MainPlayer : MonoBehaviour
             {
                 currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                 currentChar.currentDodgeTime = currentChar.dodgeLength;
+                Instantiate(dashPoof, transform.position, Quaternion.identity);
             }
         }
     }
@@ -243,6 +252,7 @@ public class MainPlayer : MonoBehaviour
                 rightHighlight.enabled = false;
                 downHighlight.enabled = true;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
             if (myPlayer.GetButtonDown("Square"))
             {
@@ -252,6 +262,7 @@ public class MainPlayer : MonoBehaviour
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
             if (myPlayer.GetButtonDown("Triangle"))
             {
@@ -261,6 +272,7 @@ public class MainPlayer : MonoBehaviour
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
             if (myPlayer.GetButtonDown("Circle"))
             {
@@ -270,6 +282,7 @@ public class MainPlayer : MonoBehaviour
                 rightHighlight.enabled = true;
                 downHighlight.enabled = false;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
         }
     }
@@ -465,6 +478,19 @@ public class MainPlayer : MonoBehaviour
 
         velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
         velocity.y = myPlayer.GetAxisRaw("MoveVertical");
+
+        if(velocity.x > .3f || velocity.y > .3f || velocity.x < -.3f || velocity.y < -.3f)
+        {
+            currentPoofTimer -= Time.deltaTime;
+
+            if(currentPoofTimer < 0)
+            {
+                GameObject poof = Instantiate(walkPuff, transform.position, Quaternion.identity);
+                Vector3 size = poof.transform.eulerAngles / 3;
+                poof.transform.eulerAngles = size;
+                currentPoofTimer = maxPoofTime;
+            }
+        }
 
         if (!usingMouse)
         {
