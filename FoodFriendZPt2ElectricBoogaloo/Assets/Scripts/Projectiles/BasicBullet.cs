@@ -36,6 +36,8 @@ public class BasicBullet : MonoBehaviour
 
         transform.rotation = Quaternion.identity;
 
+        transform.up = velocity;
+
     }
 
     private void Update()

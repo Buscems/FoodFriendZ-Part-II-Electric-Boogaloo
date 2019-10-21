@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 6502664742631439924}
   - component: {fileID: 2994403496668391241}
   - component: {fileID: 9062566882680410951}
-  - component: {fileID: 7578642382690505313}
   m_Layer: 9
   m_Name: FryBullet
   m_TagString: Projectile
@@ -272,22 +271,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6753439, y: 0.02459276}
   m_EdgeRadius: 0
---- !u!95 &7578642382690505313
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6395150998634022948}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 17ea9e848d63b47d69f3db45a4d9d8b4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

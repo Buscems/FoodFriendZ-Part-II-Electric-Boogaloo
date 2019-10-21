@@ -15,24 +15,24 @@ MonoBehaviour:
   hudIcon: {fileID: -6406154281553637950, guid: c03b65141570443e6b1e6aa356cd959c,
     type: 3}
   characterName: fries
-  attackType: 3
+  attackType: 1
   speed: 4
   baseDamage: 3
   critChance: 0
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
-  currentDodgeSpeedMultiplier: 0
+  currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1000
+  currentDodgeTime: -1024.1631
   dodgeWaitTime: 1
-  currentDodgeWaitTime: 0
+  currentDodgeWaitTime: -24.16345
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: 0, y: 0, z: 0}
-  currentDirection: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 18.764118, y: 4.853565, z: 0}
+  currentDirection: {x: -0.43465477, y: -0.036719043, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: 0
+  currentFirerateTimer: 1
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
