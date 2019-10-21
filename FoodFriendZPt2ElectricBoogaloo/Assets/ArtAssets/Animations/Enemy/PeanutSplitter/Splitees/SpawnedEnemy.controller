@@ -33,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Peanut Spliters
+  m_Name: Peanut Splitees
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -61,7 +61,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6a14bc3c37d1945b8804d92ac8f35ef3, type: 2}
+    m_Motion: {fileID: 7400000, guid: fa17f60f739874ab4a0aaa71382eabb9, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -69,7 +69,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: f6e43165b3d5e4a32a7143b90231d873, type: 2}
+    m_Motion: {fileID: 7400000, guid: 40bf4d8ac63084535aa035efd9001c1b, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -77,7 +77,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 965de5198b4e44e62af7f560bae14fb8, type: 2}
+    m_Motion: {fileID: 7400000, guid: 5f49ca0b862ea4a01ad809aef6f0d4ef, type: 2}
     m_Threshold: 2
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -85,7 +85,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 3e3f84683c85d4b71aff00959ac1547b, type: 2}
+    m_Motion: {fileID: 7400000, guid: 540dc01c39a9b44b19adf5df1f7911ca, type: 2}
     m_Threshold: 3
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -127,7 +127,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpawningEnemy
+  m_Name: SpawnedEnemy
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Blend
