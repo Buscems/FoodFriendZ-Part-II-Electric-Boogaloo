@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterSelect : MonoBehaviour
 {
 
-    GameObject instance;
+    public static GameObject instance;
 
     private void Awake()
     {

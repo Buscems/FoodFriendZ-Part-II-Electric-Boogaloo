@@ -54,4 +54,45 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         Debug.Log("Loading GameplayScene");
         SceneManager.LoadScene("Dans licc center");
     }
+
+    public void Tofu()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[0];
+        HighlightedCharacterNameDisplay.text = "Tofu";
+    }
+    public void Onigiri()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[1];
+        HighlightedCharacterNameDisplay.text = "Onigiri";
+    }
+    public void Takoyaki()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[2];
+        HighlightedCharacterNameDisplay.text = "Takoyaki";
+    }
+    public void Cherry()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[3];
+        HighlightedCharacterNameDisplay.text = "Cherry";
+    }
+    public void Cannoli()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[4];
+        HighlightedCharacterNameDisplay.text = "Cannoli";
+    }
+    public void Fries()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[5];
+        HighlightedCharacterNameDisplay.text = "Fries";
+    }
+    public void Burger()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[6];
+        HighlightedCharacterNameDisplay.text = "Burger";
+    }
+    public void Sashimi()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[7];
+        HighlightedCharacterNameDisplay.text = "Sashimi";
+    }
 }
