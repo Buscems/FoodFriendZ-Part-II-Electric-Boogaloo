@@ -4441,6 +4441,7 @@ MonoBehaviour:
   baseEnemy: {fileID: 4908877949093710847}
   phase: {fileID: 4908877949093710844}
   midPhase: 0
+  rb: {fileID: 0}
 --- !u!1 &4908877949242337859
 GameObject:
   m_ObjectHideFlags: 0
@@ -4699,6 +4700,7 @@ MonoBehaviour:
   baseEnemy: {fileID: 4908877949242337862}
   phase: {fileID: 4908877949242337861}
   midPhase: 0
+  rb: {fileID: 0}
 --- !u!1 &4908877950400979103
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,6 +4959,7 @@ MonoBehaviour:
   baseEnemy: {fileID: 4908877950400979098}
   phase: {fileID: 4908877950400979097}
   midPhase: 0
+  rb: {fileID: 0}
 --- !u!1 &5314102661175032942
 GameObject:
   m_ObjectHideFlags: 0
@@ -6134,7 +6137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84285a5b1e18f8c4b9daf05f9d4a42c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   follow: 0
   windUp: 0
   attack: 0
@@ -6142,6 +6144,7 @@ MonoBehaviour:
   windUpTime: 0.5
   attackTime: 2
   attackRadius: {fileID: 8089295865976330342}
+  path: {fileID: 0}
 --- !u!1 &7067376517899195751
 GameObject:
   m_ObjectHideFlags: 0
@@ -24378,7 +24381,7 @@ GameObject:
   - component: {fileID: 7082084550794506884}
   m_Layer: 12
   m_Name: Tilemap Level1 Wall
-  m_TagString: Untagged
+  m_TagString: TilesHere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,18 +10,18 @@ public class GoToNextLevel : MonoBehaviour
     private GameObject currentScene;
 
     private GameObject player;
-    private GameObject camera;
+    private GameObject mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
-        camera = GameObject.Find("Main Camera");
+        mainCamera = GameObject.Find("Main Camera");
         int randNumber = Random.Range(0, levels.Length);
         currentScene = Instantiate(levels[randNumber], transform.position, Quaternion.identity);
         Vector3 spawnPoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform.position;
         player.transform.position = spawnPoint;
-        camera.transform.position = spawnPoint;
+        mainCamera.transform.position = spawnPoint;
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class GoToNextLevel : MonoBehaviour
             Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
             print(spawnPoint);
             player.transform.position = spawnPoint;
-            camera.transform.position = spawnPoint;
+            mainCamera.transform.position = spawnPoint;
         }
         catch { }
 
