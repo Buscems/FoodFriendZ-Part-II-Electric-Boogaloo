@@ -8,14 +8,22 @@ using TMPro;                        //NEEDS to use TextMeshPro
 
 public class CreditsScreen_Script : MonoBehaviour
 {
+    AudioSource audioSource;
+
     public GameObject TitleScreenOverlay;
     public GameObject CreditsScreenOverlay;
 
     public EventSystem es;
     public Button startButton;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void BackButtonFunction()
     {
+        audioSource.Play();
         es.SetSelectedGameObject(startButton.gameObject);
         TitleScreenOverlay.SetActive(true);
         CreditsScreenOverlay.SetActive(false);

@@ -11,6 +11,9 @@ using TMPro;                        //NEEDS to use TextMeshPro
 
 public class LogBook_Script : MonoBehaviour
 {
+
+    AudioSource audioSource;
+
     public TextMeshProUGUI CurrentTab_Display;
 
     public GameObject TitleScreenOverlay;
@@ -36,6 +39,7 @@ public class LogBook_Script : MonoBehaviour
 
     public void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         //as default
         CurrentTab_Display.text = ("Characters");
     }
@@ -44,6 +48,7 @@ public class LogBook_Script : MonoBehaviour
     //Character tab
     public void CharacterButtonFunction()
     {
+        audioSource.Play();
         Debug.Log("Opening Character Tab");
         CurrentTab_Display.text = ("Characters");
     }
@@ -51,6 +56,7 @@ public class LogBook_Script : MonoBehaviour
     //Items tab
     public void ItemButtonFunction()
     {
+        audioSource.Play();
         Debug.Log("Opening Item Tab");
         CurrentTab_Display.text = ("Items");
     }
@@ -58,6 +64,7 @@ public class LogBook_Script : MonoBehaviour
     //Equipment tab
     public void EquipmentButtonFunction()
     {
+        audioSource.Play();
         Debug.Log("Opening Equipment Tab");
         CurrentTab_Display.text = ("Equipment");
     }
@@ -65,6 +72,7 @@ public class LogBook_Script : MonoBehaviour
     //Floors tab
     public void FloorsButtonFunction()
     {
+        audioSource.Play();
         Debug.Log("Opening Floors Tab");
         CurrentTab_Display.text = ("Floors");
     }
@@ -72,6 +80,7 @@ public class LogBook_Script : MonoBehaviour
     //Enemies tab
     public void EnemiesButtonFunction()
     {
+        audioSource.Play();
         Debug.Log("Opening Enemies Tab");
         CurrentTab_Display.text = ("Enemies");
     }
@@ -79,6 +88,7 @@ public class LogBook_Script : MonoBehaviour
     //Back button tab
     public void BackButtonFunction()
     {
+        audioSource.Play();
         es.SetSelectedGameObject(startButton.gameObject);
         TitleScreenOverlay.SetActive(true);
         LogBookScreenOverlay.SetActive(false);

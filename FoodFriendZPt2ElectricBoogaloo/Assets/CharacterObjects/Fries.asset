@@ -10,50 +10,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: Tofu
+  m_Name: Fries
   m_EditorClassIdentifier: 
-  hudIcon: {fileID: 1002645427171640083, guid: 6370625e5cfd74127b0c87c620cc99b6, type: 3}
-  characterName: tofu
-  attackType: 0
-  speed: 6
-  baseDamage: 4
+  hudIcon: {fileID: -6406154281553637950, guid: c03b65141570443e6b1e6aa356cd959c,
+    type: 3}
+  characterName: fries
+  attackType: 3
+  speed: 4
+  baseDamage: 3
   critChance: 0
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
-  currentDodgeSpeedMultiplier: 1
-  dodgeLength: 0.25
-  currentDodgeTime: -78.42034
-  dodgeWaitTime: 2
-  currentDodgeWaitTime: -76.42037
-  attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
+  currentDodgeSpeedMultiplier: 0
+  dodgeLength: 1
+  currentDodgeTime: -1000
+  dodgeWaitTime: 1
+  currentDodgeWaitTime: 0
+  attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: 18.840206, y: 3.6986063, z: 0}
-  currentDirection: {x: 0.017853733, y: -1, z: 0}
-  weapon: {fileID: 1791375524048153698, guid: f7e7f35abf30248cf9b3141b572bf0c6, type: 3}
-  awayPos: {x: 5000, y: 5000, z: 0}
-  attackSpeed: 0.5
-  rotationalOffset: 45
+  currentPosition: {x: 0, y: 0, z: 0}
+  currentDirection: {x: 0, y: 0, z: 0}
+  weapon: {fileID: 0}
+  awayPos: {x: 0, y: 0, z: 0}
+  attackSpeed: 0
+  rotationalOffset: 0
   isChargable: 0
-  maxDamage: 5
-  timeTillMaxDamage: 1
+  maxDamage: 0
+  timeTillMaxDamage: 0
   currentChargeTimer: 0
   startCharging: 0
-  isAttacking: 1
-  bullet: {fileID: 0}
-  firerate: 0
-  bulletSpeed: 0
-  timeTillDespawn: 0
+  isAttacking: 0
+  bullet: {fileID: 6395150998634022948, guid: 28b8a2ff832c20d468aa221931d6275c, type: 3}
+  firerate: 1
+  bulletSpeed: 750
+  timeTillDespawn: 10
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
   bulletsPerBurst: 0
   timeBetweenBursts: 0
   isNeedler: 0
-  isPinshot: 0
-  explosionDamage: 0
+  isPinshot: 1
+  explosionDamage: 4
   timeBeforeExplosion: 0
   timeBeforeReturning: 0
   firing: 0
@@ -61,7 +62,7 @@ MonoBehaviour:
   dropRadius: 0
   explosionForce: 0
   currentFirerateTimer: 0
-  currentAttackSpeedTimer: -91.681465
+  currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1

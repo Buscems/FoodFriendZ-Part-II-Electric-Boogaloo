@@ -12,6 +12,9 @@ using TMPro;                        //NEEDS to use TextMeshPro
 
 public class CharacterSelectionScreenScript : MonoBehaviour
 {
+
+    AudioSource audioSource;
+
     [Header("Highlighted Character")]
     public Image HighlightedCharacterIMG;
     public TextMeshProUGUI HighlightedCharacterNameDisplay;
@@ -30,7 +33,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < characterButtons.Length; i++)
+        audioSource = GetComponent<AudioSource>();
+
+        for (int i = 0; i < characterButtons.Length; i++)
         {
             characterButtons[i].sprite = characterSprites[i];
         }
@@ -38,12 +43,14 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     public void BackToTitleScreenFunction()
     {
+        audioSource.Play();
         Debug.Log("Loading TitleScreen");
         SceneManager.LoadScene("TitleScreen");
     }
 
     public void PlayGameFunction()
     {
+        audioSource.Play();
         Debug.Log("Loading GameplayScene");
         SceneManager.LoadScene("Dans licc center");
     }

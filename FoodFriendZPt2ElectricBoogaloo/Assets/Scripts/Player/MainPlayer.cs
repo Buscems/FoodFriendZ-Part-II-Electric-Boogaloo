@@ -480,7 +480,18 @@ public class MainPlayer : MonoBehaviour
             case "cherry":
                 anim.SetInteger("characterID", 4);
                 break;
-
+            case "cannoli":
+                anim.SetInteger("characterID", 5);
+                break;
+            case "burger":
+                anim.SetInteger("characterID", 6);
+                break;
+            case "sashimi":
+                anim.SetInteger("characterID", 7);
+                break;
+            case "fries":
+                anim.SetInteger("characterID", 8);
+                break;
         }
 
         //this will switch the animation of the current character

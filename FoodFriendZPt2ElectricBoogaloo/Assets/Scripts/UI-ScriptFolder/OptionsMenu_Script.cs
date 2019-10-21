@@ -13,6 +13,9 @@ using TMPro;                        //NEEDS to use TextMeshPro
 
 public class OptionsMenu_Script : MonoBehaviour
 {
+
+    AudioSource audioSource;
+
     [Header("Screen Overlays")]
     public GameObject DefaultScreenOverlay; //Title Screen or GUI
     public GameObject OptionsScreenOverlay;
@@ -23,9 +26,14 @@ public class OptionsMenu_Script : MonoBehaviour
     public Slider VolumeSlider;
     public float volume;
 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();    
+    }
 
     public void BackButtonFunction()
     {
+        audioSource.Play();
         es.SetSelectedGameObject(startButton.gameObject);
         DefaultScreenOverlay.SetActive(true);
         OptionsScreenOverlay.SetActive(false);
