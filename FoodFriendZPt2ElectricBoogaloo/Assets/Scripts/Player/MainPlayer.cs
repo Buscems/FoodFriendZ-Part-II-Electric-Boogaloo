@@ -38,6 +38,7 @@ public class MainPlayer : MonoBehaviour
 
     public BasePlayer currentChar;
 
+    public GetOddsScript getOddsScript;
     public Animator anim;
 
     #region Stats Hidden in the Inspector
@@ -94,9 +95,7 @@ public class MainPlayer : MonoBehaviour
     public GameObject dashPoof;
     public GameObject swapPuff;
     public GameObject walkPuff;
-
-
-
+       
     private Image upCharacter;
     private Image upHighlight;
 

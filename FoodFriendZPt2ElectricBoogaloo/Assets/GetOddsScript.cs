@@ -18,6 +18,4 @@ public class GetOddsScript : MonoBehaviour
         }
         return isSuccessful;
     }
-
-
 }
