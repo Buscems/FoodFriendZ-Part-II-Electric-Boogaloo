@@ -14,22 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudIcon: {fileID: 242840349670548076, guid: b314120d3722ba14597edcc3b1e5efb8, type: 3}
   characterName: cherry
-  attackType: 5
+  attackType: 6
   speed: 4
   baseDamage: 5
+  critChance: 0
+  critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1079.1932
+  currentDodgeTime: -1096.6771
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -79.08471
+  currentDodgeWaitTime: -96.5687
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -18.131306, y: -13.035864, z: 0}
-  currentDirection: {x: 1, y: -0.0117648505, z: 0}
+  currentPosition: {x: -20.779, y: 60.031956, z: 0}
+  currentDirection: {x: -0.79963547, y: 0.8298711, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -49,7 +51,19 @@ MonoBehaviour:
   bulletsPerShot: 5
   bulletsPerBurst: 3
   timeBetweenBursts: 0.5
+  isNeedler: 0
+  isPinshot: 0
+  explosionDamage: 0
+  timeBeforeExplosion: 0
+  timeBeforeReturning: 0
   firing: 0
   drop: {fileID: 1747628256198301912, guid: 6f2f641a7f16a402c82cf443779019ea, type: 3}
   dropRadius: 2
-  currentFirerateTimer: -2.2915077
+  explosionForce: 0
+  currentFirerateTimer: -5.0579853
+  currentAttackSpeedTimer: 0
+  attackSizeMultiplier: 1
+  attackSpeedMultiplier: 1
+  firerateMultiplier: 1
+  baseDamageMulitplier: 1
+  maxDamageMultiplier: 1

@@ -45,6 +45,6 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public void PlayGameFunction()
     {
         Debug.Log("Loading GameplayScene");
-        SceneManager.LoadScene("SprintLevel");
+        SceneManager.LoadScene("Dans licc center");
     }
 }

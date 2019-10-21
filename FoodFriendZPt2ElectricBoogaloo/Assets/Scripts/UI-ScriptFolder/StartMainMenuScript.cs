@@ -16,6 +16,8 @@ public class StartMainMenuScript : MonoBehaviour
 
     static float t = 0.0f; //starting value for lerp
 
+    AudioSource audioSource;
+
     [Header("Lerping Colors")]
     public Color TitleInstruction_StartColor;
     public Color TitleInstruction_EndColor;
@@ -90,7 +92,9 @@ public class StartMainMenuScript : MonoBehaviour
     public void StartButtonFunction()
     {
         Debug.Log("Starting Game");
-        SceneManager.LoadScene("CharacterSelectionScreen");
+        //this is just for now so that the game can be played, have to add back character select
+        SceneManager.LoadScene("Dans licc center");
+        //SceneManager.LoadScene("CharacterSelectionScreen");
     }
 
     //LogBook Button
