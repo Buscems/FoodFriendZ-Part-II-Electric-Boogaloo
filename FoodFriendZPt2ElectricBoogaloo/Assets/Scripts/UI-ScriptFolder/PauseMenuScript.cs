@@ -6,15 +6,6 @@ using UnityEngine.EventSystems;     //NEED to use for Buttons
 using UnityEngine.UI;               //NEEDS to use UI
 using TMPro;                        //NEEDS to use TextMeshPro
 
-/* [[[TO DO]]]
-    *
-   /*
-        
-    / * [CITATIONS]
- * (Video) PAUSE MENU in Unity
- * https://www.youtube.com/watch?v=JivuXdrIHK0
- */
-
 public class PauseMenuScript : MonoBehaviour
 {
     public GameObject PauseMenuUI;  //i use this so that i may have the overlay off in the scene window when i work
@@ -43,7 +34,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         //Pause toggle input
         if (Input.GetKeyDown(KeyCode.Escape))
-        //Inpuy 
+        //Input
         {
             //Pause check
             if (IsGamePaused)
