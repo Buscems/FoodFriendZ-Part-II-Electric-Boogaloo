@@ -12,6 +12,9 @@ public class GoToNextLevel : MonoBehaviour
     private GameObject player;
     private GameObject mainCamera;
 
+    public AstarPath path;
+    bool hasScanned;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +27,22 @@ public class GoToNextLevel : MonoBehaviour
         mainCamera.transform.position = spawnPoint;
     }
 
+    private void LateUpdate()
+    {
+        if (!hasScanned)
+        {
+            path.Scan(path.graphs);
+            hasScanned = true;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         
     }
+
+
 
     public void NextLevel()
     {
@@ -41,6 +55,7 @@ public class GoToNextLevel : MonoBehaviour
 
         try
         {
+            hasScanned = false;
             Destroy(currentScene);
             currentScene = Instantiate(levels[newNumber], Vector3.zero, Quaternion.identity);
             Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;

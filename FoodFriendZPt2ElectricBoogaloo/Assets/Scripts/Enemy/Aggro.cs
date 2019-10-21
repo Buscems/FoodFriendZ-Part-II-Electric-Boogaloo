@@ -58,6 +58,7 @@ public class Aggro : MonoBehaviour
 
             if ((target[i].transform.position - currentPos).magnitude < aggroRange)
             {
+                Debug.Log("Yer");
                 currentTarget = target[i];
                 aggro = true;
                 aggroTimer = aggroTimerMax;

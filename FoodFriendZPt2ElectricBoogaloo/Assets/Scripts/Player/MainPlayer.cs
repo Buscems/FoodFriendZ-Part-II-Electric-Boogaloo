@@ -532,7 +532,6 @@ public class MainPlayer : MonoBehaviour
         if (velocity.y != 0)
         {
             currentChar.currentDirection.y = velocity.y;
-
         }
     }
 

@@ -343,6 +343,40 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_text
+      value: 'You died
+
+
+
+        press ''X'' to try again'
+      objectReference: {fileID: 0}
     - target: {fileID: 2392885752999680878, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -457,40 +491,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
-        type: 3}
-      propertyPath: m_text
-      value: 'You died
-
-
-
-        press ''X'' to try again'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0712b6790ff1d948ad1b3ccbdf45b9d, type: 3}
@@ -955,7 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+tvqGhAUgIAAPYEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK5zBllgyQW2IYJgcGakhqLr4Iq22rkCWXJA9b8e9pyTZ2nMqJ5vXr7teLfCNcmgJiq/Rac7ZRDMi3AXE2+TJona9wpqmSe36FhvPBmc0ciXrOO7VcIT5yYUblYDWPv8tUOHKAYCl5onS+YimEyliDcEKFAXRpZV20ROg2IGf8GS5cyAWt8cxZV7QWweCOZgzSgm6pDbGhVaxSxoLmBTAnuSWPpvOaPhqPPFFiOzXHSY+VENzUWoi9FL7XfZGBBtcs4xRb8/VHTxMEMuBpZp3QbvQ2SQzYWpWmlyXXOKMqLfmhqsHl1BwraZ9UlK7QNFg8e1VV1s0/hGElOtEqf20KjwJXxGY8Pr7TS0yN7Yy2Cy872v2ITlQc6UHARwbyTa21KiVDp9WlCy0NjJft30dvYQbxscUrqT2wLP6/INfD3bd/DgXPD871NK2AvVB+4n79oHE3P1GwPw5Tp0DUqfht4BdNu1dUO164NhZddZfSyTuoUjsqWfmZuW5KGyotwcO16AIkFfaywzS2v8Oer1O253mh7r3UxWtf8wx6IR5u+UHQc+3U6bEsk6nTBky2La3gElrRzvGGcwqVlNWJdWfShO1LndC4E5aWnP19WuQwew4W8+DAgI4PXyfxcDJbBJPJLEF8Oofpgvjb4xL7pGJXCa3Hg1uTbXKJd9Z8RgZrTQt/7kzT05pfc9UZOZeJ2scaQG6rDA/hoLEIvku2YhwHtAdrufT7JreICBUfgUWPRJHvdHW2mkZtlogU/FNZh0Qk9N+NiNzJ/Q9QSwMEFAAACAgAAJif60+FFYNrAAAAdwAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSs9BRUEovSizIKAYKGII4pZkpIHa0UpK5mYGlhUFSSmqiUZKpcbKusbmlgbGxeRpQ3MQi1cRSKRaovqSyINUvMTcVoicgsSQjLTMvJTMvXc+9KDPFHWS0UmwtAFBLAQItABQAAAgIAACYn+tvqGhAUgIAAPYEAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+tPhRWDawAAAHcAAAAJACQAAAAAAAAAAAAAAJ8CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAVQMAAAAA
+    dataString: UEsDBBQAAAgIAACYn+s8zsteTQIAAPQEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK55Ay+5BbAgyTAwM1TGouvgirjVXIkkvLsBX/npZsYw+pnGhev+5+vchXwqUpILFKLzVnK8WA/OgQb5Nvncb5Aie6V3LLL1BzPjizmSfRwHmjlivEez7MqBys5slPuReeHCHoJE+VzhdsDzNlrEE4pcIAurSyPloidO2QE/50pz7kjFZ/4q0LWtOoc0MzAWlBN9SaWNNKlpOJoHkBzEtuyP3RuM47GgeixHYqjpeeKCG4qbQQey5Cr9siAw2+WcYpthbqe3oGfJ9Zn64du05TA7bSpOl5zjVOqExKfqlybDk1h1LYJxXOlxlG01JTmXX1D6HbC+5Uq/ylLtyLfBGb8eTwRs8JNbY12DY8/6rcySMVB7oT8JGBfFVLrZxk6LTa+VBnoD9v/t57m2WQHBq8lPoAuuL/6/E93EL7p5ng+c67vg9LYCtUmHdYPmjczG8UHE7DVCkQ9Sr+GHin+/YNVY5nro1FV9Wl9PJ2ymlPJYswM9+NszOlJQS4El2ApMKeN5jGPu7wwdcq++B5pv61VMUrX/0IHkIC3PCj6MG1Ucf7skymjisw2dpZwSU0or3jFec0U1KWJ9aeSR22dTqlSSts7zj7elpkNxlH06dox4D2d6NB0h1MptFgMEkRHz7BcErC7XGJfVKxKYVW48GtySa5xDurPyKdpaZFOHem6XHJL7lqjZzLVG0TDSDXZYa7cNBYBF8lWzCOA9qCtVyGfZNrTIRKDsDie6I4dLo4WU3jJktMCv6prEdiMgtfjZjcyO0vUEsDBBQAAAgIAACYn+tPhRWDawAAAHcAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0rPQUVBKL0osyCgGChiCOKWZKSB2tFKSuZmBpYVBUkpqolGSqXGyrrG5pYGxsXkaUNzEItXEUikWqL6ksiDVLzE3FaInILEkIy0zLyUzL13PvSgzxR1ktFJsLQBQSwECLQAUAAAICAAAmJ/rPM7LXk0CAAD0BAAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAmJ/rT4UVg2sAAAB3AAAACQAkAAAAAAAAAAAAAACaAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAFADAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -970,7 +970,7 @@ MonoBehaviour:
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
   maxNearestNodeDistance: 100
-  scanOnStartup: 1
+  scanOnStartup: 0
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
@@ -1135,7 +1135,7 @@ PrefabInstance:
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: usingMouse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
@@ -1154,7 +1154,7 @@ PrefabInstance:
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: levels.Array.size
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
@@ -1165,19 +1165,19 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[0]
       value: 
-      objectReference: {fileID: 459504483315602289, guid: db52bcf3b70305c40a9a12c65c83283e,
+      objectReference: {fileID: 5524367278779207937, guid: f9889f702927e5447875e286809d77f5,
         type: 3}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: levels.Array.data[1]
       value: 
-      objectReference: {fileID: 5524367278779207937, guid: f9889f702927e5447875e286809d77f5,
+      objectReference: {fileID: 9079231698335503009, guid: 308433e13052b7443992263b46159ec2,
         type: 3}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: levels.Array.data[2]
       value: 
-      objectReference: {fileID: 5860263156243273887, guid: 29f952fed8177bb408c04cee13516804,
+      objectReference: {fileID: 9079231698335503009, guid: 308433e13052b7443992263b46159ec2,
         type: 3}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
@@ -1203,6 +1203,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7644041103884390008, guid: c1ed8e0551165f84891f501d5b7ee3ce,
         type: 3}
+    - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 2146578956}
     - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
       propertyPath: m_Layer
       value: 8
