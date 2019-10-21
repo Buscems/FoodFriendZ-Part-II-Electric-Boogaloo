@@ -53,6 +53,7 @@ public class PauseMenuScript : MonoBehaviour
     void Pause()
     {
         PauseMenuUI.SetActive(true);
+        
         Time.timeScale = 0f;    //freezes time
         IsGamePaused = true;
     }

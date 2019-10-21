@@ -13,17 +13,17 @@ public class PowerUps : MonoBehaviour
     [Tooltip("Power-Up Names")]
     public string powerUpName = "";
 
-    [Header ("Base Stats")]
-    [Range(0,1)]
+    [Header("Base Stats")]
+    [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float movementSpeed = 1;
-    [Range(0,1)]
+    [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackSize = 1;
-    [Range(0,1)]
+    [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackSpeed = 1;
-    [Range(0,1)]
+    [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackDamage = 1;
 
@@ -80,8 +80,7 @@ public class PowerUps : MonoBehaviour
         EnemyConfusion,
         HealthGainPerDMG,
         FatalChance//last one so no comma
-
-    }//END OF ENUMS
+    }
 
     public PowerUpTypes currentPowerUp;
 
@@ -96,34 +95,36 @@ public class PowerUps : MonoBehaviour
     //LAST LEFT OFF - NEED TO FIND WHY THIS DOESNT WORK
     IEnumerator Pickup(Collider2D player)
     {
-        
+
         switch (currentPowerUp)
         {
-            //case 1
+            #region Slow Time
             case PowerUpTypes.SlowTime:
-
-                //WRITE STUFF HERE
-                
                 float timer = 2;
                 yield return new WaitForSeconds(timer);
                 break;
+            #endregion
 
-            //case2
+            #region Attack Speed Health Proportion
             case PowerUpTypes.AttackSpeedHealthProportion:
 
                 break;
+            #endregion
 
-            //case3
+            #region Attack Speed Damage Proportion
             case PowerUpTypes.AttackSpeedDamageProportion:
 
                 break;
+            #endregion
 
-            //case4
+            #region StunAttack
             case PowerUpTypes.StunAttack:
                 stats.stunTimer = 5;
 
                 break;
-            //case5
+            #endregion
+
+            #region Health Gain per damage
             case PowerUpTypes.HealthGainPerDMG:
 
                 int totalVampHeal = Mathf.RoundToInt((baseStats.baseDamage * vampHeal));
@@ -132,21 +133,25 @@ public class PowerUps : MonoBehaviour
                     healAmount += totalVampHeal;
                 }
 
-                break;    
+                break;
+            #endregion
+
+            #region Heal
             //case6
             case PowerUpTypes.Heal:
-                
+
                 break;
+            #endregion
+
+            #region Null
             //case last - null for base stats - DO NOT FILL IN LEAVE BLANK
             case PowerUpTypes.Null:
 
                 break;
+            #endregion
 
             default:
-                Debug.Log("Basic Power Up");
                 break;
-
-
-        }//END OF SWITCH
-    }//END OF IENUMERATOR    
-}//END OF SCRIPT
+        }
+    }
+}
