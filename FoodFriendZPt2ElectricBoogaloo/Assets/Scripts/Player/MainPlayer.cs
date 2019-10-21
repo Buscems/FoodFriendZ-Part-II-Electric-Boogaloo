@@ -235,7 +235,6 @@ public class MainPlayer : MonoBehaviour
                 SceneManager.LoadScene("Dans licc center");
             }
         }
-
     }
 
     private void DodgeLogic()
