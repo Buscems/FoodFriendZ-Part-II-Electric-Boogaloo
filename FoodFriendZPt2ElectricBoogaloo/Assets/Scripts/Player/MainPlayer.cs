@@ -9,6 +9,7 @@ using TMPro;
 
 public class MainPlayer : MonoBehaviour
 {
+    #region [ALL VARIABLES]
     public int health;
     [HideInInspector]
     public int currency;
@@ -89,9 +90,12 @@ public class MainPlayer : MonoBehaviour
 
     private bool isHolding = false;
 
+    #region puffs
     public GameObject dashPoof;
     public GameObject swapPuff;
     public GameObject walkPuff;
+
+    #endregion
 
     private Image upCharacter;
     private Image upHighlight;
@@ -113,6 +117,8 @@ public class MainPlayer : MonoBehaviour
 
     //temporary
     public TextMeshProUGUI youDiedText;
+    #endregion
+
 
     #region Awake METHOD
     private void Awake()
@@ -377,6 +383,7 @@ public class MainPlayer : MonoBehaviour
             }
         }
 
+
         if (myPlayer.GetButton("Attack") && currentChar.currentFirerateTimer < 0)
         {
 
@@ -579,7 +586,6 @@ public class MainPlayer : MonoBehaviour
             attackDirection.transform.right = direction;
         }
     }
-
 
     //[REWIRED METHODS]
     #region Every Rewired Method
