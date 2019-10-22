@@ -53,6 +53,7 @@ public class PowerUps : MonoBehaviour
     {
         Null,//see this one has a comma
         Heal,
+        FullHeal,
         DebuffRemove,
         SlowTime,
         AvoidPlayer,
@@ -139,6 +140,13 @@ public class PowerUps : MonoBehaviour
             #region Heal
             //case6
             case PowerUpTypes.Heal:
+
+                break;
+            #endregion
+
+            #region Full Heal
+            //case6
+            case PowerUpTypes.FullHeal:
 
                 break;
             #endregion
