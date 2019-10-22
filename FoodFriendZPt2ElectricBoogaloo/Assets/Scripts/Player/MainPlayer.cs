@@ -13,6 +13,7 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector]
     public int currency;
 
+    #region Audio
     [Header("Audio")]
     public AudioSource audioSource;
     [Tooltip("These are the players sound clips")]
@@ -20,6 +21,7 @@ public class MainPlayer : MonoBehaviour
      * 1 = deathSound
      */
     public AudioClip[] clips;
+    #endregion
 
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
@@ -45,9 +47,9 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-
+    #region Stat Multiplier
     [HideInInspector]
-    private float speedMultiplier = 1;
+    public float speedMultiplier = 1;
 
     [HideInInspector]
     public float attackSizeMultiplier = 1;
@@ -59,6 +61,7 @@ public class MainPlayer : MonoBehaviour
     public float baseDamageMulitplier = 1;
     [HideInInspector]
     public float maxDamageMultiplier = 1;
+    #endregion
 
     [HideInInspector]
     public float stunTimer;
@@ -69,15 +72,10 @@ public class MainPlayer : MonoBehaviour
     float burnChance = 0;
     #endregion
 
-
     Rigidbody2D rb;
     Vector3 velocity;
 
     private CameraShake cam;
-
-    [Header("Powerup Variables")]
-
-
 
     [Header("Current Party")]
     public BasePlayer triangle;
@@ -86,16 +84,15 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector]
     public BasePlayer cross;
 
-    [Header("Big boi array of every playable character in the game")]
+    [Header("All Playable Characters")]
     public BasePlayer[] allCharacters;
 
     private bool isHolding = false;
 
-
     public GameObject dashPoof;
     public GameObject swapPuff;
     public GameObject walkPuff;
-       
+
     private Image upCharacter;
     private Image upHighlight;
 
@@ -114,8 +111,8 @@ public class MainPlayer : MonoBehaviour
     bool touchingChest;
     ChestScript currentChest;
 
+    //temporary
     public TextMeshProUGUI youDiedText;
-
 
     #region Awake METHOD
     private void Awake()
@@ -166,10 +163,13 @@ public class MainPlayer : MonoBehaviour
     }
     #endregion
 
+    //[START METHOD]
     #region Start METHOD
     void Start()
     {
         currentPoofTimer = maxPoofTime;
+
+        #region Set Multipliers to 1
         speedMultiplier = 1;
 
         attackSizeMultiplier = 1;
@@ -177,6 +177,7 @@ public class MainPlayer : MonoBehaviour
         firerateMultiplier = 1;
         baseDamageMulitplier = 1;
         maxDamageMultiplier = 1;
+        #endregion
 
         Cursor.visible = false;
         currentChar.Start();
@@ -186,6 +187,8 @@ public class MainPlayer : MonoBehaviour
     }
     #endregion
 
+    //[EVERY FRAME]
+    #region Every Frame Method
     void Update()
     {
         if (myPlayer.GetButtonDown("Pause"))
@@ -200,9 +203,11 @@ public class MainPlayer : MonoBehaviour
             }
         }
 
-
+        #region if Player is ALIVE
+        //if player is alive
         if (health > 0)
         {
+            //if game is not paused
             if (Time.timeScale != 0)
             {
                 if (stunTimer <= 0) { PlayerMovement(); }
@@ -222,6 +227,10 @@ public class MainPlayer : MonoBehaviour
 
             }
         }
+        #endregion
+
+        #region if Player is DEAD
+        //if player is dead
         else
         {
             Time.timeScale = 0;
@@ -235,9 +244,22 @@ public class MainPlayer : MonoBehaviour
                 SceneManager.LoadScene("Dans licc center");
             }
         }
-
+        #endregion
     }
 
+    private void FixedUpdate()
+    {
+        //applied player movement
+        Vector3 currentPos = transform.position;
+        currentPos.z = 1;
+        rb.MovePosition(currentPos + (velocity * (speed)) * Time.deltaTime);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
+    #endregion
+
+    //[LOGIC VOID METHODS]
+    #region Every Logic Void METHOD
     private void DodgeLogic()
     {
         //print("current dwt " + currentChar.currentDodgeTime);
@@ -385,8 +407,6 @@ public class MainPlayer : MonoBehaviour
             }
         }
 
-        print(currentChar.attackType);
-
         if (myPlayer.GetButton("Attack"))
         {
             if (currentChar.isChargable)
@@ -450,15 +470,7 @@ public class MainPlayer : MonoBehaviour
         currentChar.startCharging = true;
         currentChar.currentChargeTimer = 0;
     }
-
-    private void FixedUpdate()
-    {
-        Vector3 currentPos = transform.position;
-        currentPos.z = 1;
-        rb.MovePosition(currentPos + (velocity * (speed)) * Time.deltaTime);
-
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-    }
+    #endregion
 
     void AnimationHandler()
     {
@@ -497,22 +509,18 @@ public class MainPlayer : MonoBehaviour
         if (direction.x > 0 && direction.y < 0)
         {
             anim.SetFloat("Blend", 0);
-            //Debug.Log("Right Front");
         }
         else if (direction.x < 0 && direction.y < 0)
         {
             anim.SetFloat("Blend", 1);
-            //Debug.Log("Left Front");
         }
         else if (direction.x > 0 && direction.y > 0)
         {
             anim.SetFloat("Blend", 2);
-            //Debug.Log("Right Back");
         }
         else if (direction.x < 0 && direction.y > 0)
         {
             anim.SetFloat("Blend", 3);
-            //Debug.Log("Left Back");
         }
     }
 
@@ -572,28 +580,9 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
-    public bool HitEnemy(string tag)
-    {
 
-        if (tag == "Projectile")
-        {
-            return true;
-        }
-        else
-        {
-            cam.StartShake();
-            return false;
-        }
-    }
-
-    public void GetHit(int damage)
-    {
-        if (currentChar.currentDodgeTime < 0)
-        {
-            health -= damage;
-        }
-    }
-
+    //[REWIRED METHODS]
+    #region Every Rewired Method
     //these two methods are for ReWired, if any of you guys have any questions about it I can answer them, but you don't need to worry about this for working on the game - Buscemi
     void OnControllerConnected(ControllerStatusChangedEventArgs arg)
     {
@@ -628,6 +617,10 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
+    #endregion
+
+    //[COLLIDER METHODS]
+    #region Collider METHODS
     private void OnTriggerEnter2D(Collider2D other)
     {
         #region Stat Boosters
@@ -636,19 +629,12 @@ public class MainPlayer : MonoBehaviour
             PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
             speedMultiplier += temp.movementSpeed;
-            //currentChar.speed *= temp.movementSpeed;
             attackSizeMultiplier += temp.attackSize;
-            //currentChar.attackSize *= temp.attackSize;
             attackSpeedMultiplier += temp.attackSpeed;
-            //currentChar.attackSpeed *= temp.attackSpeed; //for melee
             firerateMultiplier += temp.attackSpeed;
-            //currentChar.firerate *= temp.attackSpeed; //for projectiles
             baseDamageMulitplier += temp.attackDamage;
-            //currentChar.baseDamage *= temp.attackDamage;
             maxDamageMultiplier += temp.attackDamage;
-            //currentChar.maxDamage *= temp.attackDamage;
             health += temp.healAmount;
-
 
             currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
             Debug.Log(other.name);
@@ -664,5 +650,29 @@ public class MainPlayer : MonoBehaviour
             currentChest = other.gameObject.GetComponentInParent<ChestScript>();
         }
         #endregion
+    }
+
+    //getting hit method
+    public void GetHit(int damage)
+    {
+        if (currentChar.currentDodgeTime < 0)
+        {
+            health -= damage;
+        }
+    }
+    #endregion
+
+    //[RETURN METHODS]
+    public bool HitEnemy(string tag)
+    {
+        if (tag == "Projectile")
+        {
+            return true;
+        }
+        else
+        {
+            cam.StartShake();
+            return false;
+        }
     }
 }
