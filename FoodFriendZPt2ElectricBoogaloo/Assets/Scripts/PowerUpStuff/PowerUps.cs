@@ -50,7 +50,7 @@ public class PowerUps : MonoBehaviour
     //this gives drop down menu selects, make new line write name then put comma
     public enum PowerUpTypes
     {
-        Null,
+        Null,//only for base stat powerups, ex. raise atk, health, speed
 
         //[HEALING]
         Heal,
@@ -101,8 +101,8 @@ public class PowerUps : MonoBehaviour
         StunAttack,
 
 
-        ItemReedem, //??
-        NullAttack //??
+        ItemReedem, //cupons
+        NullAttack //nullify one attack ex. plastic wrap
     }
 
     public PowerUpTypes currentPowerUp;
