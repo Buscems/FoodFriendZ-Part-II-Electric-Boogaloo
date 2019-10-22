@@ -47,7 +47,7 @@ public class MainPlayer : MonoBehaviour
 
 
     [HideInInspector]
-    private float speedMultiplier = 1;
+    public float speedMultiplier = 1;
 
     [HideInInspector]
     public float attackSizeMultiplier = 1;

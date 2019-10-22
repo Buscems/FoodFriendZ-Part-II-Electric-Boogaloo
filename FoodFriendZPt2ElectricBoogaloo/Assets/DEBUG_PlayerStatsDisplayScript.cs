@@ -26,6 +26,6 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
 
     void Update()
     {
-
+        //update text
     }
 }
