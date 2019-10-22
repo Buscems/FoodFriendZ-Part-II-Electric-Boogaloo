@@ -20,16 +20,16 @@ public class ItemHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        statBoostPanel = GameObject.Find("*EquipmentToolBarPanel");        
+        statBoostPanel = GameObject.Find("*EquipmentToolBarPanel");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "StatBoost" && canPickUp)
         {
@@ -45,6 +45,7 @@ public class ItemHandler : MonoBehaviour
                     counter++;
                 }
             }
+
             statBoostNames.Add(other.gameObject.GetComponent<PowerUps>().powerUpName);
 
             if (flag == false)
@@ -61,16 +62,14 @@ public class ItemHandler : MonoBehaviour
             {
                 if (statBoost.name == other.gameObject.GetComponent<PowerUps>().powerUpName)
                 {
-                    print("fghfghffffffffffffffff");
                     statBoost.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "x" + counter;
                 }
             }
         }
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         canPickUp = true;
     }
-
 }

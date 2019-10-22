@@ -15,11 +15,6 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
     public TextMeshProUGUI aPowDisp;
     public TextMeshProUGUI aSizeDisp;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         //update text

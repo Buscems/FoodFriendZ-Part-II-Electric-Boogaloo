@@ -48,39 +48,61 @@ public class PowerUps : MonoBehaviour
     }
 
     //this gives drop down menu selects, make new line write name then put comma
-    //if last line, do not put comma at end of word
     public enum PowerUpTypes
     {
-        Null,//see this one has a comma
+        Null,
+
+        //[HEALING]
         Heal,
         FullHeal,
+
+        //[PLAYER STATUS EFFECTS]
         DebuffRemove,
         SlowTime,
-        AvoidPlayer,
-        SlowEnemy,
+
+        //[ATTACK ENHANCER]
+        PassivePoison,
+
+        //[CONDITIONAL BUFF]
+        //absorb
         AbsorbAttackUp,
         AbsorbProjectile,
         AbsorbLine,
+
+        //proportion
+        AttackDmgHitProportion,
+        AttackSpeedHealthProportion,
+        AttackSpeedDamageProportion,
+
+        HealthGainPerDMG,
+
+        FatalChance,
+
+        //[ENEMY STATUS EFFECTS]
+        DebuffTrail,
+        EnemyConfusion,
+
+        //[ENEMY BEHAVIOR]
+        AvoidPlayer,
+        SlowEnemy,
+
+        //[PERMANENT ADDITION ONTO PLAYER]
+        ExtraLife,
+
+        //**[[ITEMS]]**
+        //[ATTACKS]
         Shrapnel,
         ShrapnelMod,
-        DebuffTrail,
         RamAttackLine,
         AOETenderizer,
         AOEWhisk,
         ShootAttackLine,
         EasterEgg,
         StunAttack,
-        AttackSpeedHealthProportion,
-        AttackSpeedDamageProportion,
-        NullAttack,
-        Poison,
-        ItemReedem,
-        AttackDmgHitProportion,
-        PaasivePoison,
-        ExtraLife,
-        EnemyConfusion,
-        HealthGainPerDMG,
-        FatalChance//last one so no comma
+
+
+        ItemReedem, //??
+        NullAttack //??
     }
 
     public PowerUpTypes currentPowerUp;

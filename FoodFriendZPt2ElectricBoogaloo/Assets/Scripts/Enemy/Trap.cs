@@ -16,11 +16,11 @@ public class Trap : MonoBehaviour
         mainPlayer = GetComponent<MainPlayer>();
         baseEnemy = GetComponent<BaseEnemy>();
 
-        resetSpeed = mainPlayer.currentChar.speed;
+        resetSpeed = mainPlayer.currentChar.Mspeed;
         done = false;
     }
 
-    
+
     void Update()
     {
 
@@ -35,9 +35,9 @@ public class Trap : MonoBehaviour
     IEnumerator Trapped()
     {
         Debug.Log("start trap");
-       yield return new WaitForSeconds(TrapTime);
+        yield return new WaitForSeconds(TrapTime);
         Debug.Log("end trap");
-        mainPlayer.currentChar.speed = resetSpeed;
+        mainPlayer.currentChar.Mspeed = resetSpeed;
         done = true;
     }
 
@@ -45,7 +45,7 @@ public class Trap : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            mainPlayer.currentChar.speed = 0;
+            mainPlayer.currentChar.Mspeed = 0;
             StartCoroutine(Trapped());
         }
     }

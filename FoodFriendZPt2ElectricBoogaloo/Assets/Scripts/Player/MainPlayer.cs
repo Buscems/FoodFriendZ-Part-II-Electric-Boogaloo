@@ -567,7 +567,7 @@ public class MainPlayer : MonoBehaviour
         currentChar.Update();
 
         //[APPLIES Multiplier to movementSpeed]
-        speed = (currentChar.speed * speedMultiplier) * currentChar.currentDodgeSpeedMultiplier;
+        speed = (currentChar.Mspeed * speedMultiplier) * currentChar.currentDodgeSpeedMultiplier;
 
         #region Character Movement Code
         //updates character position
