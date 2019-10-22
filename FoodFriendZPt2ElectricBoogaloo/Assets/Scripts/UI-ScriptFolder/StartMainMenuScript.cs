@@ -96,8 +96,8 @@ public class StartMainMenuScript : MonoBehaviour
         audioSource.Play();
         Debug.Log("Starting Game");
         //this is just for now so that the game can be played, have to add back character select
-        SceneManager.LoadScene("Dans licc center");
-        //SceneManager.LoadScene("CharacterSelectionScreen");
+        //SceneManager.LoadScene("Dans licc center");
+        SceneManager.LoadScene("CharacterSelectionScreen");
     }
 
     //LogBook Button
