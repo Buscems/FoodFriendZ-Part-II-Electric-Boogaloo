@@ -6,24 +6,33 @@ using UnityEngine;
 public class BasePlayer : ScriptableObject
 {
     #region ALL VARIABLES
+
+    //HUD Elements
     public Sprite hudIcon;
 
     [Tooltip("This is the name of the character. Make it all lower case")]
     public string characterName;
+
     public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Boomerang, Builder };
     public AttackType attackType;
 
-    [Header("")]
-    public float speed;
+    #region Player Stats
+
+    #endregion
+    [Header("Player Stats")]
+    public float Mspeed;
     public float baseDamage;
     [Range(0.0f, 1.0f)]
     public float critChance;
+
+    //multipliers
     public float critDamageMulitiplier = 1;
     public float dodgeSpeedMultiplier = 1;
-
     [HideInInspector]
     public float currentDodgeSpeedMultiplier;
 
+    //dodge stuff
+    #region Dodge Stuff
     public float dodgeLength = 1;
 
     [HideInInspector]
@@ -33,47 +42,63 @@ public class BasePlayer : ScriptableObject
 
     [HideInInspector]
     public float currentDodgeWaitTime = 0;
+    #endregion
 
+    //[ATTACK SIZE]
     [Tooltip("This is going to be the size of the weapon, z is always 1.")]
     public Vector3 attackSize;
-    [Tooltip("Can attack go through enemies, or get destroyed on collision")]
 
-    [Header("")]
+    //[WEAPON ATTRIBUTE]
+    #region piercing
+    [Header("Weapon Attribute - piercing")]
+    [Tooltip("Can attack go through enemies, or get destroyed on collision")]
     public bool canPierce = false;
+
     [Tooltip("How much more damage does the attack do, per enemy passed through. A value of 1 means damage does not change.")]
     public float pierceMultiplier = 1;
+
     [Tooltip("How many enemies can the attack pass through before being destroyed. Keep -1 if its infinite.")]
     public int maxAmountOfEnemiesCanPassThrough = -1;
+    #endregion
 
-
+    //offset
     [Tooltip("This will be how far the weapon is from the player when it is activated.")]
     public float offset;
 
-
+    #region Position and Direction
     [HideInInspector]
     public Vector3 currentPosition;
     [HideInInspector]
     public Vector3 currentDirection;
-
+    #endregion
 
     [Header("Melee Characters")]
     public GameObject weapon;
+
     [Tooltip("This is the position the weapon will be at when it is not being used.")]
     public Vector3 awayPos;
+
     [Tooltip("This will be how fast the sword attack plays")]
+
+    //[ATTACK SPEED]
     public float attackSpeed;
     public float rotationalOffset;
 
-    [Header("-If Chargable (Only for 'Melee' and 'Semi-Auto' attack types)")]
+    [Header("MELEE and SEMI-AUTO only")]
+    [Header("if Chargable")]
     public bool isChargable;
+
+    //max damage
     public float maxDamage;
     public float timeTillMaxDamage;
 
+    //charge timers
     [HideInInspector]
     public float currentChargeTimer = 0;
     [HideInInspector]
     public bool startCharging = false;
 
+    //is attacking
     [HideInInspector]
     public bool isAttacking;
 
@@ -83,30 +108,45 @@ public class BasePlayer : ScriptableObject
     public float bulletSpeed;
     public float timeTillDespawn;
     public bool canBounce;
+
+    //ranged attack types
     [Header("Ranged-Split Fire")]
     public float radius;
     public int bulletsPerShot;
+
     [Header("Ranged-Burst Fire")]
     public int bulletsPerBurst;
     public float timeBetweenBursts;
+
     [Header("Needler/Pinshot")]
     public bool isNeedler;
     public bool isPinshot;
     public float explosionDamage;
     public float timeBeforeExplosion;
+
     [Header("Boomerang")]
     public float timeBeforeReturning;
 
-
+    #region Ranged Attack Values
+    //bool
     [HideInInspector]
     public bool firing = false;
-    private float timeBetweenBurstsTimer = 0;
-    private int currentBulletnum;
+
+    //timer
+    float timeBetweenBurstsTimer = 0;
+
+    //bullet count
+    int currentBulletnum;
+    #endregion
 
     [Header("Building Characters")]
     public GameObject drop;
+
+
     [Tooltip("How large of a radius the spawned item will have")]
     public float dropRadius;
+
+    //explosion force
     [Tooltip("How much force to push enemies back if this is a bomb")]
     public float explosionForce;
 
