@@ -142,7 +142,6 @@ public class BasePlayer : ScriptableObject
     [Header("Building Characters")]
     public GameObject drop;
 
-
     [Tooltip("How large of a radius the spawned item will have")]
     public float dropRadius;
 

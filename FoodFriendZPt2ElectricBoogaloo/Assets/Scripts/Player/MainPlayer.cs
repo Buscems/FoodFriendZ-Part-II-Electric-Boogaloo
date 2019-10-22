@@ -47,8 +47,7 @@ public class MainPlayer : MonoBehaviour
     public Animator anim;
 
     #region Stats Hidden in the Inspector
-    [HideInInspector]
-    public float speed;
+    [HideInInspector] public float speed;
 
     #region Stat Multipliers
     [HideInInspector]
@@ -140,15 +139,18 @@ public class MainPlayer : MonoBehaviour
     private void Awake()
     {
         cross = currentChar;
+
         //Rewired Code
+        #region ReWired Code
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         CheckController(myPlayer);
+        #endregion
 
+        //camera
         cam = GameObject.Find("Main Camera").GetComponent<CameraShake>();
 
-        // try
-        // {
+        #region Character Compass
         upCharacter = GameObject.Find("Up_Character").GetComponent<Image>();
         upHighlight = GameObject.Find("Up_Highlight").GetComponent<Image>();
 
@@ -160,27 +162,33 @@ public class MainPlayer : MonoBehaviour
 
         rightCharacter = GameObject.Find("Right_Character").GetComponent<Image>();
         rightHighlight = GameObject.Find("Right_Highlight").GetComponent<Image>();
-        //  }
-        //  catch { }
 
         upHighlight.enabled = false;
         leftHighlight.enabled = false;
         rightHighlight.enabled = false;
-        downHighlight.enabled = true;
 
+        //down is true
+        downHighlight.enabled = true;
+        #endregion
+
+        #region [if null] statements
         if (triangle != null)
         {
             upCharacter.sprite = triangle.hudIcon;
         }
+
         if (square != null)
         {
             leftCharacter.sprite = square.hudIcon;
         }
+
         if (circle != null)
         {
             rightCharacter.sprite = circle.hudIcon;
         }
+        #endregion
 
+        //??
         downCharacter.sprite = cross.hudIcon;
     }
     #endregion
@@ -189,6 +197,7 @@ public class MainPlayer : MonoBehaviour
     #region Start METHOD
     void Start()
     {
+        //poof timer
         currentPoofTimer = maxPoofTime;
 
         #region Set Multipliers to 1
@@ -202,9 +211,12 @@ public class MainPlayer : MonoBehaviour
         #endregion
 
         Cursor.visible = false;
+
+        //access current character stats & rb
         currentChar.Start();
         rb = GetComponent<Rigidbody2D>();
 
+        //**temporary
         youDiedText.gameObject.SetActive(false);
     }
     #endregion
