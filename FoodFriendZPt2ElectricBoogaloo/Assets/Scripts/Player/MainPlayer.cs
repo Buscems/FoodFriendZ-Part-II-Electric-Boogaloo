@@ -9,6 +9,7 @@ using TMPro;
 
 public class MainPlayer : MonoBehaviour
 {
+    //[ALL VARIABLES]
     #region [ALL VARIABLES]
     public int health;
     [HideInInspector]
@@ -18,12 +19,11 @@ public class MainPlayer : MonoBehaviour
     [Header("Audio")]
     public AudioSource audioSource;
     [Tooltip("These are the players sound clips")]
-    /*
-     * 1 = deathSound
-     */
+
     public AudioClip[] clips;
     #endregion
 
+    #region ReWired Variables
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
     private Player myPlayer;
@@ -34,21 +34,23 @@ public class MainPlayer : MonoBehaviour
     [Tooltip("Turn on if the player is using the mouse")]
     public bool usingMouse;
     public GameObject mouseCursor;
+    #endregion
 
     Vector3 direction;
-
     public Transform attackDirection;
 
+    [Header("Scripts")]
     public BasePlayer currentChar;
-
     public GetOddsScript getOddsScript;
+
+    [Header("Animator")]
     public Animator anim;
 
     #region Stats Hidden in the Inspector
     [HideInInspector]
     public float speed;
 
-    #region Stat Multiplier
+    #region Stat Multipliers
     [HideInInspector]
     public float speedMultiplier = 1;
 
@@ -64,26 +66,34 @@ public class MainPlayer : MonoBehaviour
     public float maxDamageMultiplier = 1;
     #endregion
 
+    #region Stun Timers
     [HideInInspector]
     public float stunTimer;
     public float maxStunTimer;
+    #endregion
 
-    //chance based stats
+    #region Chance Based Stats
     float stunChance = 0;
     float burnChance = 0;
     #endregion
 
+    #endregion
+
+    #region rigid body stuff
     Rigidbody2D rb;
     Vector3 velocity;
+    #endregion
 
     private CameraShake cam;
 
+    #region Scripts accessed by party members
     [Header("Current Party")]
     public BasePlayer triangle;
     public BasePlayer square;
     public BasePlayer circle;
     [HideInInspector]
     public BasePlayer cross;
+    #endregion
 
     [Header("All Playable Characters")]
     public BasePlayer[] allCharacters;
@@ -94,9 +104,9 @@ public class MainPlayer : MonoBehaviour
     public GameObject dashPoof;
     public GameObject swapPuff;
     public GameObject walkPuff;
-
     #endregion
 
+    #region Character Displays
     private Image upCharacter;
     private Image upHighlight;
 
@@ -108,18 +118,24 @@ public class MainPlayer : MonoBehaviour
 
     private Image rightCharacter;
     private Image rightHighlight;
+    #endregion
 
+    #region Poof Timers
     public float maxPoofTime;
     private float currentPoofTimer;
 
+    #endregion
+
+    #region Chest
     bool touchingChest;
     ChestScript currentChest;
+    #endregion
 
-    //temporary
+    //[TEMPORARY]
     public TextMeshProUGUI youDiedText;
     #endregion
 
-
+    //[AWAKE METHOD]
     #region Awake METHOD
     private void Awake()
     {
@@ -489,7 +505,9 @@ public class MainPlayer : MonoBehaviour
     }
     #endregion
 
-    void AnimationHandler()
+    //[MOVEMENT AND ANIMATION METHODS]
+    #region Movenent and Animation Methods
+    private void AnimationHandler()
     {
         //this will be handling which character the player currently is in terms of animation
         switch (currentChar.characterName)
@@ -522,6 +540,7 @@ public class MainPlayer : MonoBehaviour
                 break;
         }
 
+        #region Direction of Animation
         //this will switch the animation of the current character
         if (direction.x > 0 && direction.y < 0)
         {
@@ -539,17 +558,29 @@ public class MainPlayer : MonoBehaviour
         {
             anim.SetFloat("Blend", 3);
         }
+        #endregion
     }
 
     private void PlayerMovement()
     {
+        //updates current character
         currentChar.Update();
+
+        //[APPLIES Multiplier to movementSpeed]
         speed = (currentChar.speed * speedMultiplier) * currentChar.currentDodgeSpeedMultiplier;
+
+        #region Character Movement Code
+        //updates character position
         currentChar.currentPosition = this.transform.position;
 
+        //velocity update
         velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
         velocity.y = myPlayer.GetAxisRaw("MoveVertical");
+        #endregion
 
+        //[IF STATEMENTS]
+        #region [if statements]
+        #region Poof [if] statements
         if (velocity.x > .3f || velocity.y > .3f || velocity.x < -.3f || velocity.y < -.3f)
         {
             currentPoofTimer -= Time.deltaTime;
@@ -562,18 +593,27 @@ public class MainPlayer : MonoBehaviour
                 currentPoofTimer = maxPoofTime;
             }
         }
+        #endregion
 
+        #region using Mouse [if] statements
+        //not using mouse
         if (!usingMouse)
         {
             mouseCursor.SetActive(false);
             direction.x = myPlayer.GetAxisRaw("DirectionHorizontal");
             direction.y = myPlayer.GetAxisRaw("DirectionVertical");
         }
-        if (usingMouse)
+
+        //using mouse
+        else if (usingMouse)
         {
             mouseCursor.SetActive(true);
             direction = new Vector3((mouseCursor.transform.position.x - this.transform.position.x), (mouseCursor.transform.position.y - this.transform.position.y)).normalized;
         }
+        #endregion
+
+        #region Checks if character is moving
+        //check if character is moving
         if (velocity.x != 0)
         {
             currentChar.currentDirection.x = velocity.x;
@@ -582,20 +622,25 @@ public class MainPlayer : MonoBehaviour
         {
             currentChar.currentDirection.y = velocity.y;
         }
+        #endregion
+        #endregion
     }
 
     private void LookDirection()
     {
+        // [y]
         if (direction.y != 0)
         {
             attackDirection.transform.right = direction;
         }
 
+        // [x]
         if (direction.x != 0)
         {
             attackDirection.transform.right = direction;
         }
     }
+    #endregion
 
     //[REWIRED METHODS]
     #region Every Rewired Method
