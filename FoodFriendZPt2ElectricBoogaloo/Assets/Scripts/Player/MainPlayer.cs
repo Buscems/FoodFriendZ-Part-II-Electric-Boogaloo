@@ -269,7 +269,6 @@ public class MainPlayer : MonoBehaviour
                 //not stunned
                 if (stunTimer <= 0)
                 {
-                    print("sfd");
                     PlayerMovement();
                 }
 
