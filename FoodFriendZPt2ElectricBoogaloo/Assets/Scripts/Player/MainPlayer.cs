@@ -223,8 +223,11 @@ public class MainPlayer : MonoBehaviour
 
     //[EVERY FRAME]
     #region Every Frame Method
+
+    //[update]
     void Update()
     {
+        #region Pause Call
         if (myPlayer.GetButtonDown("Pause"))
         {
             if (Time.timeScale == 0)
@@ -236,6 +239,7 @@ public class MainPlayer : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+        #endregion
 
         #region if Player is ALIVE
         //if player is alive
@@ -244,21 +248,37 @@ public class MainPlayer : MonoBehaviour
             //if game is not paused
             if (Time.timeScale != 0)
             {
-                if (stunTimer <= 0) { PlayerMovement(); }
-                else { stunTimer -= Time.deltaTime; }
+                //not stunned
+                if (stunTimer <= 0)
+                {
+                    PlayerMovement();
+                }
 
+                //IF STUNNED, then reduce timer down
+                else
+                {
+                    stunTimer -= Time.deltaTime;
+                }
+
+                #region All Methods Called
+                //calls all ANIMATION/MOVEMENT METHODS
                 LookDirection();
-                AttackLogic();
                 AnimationHandler();
+
+                //calls all LOGIC METHODS
+                AttackLogic();
                 SwapLogic();
                 DodgeLogic();
+                #endregion
 
+                //[INTERACTIONS WITH OBJECTS]
+                #region Chest
                 //this is for interacting with a chest
                 if (touchingChest && myPlayer.GetButtonDown("Cross"))
                 {
                     currentChest.OpenChest();
                 }
-
+                #endregion
             }
         }
         #endregion
@@ -267,20 +287,26 @@ public class MainPlayer : MonoBehaviour
         //if player is dead
         else
         {
+            //freeze time
             Time.timeScale = 0;
 
+            #region [TEMPORARY (Game Over) CODE]
+            //**temporary
             GetComponent<ScreenTransition>().fadeObject.color = new Color(0, 0, 0, 1);
             youDiedText.gameObject.SetActive(true);
 
+            //**temporary - Load Dans Scene
             if (myPlayer.GetButtonDown("Cross"))
             {
                 Time.timeScale = 1;
                 SceneManager.LoadScene("Dans licc center");
             }
+            #endregion
         }
         #endregion
     }
 
+    //[fixedUpdate]
     private void FixedUpdate()
     {
         //applied player movement
@@ -478,6 +504,7 @@ public class MainPlayer : MonoBehaviour
 
         if (myPlayer.GetButtonUp("Attack"))
         {
+            //chargible attribute check
             if (currentChar.isChargable)
             {
                 float tempDamage;
@@ -503,9 +530,13 @@ public class MainPlayer : MonoBehaviour
                     currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage);
                 }
 
+                #region Reset "Charge" Attribute
+                //reset timer
                 currentChar.currentChargeTimer = 0;
 
+                //turn off charge
                 currentChar.startCharging = false;
+                #endregion
             }
         }
     }
@@ -521,7 +552,7 @@ public class MainPlayer : MonoBehaviour
     #region Movenent and Animation Methods
     private void AnimationHandler()
     {
-        //this will be handling which character the player currently is in terms of animation
+        //handles which character the player currently is, in terms of animation
         switch (currentChar.characterName)
         {
             case "tofu":
@@ -535,18 +566,23 @@ public class MainPlayer : MonoBehaviour
             case "takoyaki":
                 anim.SetInteger("characterID", 3);
                 break;
+
             case "cherry":
                 anim.SetInteger("characterID", 4);
                 break;
+
             case "cannoli":
                 anim.SetInteger("characterID", 5);
                 break;
+
             case "burger":
                 anim.SetInteger("characterID", 6);
                 break;
+
             case "sashimi":
                 anim.SetInteger("characterID", 7);
                 break;
+
             case "fries":
                 anim.SetInteger("characterID", 8);
                 break;
@@ -592,6 +628,7 @@ public class MainPlayer : MonoBehaviour
 
         //[IF STATEMENTS]
         #region [if statements]
+
         #region Poof [if] statements
         if (velocity.x > .3f || velocity.y > .3f || velocity.x < -.3f || velocity.y < -.3f)
         {
