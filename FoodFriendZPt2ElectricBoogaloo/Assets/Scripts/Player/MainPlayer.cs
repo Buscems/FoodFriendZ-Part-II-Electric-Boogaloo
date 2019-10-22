@@ -7,13 +7,13 @@ using UnityEngine.SceneManagement;
 using Rewired.ControllerExtensions;
 using TMPro;
 
+//with much love ~ Jesse <3
 public class MainPlayer : MonoBehaviour
 {
     //[ALL VARIABLES]
     #region [ALL VARIABLES]
     public int health;
-    [HideInInspector]
-    public int currency;
+    [HideInInspector] public int currency;
 
     #region Audio
     [Header("Audio")]
@@ -36,12 +36,20 @@ public class MainPlayer : MonoBehaviour
     public GameObject mouseCursor;
     #endregion
 
+    #region Direction Stuff
     Vector3 direction;
     public Transform attackDirection;
+    #endregion
 
+    #region Scripts
     [Header("Scripts")]
+    //public scripts
     public BasePlayer currentChar;
     public GetOddsScript getOddsScript;
+
+    //private scripts
+    private CameraShake cam;
+    #endregion
 
     [Header("Animator")]
     public Animator anim;
@@ -49,10 +57,12 @@ public class MainPlayer : MonoBehaviour
     #region Stats Hidden in the Inspector
     [HideInInspector] public float speed;
 
-    #region Stat Multipliers
+    #region Stat Multipliers ([MovementSpeed], [AttackAttributes])
     [HideInInspector]
+    //movement
     public float speedMultiplier = 1;
 
+    //attack
     [HideInInspector]
     public float attackSizeMultiplier = 1;
     [HideInInspector]
@@ -73,6 +83,8 @@ public class MainPlayer : MonoBehaviour
 
     #region Chance Based Stats
     float stunChance = 0;
+
+    //elemental
     float burnChance = 0;
     #endregion
 
@@ -83,13 +95,12 @@ public class MainPlayer : MonoBehaviour
     Vector3 velocity;
     #endregion
 
-    private CameraShake cam;
-
     #region Scripts accessed by party members
     [Header("Current Party")]
     public BasePlayer triangle;
     public BasePlayer square;
     public BasePlayer circle;
+
     [HideInInspector]
     public BasePlayer cross;
     #endregion
@@ -97,13 +108,8 @@ public class MainPlayer : MonoBehaviour
     [Header("All Playable Characters")]
     public BasePlayer[] allCharacters;
 
+    //Active Item??
     private bool isHolding = false;
-
-    #region puffs
-    public GameObject dashPoof;
-    public GameObject swapPuff;
-    public GameObject walkPuff;
-    #endregion
 
     #region Character Displays
     private Image upCharacter;
@@ -119,19 +125,31 @@ public class MainPlayer : MonoBehaviour
     private Image rightHighlight;
     #endregion
 
+    #region puffs
+    [Header("Effects - Puffs")]
+    public GameObject dashPoof;
+    public GameObject swapPuff;
+    public GameObject walkPuff;
+    #endregion
     #region Poof Timers
+    [Header("Poof Timer")]
     public float maxPoofTime;
     private float currentPoofTimer;
 
     #endregion
 
+    //Interactable Enviormental Prefabs
     #region Chest
     bool touchingChest;
     ChestScript currentChest;
     #endregion
 
     //[TEMPORARY]
+    #region **TEMPORARY ELEMENTS
+    [Header("**TEMPORARY ELEMENTS")]
     public TextMeshProUGUI youDiedText;
+    #endregion
+
     #endregion
 
     //[AWAKE METHOD]
@@ -251,6 +269,7 @@ public class MainPlayer : MonoBehaviour
                 //not stunned
                 if (stunTimer <= 0)
                 {
+                    print("sfd");
                     PlayerMovement();
                 }
 
@@ -309,12 +328,15 @@ public class MainPlayer : MonoBehaviour
     //[fixedUpdate]
     private void FixedUpdate()
     {
+        #region Movement Mechanics on Player
         //applied player movement
         Vector3 currentPos = transform.position;
         currentPos.z = 1;
         rb.MovePosition(currentPos + (velocity * (speed)) * Time.deltaTime);
 
+        //applies the transformation
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        #endregion
     }
     #endregion
 
@@ -322,14 +344,17 @@ public class MainPlayer : MonoBehaviour
     #region Every Logic Void METHOD
     private void DodgeLogic()
     {
-        //print("current dwt " + currentChar.currentDodgeTime);
 
+        //if player presses (DODGE)
         if (myPlayer.GetButtonDown("Dodge"))
         {
+            //dodge timer check
             if (currentChar.currentDodgeWaitTime < 0)
             {
                 currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                 currentChar.currentDodgeTime = currentChar.dodgeLength;
+
+                //dash effect
                 Instantiate(dashPoof, transform.position, Quaternion.identity);
             }
         }
@@ -478,51 +503,71 @@ public class MainPlayer : MonoBehaviour
             }
         }
 
+        //if player PRESSES attack button
         if (myPlayer.GetButton("Attack"))
         {
+            //chargable check
             if (currentChar.isChargable)
             {
-                //print(currentChar.currentChargeTimer);
+                //[TEMP VARIABLES]
                 float tempDamage = currentChar.baseDamage * baseDamageMulitplier;
+
+                #region Charge Timer Mechanics
                 if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
                 {
+                    //apply temp variable
                     tempDamage = currentChar.maxDamage * maxDamageMultiplier;
 
+                    //(Melee Attacks)
                     if (currentChar.attackType == BasePlayer.AttackType.Melee && currentChar.currentAttackSpeedTimer < 0)
                     {
                         currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage);
                     }
+
+                    //(Semi-Auto Attacks)
                     if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                     {
                         currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage);
                     }
 
+                    //reset charge timer
                     currentChar.currentChargeTimer = 0;
                 }
+                #endregion                           
             }
         }
 
+        //if player RELEASES attack button
         if (myPlayer.GetButtonUp("Attack"))
         {
             //chargible attribute check
             if (currentChar.isChargable)
             {
+                //temp variables
                 float tempDamage;
+
+                #region Charge Timer Mechanics
+                //if timer is hit
                 if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
                 {
                     tempDamage = currentChar.maxDamage * maxDamageMultiplier;
                 }
+
+                //if released [EARLY]
                 else
                 {
+                    //damage based proportionally on time held before release
                     tempDamage = (currentChar.maxDamage * maxDamageMultiplier) * (currentChar.currentChargeTimer / currentChar.timeTillMaxDamage);
                 }
+                #endregion
 
-
+                //(Melee Attacks)
                 if (currentChar.attackType == BasePlayer.AttackType.Melee)
                 {
                     currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage);
                 }
 
+                //(Semi-Auto Attacks)
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
                     audioSource.clip = clips[0];
