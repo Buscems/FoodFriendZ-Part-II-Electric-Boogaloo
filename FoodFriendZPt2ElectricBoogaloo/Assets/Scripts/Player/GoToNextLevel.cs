@@ -55,6 +55,5 @@ public class GoToNextLevel : MonoBehaviour
             mainCamera.transform.position = spawnPoint;
         }
         catch { }
-
     }
 }
