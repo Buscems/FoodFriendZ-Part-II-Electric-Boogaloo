@@ -13,6 +13,7 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
     public TextMeshProUGUI mSpeedDisp;
     public TextMeshProUGUI aSpeedDisp;
     public TextMeshProUGUI aPowDisp;
+    public TextMeshProUGUI aSizeDisp;
 
     void Start()
     {
@@ -22,8 +23,9 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
     void Update()
     {
         //update text
-        mSpeedDisp.text = pScript.speedMultiplier.ToString("00.00");
-        aSpeedDisp.text = pScript.attackSpeedMultiplier.ToString("00.00");
-        aPowDisp.text = pScript.maxDamageMultiplier.ToString("00.00");
+        mSpeedDisp.text = "mS: " + pScript.speedMultiplier.ToString("00.00");
+        aSpeedDisp.text = "aSpd: " + pScript.attackSpeedMultiplier.ToString("00.00");
+        aPowDisp.text = "aP: " + pScript.maxDamageMultiplier.ToString("00.00");
+        aSizeDisp.text = "aSize: " + pScript.attackSizeMultiplier.ToString("00.00");
     }
 }
