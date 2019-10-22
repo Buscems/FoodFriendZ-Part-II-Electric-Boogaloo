@@ -283,15 +283,21 @@ public class MainPlayer : MonoBehaviour
 
     private void SwapLogic()
     {
+        #region Button Pressed Detector
+        //press
         if (myPlayer.GetButtonDown("Hold"))
         {
             isHolding = true;
         }
+
+        //release
         if (myPlayer.GetButtonUp("Hold"))
         {
             isHolding = false;
         }
+        #endregion
 
+        //holding face buttons
         if (isHolding)
         {
             if (myPlayer.GetButtonDown("Cross"))
@@ -300,6 +306,7 @@ public class MainPlayer : MonoBehaviour
                 upHighlight.enabled = false;
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = false;
+                //down true
                 downHighlight.enabled = true;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
@@ -308,6 +315,7 @@ public class MainPlayer : MonoBehaviour
             {
                 currentChar = square;
                 upHighlight.enabled = false;
+                //left true
                 leftHighlight.enabled = true;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
@@ -317,6 +325,7 @@ public class MainPlayer : MonoBehaviour
             if (myPlayer.GetButtonDown("Triangle"))
             {
                 currentChar = triangle;
+                //up true
                 upHighlight.enabled = true;
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = false;
@@ -329,6 +338,7 @@ public class MainPlayer : MonoBehaviour
                 currentChar = circle;
                 upHighlight.enabled = false;
                 leftHighlight.enabled = false;
+                //right true
                 rightHighlight.enabled = true;
                 downHighlight.enabled = false;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
@@ -622,7 +632,6 @@ public class MainPlayer : MonoBehaviour
             }
         }
     }
-
     #endregion
 
     //[COLLIDER METHODS]
