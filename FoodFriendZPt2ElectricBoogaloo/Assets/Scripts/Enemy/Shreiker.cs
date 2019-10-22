@@ -6,35 +6,42 @@ public class Shreiker : MonoBehaviour
 {
     Aggro agrro;
     BaseEnemy baseEnemy;
-    private GameObject[] nearbyEnemy;
-    [SerializeField] private float shriekerRange;
+    private bool alerted;
+    CircleCollider2D Shriekcollider;
 
     void Start()
     {
         agrro = GetComponent<Aggro>();
         baseEnemy = GetComponent<BaseEnemy>();
+        Shriekcollider = GetComponent<CircleCollider2D>();
+        alerted = false;
     }
 
-    
+
     void Update()
     {
+        Shriekcollider.radius += 1 * Time.deltaTime;
+        if(Shriekcollider.radius > 7)
+        {
+            Shriekcollider.radius = 7;
+        }
+
         if (baseEnemy.aggroScript.aggro)
         {
 
-            Alert(transform.position, shriekerRange);
-            
+            alerted = true;
+
         }
     }
 
-    void Alert(Vector3 center, float radius)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collider[] hitColliders = Physics.OverlapSphere(center, radius);
-        int i = 0;
-        while (i < hitColliders.Length)
-        {
 
-            hitColliders[i].GetComponent<BaseEnemy>().aggroScript.aggroRange = baseEnemy.aggroScript.aggroRange * 2;
-            i++;
+        if(collision.gameObject.tag == "Enemy" && alerted)
+        {
+            Debug.Log("alerting");
+            collision.gameObject.GetComponent<BaseEnemy>().aggroScript.aggroRange = collision.gameObject.GetComponent<BaseEnemy>().aggroScript.aggroRange * 2;
+            collision.gameObject.GetComponent<BaseEnemy>().aggroScript.aggro = true;
         }
     }
 }

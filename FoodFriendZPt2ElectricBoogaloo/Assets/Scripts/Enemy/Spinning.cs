@@ -66,6 +66,7 @@ public class Spinning : MonoBehaviour
 
             if (melee && ranged == false)
             {
+                Debug.Log("start spin");
                 StartCoroutine(MeleeAttack());
 
                 
