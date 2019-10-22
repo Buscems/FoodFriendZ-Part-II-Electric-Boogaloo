@@ -15,7 +15,6 @@ public class GoToNextLevel : MonoBehaviour
     public AstarPath path;
     bool hasScanned;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
@@ -36,19 +35,11 @@ public class GoToNextLevel : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-
     public void NextLevel()
     {
         int newNumber = Random.Range(0, levels.Length);
 
-        while(newNumber == currentLevelNum)
+        while (newNumber == currentLevelNum)
         {
             newNumber = Random.Range(0, levels.Length);
         }
@@ -59,7 +50,7 @@ public class GoToNextLevel : MonoBehaviour
             Destroy(currentScene);
             currentScene = Instantiate(levels[newNumber], Vector3.zero, Quaternion.identity);
             Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
-            print(spawnPoint);
+            //print(spawnPoint);
             player.transform.position = spawnPoint;
             mainCamera.transform.position = spawnPoint;
         }

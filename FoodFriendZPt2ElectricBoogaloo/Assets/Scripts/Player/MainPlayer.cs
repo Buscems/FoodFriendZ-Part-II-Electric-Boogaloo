@@ -407,8 +407,6 @@ public class MainPlayer : MonoBehaviour
             }
         }
 
-        print(currentChar.attackType);
-
         if (myPlayer.GetButton("Attack"))
         {
             if (currentChar.isChargable)
