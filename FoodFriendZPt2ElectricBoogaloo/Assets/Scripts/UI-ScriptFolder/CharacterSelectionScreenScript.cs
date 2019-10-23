@@ -41,6 +41,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         {
             characterButtons[i].sprite = characterSprites[i];
         }
+
+        HighlightedCharacterIMG.sprite = characterSprites[0];
+
     }
 
     public void BackToTitleScreenFunction()
