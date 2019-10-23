@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BasicBullet : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    [HideInInspector]
+    public Rigidbody2D rb;
 
     [HideInInspector]
     public float bulletSpeed;
@@ -26,6 +27,9 @@ public class BasicBullet : MonoBehaviour
 
     [HideInInspector]
     public GameObject player;
+
+    [HideInInspector]
+    public bool stopMoving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +82,7 @@ public class BasicBullet : MonoBehaviour
             rb.velocity = transform.forward * bulletSpeed;
             transform.eulerAngles = origRot;
         }
-        else
+        else if(stopMoving == false)
         {
             rb.velocity = velocity;
         }

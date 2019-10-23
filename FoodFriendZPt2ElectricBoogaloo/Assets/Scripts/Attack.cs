@@ -64,7 +64,7 @@ public class Attack : MonoBehaviour
                 }
                 if (isNeedler)
                 {
-                    transform.position = enemy.transform.position;
+                    print(timeBeforeExplosion);
                     timeBeforeExplosion -= Time.deltaTime;
 
                     if (timeBeforeExplosion < 0)
@@ -73,6 +73,7 @@ public class Attack : MonoBehaviour
                         enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
                         print(enemy.GetComponent<BaseEnemy>().health);
                         GetComponent<BasicBullet>().timeTillDespawn = -6;
+                        Destroy(gameObject);
                     }
                 }
             }
@@ -162,7 +163,12 @@ public class Attack : MonoBehaviour
                 print("fdghdxhxdghxfgh0");
                 GetComponent<BasicBullet>().timeTillDespawn = 11111111;
                 damage = 0;
+                GetComponent<BasicBullet>().stopMoving = true;
+                GetComponent<BasicBullet>().rb.velocity = Vector3.zero;
+                GetComponent<Animator>().enabled = false;
                 enemy = _enemy;
+                Destroy(GetComponent<Rigidbody2D>());
+                transform.parent = _enemy.transform;
             }
         }
         else
