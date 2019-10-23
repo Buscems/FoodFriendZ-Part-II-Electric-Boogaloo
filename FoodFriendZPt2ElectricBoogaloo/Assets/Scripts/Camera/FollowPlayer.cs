@@ -39,7 +39,7 @@ public class FollowPlayer : MonoBehaviour
             playerPos.z = -10;
             Vector3 currentPos = transform.position;
             currentPos.z = -10;
-            transform.position = Vector3.Slerp(currentPos, playerPos, player.GetComponent<MainPlayer>().speed * cameraSpeed * Time.deltaTime);
+            transform.position = Vector3.Slerp(currentPos, playerPos, player.transform.parent.transform.parent.GetComponent<MainPlayer>().speed * cameraSpeed * Time.deltaTime);
         }
     }
 }
