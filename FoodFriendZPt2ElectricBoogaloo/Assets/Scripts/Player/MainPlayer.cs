@@ -664,21 +664,43 @@ public class MainPlayer : MonoBehaviour
 
         #region Direction of Animation
         //this will switch the animation of the current character
-        if (direction.x > 0 && direction.y < 0)
+        if (direction == new Vector3(0, 0))
         {
-            anim.SetFloat("Blend", 0);
+            if (velocity.x > 0 && velocity.y < 0)
+            {
+                anim.SetFloat("Blend", 0);
+            }
+            else if (velocity.x < 0 && velocity.y < 0)
+            {
+                anim.SetFloat("Blend", 1);
+            }
+            else if (velocity.x > 0 && velocity.y > 0)
+            {
+                anim.SetFloat("Blend", 2);
+            }
+            else if (velocity.x < 0 && velocity.y > 0)
+            {
+                anim.SetFloat("Blend", 3);
+            }
         }
-        else if (direction.x < 0 && direction.y < 0)
+        else
         {
-            anim.SetFloat("Blend", 1);
-        }
-        else if (direction.x > 0 && direction.y > 0)
-        {
-            anim.SetFloat("Blend", 2);
-        }
-        else if (direction.x < 0 && direction.y > 0)
-        {
-            anim.SetFloat("Blend", 3);
+            if (direction.x > 0 && direction.y < 0)
+            {
+                anim.SetFloat("Blend", 0);
+            }
+            else if (direction.x < 0 && direction.y < 0)
+            {
+                anim.SetFloat("Blend", 1);
+            }
+            else if (direction.x > 0 && direction.y > 0)
+            {
+                anim.SetFloat("Blend", 2);
+            }
+            else if (direction.x < 0 && direction.y > 0)
+            {
+                anim.SetFloat("Blend", 3);
+            }
         }
         #endregion
     }
@@ -751,16 +773,23 @@ public class MainPlayer : MonoBehaviour
 
     private void LookDirection()
     {
-        // [y]
-        if (direction.y != 0)
+        if (direction == new Vector3(0, 0))
         {
-            attackDirection.transform.right = direction;
+            attackDirection.transform.right = velocity;
         }
-
-        // [x]
-        if (direction.x != 0)
+        else
         {
-            attackDirection.transform.right = direction;
+            // [y]
+            if (direction.y != 0)
+            {
+                attackDirection.transform.right = direction;
+            }
+
+            // [x]
+            if (direction.x != 0)
+            {
+                attackDirection.transform.right = direction;
+            }
         }
     }
     #endregion
