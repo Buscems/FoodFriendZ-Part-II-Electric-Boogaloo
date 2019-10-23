@@ -39,13 +39,17 @@ public class GoToNextLevel : MonoBehaviour
     {
         int newNumber = Random.Range(0, levels.Length);
 
-        while (newNumber == currentLevelNum)
+        if (levels.Length > 1)
         {
-            newNumber = Random.Range(0, levels.Length);
+            while (newNumber == currentLevelNum)
+            {
+                newNumber = Random.Range(0, levels.Length);
+            }
         }
 
         try
         {
+            currentLevelNum = newNumber;
             hasScanned = false;
             Destroy(currentScene);
             currentScene = Instantiate(levels[newNumber], Vector3.zero, Quaternion.identity);
