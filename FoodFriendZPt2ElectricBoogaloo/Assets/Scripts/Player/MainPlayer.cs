@@ -408,7 +408,7 @@ public class MainPlayer : MonoBehaviour
         //holding face buttons
         if (isHolding)
         {
-            if (myPlayer.GetButtonDown("Cross"))
+            if (myPlayer.GetButtonDown("Cross") && currentChar != cross)
             {
                 currentChar = cross;
                 upHighlight.enabled = false;
@@ -419,7 +419,7 @@ public class MainPlayer : MonoBehaviour
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
-            if (myPlayer.GetButtonDown("Square"))
+            if (myPlayer.GetButtonDown("Square") && currentChar != square)
             {
                 currentChar = square;
                 upHighlight.enabled = false;
@@ -430,7 +430,7 @@ public class MainPlayer : MonoBehaviour
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
-            if (myPlayer.GetButtonDown("Triangle"))
+            if (myPlayer.GetButtonDown("Triangle") && currentChar != triangle)
             {
                 currentChar = triangle;
                 //up true
@@ -441,7 +441,7 @@ public class MainPlayer : MonoBehaviour
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
-            if (myPlayer.GetButtonDown("Circle"))
+            if (myPlayer.GetButtonDown("Circle") && currentChar != circle)
             {
                 currentChar = circle;
                 upHighlight.enabled = false;

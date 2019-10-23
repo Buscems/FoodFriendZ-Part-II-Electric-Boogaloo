@@ -13,7 +13,8 @@ public class ResizeUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //float newSize = transform.parent.GetComponent<RectTransform>().rect.height/130;
-       // GetComponent<RectTransform>().localScale = new Vector3(.43f, .43f, 1);
+        float newSize = transform.parent.GetComponent<RectTransform>().rect.height/130;
+        //newSize is equal to .43f (verified by Debug.Log
+        GetComponent<RectTransform>().localScale = new Vector3(newSize, newSize, 1);
     }
 }
