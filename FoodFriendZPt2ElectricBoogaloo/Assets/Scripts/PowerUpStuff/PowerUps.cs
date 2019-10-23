@@ -40,11 +40,25 @@ public class PowerUps : MonoBehaviour
     [Tooltip("This will be how rare the item is so that it will have different chances to appear depending on rarity")]
     public Rarity rarity;
 
+    private float cantPickUpTime = 1;
 
     public void Start()
     {
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
         baseStats = stats.currentChar;
+        GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.tag = "Blank";
+    }
+
+    private void Update()
+    {
+        cantPickUpTime -= Time.deltaTime;
+
+        if(cantPickUpTime < 0)
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+            gameObject.tag = "StatBoost";
+        }
     }
 
     //this gives drop down menu selects, make new line write name then put comma

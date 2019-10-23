@@ -66,6 +66,10 @@ public class ChestScript : MonoBehaviour
         {
             currentPowerup = r[Random.Range(0, r.Length)];
         }
+        else
+        {
+            currentPowerup = wd[Random.Range(0, wd.Length)];
+        }
 
     }
 
@@ -81,8 +85,9 @@ public class ChestScript : MonoBehaviour
         {
             anim.SetBool("Open", true);
         }
-        Instantiate(currentPowerup, transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
+        GameObject pu = Instantiate(currentPowerup, transform.position, Quaternion.identity);
+        pu.GetComponent<BoxCollider2D>().enabled = false;
+        Destroy(gameObject);
     }
 
 }

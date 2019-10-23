@@ -324,6 +324,7 @@ public class MainPlayer : MonoBehaviour
                 //this is for interacting with a chest
                 if (touchingChest && myPlayer.GetButtonDown("Cross"))
                 {
+                    touchingChest = false;
                     currentChest.OpenChest();
                 }
                 #endregion
