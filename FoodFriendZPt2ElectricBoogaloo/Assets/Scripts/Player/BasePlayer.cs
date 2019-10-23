@@ -8,6 +8,7 @@ public class BasePlayer : ScriptableObject
     #region ALL VARIABLES
 
     //HUD Elements
+    [Header("Character Display")]
     public Sprite hudIcon;
 
     [Tooltip("This is the name of the character. Make it all lower case")]
@@ -85,7 +86,6 @@ public class BasePlayer : ScriptableObject
     public float rotationalOffset;
 
     [Header("MELEE and SEMI-AUTO only")]
-    [Header("if Chargable")]
     public bool isChargable;
 
     //max damage
