@@ -156,6 +156,35 @@ public class MainPlayer : MonoBehaviour
     #region Awake METHOD
     private void Awake()
     {
+
+        switch (PlayerPrefs.GetInt("startCharacter"))
+        {
+            case 1:
+                currentChar = allCharacters[0];
+                break;
+            case 2:
+                currentChar = allCharacters[1];
+                break;
+            case 3:
+                currentChar = allCharacters[2];
+                break;
+            case 4:
+                currentChar = allCharacters[3];
+                break;
+            case 5:
+                currentChar = allCharacters[4];
+                break;
+            case 6:
+                currentChar = allCharacters[5];
+                break;
+            case 7:
+                currentChar = allCharacters[6];
+                break;
+            case 8:
+                currentChar = allCharacters[7];
+                break;
+        }
+
         cross = currentChar;
 
         //Rewired Code
@@ -231,37 +260,10 @@ public class MainPlayer : MonoBehaviour
         Cursor.visible = false;
 
         //access current character stats & rb
-        currentChar.Start();
         rb = GetComponent<Rigidbody2D>();
 
-        switch (PlayerPrefs.GetInt("startCharacter"))
-        {
-            case 1:
-                currentChar = allCharacters[0];
-                break;
-            case 2:
-                currentChar = allCharacters[1];
-                break;
-            case 3:
-                currentChar = allCharacters[2];
-                break;
-            case 4:
-                currentChar = allCharacters[3];
-                break;
-            case 5:
-                currentChar = allCharacters[4];
-                break;
-            case 6:
-                currentChar = allCharacters[5];
-                break;
-            case 7:
-                currentChar = allCharacters[6];
-                break;
-            case 8:
-                currentChar = allCharacters[7];
-                break;
-        }
-
+        currentChar.Start();
+        
         //**temporary
         youDiedText.gameObject.SetActive(false);
     }

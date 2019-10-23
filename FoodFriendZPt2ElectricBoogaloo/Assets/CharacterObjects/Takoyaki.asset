@@ -16,8 +16,10 @@ MonoBehaviour:
     type: 3}
   characterName: takoyaki
   attackType: 4
-  speed: 2
+  Mspeed: 3
   baseDamage: 0.25
+  critChance: 0
+  critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
@@ -50,10 +52,17 @@ MonoBehaviour:
   bulletsPerShot: 3
   bulletsPerBurst: 0
   timeBetweenBursts: 0
+  isNeedler: 0
+  isPinshot: 0
+  explosionDamage: 0
+  timeBeforeExplosion: 0
+  timeBeforeReturning: 0
   firing: 1
   drop: {fileID: 4049022442695697508, guid: 840089a4ee0433149a83c6df387b59f2, type: 3}
   dropRadius: 0
+  explosionForce: 0
   currentFirerateTimer: -4.4640236
+  currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
