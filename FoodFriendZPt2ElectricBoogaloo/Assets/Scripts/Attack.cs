@@ -64,14 +64,11 @@ public class Attack : MonoBehaviour
                 }
                 if (isNeedler)
                 {
-                    print(timeBeforeExplosion);
                     timeBeforeExplosion -= Time.deltaTime;
 
                     if (timeBeforeExplosion < 0)
                     {
-                        print(enemy.GetComponent<BaseEnemy>().health);
                         enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
-                        print(enemy.GetComponent<BaseEnemy>().health);
                         GetComponent<BasicBullet>().timeTillDespawn = -6;
                         Destroy(gameObject);
                     }
@@ -160,7 +157,6 @@ public class Attack : MonoBehaviour
         {
             if (enemy == null)
             {
-                print("fdghdxhxdghxfgh0");
                 GetComponent<BasicBullet>().timeTillDespawn = 11111111;
                 damage = 0;
                 GetComponent<BasicBullet>().stopMoving = true;

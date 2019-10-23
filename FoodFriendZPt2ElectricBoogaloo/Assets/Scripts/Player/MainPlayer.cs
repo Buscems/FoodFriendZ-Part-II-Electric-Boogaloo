@@ -870,6 +870,7 @@ public class MainPlayer : MonoBehaviour
         if (currentChar.currentDodgeTime < 0)
         {
             health -= damage;
+            cam.StartShake();
         }
     }
     #endregion
