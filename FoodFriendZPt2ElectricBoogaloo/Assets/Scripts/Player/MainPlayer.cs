@@ -246,6 +246,7 @@ public class MainPlayer : MonoBehaviour
     #region Start METHOD
     void Start()
     {
+
         //poof timer
         currentPoofTimer = maxPoofTime;
 
@@ -277,6 +278,9 @@ public class MainPlayer : MonoBehaviour
     //[update]
     void Update()
     {
+
+        Debug.Log(Manager.currentLevel);
+
         #region Pause Call
         if (myPlayer.GetButtonDown("Pause"))
         {

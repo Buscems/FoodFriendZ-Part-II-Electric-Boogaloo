@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 2342861788897084341}
   - component: {fileID: 2812613003649850060}
   - component: {fileID: 3141662278104685260}
+  - component: {fileID: 2068965905430751085}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player1
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f8971621898d24e921e91a788edf64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 10
   currency: 0
   audioSource: {fileID: 2110259292106485824}
   clips:
@@ -212,16 +213,25 @@ MonoBehaviour:
   maxDamageMultiplier: 1
   stunTimer: 0
   maxStunTimer: 0
-  triangle: {fileID: 0}
-  square: {fileID: 0}
-  circle: {fileID: 0}
+  triangle: {fileID: 11400000, guid: e80f294d16518d346b4645390c672b84, type: 2}
+  square: {fileID: 11400000, guid: 719bae922c32598419f93b599acd8299, type: 2}
+  circle: {fileID: 11400000, guid: 29f7948a75b85374b838ec9e8a88d3d9, type: 2}
   cross: {fileID: 0}
-  allCharacters: []
+  allCharacters:
+  - {fileID: 11400000, guid: 15482a04ad74dd040856a81e05842bce, type: 2}
+  - {fileID: 11400000, guid: e80f294d16518d346b4645390c672b84, type: 2}
+  - {fileID: 11400000, guid: 84f6f9cd0bdab974d93c85b5524d30d0, type: 2}
+  - {fileID: 11400000, guid: 654196d7c464782428859ba263608a00, type: 2}
+  - {fileID: 11400000, guid: 29f7948a75b85374b838ec9e8a88d3d9, type: 2}
+  - {fileID: 11400000, guid: 719bae922c32598419f93b599acd8299, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   dashPoof: {fileID: 1712527220912024, guid: eb6f5883224fd4f1fba1647209183be2, type: 3}
   swapPuff: {fileID: 1555602966978052, guid: 7d22f20c936df4022a0ca218664ef09d, type: 3}
   walkPuff: {fileID: 1712527220912024, guid: eb6f5883224fd4f1fba1647209183be2, type: 3}
   maxPoofTime: 0.5
   youDiedText: {fileID: 0}
+  item: {fileID: 0}
 --- !u!82 &2110259292106485824
 AudioSource:
   m_ObjectHideFlags: 0
@@ -435,6 +445,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb14b9f746983044ea4b38ab73141ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2068965905430751085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822394764877458807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44173e0d72d284941b63bb099009a978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMoney: 5
+  moneyText: {fileID: 0}
+  inGame: 1
+  isDead: 0
 --- !u!1 &5285187768009801998
 GameObject:
   m_ObjectHideFlags: 0

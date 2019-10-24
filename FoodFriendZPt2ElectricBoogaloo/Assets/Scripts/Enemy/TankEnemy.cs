@@ -38,21 +38,26 @@ public class TankEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (baseEnemy.aggroScript.aggro)
+        {
+            if (follow == true)
+            {
+                path.enabled = true;
+                attackRadius.enabled = false;
+                baseEnemy.aggroScript.aggro = true;
+                playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+            }
 
-        if (follow == true){
-            path.enabled = true;
-            attackRadius.enabled = false;
-            baseEnemy.aggroScript.aggro = true;
-            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
-        }
-        
-        if (windUp == true){
-            baseEnemy.aggroScript.aggro = false;
-            path.enabled = false;
-        }
+            if (windUp == true)
+            {
+                baseEnemy.aggroScript.aggro = false;
+                path.enabled = false;
+            }
 
-        if (attack == true){
-            attackRadius.enabled = true;
+            if (attack == true)
+            {
+                attackRadius.enabled = true;
+            }
         }
     }
 

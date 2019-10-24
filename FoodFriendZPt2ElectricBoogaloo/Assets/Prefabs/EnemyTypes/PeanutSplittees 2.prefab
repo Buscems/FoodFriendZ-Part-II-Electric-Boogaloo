@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  speed: 2
+  speed: 4
   walkIntoDamage: 1
   aggroScript: {fileID: 1853570947623047929}
   items:
@@ -143,6 +143,7 @@ MonoBehaviour:
   - {fileID: 6031768757373064001, guid: cd07df8db0de3274994b8ec80df44b94, type: 3}
   dropRate: 0.0001
   money: 0
+  objectToDestroy: {fileID: 0}
 --- !u!114 &1853570947623047929
 MonoBehaviour:
   m_ObjectHideFlags: 0

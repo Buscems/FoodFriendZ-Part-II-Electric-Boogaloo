@@ -27,6 +27,7 @@ public class ScreenTransition : MonoBehaviour
 
         if(fadeObject.GetComponent<Image>().color.a >= 1)
         {
+
             player.NextLevel();
             try
             {

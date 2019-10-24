@@ -7,10 +7,18 @@ public class ChestScript : MonoBehaviour
 
     public GameObject[] items;
 
+    [Header("Different Rarities")]
     public float wellDoneChance;
     public float mediumWellChance;
     public float mediumRareChance;
     public float rareChance;
+
+    [Header("Different Costs for Rarity")]
+    float baseCost;
+    public float wellDoneCost;
+    public float mediumWellCost;
+    public float mediumRareCost;
+    public float rareCost;
 
     Queue<GameObject> wellDone = new Queue<GameObject>();
     Queue<GameObject> mediumWell = new Queue<GameObject>();
@@ -29,18 +37,22 @@ public class ChestScript : MonoBehaviour
             if(items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.wellDone)
             {
                 wellDone.Enqueue(items[i]);
+                baseCost = wellDoneCost; 
             }
             if (items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.mediumWell)
             {
                 mediumWell.Enqueue(items[i]);
+                baseCost = mediumWellCost;
             }
             if (items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.mediumRare)
             {
                 mediumRare.Enqueue(items[i]);
+                baseCost = mediumRareCost;
             }
             if (items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.rare)
             {
                 rare.Enqueue(items[i]);
+                baseCost = rareCost;
             }
         }
 

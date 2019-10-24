@@ -15,6 +15,8 @@ public class GoToNextLevel : MonoBehaviour
     public AstarPath path;
     bool hasScanned;
 
+    bool hasChangedLevel;
+
     void Start()
     {
         player = GameObject.Find("Player");
@@ -24,6 +26,7 @@ public class GoToNextLevel : MonoBehaviour
         Vector3 spawnPoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform.position;
         player.transform.position = spawnPoint;
         mainCamera.transform.position = spawnPoint;
+        Manager.currentLevel = 0;
     }
 
     private void LateUpdate()
@@ -46,7 +49,6 @@ public class GoToNextLevel : MonoBehaviour
                 newNumber = Random.Range(0, levels.Length);
             }
         }
-
         try
         {
             currentLevelNum = newNumber;
@@ -57,6 +59,11 @@ public class GoToNextLevel : MonoBehaviour
             //print(spawnPoint);
             player.transform.position = spawnPoint;
             mainCamera.transform.position = spawnPoint;
+            if (!hasChangedLevel)
+            {
+                Manager.currentLevel += 1;
+                hasChangedLevel = true;
+            }
         }
         catch { }
     }

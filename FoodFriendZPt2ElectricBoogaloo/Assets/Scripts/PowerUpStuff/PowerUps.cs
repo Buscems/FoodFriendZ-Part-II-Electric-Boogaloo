@@ -115,7 +115,7 @@ public class PowerUps : MonoBehaviour
         StunAttack,
 
 
-        ItemReedem, //cupons
+        ItemReedem, //coupons
         NullAttack //nullify one attack ex. plastic wrap
     }
 
