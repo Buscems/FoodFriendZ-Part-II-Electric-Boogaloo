@@ -6,65 +6,55 @@ using UnityEngine.UI;
 public class ShopTrigger : MonoBehaviour
 {
 
-    public GameObject uiObject;
-    public GameObject ableToBuyText;
-    public GameObject ableToExitText;
-    public GameObject shopMenu;
-    public bool canShop;
-    public bool isShopping;
+    public int price;
+    public GameObject powerUp;
+    public GameObject priceText;
+    public CurrencyManager curMan;
+    public bool looking;
+    public PowerUps power;
+    public MainPlayer player;
 
     // Start is called before the first frame update
     void Start()
     {
-        ableToBuyText.SetActive(false);
-        ableToExitText.SetActive(false);
-        canShop = false;
-        isShopping = false;
-        shopMenu.SetActive(false);
+        priceText.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canShop == true)
+        if (curMan.totalMoney >= price && Input.GetKeyDown(KeyCode.E) && looking == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (isShopping)
-                {
-                    Resume();
-                }
-                else
-                {
-                    isShopping = true;
-                    Time.timeScale = 0f;
-                    shopMenu.SetActive(true);
-                    ableToBuyText.SetActive(false);
-                    ableToExitText.SetActive(true);
-                }
-            }
-        }
-    }
+            Debug.Log("woot");
+            player.speedMultiplier += power.movementSpeed;
+            player.attackSizeMultiplier += power.attackSize;
+            player.attackSpeedMultiplier += power.attackSpeed;
+            player.firerateMultiplier += power.attackSpeed;
+            player.baseDamageMulitplier += power.attackDamage;
+            player.maxDamageMultiplier += power.attackDamage;
+            player.health += power.healAmount;
 
-    public void Resume(){
-        isShopping = false;
-        Time.timeScale = 1f;
-        shopMenu.SetActive(false);
-        ableToBuyText.SetActive(true);
-        ableToExitText.SetActive(false);
+            player.currentChar.SetMultipliers(player.attackSizeMultiplier, player.attackSpeedMultiplier, player.firerateMultiplier, player.baseDamageMulitplier, player.maxDamageMultiplier);
+            curMan.totalMoney -= price;
+            Destroy(gameObject);
+            Destroy(powerUp);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player1")
         {
-            ableToBuyText.SetActive(true);
-            canShop = true;
+            Debug.Log("yes");
+            priceText.SetActive(true);
+            looking = true;
         }
-    }
+            
+        }
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
-        ableToBuyText.SetActive(false);
-        canShop = false;
+        priceText.SetActive(false);
+        looking = false;
     }
 }
