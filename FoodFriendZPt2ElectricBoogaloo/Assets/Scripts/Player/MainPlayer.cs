@@ -875,6 +875,7 @@ public class MainPlayer : MonoBehaviour
             if(item == null)
             {
                 item = other.gameObject;
+                Destroy(other.gameObject);
             }
         }
             #endregion
