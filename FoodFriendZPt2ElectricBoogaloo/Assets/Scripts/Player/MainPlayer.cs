@@ -150,6 +150,8 @@ public class MainPlayer : MonoBehaviour
     public TextMeshProUGUI youDiedText;
     #endregion
 
+    public GameObject item = null;
+
     #endregion
 
     //[AWAKE METHOD]
@@ -329,6 +331,11 @@ public class MainPlayer : MonoBehaviour
                 }
                 #endregion
             }
+
+            if (Input.GetKeyDown(KeyCode.E) && item != null)
+            {
+                UseItem();
+            }
         }
         #endregion
 
@@ -388,6 +395,12 @@ public class MainPlayer : MonoBehaviour
                 Instantiate(dashPoof, transform.position, Quaternion.identity);
             }
         }
+    }
+
+    private void UseItem()
+    {
+        Instantiate(item, transform.position, Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+        item = null;
     }
 
     private void SwapLogic()
@@ -856,8 +869,18 @@ public class MainPlayer : MonoBehaviour
         }
         #endregion
 
-        #region Chest
-        if (other.gameObject.tag == "Chest")
+        #region Item
+        if (other.gameObject.tag == "Item")
+        {
+            if(item == null)
+            {
+                item = other.gameObject;
+            }
+        }
+            #endregion
+
+            #region Chest
+            if (other.gameObject.tag == "Chest")
         {
             touchingChest = true;
             currentChest = other.gameObject.GetComponentInParent<ChestScript>();
