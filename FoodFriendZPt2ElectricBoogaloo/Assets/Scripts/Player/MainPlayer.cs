@@ -536,6 +536,12 @@ public class MainPlayer : MonoBehaviour
                 audioSource.Play();
                 currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
+            if (currentChar.attackType == BasePlayer.AttackType.Napolean)
+            {
+                audioSource.clip = clips[0];
+                audioSource.Play();
+                currentChar.Napolean(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+            }
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
             {
                 audioSource.clip = clips[0];

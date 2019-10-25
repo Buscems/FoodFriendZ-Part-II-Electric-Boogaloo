@@ -14,7 +14,7 @@ public class BasePlayer : ScriptableObject
     [Tooltip("This is the name of the character. Make it all lower case")]
     public string characterName;
 
-    public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Boomerang, Builder };
+    public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Napolean, Boomerang, Builder };
     public AttackType attackType;
 
     #region Player Stats
@@ -114,9 +114,14 @@ public class BasePlayer : ScriptableObject
     public float radius;
     public int bulletsPerShot;
 
+    [Header("Napolean")]
+    //public float radius;
+    public GameObject[] bulletTypes;
+
     [Header("Ranged-Burst Fire")]
     public int bulletsPerBurst;
     public float timeBetweenBursts;
+
 
     [Header("Needler/Pinshot")]
     public bool isNeedler;
@@ -243,7 +248,7 @@ public class BasePlayer : ScriptableObject
             currentDodgeWaitTime -= Time.deltaTime;
             currentDodgeTime -= Time.deltaTime;
 
-            if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire || attackType == AttackType.Boomerang)
+            if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire || attackType == AttackType.Boomerang || attackType == AttackType.Napolean)
             {
                 currentFirerateTimer -= Time.deltaTime;
                 timeBetweenBurstsTimer -= Time.deltaTime;
@@ -378,6 +383,24 @@ public class BasePlayer : ScriptableObject
     }
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
+    {
+        float randNum = Random.Range(0, 1);
+        if (randNum < critChance)
+        {
+            damage *= critDamageMulitiplier;
+        }
+        currentFirerateTimer = firerate * firerateMultiplier;
+        float angleInterval = radius / bulletsPerShot;
+
+        for (int i = 0; i < bulletsPerShot; i++)
+        {
+            GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
+            SetBulletVariables(attack, parentTransform, false);
+            attack.GetComponent<Attack>().damage = damage;
+        }
+    }
+
+    public void Napolean(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
     {
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
