@@ -279,8 +279,6 @@ public class MainPlayer : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(Manager.currentLevel);
-
         #region Pause Call
         if (myPlayer.GetButtonDown("Pause"))
         {
@@ -509,6 +507,15 @@ public class MainPlayer : MonoBehaviour
                 currentChar.Builder(transform.position, attackDirection, transform);
             }
         }
+        if (currentChar.attackType == BasePlayer.AttackType.Napolean)
+        {
+            if (currentChar.firing)
+            {
+                audioSource.clip = clips[0];
+                audioSource.Play();
+                currentChar.Napolean(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+            }
+        }
         if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
         {
             if (currentChar.firing)
@@ -540,7 +547,7 @@ public class MainPlayer : MonoBehaviour
             {
                 audioSource.clip = clips[0];
                 audioSource.Play();
-                currentChar.Napolean(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+                currentChar.InitiateNapoleanBurstFire();
             }
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
             {

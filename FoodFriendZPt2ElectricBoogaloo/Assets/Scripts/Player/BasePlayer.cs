@@ -204,6 +204,7 @@ public class BasePlayer : ScriptableObject
         {
             weapon = null;
             drop = null;
+            currentBulletnum = bulletsPerBurst;
         }
         if (attackType == AttackType.Ranged_Semi_Auto)
         {
@@ -214,6 +215,12 @@ public class BasePlayer : ScriptableObject
         {
             weapon = null;
             drop = null;
+        }
+        if (attackType == AttackType.Napolean)
+        {
+            weapon = null;
+            drop = null;
+            currentBulletnum = bulletTypes.Length-1;
         }
         if (attackType == AttackType.Boomerang)
         {
@@ -227,7 +234,7 @@ public class BasePlayer : ScriptableObject
         }
         #endregion
 
-        currentBulletnum = bulletsPerBurst;
+       
     }
 
     public void Update()
@@ -406,14 +413,22 @@ public class BasePlayer : ScriptableObject
         {
             damage *= critDamageMulitiplier;
         }
-        currentFirerateTimer = firerate * firerateMultiplier;
-        float angleInterval = radius / bulletsPerShot;
-
-        for (int i = 0; i < bulletsPerShot; i++)
+        if (currentFirerateTimer < 0 && currentBulletnum > 0)
         {
-            GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
+            Debug.Log("Length" + (bulletTypes.Length - 1));
+            Debug.Log(currentBulletnum);
+            currentFirerateTimer = firerate * firerateMultiplier;
+            GameObject attack = Instantiate(bulletTypes[currentBulletnum], pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
             SetBulletVariables(attack, parentTransform, false);
             attack.GetComponent<Attack>().damage = damage;
+
+            currentBulletnum--;
+
+            if (currentBulletnum == 0)
+            {
+                firing = false;
+                timeBetweenBurstsTimer = timeBetweenBursts;
+            }
         }
     }
 
@@ -423,6 +438,15 @@ public class BasePlayer : ScriptableObject
         {
             firing = true;
             currentBulletnum = bulletsPerBurst;
+        }
+    }
+
+    public void InitiateNapoleanBurstFire()
+    {
+        if (firing == false && timeBetweenBurstsTimer < 0)
+        {
+            firing = true;
+            currentBulletnum = bulletTypes.Length-1;
         }
     }
 
