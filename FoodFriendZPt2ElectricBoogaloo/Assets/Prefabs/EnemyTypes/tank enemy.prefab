@@ -144,6 +144,7 @@ MonoBehaviour:
   - {fileID: 6031768757373064001, guid: cd07df8db0de3274994b8ec80df44b94, type: 3}
   dropRate: 0.01
   money: 0
+  objectToDestroy: {fileID: 0}
 --- !u!114 &399288622599745483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,12 +283,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84285a5b1e18f8c4b9daf05f9d4a42c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 2
   follow: 0
   windUp: 0
   attack: 0
+  attackReady: 0
+  coolDownAttack: 0
   followTime: 4
-  windUpTime: 0.5
-  attackTime: 2
+  windUpTime: 1
+  attackTime: 0.02
+  coolDownTime: 5
   attackRadius: {fileID: 3155841900132764453}
   path: {fileID: 0}
 --- !u!1 &4178653862171740270
@@ -306,7 +311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1465988437619791901
 Transform:
   m_ObjectHideFlags: 0

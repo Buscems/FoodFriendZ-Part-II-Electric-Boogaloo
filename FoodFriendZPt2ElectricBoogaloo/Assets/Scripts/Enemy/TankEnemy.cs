@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class TankEnemy : MonoBehaviour
 {
-    /*things i need for the script
-     * 1. timer to track
-     * 2. timer to wind up
-     * 3. timer for AOE attack
-      */
 
     private Vector3 playerPos;
+
+    public float attackRange;
 
     public bool follow;
     public bool windUp;
     public bool attack;
+    public bool attackReady;
+    public bool coolDownAttack;
 
     public float followTime;
     public float windUpTime;
     public float attackTime;
+    public float coolDownTime;
 
     public BoxCollider2D attackRadius;
 
@@ -30,9 +30,9 @@ public class TankEnemy : MonoBehaviour
     void Start()
     {
         attackRadius.enabled = false;
-        StartCoroutine(following());
         baseEnemy = GetComponent<BaseEnemy>();
         path = GetComponent<PathfindingAI>();
+        attackReady = true;
     }
 
     // Update is called once per frame
@@ -40,54 +40,64 @@ public class TankEnemy : MonoBehaviour
     {
         if (baseEnemy.aggroScript.aggro)
         {
-            if (follow == true)
-            {
-                path.enabled = true;
-                attackRadius.enabled = false;
-                baseEnemy.aggroScript.aggro = true;
-                playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
-            }
+            follow = true;
+        }
+        if (follow == true)
+        {
+            path.enabled = true;
+            attackRadius.enabled = false;
+            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+        }
 
-            if (windUp == true)
-            {
-                baseEnemy.aggroScript.aggro = false;
-                path.enabled = false;
-            }
+        if ((playerPos - baseEnemy.aggroScript.currentPos).magnitude < attackRange && attackReady == true)
+        {
+            StartCoroutine(windingUp());
+        }
 
-            if (attack == true)
-            {
-                attackRadius.enabled = true;
-            }
+        if ((playerPos - baseEnemy.aggroScript.currentPos).magnitude > attackRange && attackReady == true && windUp == true)
+        {
+            follow = false;
+        }
+
+
+        if (windUp == true)
+        {
+            baseEnemy.aggroScript.aggro = false;
+            path.enabled = false;
+        }
+
+        if (attack == true)
+        {
+            attackRadius.enabled = true;
         }
     }
 
-    IEnumerator following(){
-        follow = true;
-        attack = false;
-        yield return new WaitForSeconds(followTime);
-        StartCoroutine(windingUp());
-    }
-
-    IEnumerator windingUp(){
+    IEnumerator windingUp()
+    {
         windUp = true;
         follow = false;
         yield return new WaitForSeconds(windUpTime);
         StartCoroutine(attacking());
     }
 
-    IEnumerator attacking(){
+    IEnumerator attacking()
+    {
         attack = true;
         windUp = false;
         yield return new WaitForSeconds(attackTime);
-        attack = true;
-        StartCoroutine(following());
+        attackRadius.enabled = false;
+        attack = false;
+        StartCoroutine(coolDown());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    IEnumerator coolDown()
     {
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2" && attack == true)
-        {
-            collision.GetComponent<MainPlayer>().GetHit(1);
-        }
+        follow = true;
+        attackReady = false;
+        coolDownAttack = true;
+        attackRadius.enabled = false;
+        yield return new WaitForSeconds(coolDownTime);
+        coolDownAttack = false;
+        attackReady = true;
     }
 }
