@@ -498,8 +498,6 @@ public class MainPlayer : MonoBehaviour
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
                     currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
-                    audioSource.clip = clips[0];
-                    audioSource.Play();
                 }
             }
             if (currentChar.attackType == BasePlayer.AttackType.Builder)
@@ -511,8 +509,6 @@ public class MainPlayer : MonoBehaviour
         {
             if (currentChar.firing)
             {
-                audioSource.clip = clips[0];
-                audioSource.Play();
                 currentChar.BurstFire(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
         }
@@ -523,27 +519,19 @@ public class MainPlayer : MonoBehaviour
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Basic)
             {
-                audioSource.clip = clips[0];
-                audioSource.Play();
                 currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
-                audioSource.clip = clips[0];
-                audioSource.Play();
                 currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire || currentChar.attackType == BasePlayer.AttackType.Napolean)
             {
-                audioSource.clip = clips[0];
-                audioSource.Play();
                 currentChar.InitiateBurstFire();
             }
             if (currentChar.attackType == BasePlayer.AttackType.Boomerang)
             {
-                audioSource.clip = clips[0];
-                audioSource.Play();
                 currentChar.RangedBoomerang(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
         }
@@ -615,8 +603,6 @@ public class MainPlayer : MonoBehaviour
                 //(Semi-Auto Attacks)
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
-                    audioSource.clip = clips[0];
-                    audioSource.Play();
                     currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage);
                 }
 
