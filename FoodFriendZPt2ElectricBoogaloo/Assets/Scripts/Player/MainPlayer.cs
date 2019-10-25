@@ -507,16 +507,7 @@ public class MainPlayer : MonoBehaviour
                 currentChar.Builder(transform.position, attackDirection, transform);
             }
         }
-        if (currentChar.attackType == BasePlayer.AttackType.Napolean)
-        {
-            if (currentChar.firing)
-            {
-                audioSource.clip = clips[0];
-                audioSource.Play();
-                currentChar.Napolean(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
-            }
-        }
-        if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
+        if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire || currentChar.attackType == BasePlayer.AttackType.Napolean)
         {
             if (currentChar.firing)
             {
@@ -543,13 +534,7 @@ public class MainPlayer : MonoBehaviour
                 audioSource.Play();
                 currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
             }
-            if (currentChar.attackType == BasePlayer.AttackType.Napolean)
-            {
-                audioSource.clip = clips[0];
-                audioSource.Play();
-                currentChar.InitiateNapoleanBurstFire();
-            }
-            if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
+            if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire || currentChar.attackType == BasePlayer.AttackType.Napolean)
             {
                 audioSource.clip = clips[0];
                 audioSource.Play();
