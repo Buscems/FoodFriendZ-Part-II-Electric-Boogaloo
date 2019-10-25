@@ -15,7 +15,7 @@ MonoBehaviour:
   hudIcon: {fileID: -5435086016833673295, guid: 526345c04a1d89f4eaf9bb9643030873,
     type: 3}
   characterName: takoyaki
-  attackType: 4
+  attackType: 1
   Mspeed: 3
   baseDamage: 0.25
   critChance: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   canBounce: 0
   radius: 30
   bulletsPerShot: 3
+  bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
   isNeedler: 0

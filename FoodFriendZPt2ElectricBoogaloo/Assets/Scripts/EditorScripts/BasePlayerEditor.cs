@@ -185,7 +185,8 @@ public class BasePlayerEditor : Editor
         if(myTarget.attackType == BasePlayer.AttackType.Napolean)
         {
             EditorGUILayout.PropertyField(timeBetweenBursts);
-            EditorGUILayout.PropertyField(bulletTypes);
+            EditorGUILayout.PropertyField(bulletTypes, includeChildren: true);
+
         }
         if (myTarget.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
         {
