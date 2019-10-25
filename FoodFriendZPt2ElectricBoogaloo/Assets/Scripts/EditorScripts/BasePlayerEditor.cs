@@ -52,6 +52,9 @@ public class BasePlayerEditor : Editor
     SerializedProperty radius;
     SerializedProperty bulletsPerShot;
 
+    //Napoleon
+    SerializedProperty bulletTypes;
+
     //Ranged-Burst Fire
     SerializedProperty bulletsPerBurst;
     SerializedProperty timeBetweenBursts;
@@ -105,6 +108,7 @@ public class BasePlayerEditor : Editor
         bulletsPerShot = soTarget.FindProperty("bulletsPerShot");
         bulletsPerBurst = soTarget.FindProperty("bulletsPerBurst");
         timeBetweenBursts = soTarget.FindProperty("timeBetweenBursts");
+        bulletTypes = soTarget.FindProperty("bulletTypes");
         isNeedler = soTarget.FindProperty("isNeedler");
         isPinshot = soTarget.FindProperty("isPinshot");
         explosionDamage = soTarget.FindProperty("explosionDamage");
@@ -165,7 +169,7 @@ public class BasePlayerEditor : Editor
         }
         //Ranged
         if (myTarget.attackType == BasePlayer.AttackType.Ranged_Basic || myTarget.attackType == BasePlayer.AttackType.Ranged_Burst_Fire || myTarget.attackType == BasePlayer.AttackType.Ranged_Semi_Auto
-            || myTarget.attackType == BasePlayer.AttackType.Ranged_Split_Fire || myTarget.attackType == BasePlayer.AttackType.Boomerang)
+            || myTarget.attackType == BasePlayer.AttackType.Ranged_Split_Fire || myTarget.attackType == BasePlayer.AttackType.Boomerang || myTarget.attackType == BasePlayer.AttackType.Napolean)
         {
             EditorGUILayout.PropertyField(bullet);
             EditorGUILayout.PropertyField(firerate);
@@ -178,13 +182,18 @@ public class BasePlayerEditor : Editor
             EditorGUILayout.PropertyField(radius);
             EditorGUILayout.PropertyField(bulletsPerShot);
         }
+        if(myTarget.attackType == BasePlayer.AttackType.Napolean)
+        {
+            EditorGUILayout.PropertyField(timeBetweenBursts);
+            EditorGUILayout.PropertyField(bulletTypes);
+        }
         if (myTarget.attackType == BasePlayer.AttackType.Ranged_Burst_Fire)
         {
             EditorGUILayout.PropertyField(bulletsPerBurst);
             EditorGUILayout.PropertyField(timeBetweenBursts);
         }
         if (myTarget.attackType == BasePlayer.AttackType.Ranged_Basic || myTarget.attackType == BasePlayer.AttackType.Ranged_Burst_Fire || myTarget.attackType == BasePlayer.AttackType.Ranged_Semi_Auto
-            || myTarget.attackType == BasePlayer.AttackType.Ranged_Split_Fire || myTarget.attackType == BasePlayer.AttackType.Boomerang)
+            || myTarget.attackType == BasePlayer.AttackType.Ranged_Split_Fire || myTarget.attackType == BasePlayer.AttackType.Boomerang || myTarget.attackType == BasePlayer.AttackType.Napolean)
         {
             EditorGUILayout.PropertyField(isNeedler);
             EditorGUILayout.PropertyField(isPinshot);

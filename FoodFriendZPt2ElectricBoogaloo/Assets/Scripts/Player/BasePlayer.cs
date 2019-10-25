@@ -115,7 +115,6 @@ public class BasePlayer : ScriptableObject
     public int bulletsPerShot;
 
     [Header("Napolean")]
-    //public float radius;
     public GameObject[] bulletTypes;
 
     [Header("Ranged-Burst Fire")]
