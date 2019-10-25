@@ -25,9 +25,14 @@ public class Phaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+       
+
         if (baseEnemy.aggroScript.aggro == true)
         {
-            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+            Vector3 direction = (playerPos - baseEnemy.aggroScript.currentPos).normalized;
+            Vector2 force = direction * baseEnemy.speed * Time.deltaTime;
+            rb.MovePosition(rb.position + force);
             
         }
 
@@ -48,16 +53,13 @@ public class Phaser : MonoBehaviour
             phase.enabled = false;
             Debug.Log("entered");
         }
-        else
-        {
-            midPhase = false;
-            phase.enabled = true;
-        }
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
-        {
-            collision.GetComponent<MainPlayer>().GetHit(1);
-        }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        midPhase = false;
+        phase.enabled = true;
     }
+}
 
 

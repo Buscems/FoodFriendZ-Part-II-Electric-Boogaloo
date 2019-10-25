@@ -27,9 +27,7 @@ public class TripWire : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2" && exposed == true)
-        {
-            collision.GetComponent<MainPlayer>().GetHit(1);
+        if (collision.gameObject.tag == "Player1"){
             Destroy(gameObject);
         }
     }
