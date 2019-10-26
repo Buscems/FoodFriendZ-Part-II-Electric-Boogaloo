@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
+    //[ALL VARIABLES]
+    #region [ALL VARIABLES]
+    //[SCRIPTS]
     [HideInInspector] public MainPlayer stats;
     [HideInInspector] public BasePlayer baseStats;
 
@@ -44,15 +47,21 @@ public class PowerUps : MonoBehaviour
     public Rarity rarity;
 
     private float cantPickUpTime = 1;
+    #endregion
 
+
+    //[START]
     public void Start()
     {
+        //assign main player script
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
+
         baseStats = stats.currentChar;
         GetComponent<BoxCollider2D>().enabled = false;
         gameObject.tag = "Blank";
     }
 
+    //[UPDATE]
     private void Update()
     {
         cantPickUpTime -= Time.deltaTime;
@@ -69,18 +78,20 @@ public class PowerUps : MonoBehaviour
     {
         Null,//only for base stat powerups, ex. raise atk, health, speed
 
-        //[HEALING]
+        #region [HEALING]
         Heal,
         FullHeal,
+        #endregion
 
-        //[PLAYER STATUS EFFECTS]
-        DebuffRemove,
+        #region [GAMEPLAY EFFECTS]
         SlowTime,
+        #endregion  DebuffRemove,
 
-        //[ATTACK ENHANCER]
+        #region [ATTACK ENHANCER]
         PassivePoison,
+        #endregion
 
-        //[CONDITIONAL BUFF]
+        #region [CONDITIONAL BUFF]
         //absorb
         AbsorbAttackUp,
         AbsorbProjectile,
@@ -94,19 +105,24 @@ public class PowerUps : MonoBehaviour
         HealthGainPerDMG,
 
         FatalChance,
+        #endregion
 
-        //[ENEMY STATUS EFFECTS]
+        #region [ENEMY STATUS EFFECTS]
         DebuffTrail,
         EnemyConfusion,
+        #endregion
 
-        //[ENEMY BEHAVIOR]
+        #region [ENEMY BEHAVIOR]
         AvoidPlayer,
         SlowEnemy,
+        #endregion
 
-        //[PERMANENT ADDITION ONTO PLAYER]
+        #region [PERMANENT ADDITION ONTO PLAYER]
         ExtraLife,
+        #endregion
 
         //**[[ITEMS]]**
+        #region [ITEMS]
         //[ATTACKS]
         Shrapnel,
         ShrapnelMod,
@@ -116,7 +132,7 @@ public class PowerUps : MonoBehaviour
         ShootAttackLine,
         EasterEgg,
         StunAttack,
-
+        #endregion
 
         ItemReedem, //coupons
         NullAttack //nullify one attack ex. plastic wrap
@@ -124,18 +140,18 @@ public class PowerUps : MonoBehaviour
 
     public PowerUpTypes currentPowerUp;
 
+    //[COLLIDER]
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player1"))
         {
             StartCoroutine(Pickup(other));
         }
-    }//END OF ON TRIGGER
+    }
 
     //LAST LEFT OFF - NEED TO FIND WHY THIS DOESNT WORK
     IEnumerator Pickup(Collider2D player)
     {
-
         switch (currentPowerUp)
         {
             #region Slow Time
@@ -184,8 +200,9 @@ public class PowerUps : MonoBehaviour
             #endregion
 
             #region Full Heal
-            //case6
             case PowerUpTypes.FullHeal:
+
+                stats.health = 10;      //note: not real full health, need to adjust in future
 
                 break;
             #endregion
