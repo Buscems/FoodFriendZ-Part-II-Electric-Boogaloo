@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
-
-    [HideInInspector]
-    public MainPlayer stats;
-    [HideInInspector]
-    public BasePlayer baseStats;
+    [HideInInspector] public MainPlayer stats;
+    [HideInInspector] public BasePlayer baseStats;
 
     [Tooltip("Power-Up Names")]
     public string powerUpName = "";
 
+    #region Base Stats
     [Header("Base Stats")]
     [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
@@ -26,14 +24,19 @@ public class PowerUps : MonoBehaviour
     [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackDamage = 1;
+    #endregion
 
+    #region Healing
     [Header("Healing")]
     public int healAmount = 0;
     public float vampHeal = 0;
+    #endregion
 
+    #region Timer Things
     [Header("Timer Things")]
     public float stunTimer;
     public float maxStunTimer;
+    #endregion
 
     public enum Rarity { wellDone, mediumWell, mediumRare, rare }
     [Header("Rarity")]
@@ -54,7 +57,7 @@ public class PowerUps : MonoBehaviour
     {
         cantPickUpTime -= Time.deltaTime;
 
-        if(cantPickUpTime < 0)
+        if (cantPickUpTime < 0)
         {
             GetComponent<BoxCollider2D>().enabled = true;
             gameObject.tag = "StatBoost";
@@ -193,7 +196,6 @@ public class PowerUps : MonoBehaviour
 
                 break;
             #endregion
-
             default:
                 break;
         }
