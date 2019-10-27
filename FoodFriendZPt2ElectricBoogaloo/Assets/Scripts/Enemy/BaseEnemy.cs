@@ -14,7 +14,8 @@ public class BaseEnemy : MonoBehaviour
     [Range(0,1)]
     public int walkIntoDamage;
 
-    Animator anim;
+    [HideInInspector]
+    public Animator anim;
 
     //variables for other enemy scripts to reference
     public Aggro aggroScript;
@@ -113,7 +114,8 @@ public class BaseEnemy : MonoBehaviour
         //This is the code for dropping an item
         if (itemDrop)
         {
-            Instantiate(items[Random.Range(0, items.Length)], transform.position, Quaternion.identity);
+            //enemies no longer drop items
+            //Instantiate(items[Random.Range(0, items.Length)], transform.position, Quaternion.identity);
         }
 
         /*
@@ -140,9 +142,12 @@ public class BaseEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "PLayer2")
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
+            if (walkIntoDamage == 1)
+            {
+                collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
+            }
         }
     }
 

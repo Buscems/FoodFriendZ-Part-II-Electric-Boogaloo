@@ -37,18 +37,19 @@ public class MoleEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (baseEnemy.aggroScript.aggro == true)
+        if (baseEnemy.aggroScript.aggro == true && !aboutToJump && !jump && !confused)
         {
             under = true;
                 }
         if (under == true) {
+            baseEnemy.anim.SetBool("isBuried", true);
             confused = false;
             underground.enabled = false;
             playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
             path.enabled = true;
         }
 
-        if ((baseEnemy.aggroScript.currentPos - playerPos).magnitude < attackRange)
+        if ((baseEnemy.aggroScript.currentPos - playerPos).magnitude < attackRange && !aboutToJump && !jump && !confused)
         {
             StartCoroutine(readyingUp());
         }
@@ -77,11 +78,12 @@ public class MoleEnemy : MonoBehaviour
         if (jump == true){
             aboutToJump = false;
             underground.enabled = true;
-            
+            baseEnemy.walkIntoDamage = 1;
         }
 
         if(confused == true){
             path.enabled = false;
+            baseEnemy.walkIntoDamage = 0;
         }
 
         if (canFollow == true){
@@ -102,6 +104,7 @@ public class MoleEnemy : MonoBehaviour
     IEnumerator jumping(){
         //ther timer where the enemy jumps from underground and the player can get hit
         under = false;
+        baseEnemy.anim.SetBool("isBuried", false);
         jump = true;
         aboutToJump = false;
         yield return new WaitForSeconds(jumpTime);
@@ -116,6 +119,7 @@ public class MoleEnemy : MonoBehaviour
         path.enabled = false;
         baseEnemy.aggroScript.enabled = false;
         yield return new WaitForSeconds(confusedTime);
+        confused = false;
         canFollow = true;
     }
 }
