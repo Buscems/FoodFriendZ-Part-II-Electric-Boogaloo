@@ -14,6 +14,10 @@ public class MainPlayer : MonoBehaviour
     public int health;
     [HideInInspector] public int currency;
 
+    public bool isSlow;
+    public bool isStuck;
+    public bool isFast;
+
     #region Audio
     [Header("Audio")]
     public AudioSource audioSource;
@@ -714,6 +718,18 @@ public class MainPlayer : MonoBehaviour
         //[APPLIES Multiplier to movementSpeed]
         speed = (currentChar.Mspeed * speedMultiplier) * currentChar.currentDodgeSpeedMultiplier;
 
+        if (isSlow == true){
+            speed /= 2;
+        }
+
+        if (isFast == true){
+            speed *= 2;
+        }
+
+        if(isStuck == true){
+            speed = 0;
+        }
+
         #region Character Movement Code
         //updates character position
         currentChar.currentPosition = this.transform.position;
@@ -855,6 +871,26 @@ public class MainPlayer : MonoBehaviour
             Destroy(other.gameObject);
         }
         #endregion
+
+        if (other.gameObject.tag == "Slow"){
+            isSlow = true;
+        }else{
+            isSlow = false;
+        }
+
+        if (other.gameObject.tag == "Fast"){
+            isFast = true;
+        }
+        else{
+            isFast = false;
+        }
+
+        if (other.gameObject.tag == "Stuck"){
+            isStuck = true;
+        }
+        else{
+            isStuck = false;
+        }
 
         #region Item
         if (other.gameObject.tag == "Item")
