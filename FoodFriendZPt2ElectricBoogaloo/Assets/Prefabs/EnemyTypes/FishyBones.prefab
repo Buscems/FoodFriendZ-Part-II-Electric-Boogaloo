@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 690883059}
   - component: {fileID: -860816624547690999}
   - component: {fileID: 2871522456286385432}
-  - component: {fileID: 2658136351511678276}
   m_Layer: 10
   m_Name: FishyBones
   m_TagString: Enemy
@@ -245,29 +244,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &2658136351511678276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4151584075199741669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b8e7663fd86bb4ea6a4da366346239, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ranged: 0
-  melee: 0
-  meleeDelete: 0
-  MeleePause: 0
-  meleeObject: {fileID: 0}
-  DownTime: 0
-  rotateSpeed: 0
-  bullet: {fileID: 0}
-  timeInBetweenBullets: 0
-  bulletSpeed: 0
-  bulletDamage: 0
 --- !u!1 &9188696478750365952
 GameObject:
   m_ObjectHideFlags: 0

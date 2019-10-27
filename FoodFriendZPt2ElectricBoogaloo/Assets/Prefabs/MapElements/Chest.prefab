@@ -47,11 +47,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0025024414, y: 0.0025024414}
+  m_Offset: {x: -0.15, y: -0.36}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.6}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -88,6 +88,10 @@ MonoBehaviour:
   mediumWellChance: 60
   mediumRareChance: 75
   rareChance: 95
+  wellDoneCost: 0
+  mediumWellCost: 0
+  mediumRareCost: 0
+  rareCost: 0
   anim: {fileID: 0}
 --- !u!212 &3117695947573847471
 SpriteRenderer:
@@ -182,7 +186,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025604248, y: 0.0018081665}
+  m_Offset: {x: -0.12, y: -0.33}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

@@ -22,7 +22,7 @@ public class GoToNextLevel : MonoBehaviour
         player = GameObject.Find("Player");
         mainCamera = GameObject.Find("Main Camera");
         int randNumber = Random.Range(0, levels.Length);
-        currentScene = Instantiate(levels[randNumber], transform.position, Quaternion.identity);
+        currentScene = Instantiate(levels[randNumber], levels[randNumber].transform.position, Quaternion.identity);
         Vector3 spawnPoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform.position;
         player.transform.position = spawnPoint;
         mainCamera.transform.position = spawnPoint;
@@ -54,7 +54,7 @@ public class GoToNextLevel : MonoBehaviour
             currentLevelNum = newNumber;
             hasScanned = false;
             Destroy(currentScene);
-            currentScene = Instantiate(levels[newNumber], Vector3.zero, Quaternion.identity);
+            currentScene = Instantiate(levels[newNumber], levels[newNumber].transform.position, Quaternion.identity);
             Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
             //print(spawnPoint);
             player.transform.position = spawnPoint;

@@ -14,7 +14,7 @@ public class ExitLogic : MonoBehaviour
 
     void Start()
     {
-        print("num scenes: " + SceneManager.sceneCountInBuildSettings);
+        //print("num scenes: " + SceneManager.sceneCountInBuildSettings);
     }
 
     IEnumerator StartTransition()
