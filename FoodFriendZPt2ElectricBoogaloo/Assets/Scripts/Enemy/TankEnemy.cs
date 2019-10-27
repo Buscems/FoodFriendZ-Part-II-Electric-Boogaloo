@@ -103,8 +103,7 @@ public class TankEnemy : MonoBehaviour
         coolDownAttack = true;
         attackRadius.enabled = false;
         yield return new WaitForSeconds(coolDownTime);
-        coolDownAttack = false;
-        attackReady = true;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

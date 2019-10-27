@@ -8,10 +8,13 @@ public class MoleEnemy : MonoBehaviour
 
     public BoxCollider2D underground;
 
+    public float attackRange;
+
     public bool under;
     public bool aboutToJump;
     public bool jump;
     public bool confused;
+    public bool canFollow;
 
     public float underTime;
     public float aboutToJumpTime;
@@ -28,40 +31,63 @@ public class MoleEnemy : MonoBehaviour
     {
         baseEnemy = GetComponent<BaseEnemy>();
         underground.enabled = false;
-        StartCoroutine(following());
         path = GetComponent<PathfindingAI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (under == true)
+        if (baseEnemy.aggroScript.aggro == true)
         {
-            if (baseEnemy.aggroScript.aggro == true)
-            {
-                underground.enabled = false;
-                playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
-                path.enabled = true;
-            }
+            under = true;
+                }
+        if (under == true) {
+            confused = false;
+            underground.enabled = false;
+            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+            path.enabled = true;
+        }
+
+        if ((baseEnemy.aggroScript.currentPos - playerPos).magnitude < attackRange)
+        {
+            StartCoroutine(readyingUp());
+        }
+
+        if ((playerPos - baseEnemy.aggroScript.currentPos).magnitude > attackRange && aboutToJump == true)
+        {
+            under = false;
+        }
+
+        if ((playerPos - baseEnemy.aggroScript.currentPos).magnitude > attackRange && jump == true)
+        {
+            under = false;
+        }
+
+        if ((playerPos - baseEnemy.aggroScript.currentPos).magnitude > attackRange && confused == true)
+        {
+            under = false;
         }
 
         if (aboutToJump == true){
+            under = false;
+            canFollow = false;
             path.enabled = false;
         }
 
         if (jump == true){
+            aboutToJump = false;
             underground.enabled = true;
             
         }
-    }
 
-    IEnumerator following(){
-        //the timer where the enemy is underground and follows the player
-        under = true;
-        confused = false;
-        baseEnemy.aggroScript.aggro = true;
-        yield return new WaitForSeconds(underTime);
-        StartCoroutine(readyingUp());
+        if(confused == true){
+            path.enabled = false;
+        }
+
+        if (canFollow == true){
+            path.enabled = true;
+            baseEnemy.aggroScript.enabled = true;
+        }
     }
 
     IEnumerator readyingUp(){
@@ -75,6 +101,7 @@ public class MoleEnemy : MonoBehaviour
 
     IEnumerator jumping(){
         //ther timer where the enemy jumps from underground and the player can get hit
+        under = false;
         jump = true;
         aboutToJump = false;
         yield return new WaitForSeconds(jumpTime);
@@ -83,17 +110,12 @@ public class MoleEnemy : MonoBehaviour
 
     IEnumerator confusing(){
         //the timer where the enemy is confused and can get hit
+        under = false;
         confused = true;
         jump = false;
+        path.enabled = false;
+        baseEnemy.aggroScript.enabled = false;
         yield return new WaitForSeconds(confusedTime);
-        StartCoroutine(following());
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
-        {
-            collision.GetComponent<MainPlayer>().GetHit(1);
-        }
+        canFollow = true;
     }
 }
