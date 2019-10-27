@@ -224,11 +224,10 @@ public class PowerUps : MonoBehaviour
             case PowerUpTypes.TemporaryAttackPowerUp:
 
                 stats.baseDamageMulitplier *= 2;    //note: need to add a timer
-                Debug.Log("Paprika" + stats.baseDamageMulitplier);
+                Debug.Log("Paprika Or Spinach" + stats.baseDamageMulitplier);
 
                 break;
             #endregion
-
 
 
             #region Null

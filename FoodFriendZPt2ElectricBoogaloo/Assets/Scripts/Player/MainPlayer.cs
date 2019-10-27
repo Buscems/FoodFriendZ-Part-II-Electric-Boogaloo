@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 using Rewired.ControllerExtensions;
 using TMPro;
 
-//with much love ~ Jesse <3
 public class MainPlayer : MonoBehaviour
 {
     //[ALL VARIABLES]
