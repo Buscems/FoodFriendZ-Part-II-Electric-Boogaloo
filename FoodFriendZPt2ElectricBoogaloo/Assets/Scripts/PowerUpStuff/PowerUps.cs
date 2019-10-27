@@ -87,8 +87,12 @@ public class PowerUps : MonoBehaviour
         SlowTime,
         #endregion  DebuffRemove,
 
-        #region [ATTACK ENHANCER]
+        #region [ATTACK ENHANCER (poison, burn)]
         PassivePoison,
+        #endregion
+
+        #region [TEMPORARY BUFF]
+        TemporaryAttackPowerUp,
         #endregion
 
         #region [CONDITIONAL BUFF]
@@ -203,9 +207,21 @@ public class PowerUps : MonoBehaviour
             case PowerUpTypes.FullHeal:
 
                 stats.health = 10;      //note: not real full health, need to adjust in future
+                Debug.Log("Garnish" + stats.baseDamageMulitplier);
 
                 break;
             #endregion
+
+            #region Temporary Attack Power Up
+            case PowerUpTypes.TemporaryAttackPowerUp:
+
+                stats.baseDamageMulitplier *= 2;
+                Debug.Log("Paprika" + stats.baseDamageMulitplier);
+
+                break;
+            #endregion
+
+
 
             #region Null
             //case last - null for base stats - DO NOT FILL IN LEAVE BLANK
