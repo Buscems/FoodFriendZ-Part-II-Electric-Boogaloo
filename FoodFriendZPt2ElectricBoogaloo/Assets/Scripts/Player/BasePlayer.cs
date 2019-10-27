@@ -17,9 +17,6 @@ public class BasePlayer : ScriptableObject
     public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Napolean, Boomerang, Builder };
     public AttackType attackType;
 
-    #region Player Stats
-
-    #endregion
     [Header("Player Stats")]
     public float Mspeed;
     public float baseDamage;
@@ -33,7 +30,6 @@ public class BasePlayer : ScriptableObject
     public float currentDodgeSpeedMultiplier;
 
     //dodge stuff
-    #region Dodge Stuff
     public float dodgeLength = 1;
 
     [HideInInspector]
@@ -43,14 +39,12 @@ public class BasePlayer : ScriptableObject
 
     [HideInInspector]
     public float currentDodgeWaitTime = 0;
-    #endregion
 
     //[ATTACK SIZE]
     [Tooltip("This is going to be the size of the weapon, z is always 1.")]
     public Vector3 attackSize;
 
     //[WEAPON ATTRIBUTE]
-    #region piercing
     [Header("Weapon Attribute - piercing")]
     [Tooltip("Can attack go through enemies, or get destroyed on collision")]
     public bool canPierce = false;
@@ -60,18 +54,15 @@ public class BasePlayer : ScriptableObject
 
     [Tooltip("How many enemies can the attack pass through before being destroyed. Keep -1 if its infinite.")]
     public int maxAmountOfEnemiesCanPassThrough = -1;
-    #endregion
 
     //offset
     [Tooltip("This will be how far the weapon is from the player when it is activated.")]
     public float offset;
 
-    #region Position and Direction
     [HideInInspector]
     public Vector3 currentPosition;
     [HideInInspector]
     public Vector3 currentDirection;
-    #endregion
 
     [Header("Melee Characters")]
     public GameObject weapon;
@@ -131,7 +122,6 @@ public class BasePlayer : ScriptableObject
     [Header("Boomerang")]
     public float timeBeforeReturning;
 
-    #region Ranged Attack Values
     //bool
     [HideInInspector]
     public bool firing = false;
@@ -141,7 +131,6 @@ public class BasePlayer : ScriptableObject
 
     //bullet count
     int currentBulletnum;
-    #endregion
 
     [Header("Building Characters")]
     public GameObject drop;
@@ -153,14 +142,11 @@ public class BasePlayer : ScriptableObject
     [Tooltip("How much force to push enemies back if this is a bomb")]
     public float explosionForce;
 
-    #region Timers
     [HideInInspector]
     public float currentFirerateTimer = 0;
     [HideInInspector]
     public float currentAttackSpeedTimer = 0;
-    #endregion
 
-    #region Multipliers
     [HideInInspector]
     public float attackSizeMultiplier = 1;
     [HideInInspector]
@@ -171,8 +157,6 @@ public class BasePlayer : ScriptableObject
     public float baseDamageMulitplier = 1;
     [HideInInspector]
     public float maxDamageMultiplier = 1;
-    #endregion
-
     #endregion
 
     public void Start()

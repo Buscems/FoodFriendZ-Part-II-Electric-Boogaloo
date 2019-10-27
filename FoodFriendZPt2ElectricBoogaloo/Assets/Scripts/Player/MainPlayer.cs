@@ -9,8 +9,7 @@ using TMPro;
 
 public class MainPlayer : MonoBehaviour
 {
-    //[ALL VARIABLES]
-    #region [ALL VARIABLES]
+    #region All Variables
     public int health;
     [HideInInspector] public int currency;
 
@@ -18,15 +17,12 @@ public class MainPlayer : MonoBehaviour
     public bool isStuck;
     public bool isFast;
 
-    #region Audio
     [Header("Audio")]
     public AudioSource audioSource;
     [Tooltip("These are the players sound clips")]
 
     public AudioClip[] clips;
-    #endregion
 
-    #region ReWired Variables
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
     private Player myPlayer;
@@ -34,17 +30,17 @@ public class MainPlayer : MonoBehaviour
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
 
+    [Header("Mouse Functionality")]
     [Tooltip("Turn on if the player is using the mouse")]
     public bool usingMouse;
     public GameObject mouseCursor;
-    #endregion
 
-    #region Direction Stuff
+    [Header("Direction for Controller")]
+    [Tooltip("This is so the player sees the direction of attack on controller")]
+    public GameObject pointer;
     Vector3 direction;
     public Transform attackDirection;
-    #endregion
 
-    #region Scripts
     [Header("Scripts")]
     //public scripts
     public BasePlayer currentChar;
@@ -52,15 +48,12 @@ public class MainPlayer : MonoBehaviour
 
     //private scripts
     private CameraShake cam;
-    #endregion
 
     [Header("Animator")]
     public Animator anim;
 
-    #region Stats Hidden in the Inspector
     [HideInInspector] public float speed;
 
-    #region Stat Multipliers ([MovementSpeed], [AttackAttributes])
     [HideInInspector]
     //movement
     public float speedMultiplier = 1;
@@ -76,29 +69,19 @@ public class MainPlayer : MonoBehaviour
     public float baseDamageMulitplier = 1;
     [HideInInspector]
     public float maxDamageMultiplier = 1;
-    #endregion
 
-    #region Stun Timers
     [HideInInspector]
     public float stunTimer;
     public float maxStunTimer;
-    #endregion
 
-    #region Chance Based Stats
     float stunChance = 0;
 
     //elemental
     float burnChance = 0;
-    #endregion
 
-    #endregion
-
-    #region rigid body stuff
     Rigidbody2D rb;
     Vector3 velocity;
-    #endregion
 
-    #region Scripts accessed by party members
     [Header("Current Party")]
     public BasePlayer triangle;
     public BasePlayer square;
@@ -106,7 +89,6 @@ public class MainPlayer : MonoBehaviour
 
     [HideInInspector]
     public BasePlayer cross;
-    #endregion
 
     [Header("All Playable Characters")]
     public BasePlayer[] allCharacters;
@@ -114,7 +96,6 @@ public class MainPlayer : MonoBehaviour
     //Active Item??
     private bool isHolding = false;
 
-    #region Character Displays
     private Image upCharacter;
     private Image upHighlight;
 
@@ -126,39 +107,27 @@ public class MainPlayer : MonoBehaviour
 
     private Image rightCharacter;
     private Image rightHighlight;
-    #endregion
 
-    #region puffs
     [Header("Effects - Puffs")]
     public GameObject dashPoof;
     public GameObject swapPuff;
     public GameObject walkPuff;
-    #endregion
-    #region Poof Timers
+
     [Header("Poof Timer")]
     public float maxPoofTime;
     private float currentPoofTimer;
 
-    #endregion
-
     //Interactable Enviormental Prefabs
-    #region Chest
     bool touchingChest;
     ChestScript currentChest;
-    #endregion
 
     //[TEMPORARY]
-    #region **TEMPORARY ELEMENTS
     [Header("**TEMPORARY ELEMENTS")]
     public TextMeshProUGUI youDiedText;
-    #endregion
 
     public GameObject item = null;
-
     #endregion
 
-    //[AWAKE METHOD]
-    #region Awake METHOD
     private void Awake()
     {
 
@@ -193,16 +162,13 @@ public class MainPlayer : MonoBehaviour
         cross = currentChar;
 
         //Rewired Code
-        #region ReWired Code
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         CheckController(myPlayer);
-        #endregion
 
         //camera
         cam = GameObject.Find("Main Camera").GetComponent<CameraShake>();
 
-        #region Character Compass
         upCharacter = GameObject.Find("Up_Character").GetComponent<Image>();
         upHighlight = GameObject.Find("Up_Highlight").GetComponent<Image>();
 
@@ -221,9 +187,7 @@ public class MainPlayer : MonoBehaviour
 
         //down is true
         downHighlight.enabled = true;
-        #endregion
 
-        #region [if null] statements
         if (triangle != null)
         {
             upCharacter.sprite = triangle.hudIcon;
@@ -238,15 +202,11 @@ public class MainPlayer : MonoBehaviour
         {
             rightCharacter.sprite = circle.hudIcon;
         }
-        #endregion
 
         //??
         downCharacter.sprite = cross.hudIcon;
     }
-    #endregion
 
-    //[START METHOD]
-    #region Start METHOD
     void Start()
     {
 
@@ -273,16 +233,19 @@ public class MainPlayer : MonoBehaviour
         //**temporary
         youDiedText.gameObject.SetActive(false);
     }
-    #endregion
 
-    //[EVERY FRAME]
-    #region Every Frame Method
-
-    //[update]
     void Update()
     {
+        //if the player is using the mouse turn the controller pointer off and vice versa
+        if (usingMouse)
+        {
+            pointer.SetActive(false);
+        }
+        else
+        {
+            pointer.SetActive(true);
+        }
 
-        #region Pause Call
         if (myPlayer.GetButtonDown("Pause"))
         {
             if (Time.timeScale == 0)
@@ -294,9 +257,7 @@ public class MainPlayer : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
-        #endregion
 
-        #region if Player is ALIVE
         //if player is alive
         if (health > 0)
         {
@@ -315,7 +276,6 @@ public class MainPlayer : MonoBehaviour
                     stunTimer -= Time.deltaTime;
                 }
 
-                #region All Methods Called
                 //calls all ANIMATION/MOVEMENT METHODS
                 LookDirection();
                 AnimationHandler();
@@ -324,17 +284,14 @@ public class MainPlayer : MonoBehaviour
                 AttackLogic();
                 SwapLogic();
                 DodgeLogic();
-                #endregion
 
                 //[INTERACTIONS WITH OBJECTS]
-                #region Chest
                 //this is for interacting with a chest
                 if (touchingChest && myPlayer.GetButtonDown("Cross"))
                 {
                     touchingChest = false;
                     currentChest.OpenChest();
                 }
-                #endregion
             }
 
             if (Input.GetKeyDown(KeyCode.E) && item != null)
@@ -342,16 +299,13 @@ public class MainPlayer : MonoBehaviour
                 UseItem();
             }
         }
-        #endregion
 
-        #region if Player is DEAD
         //if player is dead
         else
         {
             //freeze time
             Time.timeScale = 0;
 
-            #region [TEMPORARY (Game Over) CODE]
             //**temporary
             GetComponent<ScreenTransition>().fadeObject.color = new Color(0, 0, 0, 1);
             youDiedText.gameObject.SetActive(true);
@@ -362,15 +316,11 @@ public class MainPlayer : MonoBehaviour
                 Time.timeScale = 1;
                 SceneManager.LoadScene("Dans licc center");
             }
-            #endregion
         }
-        #endregion
     }
 
-    //[fixedUpdate]
     private void FixedUpdate()
     {
-        #region Movement Mechanics on Player
         //applied player movement
         Vector3 currentPos = transform.position;
         currentPos.z = 1;
@@ -378,12 +328,9 @@ public class MainPlayer : MonoBehaviour
 
         //applies the transformation
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        #endregion
     }
-    #endregion
 
     //[LOGIC VOID METHODS]
-    #region Every Logic Void METHOD
     private void DodgeLogic()
     {
 
@@ -410,7 +357,6 @@ public class MainPlayer : MonoBehaviour
 
     private void SwapLogic()
     {
-        #region Button Pressed Detector
         //press
         if (myPlayer.GetButtonDown("Hold"))
         {
@@ -422,7 +368,6 @@ public class MainPlayer : MonoBehaviour
         {
             isHolding = false;
         }
-        #endregion
 
         //holding face buttons
         if (isHolding)
@@ -548,7 +493,6 @@ public class MainPlayer : MonoBehaviour
                 //[TEMP VARIABLES]
                 float tempDamage = currentChar.baseDamage * baseDamageMulitplier;
 
-                #region Charge Timer Mechanics
                 if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
                 {
                     //apply temp variable
@@ -568,8 +512,7 @@ public class MainPlayer : MonoBehaviour
 
                     //reset charge timer
                     currentChar.currentChargeTimer = 0;
-                }
-                #endregion                           
+                }                          
             }
         }
 
@@ -582,7 +525,6 @@ public class MainPlayer : MonoBehaviour
                 //temp variables
                 float tempDamage;
 
-                #region Charge Timer Mechanics
                 //if timer is hit
                 if (currentChar.currentChargeTimer > currentChar.timeTillMaxDamage)
                 {
@@ -595,7 +537,6 @@ public class MainPlayer : MonoBehaviour
                     //damage based proportionally on time held before release
                     tempDamage = (currentChar.maxDamage * maxDamageMultiplier) * (currentChar.currentChargeTimer / currentChar.timeTillMaxDamage);
                 }
-                #endregion
 
                 //(Melee Attacks)
                 if (currentChar.attackType == BasePlayer.AttackType.Melee)
@@ -609,13 +550,11 @@ public class MainPlayer : MonoBehaviour
                     currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage);
                 }
 
-                #region Reset "Charge" Attribute
                 //reset timer
                 currentChar.currentChargeTimer = 0;
 
                 //turn off charge
                 currentChar.startCharging = false;
-                #endregion
             }
         }
     }
@@ -625,10 +564,8 @@ public class MainPlayer : MonoBehaviour
         currentChar.startCharging = true;
         currentChar.currentChargeTimer = 0;
     }
-    #endregion
 
     //[MOVEMENT AND ANIMATION METHODS]
-    #region Movenent and Animation Methods
     private void AnimationHandler()
     {
         //handles which character the player currently is, in terms of animation
@@ -667,7 +604,6 @@ public class MainPlayer : MonoBehaviour
                 break;
         }
 
-        #region Direction of Animation
         //this will switch the animation of the current character
         if (direction == new Vector3(0, 0))
         {
@@ -707,7 +643,6 @@ public class MainPlayer : MonoBehaviour
                 anim.SetFloat("Blend", 3);
             }
         }
-        #endregion
     }
 
     private void PlayerMovement()
@@ -730,19 +665,15 @@ public class MainPlayer : MonoBehaviour
             speed = 0;
         }
 
-        #region Character Movement Code
         //updates character position
         currentChar.currentPosition = this.transform.position;
 
         //velocity update
         velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
         velocity.y = myPlayer.GetAxisRaw("MoveVertical");
-        #endregion
 
         //[IF STATEMENTS]
-        #region [if statements]
 
-        #region Poof [if] statements
         if (velocity.x > .3f || velocity.y > .3f || velocity.x < -.3f || velocity.y < -.3f)
         {
             currentPoofTimer -= Time.deltaTime;
@@ -755,9 +686,7 @@ public class MainPlayer : MonoBehaviour
                 currentPoofTimer = maxPoofTime;
             }
         }
-        #endregion
 
-        #region using Mouse [if] statements
         //not using mouse
         if (!usingMouse)
         {
@@ -772,9 +701,7 @@ public class MainPlayer : MonoBehaviour
             mouseCursor.SetActive(true);
             direction = new Vector3((mouseCursor.transform.position.x - this.transform.position.x), (mouseCursor.transform.position.y - this.transform.position.y)).normalized;
         }
-        #endregion
 
-        #region Checks if character is moving
         //check if character is moving
         if (velocity.x != 0)
         {
@@ -784,8 +711,6 @@ public class MainPlayer : MonoBehaviour
         {
             currentChar.currentDirection.y = velocity.y;
         }
-        #endregion
-        #endregion
     }
 
     private void LookDirection()
@@ -809,10 +734,8 @@ public class MainPlayer : MonoBehaviour
             }
         }
     }
-    #endregion
 
     //[REWIRED METHODS]
-    #region Every Rewired Method
     //these two methods are for ReWired, if any of you guys have any questions about it I can answer them, but you don't need to worry about this for working on the game - Buscemi
     void OnControllerConnected(ControllerStatusChangedEventArgs arg)
     {
@@ -846,13 +769,10 @@ public class MainPlayer : MonoBehaviour
             }
         }
     }
-    #endregion
 
     //[COLLIDER METHODS]
-    #region Collider METHODS
     private void OnTriggerEnter2D(Collider2D other)
     {
-        #region Stat Boosters
         if (other.gameObject.tag == "StatBoost")
         {
             PowerUps temp = other.gameObject.GetComponent<PowerUps>();
@@ -870,7 +790,6 @@ public class MainPlayer : MonoBehaviour
 
             Destroy(other.gameObject);
         }
-        #endregion
 
         if (other.gameObject.tag == "Slow"){
             isSlow = true;
@@ -892,7 +811,6 @@ public class MainPlayer : MonoBehaviour
             isStuck = false;
         }
 
-        #region Item
         if (other.gameObject.tag == "Item")
         {
             if(item == null)
@@ -901,15 +819,11 @@ public class MainPlayer : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
-            #endregion
-
-            #region Chest
-            if (other.gameObject.tag == "Chest")
+        if (other.gameObject.tag == "Chest")
         {
             touchingChest = true;
             currentChest = other.gameObject.GetComponentInParent<ChestScript>();
         }
-        #endregion
     }
 
     //getting hit method
@@ -921,7 +835,6 @@ public class MainPlayer : MonoBehaviour
             cam.StartShake();
         }
     }
-    #endregion
 
     //[RETURN METHODS]
     public bool HitEnemy(string tag)
