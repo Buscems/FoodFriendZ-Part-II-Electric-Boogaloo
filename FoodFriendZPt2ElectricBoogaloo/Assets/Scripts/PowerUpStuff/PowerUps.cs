@@ -167,6 +167,12 @@ public class PowerUps : MonoBehaviour
 
             #region Attack Speed Health Proportion
             case PowerUpTypes.AttackSpeedHealthProportion:
+                //tempoaray variable
+                float hotSauceBoost = 2 - ((float) stats.health/ 10);
+
+                Debug.Log("Hot Sauce Boost: " + hotSauceBoost);
+                Debug.Log("Player hp: " + stats.health);
+                stats.attackSpeedMultiplier *= hotSauceBoost;
 
                 break;
             #endregion
@@ -196,6 +202,7 @@ public class PowerUps : MonoBehaviour
                 break;
             #endregion
 
+            //[HEALING]
             #region Heal
             //case6
             case PowerUpTypes.Heal:
@@ -212,10 +219,11 @@ public class PowerUps : MonoBehaviour
                 break;
             #endregion
 
+            //[TEMPORARY BUFFS]
             #region Temporary Attack Power Up
             case PowerUpTypes.TemporaryAttackPowerUp:
 
-                stats.baseDamageMulitplier *= 2;
+                stats.baseDamageMulitplier *= 2;    //note: need to add a timer
                 Debug.Log("Paprika" + stats.baseDamageMulitplier);
 
                 break;
