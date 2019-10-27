@@ -29,6 +29,10 @@ public class ChestScript : MonoBehaviour
 
     public Animator anim;
 
+    //for the sparkles
+    public GameObject sparkles;
+    GameObject currentSparkle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,22 +41,18 @@ public class ChestScript : MonoBehaviour
             if(items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.wellDone)
             {
                 wellDone.Enqueue(items[i]);
-                baseCost = wellDoneCost; 
             }
             if (items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.mediumWell)
             {
                 mediumWell.Enqueue(items[i]);
-                baseCost = mediumWellCost;
             }
             if (items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.mediumRare)
             {
                 mediumRare.Enqueue(items[i]);
-                baseCost = mediumRareCost;
             }
             if (items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.rare)
             {
                 rare.Enqueue(items[i]);
-                baseCost = rareCost;
             }
         }
 
@@ -65,22 +65,31 @@ public class ChestScript : MonoBehaviour
         if(rarityChance <= wellDoneChance)
         {
             currentPowerup = wd[Random.Range(0, wd.Length)];
+            baseCost = wellDoneCost;
         }
         else if (rarityChance <= mediumWellChance)
         {
             currentPowerup = mw[Random.Range(0, mw.Length)];
+            baseCost = mediumWellCost;
+            anim.SetInteger("rarity", 1);
         }
         else if (rarityChance <= mediumRareChance)
         {
             currentPowerup = mr[Random.Range(0, mr.Length)];
+            baseCost = mediumRareCost;
+            anim.SetInteger("rarity", 2);
         }
         else if (rarityChance <= rareChance)
         {
             currentPowerup = r[Random.Range(0, r.Length)];
+            baseCost = rareCost;
+            anim.SetInteger("rarity", 3);
+            currentSparkle = Instantiate(sparkles, transform.position, Quaternion.identity);
         }
         else
         {
             currentPowerup = wd[Random.Range(0, wd.Length)];
+            baseCost = wellDoneCost;
         }
 
     }
@@ -97,9 +106,13 @@ public class ChestScript : MonoBehaviour
         {
             anim.SetBool("Open", true);
         }
+    }
+
+    public void SpawnItem()
+    {
         GameObject pu = Instantiate(currentPowerup, transform.position, Quaternion.identity);
         pu.GetComponent<BoxCollider2D>().enabled = false;
-        Destroy(gameObject);
+        Destroy(currentSparkle);
     }
 
 }
