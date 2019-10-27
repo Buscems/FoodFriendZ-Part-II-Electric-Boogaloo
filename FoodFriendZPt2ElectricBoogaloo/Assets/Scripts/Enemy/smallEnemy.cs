@@ -22,6 +22,7 @@ public class smallEnemy : MonoBehaviour
         if (baseEnemy.aggroScript.aggro)
         {
             playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+
             transform.position = Vector2.MoveTowards(transform.position, playerPos, baseEnemy.speed * Time.deltaTime);
         }
     }
