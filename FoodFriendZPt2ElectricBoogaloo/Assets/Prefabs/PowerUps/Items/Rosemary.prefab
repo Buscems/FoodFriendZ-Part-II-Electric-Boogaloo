@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6437962187102837126}
   m_Layer: 0
   m_Name: Rosemary
-  m_TagString: StatBoost
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   stunTimer: 0
   maxStunTimer: 0
   rarity: 3
+  CoolDownTime: 0
   currentPowerUp: 19
 --- !u!61 &6437962187102837126
 BoxCollider2D:
