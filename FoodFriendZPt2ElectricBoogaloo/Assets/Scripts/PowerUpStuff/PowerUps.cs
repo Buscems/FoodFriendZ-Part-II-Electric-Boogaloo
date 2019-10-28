@@ -47,7 +47,7 @@ public class PowerUps : MonoBehaviour
 
     private float cantPickUpTime = 1;
 
-    public float CoolDownTime;
+    public float maxCoolDownDuration;
     #endregion
 
 
@@ -58,6 +58,14 @@ public class PowerUps : MonoBehaviour
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
 
         baseStats = stats.currentChar;
+
+        //turns off delay on items
+        if (gameObject.tag == "Item")
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+            cantPickUpTime = 0;
+        }
+
         GetComponent<BoxCollider2D>().enabled = false;
         gameObject.tag = "Blank";
     }
