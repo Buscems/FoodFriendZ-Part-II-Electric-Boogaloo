@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 399288622599745484}
   - component: {fileID: 399288622599745485}
-  - component: {fileID: 399288622599745481}
   - component: {fileID: 399288622599745482}
   - component: {fileID: 399288622599745483}
   - component: {fileID: 399288622599745486}
@@ -89,32 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &399288622599745481
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399288622599745487}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31733c7e9fc3bbe419a0a59409d818c2, type: 2}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &399288622599745482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +103,7 @@ MonoBehaviour:
   health: 10
   speed: 2
   walkIntoDamage: 1
+  anim: {fileID: 0}
   aggroScript: {fileID: 399288622599745483}
   items:
   - {fileID: 1188008098122328144, guid: dd93acb6d278b674dbeb1c8d12605d02, type: 3}

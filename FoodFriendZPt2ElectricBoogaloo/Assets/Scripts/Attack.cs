@@ -162,7 +162,10 @@ public class Attack : MonoBehaviour
                 damage = 0;
                 GetComponent<BasicBullet>().stopMoving = true;
                 GetComponent<BasicBullet>().rb.velocity = Vector3.zero;
-                GetComponent<Animator>().enabled = false;
+                if (GetComponent<Animator>() != null)
+                {
+                    GetComponent<Animator>().enabled = false;
+                }
                 enemy = _enemy;
                 Destroy(GetComponent<Rigidbody2D>());
                 transform.parent = _enemy.transform;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4585563193418478928}
   - component: {fileID: 7958491845188070536}
   - component: {fileID: 7854230931109158194}
+  - component: {fileID: 3199631945289478272}
   m_Layer: 0
   m_Name: small enemy
   m_TagString: Untagged
@@ -72,7 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fb21d43469c422e4799d052c515883f3, type: 3}
+  m_Sprite: {fileID: 3733884840967755707, guid: e63e26d3c5be645caa6ff17195addb00,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,7 +120,7 @@ MonoBehaviour:
   speed: 6
   walkIntoDamage: 1
   anim: {fileID: 0}
-  aggroScript: {fileID: 0}
+  aggroScript: {fileID: 1190379580725686524}
   items: []
   dropRate: 0
   money: 0
@@ -156,3 +158,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3199631945289478272
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520796915165684953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff41e96728cf3bd44bf58f05e4184b98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

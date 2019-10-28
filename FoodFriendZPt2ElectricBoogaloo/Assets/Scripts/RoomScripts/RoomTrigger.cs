@@ -8,12 +8,20 @@ public class RoomTrigger : MonoBehaviour
     [Tooltip("This is how many triggers need to be activated when the player gets into the room, to lock them in")]
     public GameObject[] doors;
 
+    [Tooltip("How many enemies are in the room")]
+    public GameObject[] enemies;
+
+    public bool[] enemyTrue;
+    bool close;
+
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < doors.Length; i++)
+        enemyTrue = new bool[enemies.Length];
+
+        for (int i = 0; i < enemyTrue.Length; i++)
         {
-            doors[i].SetActive(false);
+            enemyTrue[i] = true;
         }
     }
 
@@ -21,6 +29,36 @@ public class RoomTrigger : MonoBehaviour
     void Update()
     {
         
+        for(int i = 0; i <enemies.Length; i++)
+        {
+            if(enemies[i] == null)
+            {
+                enemyTrue[i] = false;
+            }
+        }
+
+        for(int i = 0; i < enemyTrue.Length; i++)
+        {
+            if (enemyTrue[i])
+            {
+                break;
+            }
+
+            if(i == enemyTrue.Length-1)
+            {
+                close = true;
+            }
+
+        }
+
+        if (close)
+        {
+            for (int i = 0; i < doors.Length; i++)
+            {
+                doors[i].GetComponent<Animator>().SetBool("locked", false);
+            }
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,12 +66,13 @@ public class RoomTrigger : MonoBehaviour
         //needs fixing to add a second player
         if(collision.gameObject.tag == "Player1")
         {
-            Debug.Log("YEr");
             for(int i = 0; i < doors.Length; i++)
             {
-                doors[i].SetActive(true);
+                doors[i].GetComponent<Animator>().SetBool("locked", true);
             }
         }
     }
+
+
 
 }
