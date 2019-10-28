@@ -354,7 +354,7 @@ public class MainPlayer : MonoBehaviour
     private void UseItem()
     {
         Instantiate(item, transform.position, Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-        item = null;
+       //item = null;
     }
 
     private void SwapLogic()
