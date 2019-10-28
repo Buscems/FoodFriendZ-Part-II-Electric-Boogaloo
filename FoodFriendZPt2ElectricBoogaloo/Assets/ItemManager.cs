@@ -49,6 +49,10 @@ public class ItemManager : MonoBehaviour
             {
                 //resets timer
                 curTimer = 0;
+                if (PowerUpScript.doesSomethingWhenCoolDownWearsOff)
+                {
+
+                }
             }
         }
     }

@@ -102,10 +102,10 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         HighlightedCharacterNameDisplay.text = "Burger";
         PlayerPrefs.SetInt("startCharacter", 7);
     }
-    public void Sashimi()
+    public void Napoleon()
     {
         HighlightedCharacterIMG.sprite = characterSprites[7];
-        HighlightedCharacterNameDisplay.text = "Sashimi";
+        HighlightedCharacterNameDisplay.text = "Napoleon";
         PlayerPrefs.SetInt("startCharacter", 8);
     }
 }
