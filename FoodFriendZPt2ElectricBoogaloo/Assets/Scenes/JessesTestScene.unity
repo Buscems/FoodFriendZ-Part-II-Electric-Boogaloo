@@ -471,6 +471,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275461474}
   m_CullTransparentMesh: 0
+--- !u!1 &370722752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6744516536655066482, guid: 84bc0511b46d0ed41a52cefe75499541,
+    type: 3}
+  m_PrefabInstance: {fileID: 822394764366944431}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &660332492 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3228017240062325252, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
@@ -2496,6 +2502,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeObject: {fileID: 1709026081}
   fadeLength: 1
+--- !u!114 &1933521899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4370473858649795901, guid: 84bc0511b46d0ed41a52cefe75499541,
+    type: 3}
+  m_PrefabInstance: {fileID: 822394764366944431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933521895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb14b9f746983044ea4b38ab73141ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1933521905 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
@@ -2737,50 +2755,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: mouseCursor
-      value: 
-      objectReference: {fileID: 1080514231}
-    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: triangle
-      value: 
-      objectReference: {fileID: 11400000, guid: e80f294d16518d346b4645390c672b84,
-        type: 2}
-    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: square
-      value: 
-      objectReference: {fileID: 11400000, guid: 719bae922c32598419f93b599acd8299,
-        type: 2}
-    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: circle
-      value: 
-      objectReference: {fileID: 11400000, guid: 29f7948a75b85374b838ec9e8a88d3d9,
-        type: 2}
-    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: usingMouse
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: youDiedText
-      value: 
-      objectReference: {fileID: 660332492}
-    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: health
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: item
-      value: 
-      objectReference: {fileID: 4024102898815256532, guid: 5cbdd23711b90d44cbadd9630d17ebfe,
-        type: 3}
     - target: {fileID: 822394764877458804, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2836,10 +2810,64 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: mouseCursor
+      value: 
+      objectReference: {fileID: 1080514231}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: triangle
+      value: 
+      objectReference: {fileID: 11400000, guid: e80f294d16518d346b4645390c672b84,
+        type: 2}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: square
+      value: 
+      objectReference: {fileID: 11400000, guid: 719bae922c32598419f93b599acd8299,
+        type: 2}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: circle
+      value: 
+      objectReference: {fileID: 11400000, guid: 29f7948a75b85374b838ec9e8a88d3d9,
+        type: 2}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: usingMouse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: youDiedText
+      value: 
+      objectReference: {fileID: 660332492}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 4024102898815256532, guid: 5cbdd23711b90d44cbadd9630d17ebfe,
+        type: 3}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: getOddsScript
+      value: 
+      objectReference: {fileID: 1933521899}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: pointer
+      value: 
+      objectReference: {fileID: 370722752}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: levels.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
@@ -2850,7 +2878,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[0]
       value: 
-      objectReference: {fileID: 7667028926889918431, guid: ec97530b7d64bc045acac353ba029f7d,
+      objectReference: {fileID: 9191362929539883942, guid: 4441aa302e131d741bb229dadaf1025f,
         type: 3}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
