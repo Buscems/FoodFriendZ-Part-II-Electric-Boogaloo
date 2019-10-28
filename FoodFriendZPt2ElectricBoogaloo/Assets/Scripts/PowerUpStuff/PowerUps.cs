@@ -48,6 +48,7 @@ public class PowerUps : MonoBehaviour
     private float cantPickUpTime = 1;
 
     public float maxCoolDownDuration;
+    public bool doesSomethingWhenCoolDownWearsOff;
     #endregion
 
 
@@ -236,8 +237,11 @@ public class PowerUps : MonoBehaviour
             #region Temporary Attack Power Up
             case PowerUpTypes.TemporaryAttackPowerUp:
 
+                //stores the multiplier before the effect takes place
+                float storedBaseDamageMultiplier = stats.baseDamageMulitplier;
+                doesSomethingWhenCoolDownWearsOff = true;
+
                 stats.baseDamageMulitplier *= 2;    //note: need to add a timer
-                Debug.Log("Paprika Or Spinach" + stats.baseDamageMulitplier);
 
                 break;
             #endregion
