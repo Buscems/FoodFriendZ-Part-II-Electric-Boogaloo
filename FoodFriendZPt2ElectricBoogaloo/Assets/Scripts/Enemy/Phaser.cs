@@ -24,12 +24,12 @@ public class Phaser : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
-       
+    {  
 
         if (baseEnemy.aggroScript.aggro == true)
         {
+            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+
             Vector3 direction = (playerPos - baseEnemy.aggroScript.currentPos).normalized;
             Vector2 force = direction * baseEnemy.speed * Time.deltaTime;
             rb.MovePosition(rb.position + force);

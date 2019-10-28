@@ -88,8 +88,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8418095989756897907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.266, y: -10.575, z: 0}
-  m_LocalScale: {x: 3.84, y: 3.658, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7278283084046818721}
   m_Father: {fileID: 0}
@@ -157,18 +157,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00066776574, y: 0.0009345375}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20445043, y: 0.24132663}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &8418095989756897910
 MonoBehaviour:
@@ -185,6 +185,7 @@ MonoBehaviour:
   health: 3
   speed: 2
   walkIntoDamage: 1
+  anim: {fileID: 0}
   aggroScript: {fileID: 8418095989756897911}
   items:
   - {fileID: 1188008098122328144, guid: dd93acb6d278b674dbeb1c8d12605d02, type: 3}
@@ -250,7 +251,7 @@ Animator:
   m_GameObject: {fileID: 8418095989756897907}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33a0ed08c58de0c40aedb52d5c461bec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -272,6 +273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseEnemy: {fileID: 8418095989756897910}
-  phase: {fileID: 0}
+  phase: {fileID: 6420333220050218361}
   midPhase: 0
   rb: {fileID: 8418095989756897906}
