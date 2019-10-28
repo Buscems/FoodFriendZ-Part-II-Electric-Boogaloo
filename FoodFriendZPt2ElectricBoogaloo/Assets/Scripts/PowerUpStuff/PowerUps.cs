@@ -127,6 +127,10 @@ public class PowerUps : MonoBehaviour
 
         //**[[ITEMS]]**
         #region [ITEMS]
+
+        //[non-attacks]
+        Rosemary,
+
         //[ATTACKS]
         Shrapnel,
         ShrapnelMod,
@@ -168,10 +172,10 @@ public class PowerUps : MonoBehaviour
             #region Attack Speed Health Proportion
             case PowerUpTypes.AttackSpeedHealthProportion:
                 //tempoaray variable
-                float hotSauceBoost = 2 - ((float) stats.health/ 10);
+                float hotSauceBoost = 2 - ((float)stats.health / 10);
 
                 Debug.Log("Hot Sauce Boost: " + hotSauceBoost);
-                Debug.Log("Player hp: " + stats.health);
+
                 stats.attackSpeedMultiplier *= hotSauceBoost;
 
                 break;
@@ -229,6 +233,14 @@ public class PowerUps : MonoBehaviour
                 break;
             #endregion
 
+            //**[[ITEM]]**
+            #region Rosemary
+            case PowerUpTypes.Rosemary:
+
+                stats.health++;
+
+                break;
+            #endregion
 
             #region Null
             //case last - null for base stats - DO NOT FILL IN LEAVE BLANK
