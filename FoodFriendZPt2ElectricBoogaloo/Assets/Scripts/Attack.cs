@@ -14,7 +14,7 @@ public class Attack : MonoBehaviour
     [HideInInspector]
     public int maxAmountOfEnemiesCanPassThrough = -1;
 
-    private int currentEnemiesPassed =-1;
+    private int currentEnemiesPassed = -1;
 
     [HideInInspector]
     public bool isBomb;
@@ -30,6 +30,7 @@ public class Attack : MonoBehaviour
 
     bool isPinshot;
     bool isNeedler;
+    bool canBounce;
     float timeBeforeExplosion;
     float explosionDamage;
 
@@ -76,10 +77,17 @@ public class Attack : MonoBehaviour
                 }
             }
         }
+        if (enemy != null)
+        {
+            if (isPinshot)
+            {
 
+                enemy.transform.position = transform.position;
+            }
+        }
     }
 
-    public void SetBulletVariables(bool _canPierce, int _maxAmountOfEnemiesCanPassThrough, float _pierceMultiplier, bool _isPinshot, bool _isNeedler, float _timeBeforeExplosion, float _explosionDamage)
+    public void SetBulletVariables(bool _canPierce, int _maxAmountOfEnemiesCanPassThrough, float _pierceMultiplier, bool _isPinshot, bool _isNeedler, float _timeBeforeExplosion, float _explosionDamage, bool _canBounce)
     {
         canPierce = _canPierce;
         maxAmountOfEnemiesCanPassThrough = _maxAmountOfEnemiesCanPassThrough;
@@ -88,27 +96,34 @@ public class Attack : MonoBehaviour
         isNeedler = _isNeedler;
         timeBeforeExplosion = _timeBeforeExplosion;
         explosionDamage = _explosionDamage;
+        canBounce = _canBounce;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(gameObject.tag == "Projectile")
+        if (!canBounce)
         {
-            if (other.gameObject.tag == "TilesHere")
+            if (gameObject.tag == "Projectile")
             {
-                try
+                if (other.gameObject.tag == "TilesHere")
                 {
-                    if (isPinshot)
+                    try
                     {
-                        enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
-                        GetComponent<BasicBullet>().timeTillDespawn = -6;
+                        if (isPinshot)
+                        {
+                            if (enemy != null)
+                            {
+                                enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                            }
+                            Destroy(gameObject);
+                        }
+                        else
+                        {
+                            Destroy(this.gameObject);
+                        }
                     }
-                    else
-                    {
-                        Destroy(this.gameObject);
-                    }
+                    catch { }
                 }
-                catch { }
             }
         }
 
@@ -147,14 +162,21 @@ public class Attack : MonoBehaviour
                     currentEnemiesPassed -= 1;
                 }
             }
+            if (enemy == null)
+            {
+                enemy = other.gameObject;
+            }
+
+
         }
 
-       // if(other.gameObject.tag == "")
+
+        // if(other.gameObject.tag == "")
     }
 
     public void DestroyBullet(GameObject _enemy)
     {
-        if (isPinshot || isNeedler)
+        if (isNeedler)
         {
             if (enemy == null)
             {
@@ -171,7 +193,7 @@ public class Attack : MonoBehaviour
                 transform.parent = _enemy.transform;
             }
         }
-        else
+        else if(!isPinshot)
         {
             try
             {

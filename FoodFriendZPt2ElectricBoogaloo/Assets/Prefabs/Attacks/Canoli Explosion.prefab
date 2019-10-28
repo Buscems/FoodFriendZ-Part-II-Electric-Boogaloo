@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3224262907744081897}
+  - component: {fileID: 5129781755568727086}
   m_Layer: 0
   m_Name: Canoli Explosion
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5129781755568727086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6477533914403256671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1716c33d100014c4e8df98400aabcfab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToWait: 2
 --- !u!1 &6798743473086364932
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +88,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 2
   simulationSpeed: 12
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -4893,7 +4907,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 4
   simulationSpeed: 10
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}

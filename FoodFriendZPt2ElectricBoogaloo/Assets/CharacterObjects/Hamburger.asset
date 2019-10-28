@@ -10,28 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: Cannoli
+  m_Name: Hamburger
   m_EditorClassIdentifier: 
-  hudIcon: {fileID: 6352959649030047781, guid: 75d407bd5b2e740f0b424fa6521d3896, type: 3}
-  characterName: cannoli
-  attackType: 1
-  Mspeed: 3
-  baseDamage: 0.1
+  hudIcon: {fileID: 731375368619335737, guid: a50946ca57f9c42ec899b790b68db37b, type: 3}
+  characterName: Hamburger
+  attackType: 6
+  Mspeed: 4
+  baseDamage: 2
   critChance: 0
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1199.2427
+  currentDodgeTime: -1306.9474
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -199.08794
+  currentDodgeWaitTime: -306.90967
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  offset: 0.75
-  currentPosition: {x: -51.06869, y: 57.06567, z: 0}
-  currentDirection: {x: 0.09636271, y: -0.008166331, z: 0}
+  offset: 0
+  currentPosition: {x: -59.84156, y: 62.156307, z: 0}
+  currentDirection: {x: 0.36609745, y: -0.0657098, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -42,26 +42,26 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 6395150998634022948, guid: b3710338befe7ca49abb8d0ca5e34f45, type: 3}
-  firerate: 0.1
-  bulletSpeed: 500
-  timeTillDespawn: 25
+  bullet: {fileID: 6395150998634022948, guid: 76da2d0d67f77f849a4c098de550d799, type: 3}
+  firerate: 0.21
+  bulletSpeed: 339.04
+  timeTillDespawn: 86.31
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
   bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
-  isNeedler: 1
+  isNeedler: 0
   isPinshot: 0
-  explosionDamage: 0.5
-  timeBeforeExplosion: 1
-  timeBeforeReturning: 0
+  explosionDamage: 0
+  timeBeforeExplosion: 0
+  timeBeforeReturning: 0.7
   firing: 0
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -0.006171318
+  currentFirerateTimer: -2.9638786
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

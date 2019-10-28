@@ -17,22 +17,22 @@ MonoBehaviour:
   characterName: fries
   attackType: 1
   Mspeed: 2
-  baseDamage: 3
+  baseDamage: 0.14
   critChance: 0
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1024.1631
+  currentDodgeTime: -1167.6506
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -24.16345
+  currentDodgeWaitTime: -167.65576
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: 18.764118, y: 4.853565, z: 0}
-  currentDirection: {x: -0.43465477, y: -0.036719043, z: 0}
+  currentPosition: {x: -59.09597, y: 54.676346, z: 0}
+  currentDirection: {x: 0.12042865, y: 0.071440734, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
+  bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
   isNeedler: 0
@@ -61,7 +62,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: 1
+  currentFirerateTimer: -2.2166505
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

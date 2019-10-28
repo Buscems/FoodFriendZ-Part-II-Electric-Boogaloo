@@ -262,7 +262,7 @@ public class BasePlayer : ScriptableObject
 
     private void SetBulletVariables(GameObject attack, Transform parentTransform, bool isBoomerang)
     {
-        attack.GetComponent<Attack>().SetBulletVariables(canPierce, maxAmountOfEnemiesCanPassThrough, pierceMultiplier, isPinshot, isNeedler, timeBeforeExplosion, explosionDamage);
+        attack.GetComponent<Attack>().SetBulletVariables(canPierce, maxAmountOfEnemiesCanPassThrough, pierceMultiplier, isPinshot, isNeedler, timeBeforeExplosion, explosionDamage, canBounce);
         attack.GetComponent<BasicBullet>().SetVariables(bulletSpeed, timeTillDespawn, canBounce);
 
         if (isBoomerang)

@@ -25,6 +25,8 @@ public class BasicBullet : MonoBehaviour
     public BoxCollider2D left;
     public BoxCollider2D right;
 
+    public GameObject instantiateOnDestroy;
+
     [HideInInspector]
     public GameObject player;
 
@@ -75,12 +77,10 @@ public class BasicBullet : MonoBehaviour
     {
         if (isBoomerang && timeBeforeReturning < 0)
         {
-            Vector3 origRot = player.transform.eulerAngles;
-            Quaternion targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-            float str = Mathf.Min(1 * Time.deltaTime, 1);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
-            rb.velocity = transform.forward * bulletSpeed;
-            transform.eulerAngles = origRot;
+            GetComponent<Animator>().enabled = false;
+            float step = bulletSpeed * Time.deltaTime/30; 
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
+
         }
         else if(stopMoving == false)
         {
@@ -90,7 +90,7 @@ public class BasicBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (canBounce && collision.gameObject.tag != "Player1" && collision.gameObject.tag != "Projectile")
+        if (canBounce && collision.gameObject.tag != "Player1" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "PlayerCollider")
         {
             if (top.IsTouching(collision))
             {
@@ -120,5 +120,14 @@ public class BasicBullet : MonoBehaviour
         }
        
 
+    }
+
+    private void OnDestroy()
+    {
+        try
+        {
+            Instantiate(instantiateOnDestroy, transform.position, Quaternion.identity);
+        }
+        catch { }
     }
 }
