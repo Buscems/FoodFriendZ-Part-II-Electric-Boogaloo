@@ -70,7 +70,14 @@ public class Attack : MonoBehaviour
 
                     if (timeBeforeExplosion < 0)
                     {
-                        enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                        if (enemy.GetComponent<BaseEnemy>() != null)
+                        {
+                            enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                        }
+                        if (enemy.GetComponent<BaseBoss>() != null)
+                        {
+                            enemy.GetComponent<BaseBoss>().health -= explosionDamage;
+                        }
                         GetComponent<BasicBullet>().timeTillDespawn = -6;
                         Destroy(gameObject);
                     }
@@ -113,7 +120,14 @@ public class Attack : MonoBehaviour
                         {
                             if (enemy != null)
                             {
-                                enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                                if (enemy.GetComponent<BaseEnemy>() != null)
+                                {
+                                    enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                                }
+                                if (enemy.GetComponent<BaseBoss>() != null)
+                                {
+                                    enemy.GetComponent<BaseBoss>().health -= explosionDamage;
+                                }
                             }
                             Destroy(gameObject);
                         }
@@ -132,7 +146,14 @@ public class Attack : MonoBehaviour
             if (!isBomb)
             {
                 //decrease the enemy's health, this will be for regular enemies as well as boss enemies
-                other.GetComponent<BaseEnemy>().health -= damage;
+                if (other.GetComponent<BaseEnemy>() != null)
+                {
+                    other.GetComponent<BaseEnemy>().health -= damage;
+                }
+                if (other.GetComponent<BaseBoss>() != null)
+                {
+                    other.GetComponent<BaseBoss>().health -= damage;
+                }
 
                 try
                 {

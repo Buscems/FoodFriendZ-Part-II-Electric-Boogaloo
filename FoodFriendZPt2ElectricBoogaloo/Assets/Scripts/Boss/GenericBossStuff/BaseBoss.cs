@@ -23,8 +23,11 @@ public class BaseBoss : MonoBehaviour
     [Tooltip("How much money the boss will drop when killed")]
     public int money;
 
-    [Tooltip("This is how many doors need to be opened after the boss dies")]
-    public GameObject[] doors;
+    public Aggro aggroScript;
+
+    public enum BossStage { stage1, stage2, stage3}
+    [HideInInspector]
+    public BossStage stage;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class BaseBoss : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -41,14 +45,24 @@ public class BaseBoss : MonoBehaviour
         //keeping track of the percentage of the bosses health to have different stages
         healthPercent = health / maxHealth;
 
+        if(healthPercent > .5f)
+        {
+            stage = BossStage.stage1;
+        }
+        if (healthPercent > .25f)
+        {
+            stage = BossStage.stage2;
+        }
+        else
+        {
+            stage = BossStage.stage3;
+        }
+
     }
 
     public void Death()
     {
-        for(int i = 0; i < doors.Length; i++)
-        {
-            doors[i].SetActive(false);
-        }
+        
     }
 
 }

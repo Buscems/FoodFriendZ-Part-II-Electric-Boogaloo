@@ -57,6 +57,8 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector]
     //movement
     public float speedMultiplier = 1;
+    [HideInInspector]
+    public float slowMultiplier = 1;
 
     //attack
     [HideInInspector]
@@ -651,18 +653,23 @@ public class MainPlayer : MonoBehaviour
         currentChar.Update();
 
         //[APPLIES Multiplier to movementSpeed]
-        speed = (currentChar.Mspeed * speedMultiplier) * currentChar.currentDodgeSpeedMultiplier;
+        speed = (currentChar.Mspeed * speedMultiplier) * currentChar.currentDodgeSpeedMultiplier * slowMultiplier;
 
         if (isSlow == true){
-            speed /= 2;
+            slowMultiplier = .5f;
         }
 
-        if (isFast == true){
-            speed *= 2;
+        else if (isFast == true){
+            slowMultiplier = 1.5f;
         }
 
-        if(isStuck == true){
-            speed = 0;
+        else if(isStuck == true){
+            slowMultiplier = 0;
+        }
+
+        else
+        {
+            slowMultiplier = 1;
         }
 
         //updates character position
@@ -792,24 +799,19 @@ public class MainPlayer : MonoBehaviour
         }
 
         if (other.gameObject.tag == "Slow"){
-            isSlow = true;
-        }else{
-            isSlow = false;
+            StartCoroutine(Slow(3));
         }
+        
 
         if (other.gameObject.tag == "Fast"){
-            isFast = true;
+            StartCoroutine(Fast(3));
         }
-        else{
-            isFast = false;
-        }
+        
 
         if (other.gameObject.tag == "Stuck"){
-            isStuck = true;
+            StartCoroutine(Stuck(3));
         }
-        else{
-            isStuck = false;
-        }
+        
 
         if (other.gameObject.tag == "Item")
         {
@@ -824,6 +826,28 @@ public class MainPlayer : MonoBehaviour
             touchingChest = true;
             currentChest = other.gameObject.GetComponentInParent<ChestScript>();
         }
+    }
+
+    public IEnumerator Slow(float effectTime)
+    {
+        isSlow = true;
+        Debug.Log("Slow");
+        yield return new WaitForSeconds(effectTime);
+        isSlow = false;
+    }
+    public IEnumerator Fast(float effectTime)
+    {
+        isFast = true;
+        Debug.Log("Slow");
+        yield return new WaitForSeconds(effectTime);
+        isFast = false;
+    }
+    public IEnumerator Stuck(float effectTime)
+    {
+        isStuck = true;
+        Debug.Log("Slow");
+        yield return new WaitForSeconds(effectTime);
+        isStuck = false;
     }
 
     //getting hit method

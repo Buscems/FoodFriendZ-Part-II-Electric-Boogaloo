@@ -12,6 +12,7 @@ public class ShootingEnemy : MonoBehaviour
     public float rightLength;*/
 
     BaseEnemy baseEnemy;
+    BaseBoss baseBoss;
 
     [Tooltip("Check box if you are using a beam as the way your enemy shoots")]
     public bool beam;
@@ -45,13 +46,24 @@ public class ShootingEnemy : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    [Header("Type of Bullet")]
+    [Tooltip("If this enemy shoots bullets that slow the player down or not")]
+    public bool slowBullets;
+
     void Start()
     {
         startPos = transform.position;
         currentClip = clipSize;
 
         //referencing the base script to derive from variables of other scripts
-        baseEnemy = this.GetComponent<BaseEnemy>();
+        if (GetComponent<BaseEnemy>() != null)
+        {
+            baseEnemy = this.GetComponent<BaseEnemy>();
+        }
+        if (GetComponent<BaseBoss>() != null)
+        {
+            baseBoss = this.GetComponent<BaseBoss>();
+        }
     }
 
     
@@ -74,15 +86,39 @@ public class ShootingEnemy : MonoBehaviour
             }
         }*/
 
-        if (baseEnemy.aggroScript.aggro && currentClip > 0)
+        //if this is a boss or a regular enemy
+
+        if (baseEnemy != null)
         {
-            if (Time.time > nextShot)
+            if (baseEnemy.aggroScript.aggro && currentClip > 0)
             {
-                nextShot = Time.time + fireRate;
-                var bullet = Instantiate(Projectile, this.transform.position, Quaternion.identity);
-                bullet.GetComponent<EnemyBullet>().velocity = (baseEnemy.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
-                bullet.GetComponent<EnemyBullet>().speed = projectileSpeed;
-                bullet.GetComponent<EnemyBullet>().damage = bulletDamage;
+                if (Time.time > nextShot)
+                {
+                    nextShot = Time.time + fireRate;
+                    var bullet = Instantiate(Projectile, this.transform.position, Quaternion.identity);
+                    bullet.GetComponent<EnemyBullet>().velocity = (baseEnemy.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
+                    bullet.GetComponent<EnemyBullet>().speed = projectileSpeed;
+                    bullet.GetComponent<EnemyBullet>().damage = bulletDamage;
+                }
+            }
+        }
+
+        if (baseBoss != null)
+        {
+            if (baseBoss.aggroScript.aggro && currentClip > 0)
+            {
+                if (Time.time > nextShot)
+                {
+                    nextShot = Time.time + fireRate;
+                    var bullet = Instantiate(Projectile, this.transform.position, Quaternion.identity);
+                    bullet.GetComponent<EnemyBullet>().velocity = (baseBoss.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
+                    bullet.GetComponent<EnemyBullet>().speed = projectileSpeed;
+                    bullet.GetComponent<EnemyBullet>().damage = bulletDamage;
+                    if (slowBullets)
+                    {
+                        bullet.GetComponent<EnemyBullet>().slowBullet = true;
+                    }
+                }
             }
         }
 

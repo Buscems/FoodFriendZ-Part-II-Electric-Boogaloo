@@ -43,10 +43,11 @@ public class EnemyBullet : MonoBehaviour
     {
         if(collision.tag == "Player1" || collision.tag == "Player2")
         {
-            collision.GetComponent<MainPlayer>().GetHit(damage);
+            var targ = collision.GetComponent<MainPlayer>();
+            targ.GetHit(damage);
             if (slowBullet)
             {
-                //do a thing that would start making the character be slow
+                targ.StartCoroutine(targ.Slow(3));
             }
             Destroy(this.gameObject);
         }
