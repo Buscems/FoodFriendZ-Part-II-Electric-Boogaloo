@@ -47,7 +47,7 @@ public class PowerUps : MonoBehaviour
 
     private float cantPickUpTime = 1;
 
-    public float CoolDownTime;
+    public float maxCoolDownDuration;
     #endregion
 
 
