@@ -127,7 +127,7 @@ public class MainPlayer : MonoBehaviour
     [Header("**TEMPORARY ELEMENTS")]
     public TextMeshProUGUI youDiedText;
 
-    public GameObject item = null;
+    
     #endregion
 
     private void Awake()
@@ -296,10 +296,7 @@ public class MainPlayer : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.E) && item != null)
-            {
-                UseItem();
-            }
+            
         }
 
         //if player is dead
@@ -351,11 +348,7 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
-    private void UseItem()
-    {
-        Instantiate(item, transform.position, Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
-       //item = null;
-    }
+    
 
     private void SwapLogic()
     {
@@ -813,14 +806,7 @@ public class MainPlayer : MonoBehaviour
         }
         
 
-        if (other.gameObject.tag == "Item")
-        {
-            if(item == null)
-            {
-                item = other.gameObject;
-                Destroy(other.gameObject);
-            }
-        }
+   
         if (other.gameObject.tag == "Chest")
         {
             touchingChest = true;

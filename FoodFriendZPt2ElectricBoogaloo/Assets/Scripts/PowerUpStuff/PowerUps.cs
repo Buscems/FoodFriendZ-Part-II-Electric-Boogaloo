@@ -35,18 +35,19 @@ public class PowerUps : MonoBehaviour
     public float vampHeal = 0;
     #endregion
 
-    #region Timer Things
     [Header("Timer Things")]
     public float stunTimer;
     public float maxStunTimer;
-    #endregion
 
     public enum Rarity { wellDone, mediumWell, mediumRare, rare }
     [Header("Rarity")]
+
     [Tooltip("This will be how rare the item is so that it will have different chances to appear depending on rarity")]
     public Rarity rarity;
 
     private float cantPickUpTime = 1;
+
+    public float maxCoolDownDuration;
     #endregion
 
 
@@ -57,6 +58,14 @@ public class PowerUps : MonoBehaviour
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
 
         baseStats = stats.currentChar;
+
+        //turns off delay on items
+        if (gameObject.tag == "Item")
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+            cantPickUpTime = 0;
+        }
+
         GetComponent<BoxCollider2D>().enabled = false;
         gameObject.tag = "Blank";
     }

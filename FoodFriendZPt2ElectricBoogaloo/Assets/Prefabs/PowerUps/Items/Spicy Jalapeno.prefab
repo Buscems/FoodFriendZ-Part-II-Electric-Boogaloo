@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1374952581875216073}
   m_Layer: 0
   m_Name: Spicy Jalapeno
-  m_TagString: StatBoost
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,8 @@ MonoBehaviour:
   vampHeal: 0
   stunTimer: 0
   maxStunTimer: 0
+  rarity: 0
+  CoolDownTime: 0
   currentPowerUp: 0
 --- !u!61 &1374952581875216073
 BoxCollider2D:
