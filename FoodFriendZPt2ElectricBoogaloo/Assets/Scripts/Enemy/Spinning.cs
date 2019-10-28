@@ -32,6 +32,7 @@ public class Spinning : MonoBehaviour
     SpinMelee SpinMelee;
     bool isShooting;
 
+    public Sprite[] bulletSprite;
     void Start()
     {
         startPos = transform.position;
@@ -83,6 +84,8 @@ public class Spinning : MonoBehaviour
         while (baseEnemy.aggroScript.aggro)
         {
             var temp = Instantiate(bullet, transform.position, Quaternion.identity);
+            var randNum = Random.Range(0, bulletSprite.Length);
+            temp.GetComponent<SpriteRenderer>().sprite = bulletSprite[randNum];
             temp.GetComponent<EnemyBullet>().velocity = this.transform.up;
             temp.GetComponent<EnemyBullet>().speed = bulletSpeed;
             temp.GetComponent<EnemyBullet>().damage = bulletDamage;
