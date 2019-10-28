@@ -24,7 +24,10 @@ public class TankEnemy : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    [HideInInspector]
     public PathfindingAI path;
+
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,7 @@ public class TankEnemy : MonoBehaviour
         attackRadius.enabled = false;
         baseEnemy = GetComponent<BaseEnemy>();
         path = GetComponent<PathfindingAI>();
+        anim = GetComponent<Animator>();
         attackReady = true;
     }
 
@@ -48,7 +52,10 @@ public class TankEnemy : MonoBehaviour
         {
             path.enabled = true;
             attackRadius.enabled = false;
-            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+            if (baseEnemy.aggroScript.aggro)
+            {
+                playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+            }
         }
 
         if ((playerPos - baseEnemy.aggroScript.currentPos).magnitude < attackRange && attackReady == true && follow == true)
@@ -91,6 +98,7 @@ public class TankEnemy : MonoBehaviour
     {
         windUp = false;
         attack = true;
+        anim.SetTrigger("Attack");
         yield return new WaitForSeconds(attackTime);
         StartCoroutine(coolDown());
     }
@@ -103,14 +111,18 @@ public class TankEnemy : MonoBehaviour
         coolDownAttack = true;
         attackRadius.enabled = false;
         yield return new WaitForSeconds(coolDownTime);
-        
+        coolDownAttack = false;
+        attackReady = true;
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "PLayer2" && attack == true)
         {
             StopCoroutine(attacking());
             StartCoroutine(coolDown());
         }
+        */
     }
 }
