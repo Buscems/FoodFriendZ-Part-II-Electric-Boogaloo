@@ -7,8 +7,10 @@ public class PowerUps : MonoBehaviour
     //[ALL VARIABLES]
     #region [ALL VARIABLES]
     //[SCRIPTS]
-    [HideInInspector] public MainPlayer stats;
+    public MainPlayer stats;
     [HideInInspector] public BasePlayer baseStats;
+
+    Collider2D myCollider;
 
     public bool effectIsActive = true;
 
@@ -55,28 +57,26 @@ public class PowerUps : MonoBehaviour
     [Tooltip("This will be how rare the item is so that it will have different chances to appear depending on rarity")]
     public Rarity rarity;
 
+    //for chest
     private float cantPickUpTime = 1;
 
     //cooldown/ effect duration
     public float effectDuration;
     public float maxCoolDownDuration;
-    public bool doesSomethingWhenCoolDownWearsOff;
     #endregion
 
 
-    //[START]
-    public void Start()
+    //[AWAKE]
+    public void Awake()
     {
         //assign main player script
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
 
         baseStats = stats.currentChar;
 
-        //turns off delay on items
         if (gameObject.tag == "Item")
         {
-            GetComponent<BoxCollider2D>().enabled = true;
-            cantPickUpTime = 0;
+
         }
 
         GetComponent<BoxCollider2D>().enabled = false;
@@ -173,14 +173,19 @@ public class PowerUps : MonoBehaviour
     //[COLLIDER]
     void OnTriggerEnter2D(Collider2D other)
     {
+        //if equipment
         if (other.CompareTag("Player1"))
         {
-            StartCoroutine(Pickup(other));
+            if (tag == "StatBooster")
+                StartCoroutine(Pickup());
+        }
+        else if (tag == "Item")
+        {
+
         }
     }
 
-    //LAST LEFT OFF - NEED TO FIND WHY THIS DOESNT WORK
-    IEnumerator Pickup(Collider2D player)
+    public IEnumerator Pickup()
     {
         switch (currentPowerUp)
         {
@@ -251,7 +256,6 @@ public class PowerUps : MonoBehaviour
 
                 //stores the multiplier before the effect takes place
                 float storedBaseDamageMultiplier = stats.baseDamageMulitplier;
-                doesSomethingWhenCoolDownWearsOff = true;
 
                 stats.baseDamageMulitplier *= 2;    //note: need to add a timer
 
@@ -281,6 +285,7 @@ public class PowerUps : MonoBehaviour
                 if (effectIsActive)
                 {
                     Debug.Log("Effect is active");
+                    Debug.Log(stats);
                     stats.critChanceMultiplier *= 3;
                 }
 

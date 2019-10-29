@@ -2246,6 +2246,7 @@ MonoBehaviour:
   aSizeDisp: {fileID: 275461476}
   critChanceDisp: {fileID: 398841687}
   MaxCoolDownDuration: {fileID: 289635053}
+  effectTimer: {fileID: 1026551542}
   curTimer: {fileID: 1064977173}
 --- !u!1 &1064977171
 GameObject:
@@ -3322,9 +3323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd2facffa693054bbf9c0ec1e55bb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PowerUpScript: {fileID: 7990607421995575978, guid: 331c7e322b262394ea35143a3efac8d3,
-    type: 3}
-  item: {fileID: 512079572212179451, guid: 331c7e322b262394ea35143a3efac8d3, type: 3}
+  PowerUpScript: {fileID: 0}
+  item: {fileID: 0}
   curCDTimer: 0
   curEffectTimer: 0
 --- !u!1001 &2021325148

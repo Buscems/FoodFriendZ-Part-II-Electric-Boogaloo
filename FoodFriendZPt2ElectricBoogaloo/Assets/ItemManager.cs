@@ -29,6 +29,7 @@ public class ItemManager : MonoBehaviour
     void Update()
     {
         //check if player can use the item
+
         //[use ACTIVE ITEM button]
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -75,13 +76,17 @@ public class ItemManager : MonoBehaviour
     {
         PowerUpScript.effectIsActive = _isEffectActive;
 
-        Instantiate(item, transform.position, Quaternion.Euler(mp.attackDirection.transform.eulerAngles.x, mp.attackDirection.transform.eulerAngles.y, mp.attackDirection.transform.eulerAngles.z));
+        // Instantiate(item, transform.position, Quaternion.Euler(mp.attackDirection.transform.eulerAngles.x, mp.attackDirection.transform.eulerAngles.y, mp.attackDirection.transform.eulerAngles.z));
+
+        //use powerup script
+        StartCoroutine(PowerUpScript.Pickup());
 
         //set timers
         if (_isEffectActive)
         {
             curEffectTimer = PowerUpScript.effectDuration;
         }
+
         else
         {
             curCDTimer = PowerUpScript.maxCoolDownDuration;
@@ -92,15 +97,16 @@ public class ItemManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Item")
         {
+            //if the player currently possesses no active items
             if (item == null)
             {
                 item = other.gameObject;
-
-                //retrieves the instance of the power up script on the power up grabbed
                 PowerUpScript = other.gameObject.GetComponent<PowerUps>();
             }
-
-            Destroy(other.gameObject);
+            else
+            {
+                Debug.Log("Player already has an item");
+            }
         }
     }
 }

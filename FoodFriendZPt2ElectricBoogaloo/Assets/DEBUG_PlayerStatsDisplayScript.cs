@@ -31,8 +31,11 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
 
         critChanceDisp.text = "crit%: " + pScript.critChanceMultiplier.ToString("00.00");
 
-        MaxCoolDownDuration.text = "MaxCD: " + ItemMangerScript.PowerUpScript.maxCoolDownDuration.ToString("00.00");
-        effectTimer.text = "effectTimer: " + ItemMangerScript.curEffectTimer.ToString("00.00");
-        curTimer.text = "curCDTimer: " + ItemMangerScript.curCDTimer.ToString("00.00");
+        if (ItemMangerScript.item != null)
+        {
+            MaxCoolDownDuration.text = "MaxCD: " + ItemMangerScript.PowerUpScript.maxCoolDownDuration.ToString("00.00");
+            effectTimer.text = "effectTimer: " + ItemMangerScript.curEffectTimer.ToString("00.00");
+            curTimer.text = "curCDTimer: " + ItemMangerScript.curCDTimer.ToString("00.00");
+        }
     }
 }
