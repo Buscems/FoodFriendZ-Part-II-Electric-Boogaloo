@@ -76,7 +76,7 @@ public class MainPlayer : MonoBehaviour
     public float stunTimer;
     public float maxStunTimer;
 
-    public float stunChance = 0;
+    public float stunChance = 15;
 
     //elemental
     float burnChance = 0;
