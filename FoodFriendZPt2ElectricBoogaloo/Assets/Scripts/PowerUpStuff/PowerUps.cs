@@ -31,9 +31,10 @@ public class PowerUps : MonoBehaviour
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackDamage = 1;
 
+    [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float critChance = 1;
-  
+
     #endregion
 
     #region Healing
@@ -54,6 +55,8 @@ public class PowerUps : MonoBehaviour
 
     private float cantPickUpTime = 1;
 
+    //cooldown/ effect duration
+    public float effectDuration;
     public float maxCoolDownDuration;
     public bool doesSomethingWhenCoolDownWearsOff;
     #endregion
@@ -157,6 +160,7 @@ public class PowerUps : MonoBehaviour
         ShootAttackLine,
         EasterEgg,
         StunAttack,
+        Starfruit,
         #endregion
 
         ItemReedem, //coupons
@@ -259,6 +263,14 @@ public class PowerUps : MonoBehaviour
 
                 stats.health++;
 
+                break;
+            #endregion
+
+            #region Starfruit
+            case PowerUpTypes.Starfruit:
+                //during the effect
+
+                //after the effect
                 break;
             #endregion
 

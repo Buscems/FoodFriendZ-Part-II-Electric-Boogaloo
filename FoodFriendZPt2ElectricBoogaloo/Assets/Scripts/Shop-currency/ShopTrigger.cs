@@ -34,7 +34,7 @@ public class ShopTrigger : MonoBehaviour
             player.maxDamageMultiplier += power.attackDamage;
             player.health += power.healAmount;
 
-            player.currentChar.SetMultipliers(player.attackSizeMultiplier, player.attackSpeedMultiplier, player.firerateMultiplier, player.baseDamageMulitplier, player.maxDamageMultiplier);
+            player.currentChar.SetMultipliers(player.attackSizeMultiplier, player.attackSpeedMultiplier, player.firerateMultiplier, player.baseDamageMulitplier, player.maxDamageMultiplier, player.critChanceMultiplier);
             curMan.totalMoney -= price;
             Destroy(gameObject);
             Destroy(powerUp);

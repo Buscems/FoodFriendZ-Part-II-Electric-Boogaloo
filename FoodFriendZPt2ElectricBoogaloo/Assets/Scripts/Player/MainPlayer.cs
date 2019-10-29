@@ -71,12 +71,13 @@ public class MainPlayer : MonoBehaviour
     public float baseDamageMulitplier = 1;
     [HideInInspector]
     public float maxDamageMultiplier = 1;
+    [HideInInspector]
+    public float critChanceMultiplier = 1;
 
     [HideInInspector]
     public float stunTimer;
     public float maxStunTimer;
 
-    public float critChance;
     public float stunChance;
 
     //elemental
@@ -128,7 +129,7 @@ public class MainPlayer : MonoBehaviour
     [Header("**TEMPORARY ELEMENTS")]
     public TextMeshProUGUI youDiedText;
 
-    
+
     #endregion
 
     private void Awake()
@@ -224,6 +225,7 @@ public class MainPlayer : MonoBehaviour
         firerateMultiplier = 1;
         baseDamageMulitplier = 1;
         maxDamageMultiplier = 1;
+        critChanceMultiplier = 1;
         #endregion
 
         Cursor.visible = false;
@@ -232,7 +234,7 @@ public class MainPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         currentChar.Start();
-        
+
         //**temporary
         youDiedText.gameObject.SetActive(false);
     }
@@ -297,7 +299,7 @@ public class MainPlayer : MonoBehaviour
                 }
             }
 
-            
+
         }
 
         //if player is dead
@@ -349,7 +351,7 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
-    
+
 
     private void SwapLogic()
     {
@@ -376,7 +378,7 @@ public class MainPlayer : MonoBehaviour
                 rightHighlight.enabled = false;
                 //down true
                 downHighlight.enabled = true;
-                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
             if (myPlayer.GetButtonDown("Square") && currentChar != square)
@@ -387,7 +389,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = true;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
-                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
             if (myPlayer.GetButtonDown("Triangle") && currentChar != triangle)
@@ -398,7 +400,7 @@ public class MainPlayer : MonoBehaviour
                 leftHighlight.enabled = false;
                 rightHighlight.enabled = false;
                 downHighlight.enabled = false;
-                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
             if (myPlayer.GetButtonDown("Circle") && currentChar != circle)
@@ -409,7 +411,7 @@ public class MainPlayer : MonoBehaviour
                 //right true
                 rightHighlight.enabled = true;
                 downHighlight.enabled = false;
-                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
             }
         }
@@ -508,7 +510,7 @@ public class MainPlayer : MonoBehaviour
 
                     //reset charge timer
                     currentChar.currentChargeTimer = 0;
-                }                          
+                }
             }
         }
 
@@ -649,15 +651,18 @@ public class MainPlayer : MonoBehaviour
         //[APPLIES Multiplier to movementSpeed]
         speed = (currentChar.Mspeed * speedMultiplier) * currentChar.currentDodgeSpeedMultiplier * slowMultiplier;
 
-        if (isSlow == true){
+        if (isSlow == true)
+        {
             slowMultiplier = .5f;
         }
 
-        else if (isFast == true){
+        else if (isFast == true)
+        {
             slowMultiplier = 1.5f;
         }
 
-        else if(isStuck == true){
+        else if (isStuck == true)
+        {
             slowMultiplier = 0;
         }
 
@@ -784,30 +789,35 @@ public class MainPlayer : MonoBehaviour
             firerateMultiplier += temp.attackSpeed;
             baseDamageMulitplier += temp.attackDamage;
             maxDamageMultiplier += temp.attackDamage;
+
+
             health += temp.healAmount;
 
-            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier);
+            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
             Debug.Log(other.name);
 
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.tag == "Slow"){
+        if (other.gameObject.tag == "Slow")
+        {
             StartCoroutine(Slow(3));
         }
-        
 
-        if (other.gameObject.tag == "Fast"){
+
+        if (other.gameObject.tag == "Fast")
+        {
             StartCoroutine(Fast(3));
         }
-        
 
-        if (other.gameObject.tag == "Stuck"){
+
+        if (other.gameObject.tag == "Stuck")
+        {
             StartCoroutine(Stuck(3));
         }
-        
 
-   
+
+
         if (other.gameObject.tag == "Chest")
         {
             touchingChest = true;

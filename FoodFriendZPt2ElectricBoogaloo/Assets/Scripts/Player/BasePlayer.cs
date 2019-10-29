@@ -157,6 +157,9 @@ public class BasePlayer : ScriptableObject
     public float baseDamageMulitplier = 1;
     [HideInInspector]
     public float maxDamageMultiplier = 1;
+    [HideInInspector]
+    public float critChanceMultiplier = 1;
+
     #endregion
 
     public void Start()
@@ -168,6 +171,7 @@ public class BasePlayer : ScriptableObject
         firerateMultiplier = 1;
         baseDamageMulitplier = 1;
         maxDamageMultiplier = 1;
+        critChanceMultiplier = 1;
 
         currentDodgeSpeedMultiplier = 1;
         #endregion
@@ -251,13 +255,14 @@ public class BasePlayer : ScriptableObject
     }
 
     //[EVERY PUBLIC METHOD]
-    public void SetMultipliers(float _attackSize, float _attackSpeed, float _firerate, float _baseDamage, float _maxDamage)
+    public void SetMultipliers(float _attackSize, float _attackSpeed, float _firerate, float _baseDamage, float _maxDamage, float _critChance)
     {
         attackSizeMultiplier = _attackSize;
         attackSpeedMultiplier = _attackSpeed;
         firerateMultiplier = _firerate;
         baseDamageMulitplier = _baseDamage;
         maxDamageMultiplier = _maxDamage;
+        critChanceMultiplier = _critChance;
     }
 
     private void SetBulletVariables(GameObject attack, Transform parentTransform, bool isBoomerang)

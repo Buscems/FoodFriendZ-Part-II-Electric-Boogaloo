@@ -27,7 +27,8 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
         aSpeedDisp.text = "aSpd: " + pScript.attackSpeedMultiplier.ToString("00.00");
         aPowDisp.text = "aP: " + pScript.maxDamageMultiplier.ToString("00.00");
         aSizeDisp.text = "aSize: " + pScript.attackSizeMultiplier.ToString("00.00");
-        critChanceDisp.text = "crit%: " + pScript.stunChance.ToString("00.00");
+
+        critChanceDisp.text = "crit%: " + pScript.critChanceMultiplier.ToString("00.00");
 
         MaxCoolDownDuration.text = "MaxCD: " + ItemMangerScript.PowerUpScript.maxCoolDownDuration.ToString("00.00");
         curTimer.text = "curTimer: " + ItemMangerScript.curTimer.ToString("00.00");
