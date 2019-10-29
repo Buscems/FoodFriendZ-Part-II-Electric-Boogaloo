@@ -21,6 +21,11 @@ public class TankEnemy : MonoBehaviour
     public float coolDownTime;
 
     public BoxCollider2D attackRadius;
+    float attackScaleX = 4;
+    float attackScaleY = 4;
+
+    float originalScaleX = 1.51f;
+    float originalScaleY = 1.27f;
 
     BaseEnemy baseEnemy;
 
@@ -34,11 +39,11 @@ public class TankEnemy : MonoBehaviour
     {
         windUp = false;
         attack = false;
-        attackRadius.enabled = false;
         baseEnemy = GetComponent<BaseEnemy>();
         path = GetComponent<PathfindingAI>();
         anim = GetComponent<Animator>();
         attackReady = true;
+        attackRadius.size = new Vector2(originalScaleX, originalScaleY);
     }
 
     // Update is called once per frame
@@ -51,7 +56,6 @@ public class TankEnemy : MonoBehaviour
         if (follow == true)
         {
             path.enabled = true;
-            attackRadius.enabled = false;
             if (baseEnemy.aggroScript.aggro)
             {
                 playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
@@ -76,14 +80,6 @@ public class TankEnemy : MonoBehaviour
             path.enabled = false;
         }
 
-        if (attack == true)
-        {
-            attackRadius.enabled = true;
-        }
-
-        if (coolDownAttack == true){
-            attackRadius.enabled = false;
-        }
     }
 
     IEnumerator windingUp()
@@ -98,6 +94,7 @@ public class TankEnemy : MonoBehaviour
     {
         windUp = false;
         attack = true;
+        attackRadius.size = new Vector2(attackScaleX, attackScaleY);
         anim.SetTrigger("Attack");
         yield return new WaitForSeconds(attackTime);
         StartCoroutine(coolDown());
@@ -109,20 +106,10 @@ public class TankEnemy : MonoBehaviour
         follow = true;
         attackReady = false;
         coolDownAttack = true;
-        attackRadius.enabled = false;
+        attackRadius.size = new Vector2(originalScaleX, originalScaleY);
         yield return new WaitForSeconds(coolDownTime);
         coolDownAttack = false;
         attackReady = true;
 
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        /*
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "PLayer2" && attack == true)
-        {
-            StopCoroutine(attacking());
-            StartCoroutine(coolDown());
-        }
-        */
     }
 }

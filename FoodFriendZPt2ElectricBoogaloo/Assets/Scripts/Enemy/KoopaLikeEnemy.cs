@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KoopaLikeEnemy : MonoBehaviour
 {
+    //reflect script help from https://www.youtube.com/watch?v=Vr-ojd4Y2a4&t=579s
+
     private Vector3 playerPos;
     Vector3 dir;
 

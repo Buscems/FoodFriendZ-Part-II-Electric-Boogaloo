@@ -49,7 +49,7 @@ public class MoleEnemy : MonoBehaviour
             path.enabled = true;
         }
 
-        if ((baseEnemy.aggroScript.currentPos - playerPos).magnitude < attackRange && !aboutToJump && !jump && !confused)
+        if ((baseEnemy.aggroScript.currentPos - playerPos).magnitude <= attackRange && !aboutToJump && !jump && !confused)
         {
             StartCoroutine(readyingUp());
         }
