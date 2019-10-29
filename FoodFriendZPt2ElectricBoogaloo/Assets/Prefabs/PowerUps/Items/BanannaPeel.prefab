@@ -95,17 +95,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   baseStats: {fileID: 0}
+  effectIsActive: 1
   powerUpName: BanannaPeel
   movementSpeed: 0
   attackSize: 0
   attackSpeed: 0
   attackDamage: 0
+  critChance: 0
   healAmount: 0
   vampHeal: 0
   stunTimer: 0
   maxStunTimer: 0
   rarity: 0
-  CoolDownTime: 0
+  effectDuration: 0
+  maxCoolDownDuration: 0
   currentPowerUp: 17
 --- !u!61 &5564122874926519476
 BoxCollider2D:

@@ -96,16 +96,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   baseStats: {fileID: 0}
+  effectIsActive: 1
   powerUpName: Rosemary
   movementSpeed: 0
   attackSize: 0
   attackSpeed: 0
   attackDamage: 0
+  critChance: 0
   healAmount: 0
   vampHeal: 0
   stunTimer: 0
   maxStunTimer: 0
   rarity: 3
+  effectDuration: 0
   maxCoolDownDuration: 2
   currentPowerUp: 19
 --- !u!61 &6437962187102837126

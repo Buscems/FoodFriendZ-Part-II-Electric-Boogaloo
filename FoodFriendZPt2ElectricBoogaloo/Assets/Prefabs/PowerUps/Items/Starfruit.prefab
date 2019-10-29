@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   baseStats: {fileID: 0}
+  effectIsActive: 1
   powerUpName: Starfruit
   movementSpeed: 0
   attackSize: 0
@@ -108,7 +109,6 @@ MonoBehaviour:
   rarity: 0
   effectDuration: 10
   maxCoolDownDuration: 60
-  doesSomethingWhenCoolDownWearsOff: 1
   currentPowerUp: 0
 --- !u!61 &6594323838130188429
 BoxCollider2D:

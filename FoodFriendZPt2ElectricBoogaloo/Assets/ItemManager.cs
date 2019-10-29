@@ -110,12 +110,12 @@ public class ItemManager : MonoBehaviour
         if (_isEffectActive)
         {
             curEffectTimer = PowerUpScript.effectDuration;
+            curCDTimer = PowerUpScript.maxCoolDownDuration;
         }
 
         else
         {
             curCDTimer = PowerUpScript.maxCoolDownDuration;
-            MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
         }
     }
 
@@ -128,6 +128,9 @@ public class ItemManager : MonoBehaviour
             {
                 item = other.gameObject;
                 PowerUpScript = other.gameObject.GetComponent<PowerUps>();
+
+                MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
+                curCDTimer = 0;
             }
             else
             {
