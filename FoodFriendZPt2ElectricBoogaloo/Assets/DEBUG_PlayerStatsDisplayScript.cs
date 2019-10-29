@@ -15,6 +15,7 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
     public TextMeshProUGUI aSpeedDisp;
     public TextMeshProUGUI aPowDisp;
     public TextMeshProUGUI aSizeDisp;
+    public TextMeshProUGUI critChanceDisp;
 
     public TextMeshProUGUI MaxCoolDownDuration;
     public TextMeshProUGUI curTimer;
@@ -26,6 +27,7 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
         aSpeedDisp.text = "aSpd: " + pScript.attackSpeedMultiplier.ToString("00.00");
         aPowDisp.text = "aP: " + pScript.maxDamageMultiplier.ToString("00.00");
         aSizeDisp.text = "aSize: " + pScript.attackSizeMultiplier.ToString("00.00");
+        critChanceDisp.text = "aSize: " + pScript.attackSizeMultiplier.ToString("00.00");
 
         MaxCoolDownDuration.text = "MaxCD: " + ItemMangerScript.PowerUpScript.maxCoolDownDuration.ToString("00.00");
         curTimer.text = "curTimer: " + ItemMangerScript.curTimer.ToString("00.00");
