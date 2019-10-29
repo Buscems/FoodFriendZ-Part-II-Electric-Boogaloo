@@ -18,15 +18,22 @@ public class PowerUps : MonoBehaviour
     [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float movementSpeed = 1;
+
     [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackSize = 1;
+
     [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackSpeed = 1;
+
     [Range(0, 1)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackDamage = 1;
+
+    [Tooltip("This number will reflect how much of an increase in stat the player gets")]
+    public float critChance = 1;
+  
     #endregion
 
     #region Healing

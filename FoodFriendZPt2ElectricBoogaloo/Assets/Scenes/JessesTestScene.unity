@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 398841688}
   - component: {fileID: 398841687}
   m_Layer: 5
-  m_Name: Crit%Display
+  m_Name: CritChanceDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2086,6 +2086,7 @@ MonoBehaviour:
   aSpeedDisp: {fileID: 1756037014}
   aPowDisp: {fileID: 1887723215}
   aSizeDisp: {fileID: 275461476}
+  critChanceDisp: {fileID: 398841687}
   MaxCoolDownDuration: {fileID: 289635053}
   curTimer: {fileID: 1064977173}
 --- !u!1 &1064977171
@@ -3504,6 +3505,11 @@ PrefabInstance:
       propertyPath: pointer
       value: 
       objectReference: {fileID: 370722752}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: stunChance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: levels.Array.size
