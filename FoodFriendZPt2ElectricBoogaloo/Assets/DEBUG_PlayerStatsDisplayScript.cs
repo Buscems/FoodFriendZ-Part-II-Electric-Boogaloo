@@ -18,6 +18,7 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
     public TextMeshProUGUI critChanceDisp;
 
     public TextMeshProUGUI MaxCoolDownDuration;
+    public TextMeshProUGUI effectTimer;
     public TextMeshProUGUI curTimer;
 
     void Update()
@@ -31,6 +32,7 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
         critChanceDisp.text = "crit%: " + pScript.critChanceMultiplier.ToString("00.00");
 
         MaxCoolDownDuration.text = "MaxCD: " + ItemMangerScript.PowerUpScript.maxCoolDownDuration.ToString("00.00");
-        curTimer.text = "curTimer: " + ItemMangerScript.curTimer.ToString("00.00");
+        effectTimer.text = "effectTimer: " + ItemMangerScript.curEffectTimer.ToString("00.00");
+        curTimer.text = "curCDTimer: " + ItemMangerScript.curCDTimer.ToString("00.00");
     }
 }

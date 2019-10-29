@@ -10,7 +10,9 @@ public class ItemManager : MonoBehaviour
     public GameObject item = null;
 
     //timer stuff
-    public float curTimer;
+
+    public float curCDTimer;
+    public float curEffectTimer;
 
 
     //[START]
@@ -31,27 +33,30 @@ public class ItemManager : MonoBehaviour
         //[use ACTIVE ITEM button]
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (item != null && curTimer == 0)
+            if (item != null && curCDTimer == 0)
             {
                 UseItem();
             }
-            else if (curTimer > 0)
+            //if cooldown isn't ready yet
+            else if (curCDTimer > 0)
             {
                 print("Cannot Use Item Yet!!");
             }
         }
 
         //cooldown timer check
-        if (curTimer > 0)
+        if (curCDTimer > 0)
         {
             //trickle timer down
-            curTimer -= Time.deltaTime;
+            curCDTimer -= Time.deltaTime;
 
             //when timer hits
-            if (curTimer <= 0)
+            if (curCDTimer <= 0)
             {
                 //resets timer
-                curTimer = 0;
+                curCDTimer = 0;
+
+
                 if (PowerUpScript.doesSomethingWhenCoolDownWearsOff)
                 {
 
@@ -66,7 +71,8 @@ public class ItemManager : MonoBehaviour
         Instantiate(item, transform.position, Quaternion.Euler(mp.attackDirection.transform.eulerAngles.x, mp.attackDirection.transform.eulerAngles.y, mp.attackDirection.transform.eulerAngles.z));
 
         //set timer
-        curTimer = PowerUpScript.maxCoolDownDuration;
+        curCDTimer = PowerUpScript.maxCoolDownDuration;
+        curEffectTimer = PowerUpScript.effectDuration;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

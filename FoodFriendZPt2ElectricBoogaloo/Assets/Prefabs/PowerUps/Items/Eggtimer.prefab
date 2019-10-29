@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   baseStats: {fileID: 0}
+  effectIsActive: 1
   powerUpName: Eggtimer
   movementSpeed: 0
   attackSize: 0
@@ -106,8 +107,8 @@ MonoBehaviour:
   stunTimer: 0
   maxStunTimer: 0
   rarity: 0
-  effectDuration: 15
-  maxCoolDownDuration: 60
+  effectDuration: 2
+  maxCoolDownDuration: 3
   doesSomethingWhenCoolDownWearsOff: 1
   currentPowerUp: 20
 --- !u!61 &1045294628239021317

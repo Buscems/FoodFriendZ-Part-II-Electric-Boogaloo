@@ -10,6 +10,8 @@ public class PowerUps : MonoBehaviour
     [HideInInspector] public MainPlayer stats;
     [HideInInspector] public BasePlayer baseStats;
 
+    public bool effectIsActive = true;
+
     [Tooltip("Power-Up Names")]
     public string powerUpName = "";
 
@@ -78,7 +80,6 @@ public class PowerUps : MonoBehaviour
         }
 
         GetComponent<BoxCollider2D>().enabled = false;
-        gameObject.tag = "Blank";
     }
 
     //[UPDATE]
@@ -89,7 +90,6 @@ public class PowerUps : MonoBehaviour
         if (cantPickUpTime < 0)
         {
             GetComponent<BoxCollider2D>().enabled = true;
-            gameObject.tag = "StatBoost";
         }
     }
 
@@ -277,12 +277,21 @@ public class PowerUps : MonoBehaviour
 
             #region Eggtimer
             case PowerUpTypes.Eggtimer:
-                //during the effect
-                float storedCritChance = stats.critChanceMultiplier;
 
-                stats.critChanceMultiplier *= 3;//triples the crit chance
+                if (effectIsActive)
+                {
+                    //during the effect
+                    stats.critChanceMultiplier *= 3;//triples the crit chance
+                }
 
-                //after the effect
+                else
+                {
+                    //after the effect
+                    stats.critChanceMultiplier /= 3;
+                    effectIsActive = false;
+                }
+
+
                 break;
             #endregion
 
