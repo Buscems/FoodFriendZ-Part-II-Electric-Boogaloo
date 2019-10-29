@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
@@ -10,9 +11,18 @@ public class ItemManager : MonoBehaviour
     public GameObject item = null;
 
     //timer stuff
+    float MAXcurCDTimer;
     public float curCDTimer;
+
     public float curEffectTimer;
 
+
+    //[UI]
+    public Slider CoolDownSlider;
+    public Image CoolDownFillBar;
+
+    public Color readyCDcolor;
+    public Color rechargingCDcolor;
 
     //[START]
     void Start()
@@ -28,6 +38,21 @@ public class ItemManager : MonoBehaviour
 
     void Update()
     {
+        #region SliderMechanics
+        CoolDownSlider.value = 1 - (curCDTimer / MAXcurCDTimer);
+
+        //effects color of the slider
+        if (CoolDownSlider.value < 1)
+        {
+            CoolDownFillBar.color = rechargingCDcolor;
+        }
+        //if the bar is full
+        else
+        {
+            CoolDownFillBar.color = readyCDcolor;
+        }
+        #endregion
+
         //check if player can use the item
 
         //[use ACTIVE ITEM button]
@@ -90,6 +115,7 @@ public class ItemManager : MonoBehaviour
         else
         {
             curCDTimer = PowerUpScript.maxCoolDownDuration;
+            MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
         }
     }
 
