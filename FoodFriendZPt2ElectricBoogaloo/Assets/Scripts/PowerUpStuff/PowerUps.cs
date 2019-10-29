@@ -79,18 +79,20 @@ public class PowerUps : MonoBehaviour
 
         }
 
-        GetComponent<BoxCollider2D>().enabled = false;
+        //GetComponent<BoxCollider2D>().enabled = false;
     }
 
     //[UPDATE]
     private void Update()
     {
+        /*
         cantPickUpTime -= Time.deltaTime;
 
         if (cantPickUpTime < 0)
         {
             GetComponent<BoxCollider2D>().enabled = true;
         }
+        */
     }
 
     //this gives drop down menu selects, make new line write name then put comma
@@ -181,7 +183,7 @@ public class PowerUps : MonoBehaviour
         }
         else if (tag == "Item")
         {
-
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
@@ -254,10 +256,14 @@ public class PowerUps : MonoBehaviour
             #region Temporary Attack Power Up
             case PowerUpTypes.TemporaryAttackPowerUp:
 
-                //stores the multiplier before the effect takes place
-                float storedBaseDamageMultiplier = stats.baseDamageMulitplier;
-
-                stats.baseDamageMulitplier *= 2;    //note: need to add a timer
+                if (effectIsActive)
+                {
+                    stats.baseDamageMulitplier *= 2;
+                }
+                else
+                {
+                    stats.baseDamageMulitplier /= 2;
+                }
 
                 break;
             #endregion

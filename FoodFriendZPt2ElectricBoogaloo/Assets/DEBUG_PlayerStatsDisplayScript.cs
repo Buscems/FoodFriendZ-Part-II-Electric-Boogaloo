@@ -26,7 +26,7 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
         //update text
         mSpeedDisp.text = "mS: " + pScript.speedMultiplier.ToString("00.00");
         aSpeedDisp.text = "aSpd: " + pScript.attackSpeedMultiplier.ToString("00.00");
-        aPowDisp.text = "aP: " + pScript.maxDamageMultiplier.ToString("00.00");
+        aPowDisp.text = "aP: " + pScript.baseDamageMulitplier.ToString("00.00");
         aSizeDisp.text = "aSize: " + pScript.attackSizeMultiplier.ToString("00.00");
 
         critChanceDisp.text = "crit%: " + pScript.critChanceMultiplier.ToString("00.00");
