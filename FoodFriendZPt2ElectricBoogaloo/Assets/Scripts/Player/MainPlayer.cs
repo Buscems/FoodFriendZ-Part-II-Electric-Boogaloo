@@ -78,10 +78,13 @@ public class MainPlayer : MonoBehaviour
     public float stunTimer;
     public float maxStunTimer;
 
+    //chances
     public float stunChance;
 
     //elemental
     float burnChance = 0;
+    float poisonChance = 0;
+    float freezeChance = 0;
 
     Rigidbody2D rb;
     Vector3 velocity;
