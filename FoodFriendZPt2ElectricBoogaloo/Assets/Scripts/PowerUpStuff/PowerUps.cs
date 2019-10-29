@@ -280,13 +280,13 @@ public class PowerUps : MonoBehaviour
 
                 if (effectIsActive)
                 {
-                    //during the effect
-                    stats.critChanceMultiplier *= 3;//triples the crit chance
+                    Debug.Log("Effect is active");
+                    stats.critChanceMultiplier *= 3;
                 }
 
                 else
                 {
-                    //after the effect
+                    Debug.Log("Effect is deactivated");
                     stats.critChanceMultiplier /= 3;
                     effectIsActive = false;
                 }

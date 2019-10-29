@@ -49,7 +49,7 @@ public class Spinning : MonoBehaviour
 
     }
 
-    
+
     void Update()
     {
         transform.position = currentPos;
@@ -67,10 +67,10 @@ public class Spinning : MonoBehaviour
 
             if (melee && ranged == false)
             {
-                Debug.Log("start spin");
+                // Debug.Log("start spin");
                 StartCoroutine(MeleeAttack());
 
-                
+
             }
         }
         else
@@ -104,7 +104,7 @@ public class Spinning : MonoBehaviour
             yield return new WaitForSeconds(MeleePause);
             meleeDelete = true;
         }
-        
+
         if (meleeDelete)
         {
             rotateSpeed = 0;

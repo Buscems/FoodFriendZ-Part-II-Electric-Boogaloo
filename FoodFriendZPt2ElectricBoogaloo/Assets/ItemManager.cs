@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    //[ALL VARIABLES
+    //[ALL VARIABLES]
     private MainPlayer mp;
     public PowerUps PowerUpScript;
     public GameObject item = null;
 
     //timer stuff
-
     public float curCDTimer;
     public float curEffectTimer;
 
@@ -35,7 +34,7 @@ public class ItemManager : MonoBehaviour
         {
             if (item != null && curCDTimer == 0)
             {
-                UseItem();
+                UseItem(true);
             }
             //if cooldown isn't ready yet
             else if (curCDTimer > 0)
@@ -45,7 +44,19 @@ public class ItemManager : MonoBehaviour
         }
 
         //cooldown timer check
-        if (curCDTimer > 0)
+        if (curEffectTimer > 0)
+        {
+            curEffectTimer -= Time.deltaTime;
+
+            //when timer hits
+            if (curEffectTimer <= 0)
+            {
+                curEffectTimer = 0;
+                UseItem(false);
+            }
+        }
+
+        else if (curCDTimer > 0)
         {
             //trickle timer down
             curCDTimer -= Time.deltaTime;
@@ -55,24 +66,26 @@ public class ItemManager : MonoBehaviour
             {
                 //resets timer
                 curCDTimer = 0;
-
-
-                if (PowerUpScript.doesSomethingWhenCoolDownWearsOff)
-                {
-
-                }
             }
         }
     }
 
     //[METHODS]
-    private void UseItem()
+    private void UseItem(bool _isEffectActive)
     {
+        PowerUpScript.effectIsActive = _isEffectActive;
+
         Instantiate(item, transform.position, Quaternion.Euler(mp.attackDirection.transform.eulerAngles.x, mp.attackDirection.transform.eulerAngles.y, mp.attackDirection.transform.eulerAngles.z));
 
-        //set timer
-        curCDTimer = PowerUpScript.maxCoolDownDuration;
-        curEffectTimer = PowerUpScript.effectDuration;
+        //set timers
+        if (_isEffectActive)
+        {
+            curEffectTimer = PowerUpScript.effectDuration;
+        }
+        else
+        {
+            curCDTimer = PowerUpScript.maxCoolDownDuration;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -82,11 +95,12 @@ public class ItemManager : MonoBehaviour
             if (item == null)
             {
                 item = other.gameObject;
-                Destroy(other.gameObject);
 
                 //retrieves the instance of the power up script on the power up grabbed
                 PowerUpScript = other.gameObject.GetComponent<PowerUps>();
             }
+
+            Destroy(other.gameObject);
         }
     }
 }
