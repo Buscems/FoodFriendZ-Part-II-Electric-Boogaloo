@@ -3,54 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WormEnemy : MonoBehaviour
-{ 
-    //code from https://answers.unity.com/questions/1359733/moving-an-enemy-randomly.html
-
-    private float latestDirectionChangeTime;
-private readonly float directionChangeTime = 1f;
-private float characterVelocity = 5f;
-private Vector2 movementDirection;
-private Vector2 movementPerSecond;
-
-public CircleCollider2D alert;
-
-    public BaseEnemy enemy;
-
-void Start()
 {
-    latestDirectionChangeTime = 0f;
-    calcuateNewMovementVector();
-        enemy = GetComponent<BaseEnemy>();
-}
+    public GameObject[] bodyParts;
+    public float numParts;
 
-void calcuateNewMovementVector()
-{
-    //create a random direction vector with the magnitude of 1, later multiply it with the velocity of the enemy
-    movementDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
-    movementPerSecond = movementDirection * characterVelocity;
-}
+    public float speed;
+    private float waitTime;
+    public float startWaitTime;
 
-void Update()
-{
-    //if the changeTime was reached, calculate a new movement vector
-    if (Time.time - latestDirectionChangeTime > directionChangeTime)
+    public Transform moveSpot;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
+
+    void Start()
     {
-        latestDirectionChangeTime = Time.time;
-        calcuateNewMovementVector();
+        waitTime = startWaitTime;
+
+        moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
     }
 
-    //move enemy: 
-    transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime),
-    transform.position.y + (movementPerSecond.y * Time.deltaTime));
-}
-
-private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.gameObject.tag == "Wall")
+    void Update()
     {
-        Debug.Log("CHANGE");
-        calcuateNewMovementVector();
+        transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f){
+            if(waitTime <= 0){
+                moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+                waitTime = startWaitTime;
+            } else
+            {
+                waitTime -= Time.deltaTime;
+            }
+        }
     }
-}
 }
 

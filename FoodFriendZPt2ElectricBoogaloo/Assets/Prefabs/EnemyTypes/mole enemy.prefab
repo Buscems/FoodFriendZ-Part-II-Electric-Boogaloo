@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 5
+  aggroRange: 4
   aggroTimerMax: 2
   aggro: 0
   target:
@@ -316,14 +316,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   underground: {fileID: 3771510891360171272}
-  attackRange: 1
+  attackRange: 0.1
   under: 0
   aboutToJump: 0
   jump: 0
   confused: 0
-  canFollow: 0
+  canFollow: 1
   underTime: 4
-  aboutToJumpTime: 1
-  jumpTime: 1
-  confusedTime: 3
+  aboutToJumpTime: 3
+  jumpTime: 0.05
+  confusedTime: 5
   path: {fileID: 0}
