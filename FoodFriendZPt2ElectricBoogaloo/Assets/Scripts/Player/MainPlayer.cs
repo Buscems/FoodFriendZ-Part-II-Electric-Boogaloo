@@ -789,6 +789,7 @@ public class MainPlayer : MonoBehaviour
             firerateMultiplier += temp.attackSpeed;
             baseDamageMulitplier += temp.attackDamage;
             maxDamageMultiplier += temp.attackDamage;
+            critChanceMultiplier += temp.critChance;
 
 
             health += temp.healAmount;

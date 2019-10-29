@@ -31,7 +31,7 @@ public class PowerUps : MonoBehaviour
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float attackDamage = 1;
 
-    [Range(0, 1)]
+    [Range(0, 5)]
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float critChance = 1;
 
@@ -150,6 +150,7 @@ public class PowerUps : MonoBehaviour
 
         //[non-attacks]
         Rosemary,
+        Eggtimer,
 
         //[ATTACKS]
         Shrapnel,
@@ -269,6 +270,17 @@ public class PowerUps : MonoBehaviour
             #region Starfruit
             case PowerUpTypes.Starfruit:
                 //during the effect
+
+                //after the effect
+                break;
+            #endregion
+
+            #region Eggtimer
+            case PowerUpTypes.Eggtimer:
+                //during the effect
+                float storedCritChance = stats.critChanceMultiplier;
+
+                stats.critChanceMultiplier *= 3;//triples the crit chance
 
                 //after the effect
                 break;

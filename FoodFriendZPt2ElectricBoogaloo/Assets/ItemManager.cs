@@ -29,13 +29,16 @@ public class ItemManager : MonoBehaviour
     {
         //check if player can use the item
         //[use ACTIVE ITEM button]
-        if (Input.GetKeyDown(KeyCode.E) && item != null && curTimer == 0)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            UseItem();
-        }
-        else if (curTimer > 0)
-        {
-            print("Cannot Use Item Yet!!");
+            if (item != null && curTimer == 0)
+            {
+                UseItem();
+            }
+            else if (curTimer > 0)
+            {
+                print("Cannot Use Item Yet!!");
+            }
         }
 
         //cooldown timer check

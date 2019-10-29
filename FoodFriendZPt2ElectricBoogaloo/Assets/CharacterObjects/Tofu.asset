@@ -17,21 +17,21 @@ MonoBehaviour:
   attackType: 0
   Mspeed: 7
   baseDamage: 4
-  critChance: 0
+  critChance: 0.16
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.25
-  currentDodgeTime: -32.01443
+  currentDodgeTime: -130.69615
   dodgeWaitTime: 2
-  currentDodgeWaitTime: -30.014435
+  currentDodgeWaitTime: -128.69614
   attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -1308.5745, y: 346.40543, z: 0}
-  currentDirection: {x: 0.6831519, y: -0.40385228, z: 0}
+  currentPosition: {x: -57.5, y: 60.030006, z: 0}
+  currentDirection: {x: -1, y: -1, z: 0}
   weapon: {fileID: 1791375524048153698, guid: f7e7f35abf30248cf9b3141b572bf0c6, type: 3}
   awayPos: {x: 5000, y: 5000, z: 0}
   attackSpeed: 0.5
@@ -64,9 +64,10 @@ MonoBehaviour:
   dropRadius: 0
   explosionForce: 0
   currentFirerateTimer: -1.2300735
-  currentAttackSpeedTimer: -2.5068889
+  currentAttackSpeedTimer: -1.1063287
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
   baseDamageMulitplier: 1
   maxDamageMultiplier: 1
+  critChanceMultiplier: 1

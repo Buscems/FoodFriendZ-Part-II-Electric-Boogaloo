@@ -100,11 +100,15 @@ MonoBehaviour:
   attackSize: 0
   attackSpeed: 0.5
   attackDamage: 0
+  critChance: 0
   healAmount: 0
   vampHeal: 0
   stunTimer: 0
   maxStunTimer: 0
   rarity: 0
+  effectDuration: 0
+  maxCoolDownDuration: 0
+  doesSomethingWhenCoolDownWearsOff: 0
   currentPowerUp: 0
 --- !u!61 &2186281773471596320
 BoxCollider2D:
