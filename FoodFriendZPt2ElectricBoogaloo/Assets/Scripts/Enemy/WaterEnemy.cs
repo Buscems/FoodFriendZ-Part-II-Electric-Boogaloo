@@ -12,6 +12,7 @@ public class WaterEnemy : MonoBehaviour
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
 
+    public Rigidbody2D rb;
 
     public CircleCollider2D alert;
 
@@ -19,11 +20,14 @@ public class WaterEnemy : MonoBehaviour
 
     public float spawnTime;
 
+    Vector3 dir;
+
     void Start()
     {
         latestDirectionChangeTime = 0f;
         calcuateNewMovementVector();
         StartCoroutine(spawnWater());
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void calcuateNewMovementVector()
@@ -52,15 +56,19 @@ public class WaterEnemy : MonoBehaviour
         if (collision.gameObject.tag == "TilesHere")
         {
             Debug.Log("CHANGE");
-            calcuateNewMovementVector();
+            movementPerSecond = -movementPerSecond;
+            movementDirection = -movementDirection;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "TilesHere"){
-            Debug.Log("change");
-            calcuateNewMovementVector();
+            Debug.Log ("yeet");
+            Vector2 inNormal = collision.contacts[0].normal;
+           dir = Vector2.Reflect(rb.velocity, inNormal);
+
+            rb.velocity = dir * movementPerSecond;
         }
     }
 
