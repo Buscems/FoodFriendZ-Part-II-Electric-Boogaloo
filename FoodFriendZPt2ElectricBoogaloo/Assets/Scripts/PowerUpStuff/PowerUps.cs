@@ -82,6 +82,10 @@ public class PowerUps : MonoBehaviour
 
         #region [NEW EQUIPMENT]
         Coconut,
+        KitchenKnife,
+        SweetCarolina,
+        RatPosion,
+        IceCubes,
         CookingAppron,
         Salt,
         #endregion
@@ -200,6 +204,17 @@ public class PowerUps : MonoBehaviour
 
                 //[STAT BOOST]
                 stats.inflictStunChance = 1;
+
+                yield return null;
+                break;
+            #endregion
+
+            #region KitchenKnife
+            case PowerUpTypes.KitchenKnife:
+                print("Using KitchenKnife");
+
+                //[STAT BOOST]
+                stats.inflictBleedChance = 1;
 
                 yield return null;
                 break;
