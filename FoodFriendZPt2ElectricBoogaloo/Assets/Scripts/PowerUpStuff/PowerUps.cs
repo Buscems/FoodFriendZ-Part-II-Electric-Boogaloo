@@ -82,6 +82,7 @@ public class PowerUps : MonoBehaviour
 
         #region [NEW EQUIPMENT]
         CookingAppron,
+        Salt,
         #endregion
 
         #region [HEALING]
@@ -279,22 +280,30 @@ public class PowerUps : MonoBehaviour
 
             #region Starfruit
             case PowerUpTypes.Starfruit:
-                //during the effect
-
-                //after the effect
+                //[ACTIVE STATE]
+                if (effectIsActive)
+                {
+                    Debug.Log("Effect is active");
+                    Physics2D.GetIgnoreLayerCollision(4, 7) = false;
+                }
+                //[DEACTIVE STATE]
+                else
+                {
+                    Debug.Log("Effect is deactivated");
+                }
                 break;
             #endregion
 
             #region Eggtimer
             case PowerUpTypes.Eggtimer:
-
+                //[ACTIVE STATE]
                 if (effectIsActive)
                 {
                     Debug.Log("Effect is active");
                     Debug.Log(stats);
                     stats.critChanceMultiplier *= 3;
                 }
-
+                //[DEACTIVE STATE]
                 else
                 {
                     Debug.Log("Effect is deactivated");
