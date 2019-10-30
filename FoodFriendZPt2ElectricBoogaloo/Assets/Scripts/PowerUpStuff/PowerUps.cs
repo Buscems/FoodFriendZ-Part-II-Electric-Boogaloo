@@ -185,6 +185,7 @@ public class PowerUps : MonoBehaviour
     {
         switch (currentPowerUp)
         {
+            //[NEW EQUIPMENT]
             #region Cooking Appron
             case PowerUpTypes.CookingAppron:
                 print("Using Cooking appron");
@@ -241,6 +242,18 @@ public class PowerUps : MonoBehaviour
                 yield return null;
                 break;
             #endregion
+
+            #region IceCubes
+            case PowerUpTypes.IceCubes:
+                print("Using IceCubes");
+
+                //[STAT BOOST]
+                stats.inflictFreezeChance = 1;
+
+                yield return null;
+                break;
+            #endregion
+            //**********************************
 
             #region Slow Time
             case PowerUpTypes.SlowTime:
