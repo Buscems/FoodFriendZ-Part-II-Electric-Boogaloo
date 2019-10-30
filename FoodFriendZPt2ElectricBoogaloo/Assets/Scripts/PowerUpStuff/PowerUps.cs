@@ -284,12 +284,13 @@ public class PowerUps : MonoBehaviour
                 if (effectIsActive)
                 {
                     Debug.Log("Effect is active");
-                    Physics2D.GetIgnoreLayerCollision(4, 7) = false;
+                    stats.gameObject.layer = 15;    //invincible
                 }
                 //[DEACTIVE STATE]
                 else
                 {
                     Debug.Log("Effect is deactivated");
+                    stats.gameObject.layer = 8;     //player
                 }
                 break;
             #endregion
