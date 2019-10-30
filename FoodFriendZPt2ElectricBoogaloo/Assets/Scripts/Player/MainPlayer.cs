@@ -79,13 +79,14 @@ public class MainPlayer : MonoBehaviour
     public float maxStunTimer;
 
     //chances
-    public float stunChance;
+    public float inflictStunChance = 0;
     public float evasiveChance = 0;
 
     //elemental
-    float burnChance = 0;
-    float poisonChance = 0;
-    float freezeChance = 0;
+    public float inflictBurnChance = 0;
+    public float inflictBleedChance = 0;
+    public float inflictPoisonChance = 0;
+    public float inflictFreezeChance = 0;
 
     Rigidbody2D rb;
     Vector3 velocity;
@@ -435,6 +436,9 @@ public class MainPlayer : MonoBehaviour
 
         if (myPlayer.GetButtonDown("Attack"))
         {
+            //[TEMPORARILY STORING HERE. DO NOT DELETE!!!]
+            print("hi");
+
             if (currentChar.isChargable)
             {
                 StartCharge();

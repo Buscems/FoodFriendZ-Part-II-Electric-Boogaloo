@@ -81,6 +81,7 @@ public class PowerUps : MonoBehaviour
         Null,//only for base stat powerups, ex. raise atk, health, speed
 
         #region [NEW EQUIPMENT]
+        Coconut,
         CookingAppron,
         Salt,
         #endregion
@@ -135,6 +136,7 @@ public class PowerUps : MonoBehaviour
         //**[[ITEMS]]**
         #region [ITEMS]
 
+
         //[non-attacks]
         Rosemary,
         Eggtimer,
@@ -187,6 +189,17 @@ public class PowerUps : MonoBehaviour
                 stats.evasiveChance = .25f;
 
                 print(stats.evasiveChance);
+
+                yield return null;
+                break;
+            #endregion
+
+            #region Coconut
+            case PowerUpTypes.Coconut:
+                print("Using Coconut");
+
+                //[STAT BOOST]
+                stats.inflictStunChance = 1;
 
                 yield return null;
                 break;
