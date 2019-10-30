@@ -438,7 +438,6 @@ public class MainPlayer : MonoBehaviour
         {
             #region [[[TEMPORARY DO NOT DELETE ME!!]]]
             //[TEMPORARILY STORING HERE. DO NOT DELETE!!!]
-            print("hi");
 
             //[STUN]
             if (inflictStunChance > 0)
