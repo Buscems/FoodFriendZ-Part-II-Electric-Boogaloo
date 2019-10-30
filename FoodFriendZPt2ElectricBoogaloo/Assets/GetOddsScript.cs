@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GetOddsScript : MonoBehaviour
 {
-
+    //note: bad name, this a generic RNG
     public bool getStunOdds(float chance)
     {
         bool isSuccessful = false;

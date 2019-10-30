@@ -868,9 +868,22 @@ public class MainPlayer : MonoBehaviour
         //is player has evasive chance
         else
         {
-
+            //gets odds from odds script 
+            if (getOddsScript.getStunOdds(evasiveChance))
+            //[SUCCESS]
+            {
+                print("LUCKY!!");
+            }
+            else
+            //[FAILURE]
+            {
+                if (currentChar.currentDodgeTime < 0)
+                {
+                    health -= damage;
+                    cam.StartShake();
+                }
+            }
         }
-
     }
 
     //[RETURN METHODS]
