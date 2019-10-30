@@ -220,6 +220,17 @@ public class PowerUps : MonoBehaviour
                 break;
             #endregion
 
+            #region SweetCarolina
+            case PowerUpTypes.SweetCarolina:
+                print("Using SweetCarolina");
+
+                //[STAT BOOST]
+                stats.inflictBurnChance = 1;
+
+                yield return null;
+                break;
+            #endregion
+
             #region Slow Time
             case PowerUpTypes.SlowTime:
                 float timer = 2;
