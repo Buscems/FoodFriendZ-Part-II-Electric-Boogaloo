@@ -436,8 +436,57 @@ public class MainPlayer : MonoBehaviour
 
         if (myPlayer.GetButtonDown("Attack"))
         {
+            #region [[[TEMPORARY DO NOT DELETE ME!!]]]
             //[TEMPORARILY STORING HERE. DO NOT DELETE!!!]
             print("hi");
+
+            //[STUN]
+            if (inflictStunChance > 0)
+            {
+                if (getOddsScript.getStunOdds(inflictStunChance))
+                {
+                    print("Enemy is [STUNED]");
+                }
+            }
+
+            //[BLEED]
+            if (inflictBleedChance > 0)
+            {
+                if (getOddsScript.getStunOdds(inflictBleedChance))
+                {
+                    print("Enemy is [BLEEDING]");
+                }
+            }
+
+            //[BURN]
+            if (inflictBurnChance > 0)
+            {
+                if (getOddsScript.getStunOdds(inflictBurnChance))
+                {
+                    print("Enemy is [BURNING]");
+                }
+            }
+
+            //[POISON]
+            if (inflictPoisonChance > 0)
+            {
+                if (getOddsScript.getStunOdds(inflictPoisonChance))
+                {
+                    print("Enemy is [POISONED]");
+                }
+            }
+
+            //[FREEZE]
+            if (inflictFreezeChance > 0)
+            {
+                if (getOddsScript.getStunOdds(inflictFreezeChance))
+                {
+                    print("Enemy is [FREEZING]");
+                }
+            }
+
+            #endregion
+
 
             if (currentChar.isChargable)
             {
