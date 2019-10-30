@@ -785,6 +785,7 @@ public class MainPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "StatBoost")
         {
+            //applies all public variables on equipment to multipliers
             PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
             speedMultiplier += temp.movementSpeed;
@@ -799,8 +800,11 @@ public class MainPlayer : MonoBehaviour
             health += temp.healAmount;
 
             currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
-            Debug.Log(other.name);
 
+            //if equipment has a bonus effect OR does more than just boost multipliers, it'll be implmented here
+            StartCoroutine(temp.Pickup());
+
+            //destroys item
             Destroy(other.gameObject);
         }
 
@@ -855,6 +859,9 @@ public class MainPlayer : MonoBehaviour
     //getting hit method
     public void GetHit(int damage)
     {
+        print(evasiveChance);
+
+
         //[EVASIVENESS CHECK]
         //guarenteed hurt
         if (evasiveChance <= 0)

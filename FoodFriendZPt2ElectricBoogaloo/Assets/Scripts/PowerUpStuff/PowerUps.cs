@@ -75,12 +75,6 @@ public class PowerUps : MonoBehaviour
         baseStats = stats.currentChar;
     }
 
-    //[UPDATE]
-    private void Update()
-    {
-
-    }
-
     //this gives drop down menu selects, make new line write name then put comma
     public enum PowerUpTypes
     {
@@ -169,11 +163,14 @@ public class PowerUps : MonoBehaviour
         if (other.CompareTag("Player1"))
         {
             if (tag == "StatBooster")
-                StartCoroutine(Pickup());
-        }
-        else if (tag == "Item")
-        {
-            GetComponent<BoxCollider2D>().enabled = false;
+            {
+                //StartCoroutine(Pickup());
+            }
+
+            if (tag == "Item")
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
     }
 
@@ -185,6 +182,10 @@ public class PowerUps : MonoBehaviour
             case PowerUpTypes.CookingAppron:
                 print("Using Cooking appron");
 
+                //[STAT BOOST]
+                stats.evasiveChance = .25f;
+
+                print(stats.evasiveChance);
 
                 yield return null;
                 break;
