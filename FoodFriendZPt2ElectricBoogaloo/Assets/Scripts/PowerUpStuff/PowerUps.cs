@@ -73,32 +73,22 @@ public class PowerUps : MonoBehaviour
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
 
         baseStats = stats.currentChar;
-
-        if (gameObject.tag == "Item")
-        {
-
-        }
-
-        //GetComponent<BoxCollider2D>().enabled = false;
     }
 
     //[UPDATE]
     private void Update()
     {
-        /*
-        cantPickUpTime -= Time.deltaTime;
 
-        if (cantPickUpTime < 0)
-        {
-            GetComponent<BoxCollider2D>().enabled = true;
-        }
-        */
     }
 
     //this gives drop down menu selects, make new line write name then put comma
     public enum PowerUpTypes
     {
         Null,//only for base stat powerups, ex. raise atk, health, speed
+
+        #region [NEW EQUIPMENT]
+        CookingAppron,
+        #endregion
 
         #region [HEALING]
         Heal,
@@ -191,6 +181,15 @@ public class PowerUps : MonoBehaviour
     {
         switch (currentPowerUp)
         {
+            #region Cooking Appron
+            case PowerUpTypes.CookingAppron:
+                print("Using Cooking appron");
+
+
+                yield return null;
+                break;
+            #endregion
+
             #region Slow Time
             case PowerUpTypes.SlowTime:
                 float timer = 2;

@@ -80,6 +80,7 @@ public class MainPlayer : MonoBehaviour
 
     //chances
     public float stunChance;
+    public float evasiveChance = 0;
 
     //elemental
     float burnChance = 0;
@@ -854,11 +855,22 @@ public class MainPlayer : MonoBehaviour
     //getting hit method
     public void GetHit(int damage)
     {
-        if (currentChar.currentDodgeTime < 0)
+        //[EVASIVENESS CHECK]
+        //guarenteed hurt
+        if (evasiveChance <= 0)
         {
-            health -= damage;
-            cam.StartShake();
+            if (currentChar.currentDodgeTime < 0)
+            {
+                health -= damage;
+                cam.StartShake();
+            }
         }
+        //is player has evasive chance
+        else
+        {
+
+        }
+
     }
 
     //[RETURN METHODS]

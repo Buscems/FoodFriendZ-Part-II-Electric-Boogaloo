@@ -13,17 +13,17 @@ public class ItemManager : MonoBehaviour
     //timer stuff
     float MAXcurCDTimer;
     public float curCDTimer;
-
     public float curEffectTimer;
 
-
-    //[UI]
+    #region [UI bar]
+//[UI]
     public Slider CoolDownSlider;
     public Image CoolDownFillBar;
 
     public Color readyCDcolor;
     public Color rechargingCDcolor;
-
+    #endregion
+    
     //[START]
     void Start()
     {
