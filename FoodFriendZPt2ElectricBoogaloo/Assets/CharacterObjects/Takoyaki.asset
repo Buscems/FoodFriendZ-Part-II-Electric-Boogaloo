@@ -15,7 +15,7 @@ MonoBehaviour:
   hudIcon: {fileID: -5435086016833673295, guid: 526345c04a1d89f4eaf9bb9643030873,
     type: 3}
   characterName: takoyaki
-  attackType: 1
+  attackType: 4
   Mspeed: 3
   baseDamage: 0.25
   critChance: 0
@@ -23,15 +23,15 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -29.211353
+  currentDodgeTime: -150.24924
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -28.211372
+  currentDodgeWaitTime: -149.2493
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0.75
-  currentPosition: {x: -21, y: -13, z: 0}
+  currentPosition: {x: -57.5, y: 61.5, z: 0}
   currentDirection: {x: 0.1505908, y: -0.011533157, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
@@ -45,10 +45,10 @@ MonoBehaviour:
   isAttacking: 0
   bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
   firerate: 0.2
-  bulletSpeed: 750
+  bulletSpeed: 7
   timeTillDespawn: 1
   canBounce: 0
-  radius: 30
+  radius: 60
   bulletsPerShot: 3
   bulletTypes: []
   bulletsPerBurst: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   drop: {fileID: 4049022442695697508, guid: 840089a4ee0433149a83c6df387b59f2, type: 3}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -4.4640236
+  currentFirerateTimer: -2.9161544
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
@@ -70,3 +70,19 @@ MonoBehaviour:
   baseDamageMulitplier: 1
   maxDamageMultiplier: 1
   critChanceMultiplier: 1
+  bleedChance: 0
+  bleedDamage: 0
+  bleedLength: 0
+  bleedTickRate: 0
+  burnChance: 0
+  burnDamage: 0
+  burnLength: 0
+  poisonChance: 0
+  poisonDamage: 0
+  poisonLength: 0
+  poisonSlowDownPercentage: 0
+  stunChance: 0
+  stunLength: 0
+  freezeChance: 0
+  freezeLength: 0
+  freezeSlowdownPercentage: 0
