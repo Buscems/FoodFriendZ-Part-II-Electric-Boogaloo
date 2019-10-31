@@ -164,12 +164,17 @@ public class BasePlayer : ScriptableObject
     [Header("Status Effects")]
     public float bleedDamage;
     public float bleedLength;
+    public float bleedTickRate;
     public float burnDamage;
     public float burnLength;
     public float poisonDamage;
     public float poisonLength;
+    [Range(0.0f, 1.0f)]
+    public float poisonSlowDownPercentage;
     public float stunLength;
     public float freezeLength;
+    [Range(0.0f, 1.0f)]
+    public float freezeSlowdownPercentage;
 
     private bool blood;
     private bool fire;
@@ -284,7 +289,9 @@ public class BasePlayer : ScriptableObject
     private void SetBulletVariables(GameObject attack, Transform parentTransform, bool isBoomerang)
     {
         attack.GetComponent<Attack>().SetBulletVariables(canPierce, maxAmountOfEnemiesCanPassThrough, pierceMultiplier, isPinshot, isNeedler, timeBeforeExplosion, explosionDamage, canBounce);
-        attack.GetComponent<BasicBullet>().SetVariables(bulletSpeed, timeTillDespawn, canBounce, blood, fire, poison, freeze, stun);
+        attack.GetComponent<BasicBullet>().SetVariables(bulletSpeed, timeTillDespawn, canBounce);
+        attack.GetComponent<Attack>().SetStatusEffectsBools(blood, fire, poison, freeze, stun);
+        attack.GetComponent<Attack>().SetStatusEffects(new float[] { bleedDamage, bleedLength, bleedTickRate }, new float[] { burnDamage, burnLength }, new float[] { poisonDamage, poisonLength, poisonSlowDownPercentage }, new float[] { freezeLength, freezeSlowdownPercentage }, stunLength);
 
         if (isBoomerang)
         {
@@ -296,6 +303,8 @@ public class BasePlayer : ScriptableObject
 
     private void SetMeleeVariables(GameObject attack, Transform parentTransform)
     {
+        attack.GetComponent<Attack>().SetStatusEffectsBools(blood, fire, poison, freeze, stun);
+        attack.GetComponent<Attack>().SetStatusEffects(new float[] { bleedDamage, bleedLength, bleedTickRate }, new float[] { burnDamage, burnLength }, new float[] { poisonDamage, poisonLength, poisonSlowDownPercentage }, new float[] { freezeLength, freezeSlowdownPercentage }, stunLength);
         attack.transform.parent = parentTransform;
         //attack.GetComponent<Attack>().canPierce = canPierce;
         if (attack.transform.childCount > 0)

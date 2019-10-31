@@ -27,13 +27,7 @@ public class BasicBullet : MonoBehaviour
 
     [HideInInspector]
     public bool stopMoving = false;
-
-
-    private bool blood;
-    private bool fire;
-    private bool poison;
-    private bool freeze;
-    private bool stun;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -66,11 +60,16 @@ public class BasicBullet : MonoBehaviour
         }
     }
 
-    public void SetVariables(float _bulletSpeed, float _timeTillDespawn, bool _canBounce, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
+    public void SetVariables(float _bulletSpeed, float _timeTillDespawn, bool _canBounce)
     {
         bulletSpeed = _bulletSpeed;
         timeTillDespawn = _timeTillDespawn;
         canBounce = _canBounce;
+    }
+
+    public void SetStatusEffects(float[] _burn, float[] _fire, float[] _poison, float _freeze, float _stun)
+    {
+
     }
 
 

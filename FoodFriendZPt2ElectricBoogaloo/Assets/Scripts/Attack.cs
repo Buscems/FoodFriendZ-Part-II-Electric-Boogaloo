@@ -35,6 +35,19 @@ public class Attack : MonoBehaviour
     float explosionDamage;
 
 
+    private bool blood;
+    private bool fire;
+    private bool poison;
+    private bool freeze;
+    private bool stun;
+
+    private float[] bleedVariables;
+    private float[] fireVariables;
+    private float[] poisonVariables;
+    private float[] freezeVariables;
+    private float stunLength;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +107,23 @@ public class Attack : MonoBehaviour
         }
     }
 
+    public void SetStatusEffectsBools(bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
+    {
+        blood = _blood;
+        fire = _fire;
+        poison = _poison;
+        freeze = _freeze;
+        stun = _stun;
+    }
+    public void SetStatusEffects(float[] _blood, float[] _fire, float[] _poison, float[] _freeze, float _stun)
+    {
+        bleedVariables = _blood;
+        fireVariables = _fire;
+        poisonVariables = _poison;
+        freezeVariables = _freeze;
+        stunLength = _stun;
+    }
+
     public void SetBulletVariables(bool _canPierce, int _maxAmountOfEnemiesCanPassThrough, float _pierceMultiplier, bool _isPinshot, bool _isNeedler, float _timeBeforeExplosion, float _explosionDamage, bool _canBounce)
     {
         canPierce = _canPierce;
@@ -104,6 +134,43 @@ public class Attack : MonoBehaviour
         timeBeforeExplosion = _timeBeforeExplosion;
         explosionDamage = _explosionDamage;
         canBounce = _canBounce;
+    }
+
+    private void SetStatusEffectsToEnemy(GameObject enemy)
+    {
+        try
+        {
+            BaseEnemy be = enemy.GetComponent<BaseEnemy>();
+
+            if (blood)
+            {
+                be.SetBleed(bleedVariables);
+            }
+            if (fire)
+            {
+                be.SetBurn(fireVariables);
+            }
+            if(poison)
+            {
+                be.SetPoison(poisonVariables);
+            }
+            if (freeze)
+            {
+                be.SetFreeze(freezeVariables);
+            }
+            if (stun)
+            {
+                be.SetStun(stunLength);
+            }
+        }
+        catch { }
+
+        try
+        {
+            BaseBoss bb = enemy.GetComponent<BaseBoss>();
+
+        }
+        catch { }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -149,10 +216,12 @@ public class Attack : MonoBehaviour
                 if (other.GetComponent<BaseEnemy>() != null)
                 {
                     other.GetComponent<BaseEnemy>().health -= damage;
+                    SetStatusEffectsToEnemy(other.gameObject);
                 }
                 if (other.GetComponent<BaseBoss>() != null)
                 {
                     other.GetComponent<BaseBoss>().health -= damage;
+                    SetStatusEffectsToEnemy(other.gameObject);
                 }
 
                 try
