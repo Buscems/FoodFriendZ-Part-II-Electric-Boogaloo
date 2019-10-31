@@ -43,6 +43,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         }
 
         HighlightedCharacterIMG.sprite = characterSprites[0];
+        HighlightedCharacterNameDisplay.text = "Tofu";
 
     }
 
@@ -94,12 +95,18 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     {
         HighlightedCharacterIMG.sprite = characterSprites[5];
         HighlightedCharacterNameDisplay.text = "Fries";
-        PlayerPrefs.SetInt("startCharacter", 6);
+        PlayerPrefs.SetInt("startCharacter", 8);
     }
     public void Burger()
     {
         HighlightedCharacterIMG.sprite = characterSprites[6];
         HighlightedCharacterNameDisplay.text = "Burger";
+        PlayerPrefs.SetInt("startCharacter", 6);
+    }
+    public void Sashimi()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[7];
+        HighlightedCharacterNameDisplay.text = "Sashimi";
         PlayerPrefs.SetInt("startCharacter", 7);
     }
     public void Napoleon()
@@ -108,4 +115,5 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         HighlightedCharacterNameDisplay.text = "Napoleon";
         PlayerPrefs.SetInt("startCharacter", 8);
     }
+    
 }

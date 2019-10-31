@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hamburger
   m_EditorClassIdentifier: 
   hudIcon: {fileID: 731375368619335737, guid: a50946ca57f9c42ec899b790b68db37b, type: 3}
-  characterName: Hamburger
+  characterName: burger
   attackType: 6
   Mspeed: 4
   baseDamage: 2
@@ -22,16 +22,16 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1306.9474
+  currentDodgeTime: -1410.6389
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -306.90967
+  currentDodgeWaitTime: -410.6132
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -59.84156, y: 62.156307, z: 0}
-  currentDirection: {x: 0.36609745, y: -0.0657098, z: 0}
+  currentPosition: {x: -50.84131, y: 63.981003, z: 0}
+  currentDirection: {x: 1, y: 1, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   isAttacking: 0
   bullet: {fileID: 6395150998634022948, guid: 76da2d0d67f77f849a4c098de550d799, type: 3}
   firerate: 0.21
-  bulletSpeed: 339.04
+  bulletSpeed: 5
   timeTillDespawn: 86.31
   canBounce: 0
   radius: 0
@@ -61,10 +61,11 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -2.9638786
+  currentFirerateTimer: -7.142262
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
   baseDamageMulitplier: 1
   maxDamageMultiplier: 1
+  critChanceMultiplier: 1

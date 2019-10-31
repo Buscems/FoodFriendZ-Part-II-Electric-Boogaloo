@@ -10,7 +10,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: characterID
-    m_EventTreshold: 7
+    m_EventTreshold: 6
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2863388838658312975}
   m_Solo: 0
@@ -298,7 +298,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: characterID
+    m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4121374371733679398}
   m_Solo: 0
@@ -945,22 +948,22 @@ AnimatorStateMachine:
     m_Position: {x: 350, y: -80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2863388838658312975}
-    m_Position: {x: 380, y: 80, z: 0}
+    m_Position: {x: 400, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5127372092856665826}
     m_Position: {x: 390, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2179954800921476553}
-    m_Position: {x: 390, y: 20, z: 0}
+    m_Position: {x: 400, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7383337478743812256}
     m_Position: {x: 260, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4182845934706064916}
-    m_Position: {x: 370, y: 140, z: 0}
+    m_Position: {x: 100, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4121374371733679398}
-    m_Position: {x: 320, y: 190, z: 0}
+    m_Position: {x: 400, y: 70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 3284446408790711364}
@@ -1014,10 +1017,7 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: characterID
-    m_EventTreshold: 8
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4182845934706064916}
   m_Solo: 0
@@ -1042,7 +1042,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: characterID
-    m_EventTreshold: 6
+    m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2179954800921476553}
   m_Solo: 0

@@ -20,11 +20,6 @@ public class BasicBullet : MonoBehaviour
     //[HideInInspector]
     public Vector3 velocity;
 
-    public BoxCollider2D top;
-    public BoxCollider2D bottom;
-    public BoxCollider2D left;
-    public BoxCollider2D right;
-
     public GameObject instantiateOnDestroy;
 
     [HideInInspector]
@@ -78,7 +73,7 @@ public class BasicBullet : MonoBehaviour
         if (isBoomerang && timeBeforeReturning < 0)
         {
             GetComponent<Animator>().enabled = false;
-            float step = bulletSpeed * Time.deltaTime/30; 
+            float step = bulletSpeed * Time.deltaTime; 
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
 
         }
@@ -90,27 +85,6 @@ public class BasicBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (canBounce && collision.gameObject.tag != "Player1" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "PlayerCollider")
-        {
-            if (top.IsTouching(collision))
-            {
-                velocity.y *= -1;
-            }
-            if (bottom.IsTouching(collision))
-            {
-                velocity.y *= -1;
-            }
-            if (right.IsTouching(collision))
-            {
-                velocity.x *= -1;
-            }
-            if (left.IsTouching(collision))
-            {
-                velocity.x *= -1;
-            }
-        }
-
-
         if(collision.gameObject.tag == "Player1")
         {
             if (isBoomerang && timeBeforeReturning < 0)
@@ -118,8 +92,14 @@ public class BasicBullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-       
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (canBounce && collision.gameObject.tag == "TilesHere")
+        {
+            velocity = Vector3.Reflect(velocity, collision.contacts[0].normal);
+        }
     }
 
     private void OnDestroy()
