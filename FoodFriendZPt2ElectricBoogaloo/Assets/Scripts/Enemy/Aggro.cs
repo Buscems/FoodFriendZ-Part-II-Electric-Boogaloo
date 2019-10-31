@@ -52,37 +52,40 @@ public class Aggro : MonoBehaviour
 
     void AggroHandler()
     {
-
-        for (int i = 0; i < target.Length; i++)
+        //if this is a regular enemy, do the normal aggro things
+        if (this.GetComponent<BaseEnemy>() != null)
         {
+            for (int i = 0; i < target.Length; i++)
+            {
 
-            if ((target[i].transform.position - currentPos).magnitude < aggroRange)
-            {
-                currentTarget = target[i];
-                aggro = true;
-                aggroTimer = aggroTimerMax;
-            }
-            else
-            {
-                if (aggro)
+                if ((target[i].transform.position - currentPos).magnitude < aggroRange)
                 {
-                    aggroTimer -= Time.deltaTime;
+                    currentTarget = target[i];
+                    aggro = true;
+                    aggroTimer = aggroTimerMax;
+                }
+                else
+                {
+                    if (aggro)
+                    {
+                        aggroTimer -= Time.deltaTime;
+                    }
                 }
             }
-        }
 
-        if (aggro)
-        {
-
-            if (aggroTimer <= 0)
+            if (aggro)
             {
-                aggro = false;
-                currentTarget = null;
-                aggroTimer = aggroTimerMax;
+
+                if (aggroTimer <= 0)
+                {
+                    aggro = false;
+                    currentTarget = null;
+                    aggroTimer = aggroTimerMax;
+                }
+
             }
-
         }
-
+        //if this is a boss, ignore the normal aggro things and just set it true if the player enters the room in the room trigger script
     }
 
 }
