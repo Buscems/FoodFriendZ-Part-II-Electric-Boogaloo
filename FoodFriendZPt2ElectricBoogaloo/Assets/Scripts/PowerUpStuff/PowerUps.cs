@@ -210,7 +210,7 @@ public class PowerUps : MonoBehaviour
                 print("Using Coconut");
 
                 //[STAT BOOST]
-                stats.stunChance = 1;
+                stunChance = 1;
 
                 yield return null;
                 break;
@@ -221,7 +221,7 @@ public class PowerUps : MonoBehaviour
                 print("Using KitchenKnife");
 
                 //[STAT BOOST]
-                stats.bleedChance = 1;
+                bleedChance = 1;
 
                 yield return null;
                 break;
@@ -232,7 +232,7 @@ public class PowerUps : MonoBehaviour
                 print("Using SweetCarolina");
 
                 //[STAT BOOST]
-                stats.burnChance = 1;
+                burnChance = 1;
 
                 yield return null;
                 break;
@@ -243,7 +243,7 @@ public class PowerUps : MonoBehaviour
                 print("Using RatPoison");
 
                 //[STAT BOOST]
-                stats.poisonChance = 1;
+                poisonChance = 1;
 
                 yield return null;
                 break;
@@ -254,7 +254,7 @@ public class PowerUps : MonoBehaviour
                 print("Using IceCubes");
 
                 //[STAT BOOST]
-                stats.freezeChance = 1;
+                freezeChance = 1;
 
                 yield return null;
                 break;
@@ -287,7 +287,7 @@ public class PowerUps : MonoBehaviour
             #endregion
 
             #region StunAttack
-            case PowerUpTypes.StunAttack:
+            case PowerUpTypes.StunAttack:               
                 stats.stunTimer = 5;
 
                 break;

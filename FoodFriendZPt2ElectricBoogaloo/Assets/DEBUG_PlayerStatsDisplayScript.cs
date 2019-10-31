@@ -30,6 +30,7 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
 
     void Update()
     {
+        /*
         //update text
         mSpeedDisp.text = "mS: " + pScript.speedMultiplier.ToString("0.00");
         aSpeedDisp.text = "aSpd: " + pScript.attackSpeedMultiplier.ToString("0.00");
@@ -50,5 +51,6 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
             effectTimer.text = "effectTimer: " + ItemMangerScript.curEffectTimer.ToString("00.00");
             curTimer.text = "curCDTimer: " + ItemMangerScript.curCDTimer.ToString("00.00");
         }
+        */
     }
 }

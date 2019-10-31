@@ -844,6 +844,9 @@ public class MainPlayer : MonoBehaviour
             //applies all public variables on equipment to multipliers
             PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
+            //if equipment has a bonus effect OR does more than just boost multipliers, it'll be implmented here
+            StartCoroutine(temp.Pickup());
+
             speedMultiplier += temp.movementSpeed;
             attackSizeMultiplier += temp.attackSize;
             attackSpeedMultiplier += temp.attackSpeed;
@@ -861,8 +864,7 @@ public class MainPlayer : MonoBehaviour
 
             currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
 
-            //if equipment has a bonus effect OR does more than just boost multipliers, it'll be implmented here
-            StartCoroutine(temp.Pickup());
+
 
             //destroys item
             Destroy(other.gameObject);
