@@ -29,15 +29,20 @@ public class BasePlayerEditor : Editor
     SerializedProperty isChargable;
     SerializedProperty isNeedler;
     SerializedProperty isPinshot;
+    SerializedProperty bleedChance;
     SerializedProperty bleedDamage;
     SerializedProperty bleedLength;
     SerializedProperty bleedTickRate;
+    SerializedProperty burnChance;
     SerializedProperty burnDamage;
     SerializedProperty burnLength;
+    SerializedProperty poisonChance;
     SerializedProperty poisonDamage;
     SerializedProperty poisonLength;
     SerializedProperty poisonSlowDownPercentage;
+    SerializedProperty stunChance;
     SerializedProperty stunLength;
+    SerializedProperty freezeChance;
     SerializedProperty freezeLength;
     SerializedProperty freezeSlowDownPercentage;
     #endregion
@@ -128,15 +133,20 @@ public class BasePlayerEditor : Editor
         drop = soTarget.FindProperty("drop");
         dropRadius = soTarget.FindProperty("dropRadius");
         explosionForce = soTarget.FindProperty("explosionForce");
+        bleedChance = soTarget.FindProperty("bleedChance");
         bleedDamage = soTarget.FindProperty("bleedDamage");
         bleedLength = soTarget.FindProperty("bleedLength");
         bleedTickRate = soTarget.FindProperty("bleedTickRate");
+        burnChance = soTarget.FindProperty("burnChance");
         burnDamage = soTarget.FindProperty("burnDamage");
         burnLength = soTarget.FindProperty("burnLength");
+        poisonChance = soTarget.FindProperty("poisonChance");
         poisonDamage = soTarget.FindProperty("poisonDamage");
         poisonLength = soTarget.FindProperty("poisonLength");
         poisonSlowDownPercentage = soTarget.FindProperty("poisonSlowDownPercentage");
+        stunChance = soTarget.FindProperty("stunChance");
         stunLength = soTarget.FindProperty("stunLength");
+        freezeChance = soTarget.FindProperty("freezeChance");
         freezeLength = soTarget.FindProperty("freezeLength");
         freezeSlowDownPercentage = soTarget.FindProperty("freezeSlowdownPercentage");
         #endregion
@@ -237,17 +247,37 @@ public class BasePlayerEditor : Editor
             EditorGUILayout.PropertyField(dropRadius);
             EditorGUILayout.PropertyField(explosionForce);
         }
-        EditorGUILayout.PropertyField(bleedDamage);
-        EditorGUILayout.PropertyField(bleedLength);
-        EditorGUILayout.PropertyField(bleedTickRate);
-        EditorGUILayout.PropertyField(burnDamage);
-        EditorGUILayout.PropertyField(burnLength);
-        EditorGUILayout.PropertyField(poisonDamage);
-        EditorGUILayout.PropertyField(poisonLength);
-        EditorGUILayout.PropertyField(poisonSlowDownPercentage);
-        EditorGUILayout.PropertyField(stunLength);
-        EditorGUILayout.PropertyField(freezeLength);
-        EditorGUILayout.PropertyField(freezeSlowDownPercentage);
+        EditorGUILayout.PropertyField(bleedChance);
+        if (myTarget.bleedChance > 0)
+        {
+            EditorGUILayout.PropertyField(bleedDamage);
+            EditorGUILayout.PropertyField(bleedLength);
+            EditorGUILayout.PropertyField(bleedTickRate);
+        }
+        EditorGUILayout.PropertyField(burnChance);
+        if (myTarget.burnChance > 0)
+        {
+            EditorGUILayout.PropertyField(burnDamage);
+            EditorGUILayout.PropertyField(burnLength);
+        }
+        EditorGUILayout.PropertyField(poisonChance);
+        if (myTarget.poisonChance > 0)
+        {
+            EditorGUILayout.PropertyField(poisonDamage);
+            EditorGUILayout.PropertyField(poisonLength);
+            EditorGUILayout.PropertyField(poisonSlowDownPercentage);
+        }
+        EditorGUILayout.PropertyField(stunChance);
+        if (myTarget.stunChance > 0)
+        {
+            EditorGUILayout.PropertyField(stunLength);
+        }
+        EditorGUILayout.PropertyField(freezeChance);
+        if (myTarget.freezeChance > 0)
+        {
+            EditorGUILayout.PropertyField(freezeLength);
+            EditorGUILayout.PropertyField(freezeSlowDownPercentage);
+        }
 
         if (EditorGUI.EndChangeCheck())
         {
