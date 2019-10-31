@@ -95,7 +95,6 @@ public class DrBee : MonoBehaviour
 
     void Stage1Movement()
     {
-        Debug.Log("Move");
         rb.MovePosition(rb.position + velocity * baseBoss.speed * Time.deltaTime);
 
     }
@@ -109,7 +108,6 @@ public class DrBee : MonoBehaviour
     {
         if(collision.gameObject.tag == "TilesHere")
         {
-            Debug.Log("Change Direction");
             velocity = Vector2.Reflect(velocity, collision.contacts[0].normal);
         }
     }
