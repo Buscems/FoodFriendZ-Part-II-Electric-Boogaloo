@@ -29,6 +29,17 @@ public class BasePlayerEditor : Editor
     SerializedProperty isChargable;
     SerializedProperty isNeedler;
     SerializedProperty isPinshot;
+    SerializedProperty bleedDamage;
+    SerializedProperty bleedLength;
+    SerializedProperty bleedTickRate;
+    SerializedProperty burnDamage;
+    SerializedProperty burnLength;
+    SerializedProperty poisonDamage;
+    SerializedProperty poisonLength;
+    SerializedProperty poisonSlowDownPercentage;
+    SerializedProperty stunLength;
+    SerializedProperty freezeLength;
+    SerializedProperty freezeSlowDownPercentage;
     #endregion
 
     //These are going to be all melee specific variables
@@ -117,6 +128,17 @@ public class BasePlayerEditor : Editor
         drop = soTarget.FindProperty("drop");
         dropRadius = soTarget.FindProperty("dropRadius");
         explosionForce = soTarget.FindProperty("explosionForce");
+        bleedDamage = soTarget.FindProperty("bleedDamage");
+        bleedLength = soTarget.FindProperty("bleedLength");
+        bleedTickRate = soTarget.FindProperty("bleedTickRate");
+        burnDamage = soTarget.FindProperty("burnDamage");
+        burnLength = soTarget.FindProperty("burnLength");
+        poisonDamage = soTarget.FindProperty("poisonDamage");
+        poisonLength = soTarget.FindProperty("poisonLength");
+        poisonSlowDownPercentage = soTarget.FindProperty("poisonSlowDownPercentage");
+        stunLength = soTarget.FindProperty("stunLength");
+        freezeLength = soTarget.FindProperty("freezeLength");
+        freezeSlowDownPercentage = soTarget.FindProperty("freezeSlowdownPercentage");
         #endregion
 
     }
@@ -215,7 +237,19 @@ public class BasePlayerEditor : Editor
             EditorGUILayout.PropertyField(dropRadius);
             EditorGUILayout.PropertyField(explosionForce);
         }
-        if(EditorGUI.EndChangeCheck())
+        EditorGUILayout.PropertyField(bleedDamage);
+        EditorGUILayout.PropertyField(bleedLength);
+        EditorGUILayout.PropertyField(bleedTickRate);
+        EditorGUILayout.PropertyField(burnDamage);
+        EditorGUILayout.PropertyField(burnLength);
+        EditorGUILayout.PropertyField(poisonDamage);
+        EditorGUILayout.PropertyField(poisonLength);
+        EditorGUILayout.PropertyField(poisonSlowDownPercentage);
+        EditorGUILayout.PropertyField(stunLength);
+        EditorGUILayout.PropertyField(freezeLength);
+        EditorGUILayout.PropertyField(freezeSlowDownPercentage);
+
+        if (EditorGUI.EndChangeCheck())
         {
             soTarget.ApplyModifiedProperties();
             GUI.FocusControl(null);
