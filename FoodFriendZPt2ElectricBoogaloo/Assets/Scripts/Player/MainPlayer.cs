@@ -79,14 +79,14 @@ public class MainPlayer : MonoBehaviour
     public float maxStunTimer;
 
     //chances
-    public float inflictStunChance = 0;
     public float evasiveChance = 0;
 
     //elemental
-    public float inflictBurnChance = 0;
-    public float inflictBleedChance = 0;
-    public float inflictPoisonChance = 0;
-    public float inflictFreezeChance = 0;
+    public float burnChance = 0;
+    public float bleedChance = 0;
+    public float poisonChance = 0;
+    public float stunChance = 0;
+    public float freezeChance = 0;
 
     Rigidbody2D rb;
     Vector3 velocity;
@@ -134,6 +134,7 @@ public class MainPlayer : MonoBehaviour
     [Header("**TEMPORARY ELEMENTS")]
     public TextMeshProUGUI youDiedText;
 
+    private GetOddsScript getOdds;
 
     #endregion
 
@@ -214,6 +215,8 @@ public class MainPlayer : MonoBehaviour
 
         //??
         downCharacter.sprite = cross.hudIcon;
+
+        getOdds = GetComponent<GetOddsScript>();
     }
 
     void Start()
@@ -437,6 +440,7 @@ public class MainPlayer : MonoBehaviour
         if (myPlayer.GetButtonDown("Attack"))
         {
             #region [[[TEMPORARY DO NOT DELETE ME!!]]]
+            /*
             //[TEMPORARILY STORING HERE. DO NOT DELETE!!!]
 
             //[STUN]
@@ -483,7 +487,7 @@ public class MainPlayer : MonoBehaviour
                     print("Enemy is [FREEZING]");
                 }
             }
-
+            */
             #endregion
 
 
@@ -495,11 +499,11 @@ public class MainPlayer : MonoBehaviour
             {
                 if (currentChar.attackType == BasePlayer.AttackType.Melee && currentChar.currentAttackSpeedTimer < 0)
                 {
-                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
                 }
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
-                    currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+                    currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
                 }
             }
             if (currentChar.attackType == BasePlayer.AttackType.Builder)
@@ -511,7 +515,7 @@ public class MainPlayer : MonoBehaviour
         {
             if (currentChar.firing)
             {
-                currentChar.BurstFire(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+                currentChar.BurstFire(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
             }
         }
 
@@ -521,12 +525,12 @@ public class MainPlayer : MonoBehaviour
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Basic)
             {
-                currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+                currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
             }
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
-                currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+                currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
             }
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire || currentChar.attackType == BasePlayer.AttackType.Napolean)
             {
@@ -534,7 +538,7 @@ public class MainPlayer : MonoBehaviour
             }
             if (currentChar.attackType == BasePlayer.AttackType.Boomerang)
             {
-                currentChar.RangedBoomerang(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier);
+                currentChar.RangedBoomerang(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
             }
         }
 
@@ -555,13 +559,13 @@ public class MainPlayer : MonoBehaviour
                     //(Melee Attacks)
                     if (currentChar.attackType == BasePlayer.AttackType.Melee && currentChar.currentAttackSpeedTimer < 0)
                     {
-                        currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage);
+                        currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
                     }
 
                     //(Semi-Auto Attacks)
                     if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                     {
-                        currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage);
+                        currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
                     }
 
                     //reset charge timer
@@ -595,13 +599,13 @@ public class MainPlayer : MonoBehaviour
                 //(Melee Attacks)
                 if (currentChar.attackType == BasePlayer.AttackType.Melee)
                 {
-                    currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage);
+                    currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
                 }
 
                 //(Semi-Auto Attacks)
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
-                    currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage);
+                    currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(bleedChance), getOdds.GetStunOdds(burnChance), getOdds.GetStunOdds(poisonChance), getOdds.GetStunOdds(stunChance), getOdds.GetStunOdds(freezeChance));
                 }
 
                 //reset timer
@@ -927,8 +931,9 @@ public class MainPlayer : MonoBehaviour
         //is player has evasive chance
         else
         {
+            
             //gets odds from odds script 
-            if (getOddsScript.getStunOdds(evasiveChance))
+            if (getOddsScript.GetStunOdds(evasiveChance))
             //[SUCCESS]
             {
                 print("LUCKY!!");

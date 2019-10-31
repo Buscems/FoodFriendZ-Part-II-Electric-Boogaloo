@@ -301,7 +301,7 @@ public class BasePlayer : ScriptableObject
         }
     }
 
-    public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
+    public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
 
         float randNum = Random.Range(0, 1);
@@ -351,7 +351,7 @@ public class BasePlayer : ScriptableObject
         }
     }
 
-    public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
+    public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
@@ -364,7 +364,7 @@ public class BasePlayer : ScriptableObject
         attack.GetComponent<Attack>().damage = damage;
     }
 
-    public void RangedBoomerang(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
+    public void RangedBoomerang(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
@@ -377,7 +377,7 @@ public class BasePlayer : ScriptableObject
         attack.GetComponent<Attack>().damage = damage;
     }
 
-    public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
+    public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
@@ -411,7 +411,7 @@ public class BasePlayer : ScriptableObject
         }
     }
 
-    public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage)
+    public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
