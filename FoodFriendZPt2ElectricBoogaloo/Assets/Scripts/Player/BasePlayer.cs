@@ -160,6 +160,12 @@ public class BasePlayer : ScriptableObject
     [HideInInspector]
     public float critChanceMultiplier = 1;
 
+
+    private bool blood;
+    private bool fire;
+    private bool poison;
+    private bool freeze;
+    private bool stun;
     #endregion
 
     public void Start()
@@ -268,7 +274,7 @@ public class BasePlayer : ScriptableObject
     private void SetBulletVariables(GameObject attack, Transform parentTransform, bool isBoomerang)
     {
         attack.GetComponent<Attack>().SetBulletVariables(canPierce, maxAmountOfEnemiesCanPassThrough, pierceMultiplier, isPinshot, isNeedler, timeBeforeExplosion, explosionDamage, canBounce);
-        attack.GetComponent<BasicBullet>().SetVariables(bulletSpeed, timeTillDespawn, canBounce);
+        attack.GetComponent<BasicBullet>().SetVariables(bulletSpeed, timeTillDespawn, canBounce, blood, fire, poison, freeze, stun);
 
         if (isBoomerang)
         {
@@ -303,6 +309,11 @@ public class BasePlayer : ScriptableObject
 
     public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
+        blood = _blood;
+        fire = _fire;
+        poison = _poison;
+        freeze = _freeze;
+        stun = _stun;
 
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
@@ -353,6 +364,12 @@ public class BasePlayer : ScriptableObject
 
     public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
+        blood = _blood;
+        fire = _fire;
+        poison = _poison;
+        freeze = _freeze;
+        stun = _stun;
+
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
         {
@@ -366,6 +383,12 @@ public class BasePlayer : ScriptableObject
 
     public void RangedBoomerang(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
+        blood = _blood;
+        fire = _fire;
+        poison = _poison;
+        freeze = _freeze;
+        stun = _stun;
+
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
         {
@@ -379,6 +402,12 @@ public class BasePlayer : ScriptableObject
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
+        blood = _blood;
+        fire = _fire;
+        poison = _poison;
+        freeze = _freeze;
+        stun = _stun;
+
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
         {
@@ -413,6 +442,12 @@ public class BasePlayer : ScriptableObject
 
     public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
     {
+        blood = _blood;
+        fire = _fire;
+        poison = _poison;
+        freeze = _freeze;
+        stun = _stun;
+
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
         {
