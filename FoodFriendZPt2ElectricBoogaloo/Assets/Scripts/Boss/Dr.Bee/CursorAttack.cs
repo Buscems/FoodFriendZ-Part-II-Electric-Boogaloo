@@ -24,6 +24,9 @@ public class CursorAttack : MonoBehaviour
         }
     }
 
-
+    public void EndAttack()
+    {
+        Destroy(this.gameObject);
+    }
 
 }

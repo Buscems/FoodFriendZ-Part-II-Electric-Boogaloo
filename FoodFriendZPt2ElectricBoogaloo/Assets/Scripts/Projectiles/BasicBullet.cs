@@ -38,7 +38,7 @@ public class BasicBullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        velocity = transform.right * bulletSpeed * Time.deltaTime;
+        velocity = transform.right * bulletSpeed;
 
         transform.rotation = Quaternion.identity;
 
@@ -84,7 +84,7 @@ public class BasicBullet : MonoBehaviour
         }
         else if(stopMoving == false)
         {
-            rb.velocity = velocity;
+            rb.MovePosition(transform.position + velocity * Time.deltaTime);
         }
     }
 

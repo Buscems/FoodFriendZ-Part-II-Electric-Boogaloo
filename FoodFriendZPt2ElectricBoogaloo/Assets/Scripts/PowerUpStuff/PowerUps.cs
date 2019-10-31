@@ -204,7 +204,7 @@ public class PowerUps : MonoBehaviour
                 print("Using Coconut");
 
                 //[STAT BOOST]
-                stats.inflictStunChance = 1;
+                stats.stunChance = 1;
 
                 yield return null;
                 break;
@@ -215,7 +215,7 @@ public class PowerUps : MonoBehaviour
                 print("Using KitchenKnife");
 
                 //[STAT BOOST]
-                stats.inflictBleedChance = 1;
+                stats.bleedChance = 1;
 
                 yield return null;
                 break;
@@ -226,7 +226,7 @@ public class PowerUps : MonoBehaviour
                 print("Using SweetCarolina");
 
                 //[STAT BOOST]
-                stats.inflictBurnChance = 1;
+                stats.burnChance = 1;
 
                 yield return null;
                 break;
@@ -237,7 +237,7 @@ public class PowerUps : MonoBehaviour
                 print("Using RatPoison");
 
                 //[STAT BOOST]
-                stats.inflictPoisonChance = 1;
+                stats.poisonChance = 1;
 
                 yield return null;
                 break;
@@ -248,7 +248,7 @@ public class PowerUps : MonoBehaviour
                 print("Using IceCubes");
 
                 //[STAT BOOST]
-                stats.inflictFreezeChance = 1;
+                stats.freezeChance = 1;
 
                 yield return null;
                 break;

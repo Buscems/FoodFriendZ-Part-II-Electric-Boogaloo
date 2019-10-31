@@ -37,11 +37,11 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
         aSizeDisp.text = "aSize: " + pScript.attackSizeMultiplier.ToString("0.00");
 
         critChanceDisp.text = "crit%: " + pScript.critChanceMultiplier.ToString("0.00");
-        stunChanceDisp.text = "stun%: " + pScript.inflictStunChance.ToString("0.00");
-        bleedChanceDisp.text = "bleed%: " + pScript.inflictBleedChance.ToString("0.00");
-        burnChanceDisp.text = "bleed%: " + pScript.inflictBurnChance.ToString("0.00");
-        poisonChanceDisp.text = "poison%: " + pScript.inflictPoisonChance.ToString("0.00");
-        freezeChanceDisp.text = "freeze%: " + pScript.inflictFreezeChance.ToString("0.00");
+        stunChanceDisp.text = "stun%: " + pScript.stunChance.ToString("0.00");
+        bleedChanceDisp.text = "bleed%: " + pScript.bleedChance.ToString("0.00");
+        burnChanceDisp.text = "bleed%: " + pScript.burnChance.ToString("0.00");
+        poisonChanceDisp.text = "poison%: " + pScript.poisonChance.ToString("0.00");
+        freezeChanceDisp.text = "freeze%: " + pScript.freezeChance.ToString("0.00");
 
         if (ItemMangerScript.item != null)
         {
