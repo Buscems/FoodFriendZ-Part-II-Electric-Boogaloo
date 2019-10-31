@@ -607,16 +607,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   baseStats: {fileID: 0}
+  effectIsActive: 1
   powerUpName: 
   movementSpeed: 1
   attackSize: 1
   attackSpeed: 1
   attackDamage: 1
+  critChance: 1
   healAmount: 0
   vampHeal: 0
   stunTimer: 0
   maxStunTimer: 0
   rarity: 0
+  effectDuration: 0
+  maxCoolDownDuration: 0
   currentPowerUp: 0
 --- !u!1 &1432795269
 GameObject:
