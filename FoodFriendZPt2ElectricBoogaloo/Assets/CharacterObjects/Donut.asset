@@ -10,29 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: Takoyaki
+  m_Name: Donut
   m_EditorClassIdentifier: 
-  hudIcon: {fileID: -5435086016833673295, guid: 526345c04a1d89f4eaf9bb9643030873,
-    type: 3}
-  characterName: takoyaki
+  hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
+  characterName: Donut
   attackType: 4
   Mspeed: 3
-  baseDamage: 0.25
+  baseDamage: 0.22
   critChance: 0
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -175.47635
+  currentDodgeTime: -1068.5793
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -174.47641
+  currentDodgeWaitTime: -68.530624
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  offset: 0.73
+  offset: 0
   currentPosition: {x: -57.5, y: 61.5, z: 0}
-  currentDirection: {x: 0.1505908, y: -0.011533157, z: 0}
+  currentDirection: {x: -1, y: 1, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -44,11 +43,11 @@ MonoBehaviour:
   startCharging: 0
   isAttacking: 0
   bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  firerate: 0.2
-  bulletSpeed: 7
-  timeTillDespawn: 1
+  firerate: 0.25
+  bulletSpeed: 5
+  timeTillDespawn: 10
   canBounce: 0
-  radius: 60
+  radius: 55
   bulletsPerShot: 3
   bulletTypes: []
   bulletsPerBurst: 0
@@ -58,11 +57,11 @@ MonoBehaviour:
   explosionDamage: 0
   timeBeforeExplosion: 0
   timeBeforeReturning: 0
-  firing: 1
+  firing: 0
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -0.617988
+  currentFirerateTimer: -1.201829
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

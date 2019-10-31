@@ -313,8 +313,8 @@ public class BasePlayer : ScriptableObject
 
     private void SetMeleeVariables(GameObject attack, Transform parentTransform)
     {
-        attack.GetComponent<Attack>().SetStatusEffectsBools(blood, fire, poison, freeze, stun);
-        attack.GetComponent<Attack>().SetStatusEffects(new float[] { bleedDamage, bleedLength, bleedTickRate }, new float[] { burnDamage, burnLength }, new float[] { poisonDamage, poisonLength, poisonSlowDownPercentage }, new float[] { freezeLength, freezeSlowdownPercentage }, stunLength);
+        attack.GetComponentInChildren<Attack>().SetStatusEffectsBools(blood, fire, poison, freeze, stun);
+        attack.GetComponentInChildren<Attack>().SetStatusEffects(new float[] { bleedDamage, bleedLength, bleedTickRate }, new float[] { burnDamage, burnLength }, new float[] { poisonDamage, poisonLength, poisonSlowDownPercentage }, new float[] { freezeLength, freezeSlowdownPercentage }, stunLength);
         attack.transform.parent = parentTransform;
         //attack.GetComponent<Attack>().canPierce = canPierce;
         if (attack.transform.childCount > 0)
