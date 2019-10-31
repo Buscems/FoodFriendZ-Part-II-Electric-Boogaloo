@@ -205,6 +205,16 @@ public class PowerUps : MonoBehaviour
                 break;
             #endregion
 
+            #region Salt
+            case PowerUpTypes.Salt:
+                print("Using Salt");
+
+                //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion
+
             #region Coconut
             case PowerUpTypes.Coconut:
                 print("Using Coconut");
@@ -287,7 +297,7 @@ public class PowerUps : MonoBehaviour
             #endregion
 
             #region StunAttack
-            case PowerUpTypes.StunAttack:               
+            case PowerUpTypes.StunAttack:
                 stats.stunTimer = 5;
 
                 break;

@@ -30,19 +30,20 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
 
     void Update()
     {
-        /*
+
         //update text
         mSpeedDisp.text = "mS: " + pScript.speedMultiplier.ToString("0.00");
         aSpeedDisp.text = "aSpd: " + pScript.attackSpeedMultiplier.ToString("0.00");
         aPowDisp.text = "aP: " + pScript.baseDamageMulitplier.ToString("0.00");
         aSizeDisp.text = "aSize: " + pScript.attackSizeMultiplier.ToString("0.00");
 
-        critChanceDisp.text = "crit%: " + pScript.critChanceMultiplier.ToString("0.00");
-        stunChanceDisp.text = "stun%: " + pScript.stunChance.ToString("0.00");
-        bleedChanceDisp.text = "bleed%: " + pScript.bleedChance.ToString("0.00");
-        burnChanceDisp.text = "bleed%: " + pScript.burnChance.ToString("0.00");
-        poisonChanceDisp.text = "poison%: " + pScript.poisonChance.ToString("0.00");
-        freezeChanceDisp.text = "freeze%: " + pScript.freezeChance.ToString("0.00");
+        /*   critChanceDisp.text = "crit%: " + pScript.critChanceMultiplier.ToString("0.00");
+           stunChanceDisp.text = "stun%: " + pScript.stunChance.ToString("0.00");
+           bleedChanceDisp.text = "bleed%: " + pScript.bleedChance.ToString("0.00");
+           burnChanceDisp.text = "bleed%: " + pScript.burnChance.ToString("0.00");
+           poisonChanceDisp.text = "poison%: " + pScript.poisonChance.ToString("0.00");
+           freezeChanceDisp.text = "freeze%: " + pScript.freezeChance.ToString("0.00");
+           */
 
         if (ItemMangerScript.item != null)
         {
@@ -51,6 +52,5 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
             effectTimer.text = "effectTimer: " + ItemMangerScript.curEffectTimer.ToString("00.00");
             curTimer.text = "curCDTimer: " + ItemMangerScript.curCDTimer.ToString("00.00");
         }
-        */
     }
 }
