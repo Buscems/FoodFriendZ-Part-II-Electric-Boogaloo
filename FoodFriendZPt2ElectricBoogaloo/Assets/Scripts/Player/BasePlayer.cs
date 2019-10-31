@@ -162,16 +162,26 @@ public class BasePlayer : ScriptableObject
 
 
     [Header("Status Effects")]
+    [Range(0.0f, 1.0f)]
+    public float bleedChance;
     public float bleedDamage;
     public float bleedLength;
     public float bleedTickRate;
+    [Range(0.0f, 1.0f)]
+    public float burnChance;
     public float burnDamage;
     public float burnLength;
+    [Range(0.0f, 1.0f)]
+    public float poisonChance;
     public float poisonDamage;
     public float poisonLength;
     [Range(0.0f, 1.0f)]
     public float poisonSlowDownPercentage;
+    [Range(0.0f, 1.0f)]
+    public float stunChance;
     public float stunLength;
+    [Range(0.0f, 1.0f)]
+    public float freezeChance;
     public float freezeLength;
     [Range(0.0f, 1.0f)]
     public float freezeSlowdownPercentage;

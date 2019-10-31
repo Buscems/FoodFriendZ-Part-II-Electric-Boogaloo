@@ -39,6 +39,12 @@ public class PowerUps : MonoBehaviour
     [Tooltip("This number will reflect how much of an increase in stat the player gets")]
     public float critChance = 1;
 
+    public float bleedChance = 1;
+    public float burnChance = 1;
+    public float poisonChance = 1;
+    public float freezeChance = 1;
+    public float stunChance = 1;
+
     #endregion
 
     #region Healing
