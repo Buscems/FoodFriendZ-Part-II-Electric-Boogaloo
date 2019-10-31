@@ -83,6 +83,8 @@ public class BaseEnemy : MonoBehaviour
             AnimationHandler();
         }
 
+        speed = speed * slowDownPercentage;
+
         StatusEffectTimers();
         StatusEffects();
     }
