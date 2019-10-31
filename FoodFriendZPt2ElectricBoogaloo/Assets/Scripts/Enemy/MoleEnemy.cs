@@ -23,6 +23,12 @@ public class MoleEnemy : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    float aboutToJumpScaleX = 0.00001f;
+    float aboutToJumpScaleY = 0.00001f;
+
+    float originalScaleX = 1f;
+    float originalScaleY = 1f;
+
     public PathfindingAI path;
 
 
@@ -97,7 +103,9 @@ public class MoleEnemy : MonoBehaviour
         aboutToJump = true;
         under = false;
         baseEnemy.aggroScript.aggro = false;
+        underground.size = new Vector2(aboutToJumpScaleX, aboutToJumpScaleY);
         yield return new WaitForSeconds(aboutToJumpTime);
+        underground.size = new Vector2(originalScaleX, originalScaleY);
         StartCoroutine(jumping());
     }
 
