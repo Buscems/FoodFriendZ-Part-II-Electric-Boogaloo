@@ -161,6 +161,16 @@ public class BasePlayer : ScriptableObject
     public float critChanceMultiplier = 1;
 
 
+    [Header("Status Effects")]
+    public float bleedDamage;
+    public float bleedLength;
+    public float burnDamage;
+    public float burnLength;
+    public float poisonDamage;
+    public float poisonLength;
+    public float stunLength;
+    public float freezeLength;
+
     private bool blood;
     private bool fire;
     private bool poison;
