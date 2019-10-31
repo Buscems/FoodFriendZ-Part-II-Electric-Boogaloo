@@ -177,7 +177,6 @@ public class PowerUps : MonoBehaviour
         {
             if (tag == "StatBooster")
             {
-                //StartCoroutine(Pickup());
             }
 
             if (tag == "Item")
@@ -207,9 +206,9 @@ public class PowerUps : MonoBehaviour
 
             #region Salt
             case PowerUpTypes.Salt:
-                print("Using Salt");
 
                 //[STAT BOOST]
+                float storedDMGvalue = stats.baseDamageMulitplier;
 
                 yield return null;
                 break;
@@ -405,4 +404,29 @@ public class PowerUps : MonoBehaviour
                 break;
         }
     }
+
+    //[PROPORTIONAL VALUE GENERATOR]
+    #region [PROPORTIONAL VALUE GENERATOR]
+    //used to calculate proportional values
+    public float GetProportional(float modifiedValue, float curValue, float maxValue, bool isScalingUp)
+    {
+        //value to be returned
+        float newModifiedValue = 0;
+
+        //[Proportionally Higher]
+        if (isScalingUp)
+        {
+            newModifiedValue = (curValue / maxValue);
+        }
+
+        //[Proportionally Lower]
+        else
+        {
+            newModifiedValue = 1 - (curValue / maxValue);
+        }
+
+        return newModifiedValue;
+    }
+    #endregion
+
 }

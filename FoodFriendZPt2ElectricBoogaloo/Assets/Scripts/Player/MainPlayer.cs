@@ -863,7 +863,7 @@ public class MainPlayer : MonoBehaviour
             stunMultiplier *= temp.stunChance;
 
 
-    health += temp.healAmount;
+            health += temp.healAmount;
 
             currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
 
@@ -941,7 +941,7 @@ public class MainPlayer : MonoBehaviour
         //is player has evasive chance
         else
         {
-            
+
             //gets odds from odds script 
             if (getOddsScript.GetStunOdds(evasiveChance))
             //[SUCCESS]
