@@ -128,6 +128,7 @@ public class MainPlayer : MonoBehaviour
     public TextMeshProUGUI youDiedText;
 
     private GetOddsScript getOdds;
+    private SpriteRenderer sr;
 
     //elements
     private float bleedMultiplier = 1;
@@ -217,6 +218,7 @@ public class MainPlayer : MonoBehaviour
         downCharacter.sprite = cross.hudIcon;
 
         getOdds = GetComponent<GetOddsScript>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -297,6 +299,7 @@ public class MainPlayer : MonoBehaviour
                 AttackLogic();
                 SwapLogic();
                 DodgeLogic();
+                sr.color = new Color(1, sr.color.g + 10f * Time.deltaTime, sr.color.b + 10f * Time.deltaTime); ;
 
                 //[INTERACTIONS WITH OBJECTS]
                 //this is for interacting with a chest
@@ -931,6 +934,7 @@ public class MainPlayer : MonoBehaviour
             if (currentChar.currentDodgeTime < 0)
             {
                 health -= damage;
+                sr.color = new Color(1, .35f, .35f);
                 cam.StartShake();
             }
         }
