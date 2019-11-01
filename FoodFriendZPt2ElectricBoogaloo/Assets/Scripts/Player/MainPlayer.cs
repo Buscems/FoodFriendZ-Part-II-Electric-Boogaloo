@@ -428,6 +428,47 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
+    public void CharacterSwap(BasePlayer _character, string _faceDirection)
+    {
+        if(_faceDirection == "Square")
+        {
+            if (currentChar == square)
+            {
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
+            }
+            square = _character;
+            leftCharacter.sprite = square.hudIcon;
+        }
+        if (_faceDirection == "Triangle")
+        {
+            if (currentChar == triangle)
+            {
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
+            }
+            triangle = _character;
+            upCharacter.sprite = triangle.hudIcon;
+        }
+        if (_faceDirection == "Cross")
+        {
+            if (currentChar == cross)
+            {
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
+            }
+            cross = _character;
+            downCharacter.sprite = cross.hudIcon;
+        }
+        if (_faceDirection == "Circle")
+        {
+            if (currentChar == circle)
+            {
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
+            }
+            circle = _character;
+            rightCharacter.sprite = circle.hudIcon;
+        }
+        currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+    }
+
     private void AttackLogic()
     {
         if (currentChar.startCharging)
