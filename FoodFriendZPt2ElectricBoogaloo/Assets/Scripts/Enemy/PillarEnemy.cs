@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PillarEnemy : MonoBehaviour
 {
-    Vector3 playerPos;    
+    Vector3 playerPos;
 
     public bool keepAway;
     public bool summoning;
@@ -19,6 +19,11 @@ public class PillarEnemy : MonoBehaviour
     public GameObject spawnPtRight;
     public GameObject spawnPtDown;
     public GameObject spawnPtLeft;
+
+    public GameObject upTrigger;
+    public GameObject rightTrigger;
+    public GameObject leftTrigger;
+    public GameObject downTrigger;
 
     public GameObject pillar;
 
@@ -46,7 +51,31 @@ public class PillarEnemy : MonoBehaviour
         {
             Vector3 direction = (baseEnemy.aggroScript.currentPos - playerPos).normalized;
             Vector2 force = direction * baseEnemy.speed * Time.deltaTime;
-            rb.MovePosition(rb.position + force);
+            rb.MovePosition(rb.position - force);
+        }
+    }
+}
+
+           
+
+            /*RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right);
+            Debug.DrawLine(transform.position, hitRight.point);
+
+            if (hitRight.collider != null){
+                Debug.Log("rightttt");
+                
+            }
+
+            RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down);
+            Debug.DrawLine(transform.position, hitDown.point);
+
+            if (hitDown.collider != null){
+                Debug.Log("downnnn");
+               
+            }
+        }
+    }
+}
 
             if (direction.x >= 0 )
             {
@@ -94,4 +123,4 @@ public class PillarEnemy : MonoBehaviour
             }
         }
     }
-}
+}*/
