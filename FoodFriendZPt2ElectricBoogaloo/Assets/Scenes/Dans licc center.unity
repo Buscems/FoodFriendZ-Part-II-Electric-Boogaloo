@@ -1149,7 +1149,8 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1987800886}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6001314520164109770, guid: 0b51ff908a2bd9845a0dae857bac6202, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b51ff908a2bd9845a0dae857bac6202, type: 3}
 --- !u!1 &2146578955
 GameObject:
@@ -1425,7 +1426,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[0]
       value: 
-      objectReference: {fileID: 4767772300335957772, guid: 8c5f4eba1ce651047bae69e47c5af630,
+      objectReference: {fileID: 9191362929539883942, guid: 4441aa302e131d741bb229dadaf1025f,
         type: 3}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}

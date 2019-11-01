@@ -23,6 +23,13 @@ public class BaseBoss : MonoBehaviour
     [Tooltip("How much money the boss will drop when killed")]
     public int money;
 
+    [Header("Camera Animations")]
+    public GameObject cam;
+    [HideInInspector]
+    public bool playerEntered;
+    bool startAnim;
+
+    [Header("Current Aggro Script")]
     public Aggro aggroScript;
 
     public enum BossStage { stage1, stage2, stage3}
@@ -46,6 +53,8 @@ public class BaseBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cam = GameObject.Find("Main Camera");
+
         if (GetComponent<Animator>() != null)
         {
             anim = GetComponent<Animator>();
@@ -56,6 +65,14 @@ public class BaseBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //starting the animations for the boss fight
+        if (playerEntered && !startAnim)
+        {
+            StartCoroutine(EnterRoomCamera());
+            startAnim = true;
+        }
+
         //keeping track of the percentage of the bosses health to have different stages
         healthPercent = health / maxHealth;
 
@@ -135,7 +152,7 @@ public class BaseBoss : MonoBehaviour
     {
         poisonDamage = _poisonVariables[0];
         poisonTimer = _poisonVariables[1];
-        freezeTimer = _poisonVariables[1]; ;
+        freezeTimer = _poisonVariables[1];
         stunTimer = _poisonVariables[1];
         slowDownPercentage = _poisonVariables[2];
     }
@@ -151,7 +168,20 @@ public class BaseBoss : MonoBehaviour
         freezeTimer = _stun;
         slowDownPercentage = 0;
     }
+    public IEnumerator EnterRoomCamera()
+    {
+        var follow = cam.GetComponent<FollowPlayer>();
+        follow.player = this.gameObject.transform;
+        while (Mathf.Abs(follow.distance) >= follow.radius)
+        {
+            yield return null;
+        }
+        Debug.Log("Yer");
+    }
+    public void StartFightCamera()
+    {
 
+    }
     public void Death()
     {
         
