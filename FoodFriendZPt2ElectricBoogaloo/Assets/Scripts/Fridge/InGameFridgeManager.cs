@@ -1,0 +1,329 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Rewired;
+using Rewired.ControllerExtensions;
+
+public class InGameFridgeManager : MonoBehaviour
+{
+    public BasePlayer[] allPlayableCharacters;
+    public GameObject[] fridgeCharacterPlaceHolders;
+
+    private BasePlayer[] selectableCharacters = new BasePlayer[] { null, null, null, null };
+    /*
+     * order
+     * 
+     * 0 -> Square
+     * 1 -> Triangle
+     * 2 -> Cross
+     * 3 -> Circle
+     * 
+     * */
+
+    public GameObject leftArrow;
+    public GameObject rightArrow;
+
+    bool playerWithinRange;
+
+    private MainPlayer player;
+
+    private SaveGame saveManager;
+    private GameData gameData;
+    private int currentScrollNum = 0;
+
+    Color alphaOn = new Color(1, 1, 1, 1);
+    Color alphaOff = new Color(1, 1, 1, 0);
+
+    private bool switchCharacterPhase = false;
+    private int storedIndex = 0;
+
+    private Player myPlayer;
+    [Header("Rewired")]
+    [Tooltip("Number identifier for each player, must be above 0")]
+    public int playerNum;
+
+    private void Awake()
+    {
+        //Rewired Code
+        myPlayer = ReInput.players.GetPlayer(playerNum - 1);
+        ReInput.ControllerConnectedEvent += OnControllerConnected;
+        CheckController(myPlayer);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        for (int i = 0; i < fridgeCharacterPlaceHolders.Length; i++)
+        {
+            fridgeCharacterPlaceHolders[i].SetActive(false);
+        }
+
+        rightArrow.SetActive(false);
+        leftArrow.SetActive(false);
+
+
+        //load the data from the save file so you can check if you own stuff or not
+        saveManager = GetComponent<SaveGame>();
+        saveManager.Load();
+        gameData = saveManager.gameData;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (playerWithinRange)
+        {
+            //scroll to the right
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                if (currentScrollNum + 4 < allPlayableCharacters.Length)
+                {
+                    currentScrollNum += 4;
+                    Scroll();
+                    leftArrow.GetComponent<SpriteRenderer>().color = alphaOn;
+                }
+
+                if(currentScrollNum + 4 >= allPlayableCharacters.Length)
+                {
+                    rightArrow.GetComponent<SpriteRenderer>().color = alphaOff;
+                }
+                else
+                {
+                    rightArrow.GetComponent<SpriteRenderer>().color = alphaOn;
+                }
+            }
+
+            //scroll to the left
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (currentScrollNum - 4 >= 0)
+                {
+                    currentScrollNum -= 4;
+                    Scroll();
+                    rightArrow.GetComponent<SpriteRenderer>().color = alphaOn;
+                }
+                if (currentScrollNum == 0)
+                {
+                    leftArrow.GetComponent<SpriteRenderer>().color = alphaOff;
+                }
+                else
+                {
+                    leftArrow.GetComponent<SpriteRenderer>().color = alphaOn;
+                }
+            }
+
+            //array index 0
+            if (myPlayer.GetButtonDown("Square"))
+            {
+                if (switchCharacterPhase == false)
+                {
+                    //check id this character index is owned so you can swap
+                    if (selectableCharacters[0] != null)
+                    {
+                        switchCharacterPhase = true;
+                        storedIndex = currentScrollNum;
+                    }
+                }
+                else
+                {
+                    //actually do the swap and destroy itself afterward
+                    if (player.square != null)
+                    {
+                        player.GetComponent<MainPlayer>().CharacterSwap(allPlayableCharacters[storedIndex], "Square");
+                        Destroy(gameObject);
+                    }
+                }
+            }
+            //array index 1
+            if (myPlayer.GetButtonDown("Triangle"))
+            {
+                if (switchCharacterPhase == false)
+                {
+                    if (selectableCharacters[1] != null)
+                    {
+                        switchCharacterPhase = true;
+                        storedIndex = currentScrollNum + 1;
+                    }
+                }
+                else
+                {
+                    if (player.triangle != null)
+                    {
+                        player.GetComponent<MainPlayer>().CharacterSwap(allPlayableCharacters[storedIndex], "Triangle");
+                        Destroy(gameObject);
+                    }
+                }
+            }
+            //array index 2
+            if (myPlayer.GetButtonDown("Cross"))
+            {
+                if (switchCharacterPhase == false)
+                {
+                    if (selectableCharacters[2] != null)
+                    {
+                        switchCharacterPhase = true;
+                        storedIndex = currentScrollNum + 2;
+                    }
+                }
+                else
+                {
+                    if (player.cross != null)
+                    {
+                        player.GetComponent<MainPlayer>().CharacterSwap(allPlayableCharacters[storedIndex], "Cross");
+                        Destroy(gameObject);
+                    }
+                }
+            }
+            //array index 3
+            if (myPlayer.GetButtonDown("Circle"))
+            {
+                if (switchCharacterPhase == false)
+                {
+                    if (selectableCharacters[3] != null)
+                    {
+                        switchCharacterPhase = true;
+                        storedIndex = currentScrollNum + 3;
+                    }
+                }
+                else
+                {
+                    if (player.circle != false)
+                    {
+                        player.GetComponent<MainPlayer>().CharacterSwap(allPlayableCharacters[storedIndex], "Circle");
+                        Destroy(gameObject);
+                    }
+                }
+            }
+
+
+
+
+        }
+    }
+
+    private void Scroll()
+    {
+
+        //cycles through 4 times for eack character place holder
+        for (int i = 0; i < 4; i++)
+        {
+            if (currentScrollNum  + i < allPlayableCharacters.Length)
+            {
+                //see where in gamedata array this specific character is so we can check if we own the character
+                int index = FindCharacterIndex(currentScrollNum + i);
+                //if character is even in the GameData script
+                if (index != -1)
+                {
+                    fridgeCharacterPlaceHolders[i].SetActive(true);
+                    fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().sprite = allPlayableCharacters[currentScrollNum + i].hudIcon;
+                    //if you dont own the character set sprite to be black
+                    if (gameData.CharacterList[index] == false)
+                    {
+                        fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+                        selectableCharacters[i] = null;
+                    }
+                    //else if you own the character, display the character
+                    else
+                    {
+                        fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+                        selectableCharacters[i] = allPlayableCharacters[currentScrollNum + i];
+                    }
+                }
+                //if character is not in the GameData script
+                else
+                {
+                    fridgeCharacterPlaceHolders[i].SetActive(false);
+                }
+            }
+            else
+            {
+                fridgeCharacterPlaceHolders[i].SetActive(false);
+            }
+        }
+
+    }
+
+    private int FindCharacterIndex(int curIndex)
+    {
+        int index = -1;
+        for (int i = 0; i < gameData.CharacterListNames.Length; i++)
+        {
+            if (allPlayableCharacters[curIndex].characterName.ToLower() == gameData.CharacterListNames[i].ToLower())
+            {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player1")
+        {
+            for (int i = 0; i < fridgeCharacterPlaceHolders.Length; i++)
+            {
+                fridgeCharacterPlaceHolders[i].SetActive(true);
+            }
+            player = other.gameObject.GetComponent<MainPlayer>();
+            playerWithinRange = true;
+            currentScrollNum = 0;
+            saveManager.Load();
+            rightArrow.SetActive(true);
+            leftArrow.SetActive(true);
+            leftArrow.GetComponent<SpriteRenderer>().color = alphaOff;
+            rightArrow.GetComponent<SpriteRenderer>().color = alphaOn;
+            Scroll();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        for (int i = 0; i < fridgeCharacterPlaceHolders.Length; i++)
+        {
+            fridgeCharacterPlaceHolders[i].SetActive(false);
+        }
+        rightArrow.SetActive(false);
+        leftArrow.SetActive(false);
+        switchCharacterPhase = false;
+
+        if (other.gameObject.tag == "Player1")
+        {
+            playerWithinRange = false;
+        }
+    }
+
+    //[REWIRED METHODS]
+    //these two methods are for ReWired, if any of you guys have any questions about it I can answer them, but you don't need to worry about this for working on the game - Buscemi
+    void OnControllerConnected(ControllerStatusChangedEventArgs arg)
+    {
+        CheckController(myPlayer);
+    }
+
+    void CheckController(Player player)
+    {
+        foreach (Joystick joyStick in player.controllers.Joysticks)
+        {
+            var ds4 = joyStick.GetExtension<DualShock4Extension>();
+            if (ds4 == null) continue;//skip this if not DualShock4
+            switch (playerNum)
+            {
+                case 4:
+                    ds4.SetLightColor(Color.yellow);
+                    break;
+                case 3:
+                    ds4.SetLightColor(Color.green);
+                    break;
+                case 2:
+                    ds4.SetLightColor(Color.blue);
+                    break;
+                case 1:
+                    ds4.SetLightColor(Color.red);
+                    break;
+                default:
+                    ds4.SetLightColor(Color.white);
+                    Debug.LogError("Player Num is 0, please change to a number > 0");
+                    break;
+            }
+        }
+    }
+}

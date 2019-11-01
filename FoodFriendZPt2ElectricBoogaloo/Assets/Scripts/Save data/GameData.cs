@@ -6,23 +6,20 @@ using UnityEngine;
 public class GameData
 {
     //dont touch this (unless you're trap loving lolicon)
-    string[] CharacterListNames = new string[]
+    public string[] CharacterListNames = new string[]
     {
-       /*0 */ "Tofu",
-       /*1 */ "Takoyaki",
-       /*2 */ "Onigiri",
-       /*3 */ "Ramen Bowl",
-       /*4 */ "Sushi",
-       /*5 */ "Box of Rice",
-       /*6 */ "Cherry",
-       /*7 */ "Burger",
-       /*8 */ "Hot Dog",
-       /*9 */ "French Fries",
-       /*10*/ "Bacon, Egg and Cheese",
-       /*11*/ "Jello",
-       /*12*/ "Pizza",
-       /*13*/ "Ice Cream",
-       /*14*/ "Baguette",
+       /*0 */ "Cannoli",
+       /*1 */ "Cherry",
+       /*2 */ "Cone",
+       /*3 */ "Donut",
+       /*4 */ "Fries",
+       /*5 */ "Burger",
+       /*6 */ "Hotdog",
+       /*7 */ "Napolean",
+       /*8 */ "Onigiri",
+       /*9 */ "Sashimi",
+       /*10*/ "Takoyaki",
+       /*11*/ "Tofu",
     };
 
     //dont touch this one (unless you're trap loving lolicon)
@@ -187,27 +184,27 @@ public class GameData
      * 7            [Traps set] 
      * 8            [Longest play session (in seconds)
      */
-     
-    public bool[] CharacterList { set; get; }
-    //character list [Bool] -> 1 = has character, 0 = doesn't have character  
-    /*
-     * Array Pos - Character
-     * 0           [Tofu] 
-     * 1           [Takoyaki] 
-     * 2           [Onigiri] 
-     * 3           [Ramen Bowl] 
-     * 4           [Sushi] 
-     * 5           [Box of Rice] 
-     * 6           [Cherry] 
-     * 7           [Burger] 
-     * 8           [Hot Dog] 
-     * 9           [French Fries] 
-     * 10          [Bacon Egg & Cheese] 
-     * 11          [Jello] 
-     * 12          [Pizza] 
-     * 13          [Ice Cream] 
-     * 14          [Baguette] 
-     */
+
+    public bool[] CharacterList = new bool[]
+    {
+        /*
+        character list [Bool] -> true = has character, false = doesn't have character  
+        
+         * Array Pos - Character
+         */
+         /* 0  */ true,   /* [Cannoli] */
+         /* 1  */ true,   /* [Cherry] */
+         /* 2  */ false,  /* [Cone] */
+         /* 3  */ false,  /* [Donut] */
+         /* 4  */ false,  /* [Fries] */
+         /* 5  */ false,  /* [Burger] */
+         /* 6  */ false,  /* [Hotdog] */
+         /* 7  */ false,  /* [Napolean] */
+         /* 8  */ false,  /* [Onigiri] */
+         /* 9  */ false,  /* [Sashimi] */
+         /* 10 */ false,  /* [Takoyaki] */
+         /* 11 */ false,  /* [Tofu] */
+    };
 
     public bool[] ItemsList { set; get; }
     //Items list [Bool] -> 1 = collected item in past, 0 = never collected item

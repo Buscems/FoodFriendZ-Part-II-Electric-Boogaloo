@@ -53,6 +53,11 @@ public class SaveGame : MonoBehaviour
         {
             Load();
         }
+
+        //IF YOU WANT TO RESET YOUR DATA
+        //gameData = new GameData();
+        //SaveToFile();
+
     }
 
     public void Update()
