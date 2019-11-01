@@ -72,9 +72,16 @@ public class RoomTrigger : MonoBehaviour
             }
         }
 
-        if(enemies[0].GetComponent<BaseBoss>() != null)
+        try
         {
-            enemies[0].GetComponent<BaseBoss>().aggroScript.aggro = true;
+            if (enemies[0].GetComponent<BaseBoss>() != null)
+            {
+                enemies[0].GetComponent<BaseBoss>().aggroScript.aggro = true;
+            }
+        }
+        catch
+        {
+
         }
     }
 
