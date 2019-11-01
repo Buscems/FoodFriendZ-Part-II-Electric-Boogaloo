@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField]
-    private Transform player;
+    
+    [HideInInspector]
+    public Transform player;
 
-    [SerializeField]
-    private float radius;
+    public float radius;
 
-    private float distance;
+    [HideInInspector]
+    public float distance;
 
     public float cameraSpeed;
 
