@@ -435,6 +435,7 @@ public class MainPlayer : MonoBehaviour
             if (currentChar == square)
             {
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
+                currentChar = _character;
             }
             square = _character;
             leftCharacter.sprite = square.hudIcon;
@@ -444,6 +445,7 @@ public class MainPlayer : MonoBehaviour
             if (currentChar == triangle)
             {
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
+                currentChar = _character;
             }
             triangle = _character;
             upCharacter.sprite = triangle.hudIcon;
@@ -453,6 +455,7 @@ public class MainPlayer : MonoBehaviour
             if (currentChar == cross)
             {
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
+                currentChar = _character;
             }
             cross = _character;
             downCharacter.sprite = cross.hudIcon;
@@ -462,6 +465,7 @@ public class MainPlayer : MonoBehaviour
             if (currentChar == circle)
             {
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
+                currentChar = _character;
             }
             circle = _character;
             rightCharacter.sprite = circle.hudIcon;
