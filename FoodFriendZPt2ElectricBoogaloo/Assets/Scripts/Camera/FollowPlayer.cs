@@ -15,7 +15,12 @@ public class FollowPlayer : MonoBehaviour
 
     public float cameraSpeed;
 
+    public float bossCameraSpeed;
+
     private Vector2 velocity = Vector2.zero;
+
+    [HideInInspector]
+    public bool bossCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +41,19 @@ public class FollowPlayer : MonoBehaviour
 
         if (Mathf.Abs(distance) >= radius)
         {
-
+            
             playerPos.z = -10;
             Vector3 currentPos = transform.position;
             currentPos.z = -10;
-            transform.position = Vector3.Slerp(currentPos, playerPos, player.transform.parent.transform.parent.GetComponent<MainPlayer>().speed * cameraSpeed * Time.deltaTime);
+            if (!bossCamera)
+            {
+                transform.position = Vector3.Slerp(currentPos, playerPos, player.transform.parent.transform.parent.GetComponent<MainPlayer>().speed * cameraSpeed * Time.deltaTime);
+            }
+            else
+            {
+                //transform.position = Vector3.MoveTowards(currentPos, playerPos, bossCameraSpeed * Time.fixedDeltaTime);
+                transform.position = Vector3.Lerp(currentPos, playerPos, bossCameraSpeed * Time.fixedDeltaTime);
+            }
         }
     }
 }

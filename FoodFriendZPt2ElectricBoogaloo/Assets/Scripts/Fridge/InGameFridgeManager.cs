@@ -8,6 +8,8 @@ public class InGameFridgeManager : MonoBehaviour
 {
     public BasePlayer[] allPlayableCharacters;
     public GameObject[] fridgeCharacterPlaceHolders;
+    public GameObject[] selectCharUI;
+    public GameObject[] inUseUI;
 
     private BasePlayer[] selectableCharacters = new BasePlayer[] { null, null, null, null };
     /*
@@ -56,6 +58,14 @@ public class InGameFridgeManager : MonoBehaviour
         for (int i = 0; i < fridgeCharacterPlaceHolders.Length; i++)
         {
             fridgeCharacterPlaceHolders[i].SetActive(false);
+        }
+        for (int i = 0; i < selectCharUI.Length; i++)
+        {
+            selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
+        }
+        for (int i = 0; i < inUseUI.Length; i++)
+        {
+            inUseUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
         }
 
         rightArrow.SetActive(false);
@@ -220,13 +230,26 @@ public class InGameFridgeManager : MonoBehaviour
                     if (gameData.CharacterList[index] == false)
                     {
                         fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+                        selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
                         selectableCharacters[i] = null;
+                        inUseUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
                     }
                     //else if you own the character, display the character
                     else
                     {
                         fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
-                        selectableCharacters[i] = allPlayableCharacters[currentScrollNum + i];
+                        if (player.cross == allPlayableCharacters[currentScrollNum + i] || player.triangle == allPlayableCharacters[currentScrollNum + i] || player.square == allPlayableCharacters[currentScrollNum + i] || player.circle == allPlayableCharacters[currentScrollNum + i])
+                        {
+                            selectableCharacters[i] = null;
+                            selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
+                            inUseUI[i].GetComponent<SpriteRenderer>().color = alphaOn;
+                        }
+                        else
+                        {
+                            selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOn;
+                            selectableCharacters[i] = allPlayableCharacters[currentScrollNum + i];
+                            inUseUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
+                        }
                     }
                 }
                 //if character is not in the GameData script
@@ -260,10 +283,19 @@ public class InGameFridgeManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player1")
         {
+            for (int i = 0; i < selectCharUI.Length; i++)
+            {
+                selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOn;
+            }
             for (int i = 0; i < fridgeCharacterPlaceHolders.Length; i++)
             {
                 fridgeCharacterPlaceHolders[i].SetActive(true);
             }
+            for (int i = 0; i < inUseUI.Length; i++)
+            {
+                inUseUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
+            }
+
             player = other.gameObject.GetComponent<MainPlayer>();
             playerWithinRange = true;
             currentScrollNum = 0;
@@ -282,9 +314,19 @@ public class InGameFridgeManager : MonoBehaviour
         {
             fridgeCharacterPlaceHolders[i].SetActive(false);
         }
+        for (int i = 0; i < selectCharUI.Length; i++)
+        {
+            selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
+        }
+        for (int i = 0; i < inUseUI.Length; i++)
+        {
+            inUseUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
+        }
+
         rightArrow.SetActive(false);
         leftArrow.SetActive(false);
         switchCharacterPhase = false;
+        
 
         if (other.gameObject.tag == "Player1")
         {
