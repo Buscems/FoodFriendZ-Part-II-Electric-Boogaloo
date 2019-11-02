@@ -244,9 +244,10 @@ MonoBehaviour:
   - {fileID: 7281940281577464585, guid: 0f5757bc2f80b6e41bd0ef7a18b1a5ef, type: 3}
   - {fileID: 6031768757373064001, guid: cd07df8db0de3274994b8ec80df44b94, type: 3}
   wellDoneChance: 40
-  mediumWellChance: 60
-  mediumRareChance: 75
-  rareChance: 95
+  mediumWellChance: 70
+  mediumRareChance: 90
+  rareChance: 100
+  baseCost: 0
   wellDoneCost: 0
   mediumWellCost: 0
   mediumRareCost: 0
@@ -254,6 +255,11 @@ MonoBehaviour:
   anim: {fileID: 8316142955066493607}
   sparkles: {fileID: 1166425690676615295, guid: 62d2243242d214f2c8675c80f935325c,
     type: 3}
+  currentSparkle: {fileID: 0}
+  wellDun: 0
+  medWell: 0
+  medRare: 0
+  rur: 0
 --- !u!212 &3117695947573847471
 SpriteRenderer:
   m_ObjectHideFlags: 0

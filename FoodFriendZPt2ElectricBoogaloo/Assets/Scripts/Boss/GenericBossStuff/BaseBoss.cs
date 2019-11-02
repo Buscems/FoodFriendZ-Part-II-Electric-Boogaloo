@@ -19,6 +19,7 @@ public class BaseBoss : MonoBehaviour
     public int walkIntoDamage;
 
     Animator anim;
+    public Animator backAnim;
 
     [Tooltip("How much money the boss will drop when killed")]
     public int money;
@@ -172,15 +173,20 @@ public class BaseBoss : MonoBehaviour
     {
         var follow = cam.GetComponent<FollowPlayer>();
         follow.player = this.gameObject.transform;
+        follow.bossCamera = true;
         while (Mathf.Abs(follow.distance) >= follow.radius)
         {
             yield return null;
         }
-        Debug.Log("Yer");
+        anim.SetTrigger("roar");
+        backAnim.SetTrigger("roar");
     }
     public void StartFightCamera()
     {
-
+        var follow = cam.GetComponent<FollowPlayer>();
+        follow.player = GameObject.Find("CamTrackPos").gameObject.transform;
+        follow.bossCamera = false;
+        aggroScript.aggro = true;
     }
     public void Death()
     {

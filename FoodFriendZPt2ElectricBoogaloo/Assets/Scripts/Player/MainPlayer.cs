@@ -252,6 +252,7 @@ public class MainPlayer : MonoBehaviour
     void Update()
     {
         //if the player is using the mouse turn the controller pointer off and vice versa
+        /*
         if (usingMouse)
         {
             pointer.SetActive(false);
@@ -260,6 +261,7 @@ public class MainPlayer : MonoBehaviour
         {
             pointer.SetActive(true);
         }
+        */
 
         if (myPlayer.GetButtonDown("Pause"))
         {
