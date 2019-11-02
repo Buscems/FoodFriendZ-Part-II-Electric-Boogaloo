@@ -14,7 +14,7 @@ public class ChestScript : MonoBehaviour
     public float rareChance;
 
     [Header("Different Costs for Rarity")]
-    float baseCost;
+    public float baseCost;
     public float wellDoneCost;
     public float mediumWellCost;
     public float mediumRareCost;
@@ -25,13 +25,19 @@ public class ChestScript : MonoBehaviour
     Queue<GameObject> mediumRare = new Queue<GameObject>();
     Queue<GameObject> rare = new Queue<GameObject>();
 
-    GameObject currentPowerup;
+    public GameObject currentPowerup;
 
     public Animator anim;
 
     //for the sparkles
     public GameObject sparkles;
-    GameObject currentSparkle;
+    public GameObject currentSparkle;
+
+    //for testing
+    public bool wellDun;
+    public bool medWell;
+    public bool medRare;
+    public bool rur;
 
     // Start is called before the first frame update
     void Start()
@@ -66,32 +72,50 @@ public class ChestScript : MonoBehaviour
         {
             currentPowerup = wd[Random.Range(0, wd.Length)];
             baseCost = wellDoneCost;
+            if(currentSparkle != null)
+            {
+                Destroy(currentSparkle);
+            }
+            wellDun = true;
         }
         else if (rarityChance <= mediumWellChance)
         {
             currentPowerup = mw[Random.Range(0, mw.Length)];
             baseCost = mediumWellCost;
+            if (currentSparkle != null)
+            {
+                Destroy(currentSparkle);
+            }
             anim.SetInteger("rarity", 1);
+            medWell = true;
         }
         else if (rarityChance <= mediumRareChance)
         {
             currentPowerup = mr[Random.Range(0, mr.Length)];
             baseCost = mediumRareCost;
+            if (currentSparkle != null)
+            {
+                Destroy(currentSparkle);
+            }
             anim.SetInteger("rarity", 2);
+            medRare = true;
         }
         else if (rarityChance <= rareChance)
         {
             currentPowerup = r[Random.Range(0, r.Length)];
             baseCost = rareCost;
             anim.SetInteger("rarity", 3);
+            Debug.Log("Rare");
             currentSparkle = Instantiate(sparkles, transform.position, Quaternion.identity);
+            rur = true;
         }
+        /*
         else
         {
             currentPowerup = wd[Random.Range(0, wd.Length)];
             baseCost = wellDoneCost;
         }
-
+        */
     }
 
     // Update is called once per frame
@@ -112,7 +136,10 @@ public class ChestScript : MonoBehaviour
     {
         GameObject pu = Instantiate(currentPowerup, transform.position, Quaternion.identity);
         pu.GetComponent<BoxCollider2D>().enabled = false;
-        Destroy(currentSparkle);
+        if (currentSparkle != null)
+        {
+            Destroy(currentSparkle);
+        }
     }
 
 }
