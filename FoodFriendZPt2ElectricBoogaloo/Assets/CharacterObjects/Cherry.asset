@@ -42,13 +42,14 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 4049022442695697508, guid: 840089a4ee0433149a83c6df387b59f2, type: 3}
   firerate: 0.5
   bulletSpeed: 750
   timeTillDespawn: 1
   canBounce: 0
   radius: 90
   bulletsPerShot: 5
+  bulletTypes: []
   bulletsPerBurst: 3
   timeBetweenBursts: 0.5
   isNeedler: 0
@@ -67,3 +68,20 @@ MonoBehaviour:
   firerateMultiplier: 1
   baseDamageMulitplier: 1
   maxDamageMultiplier: 1
+  critChanceMultiplier: 1
+  bleedChance: 0
+  bleedDamage: 0
+  bleedLength: 0
+  bleedTickRate: 0
+  burnChance: 0
+  burnDamage: 0
+  burnLength: 0
+  poisonChance: 0
+  poisonDamage: 0
+  poisonLength: 0
+  poisonSlowDownPercentage: 0
+  stunChance: 0
+  stunLength: 0
+  freezeChance: 0
+  freezeLength: 0
+  freezeSlowdownPercentage: 0

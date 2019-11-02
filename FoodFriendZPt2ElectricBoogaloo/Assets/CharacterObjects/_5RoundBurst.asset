@@ -10,48 +10,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: _ChargeBullet
+  m_Name: _5RoundBurst
   m_EditorClassIdentifier: 
   hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
-  characterName: chargeBullet
-  attackType: 3
-  Mspeed: 6
+  characterName: 5RoundBurst
+  attackType: 2
+  Mspeed: 7
   baseDamage: 1
-  critChance: 0.208
-  critDamageMulitiplier: 2.15
+  critChance: 0.654
+  critDamageMulitiplier: 1.17
   dodgeSpeedMultiplier: 1
-  currentDodgeSpeedMultiplier: 0
+  currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1000
+  currentDodgeTime: -1019.1103
   dodgeWaitTime: 1
-  currentDodgeWaitTime: 0
+  currentDodgeWaitTime: -19.10735
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: 0, y: 0, z: 0}
-  currentDirection: {x: 0, y: 0, z: 0}
+  currentPosition: {x: -62.602978, y: 59.25301, z: 0}
+  currentDirection: {x: -1, y: -1, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0
-  isChargable: 1
-  maxDamage: 10
-  timeTillMaxDamage: 1
+  isChargable: 0
+  maxDamage: 0
+  timeTillMaxDamage: 0
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
   bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  firerate: 1
-  bulletSpeed: 15
+  firerate: 0.05
+  bulletSpeed: 14
   timeTillDespawn: 1
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
   bulletTypes: []
-  bulletsPerBurst: 0
-  timeBetweenBursts: 0
+  bulletsPerBurst: 5
+  timeBetweenBursts: 0.42
   isNeedler: 0
   isPinshot: 0
   explosionDamage: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: 0
+  currentFirerateTimer: -2.0775306
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

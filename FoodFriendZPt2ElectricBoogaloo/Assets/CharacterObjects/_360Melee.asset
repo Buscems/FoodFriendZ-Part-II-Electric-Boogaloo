@@ -10,48 +10,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: _ChargeBullet
+  m_Name: _360Melee
   m_EditorClassIdentifier: 
-  hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
-  characterName: chargeBullet
-  attackType: 3
-  Mspeed: 6
-  baseDamage: 1
-  critChance: 0.208
-  critDamageMulitiplier: 2.15
+  hudIcon: {fileID: 1002645427171640083, guid: 6370625e5cfd74127b0c87c620cc99b6, type: 3}
+  characterName: 360Melee
+  attackType: 0
+  Mspeed: 7
+  baseDamage: 4
+  critChance: 0.16
+  critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
-  currentDodgeSpeedMultiplier: 0
-  dodgeLength: 1
-  currentDodgeTime: -1000
-  dodgeWaitTime: 1
-  currentDodgeWaitTime: 0
-  attackSize: {x: 0, y: 0, z: 0}
+  currentDodgeSpeedMultiplier: 1
+  dodgeLength: 0.25
+  currentDodgeTime: -237.12769
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -235.12767
+  attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: 0, y: 0, z: 0}
-  currentDirection: {x: 0, y: 0, z: 0}
-  weapon: {fileID: 0}
-  awayPos: {x: 0, y: 0, z: 0}
-  attackSpeed: 0
-  rotationalOffset: 0
-  isChargable: 1
-  maxDamage: 10
+  currentPosition: {x: -57.5, y: 61.5, z: 0}
+  currentDirection: {x: 1, y: -1, z: 0}
+  weapon: {fileID: 1791375524048153698, guid: f7e7f35abf30248cf9b3141b572bf0c6, type: 3}
+  awayPos: {x: 5000, y: 5000, z: 0}
+  attackSpeed: 0.5
+  rotationalOffset: 45
+  isChargable: 0
+  maxDamage: 5
   timeTillMaxDamage: 1
   currentChargeTimer: 0
   startCharging: 0
-  isAttacking: 0
-  bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  firerate: 1
-  bulletSpeed: 15
-  timeTillDespawn: 1
+  isAttacking: 1
+  bullet: {fileID: 0}
+  firerate: 0.13
+  bulletSpeed: 20
+  timeTillDespawn: 0
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
-  bulletTypes: []
-  bulletsPerBurst: 0
-  timeBetweenBursts: 0
+  bulletTypes:
+  - {fileID: 6395150998634022948, guid: 17bf945f555f29e42a1bcc89accbb6db, type: 3}
+  - {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
+  bulletsPerBurst: 3
+  timeBetweenBursts: 1
   isNeedler: 0
   isPinshot: 0
   explosionDamage: 0
@@ -61,8 +63,8 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: 0
-  currentAttackSpeedTimer: 0
+  currentFirerateTimer: -1.2300735
+  currentAttackSpeedTimer: -107.537674
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
