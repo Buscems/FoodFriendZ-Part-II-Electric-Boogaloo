@@ -15,15 +15,16 @@ public class Shreiker : MonoBehaviour
         baseEnemy = GetComponent<BaseEnemy>();
         Shriekcollider = GetComponent<CircleCollider2D>();
         alerted = false;
+        Shriekcollider.radius = 1;
     }
 
 
     void Update()
     {
         Shriekcollider.radius += 1 * Time.deltaTime;
-        if(Shriekcollider.radius > 7)
+        if(Shriekcollider.radius > 10)
         {
-            Shriekcollider.radius = 7;
+            Shriekcollider.radius = 10;
         }
 
         if (baseEnemy.aggroScript.aggro)
