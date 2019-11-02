@@ -13,6 +13,7 @@ public class DrBee : MonoBehaviour
 
     Rigidbody2D rb;
 
+    [HideInInspector]
     public Vector2 velocity;
 
     bool startStage2;

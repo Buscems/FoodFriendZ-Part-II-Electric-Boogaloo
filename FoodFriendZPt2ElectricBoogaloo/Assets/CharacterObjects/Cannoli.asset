@@ -22,16 +22,16 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1199.2427
+  currentDodgeTime: -1473.4651
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -199.08794
+  currentDodgeWaitTime: -473.30786
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0.75
-  currentPosition: {x: -51.06869, y: 57.06567, z: 0}
-  currentDirection: {x: 0.09636271, y: -0.008166331, z: 0}
+  currentPosition: {x: 17.326553, y: -57.123077, z: 0}
+  currentDirection: {x: 1, y: -1, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   isAttacking: 0
   bullet: {fileID: 6395150998634022948, guid: b3710338befe7ca49abb8d0ca5e34f45, type: 3}
   firerate: 0.1
-  bulletSpeed: 500
+  bulletSpeed: 15
   timeTillDespawn: 25
   canBounce: 0
   radius: 0
@@ -61,10 +61,27 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -0.006171318
+  currentFirerateTimer: -1.9049085
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
   baseDamageMulitplier: 1
   maxDamageMultiplier: 1
+  critChanceMultiplier: 1
+  bleedChance: 0
+  bleedDamage: 0
+  bleedLength: 0
+  bleedTickRate: 0
+  burnChance: 0
+  burnDamage: 0
+  burnLength: 0
+  poisonChance: 0
+  poisonDamage: 0
+  poisonLength: 0
+  poisonSlowDownPercentage: 0
+  stunChance: 0
+  stunLength: 0
+  freezeChance: 0
+  freezeLength: 0
+  freezeSlowdownPercentage: 0

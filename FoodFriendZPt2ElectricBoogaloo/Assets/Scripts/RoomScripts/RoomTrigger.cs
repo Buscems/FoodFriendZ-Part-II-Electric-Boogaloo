@@ -70,18 +70,12 @@ public class RoomTrigger : MonoBehaviour
             {
                 doors[i].GetComponent<Animator>().SetBool("locked", true);
             }
-        }
 
-        try
-        {
             if (enemies[0].GetComponent<BaseBoss>() != null)
             {
-                enemies[0].GetComponent<BaseBoss>().aggroScript.aggro = true;
+                var boss = enemies[0].GetComponent<BaseBoss>();
+                boss.playerEntered = true;
             }
-        }
-        catch
-        {
-
         }
     }
 
