@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BaseBoss : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class BaseBoss : MonoBehaviour
     [Tooltip("How much damage this enemy deals to the player when the player runs into them (Should only be between 0 and 1)")]
     [Range(0, 1)]
     public int walkIntoDamage;
-    public GameObject healthBar;
 
     Animator anim;
     public Animator backAnim;
