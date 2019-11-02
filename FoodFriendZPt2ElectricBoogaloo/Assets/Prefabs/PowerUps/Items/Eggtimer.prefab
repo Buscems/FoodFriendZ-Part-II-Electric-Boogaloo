@@ -102,14 +102,19 @@ MonoBehaviour:
   attackSpeed: 0
   attackDamage: 0
   critChance: 0
+  bleedChance: 1
+  burnChance: 1
+  poisonChance: 1
+  freezeChance: 1
+  stunChance: 1
   healAmount: 0
   vampHeal: 0
   stunTimer: 0
   maxStunTimer: 0
   rarity: 0
-  effectDuration: 2
-  maxCoolDownDuration: 3
-  currentPowerUp: 20
+  effectDuration: 10
+  maxCoolDownDuration: 15
+  currentPowerUp: 27
 --- !u!61 &1045294628239021317
 BoxCollider2D:
   m_ObjectHideFlags: 0
