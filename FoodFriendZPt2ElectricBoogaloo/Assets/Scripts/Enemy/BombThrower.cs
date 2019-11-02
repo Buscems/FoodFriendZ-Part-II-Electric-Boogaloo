@@ -27,12 +27,15 @@ public class BombThrower : MonoBehaviour
         {
             if (hasThrown == false)
             {
-                ThrowBomb();
+                Instantiate(bomb, transform.position, Quaternion.identity);
+                hasThrown = true;
             }
 
             if (hasThrown)
             {
+                Debug.Log("start down");
                 StartCoroutine(Down());
+                Debug.Log("end down");
             }
          }
     }

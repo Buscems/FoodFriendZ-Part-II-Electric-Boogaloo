@@ -6,8 +6,8 @@ public class SpikeMove : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    [HideInInspector] public Vector3 velocity;
     [SerializeField] private float speed;
+    [SerializeField] private int damage;
 
     void Start()
     {
@@ -15,8 +15,25 @@ public class SpikeMove : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
-        rb.MovePosition(transform.position + velocity * speed * Time.deltaTime);
+        rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player1" || collision.tag == "Player2")
+        {
+            var targ = collision.GetComponent<MainPlayer>();
+            targ.GetHit(damage);
+            Destroy(this.gameObject);
+        }
+
+        if (collision.tag == "TilesHere")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
+
