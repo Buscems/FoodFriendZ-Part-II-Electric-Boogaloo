@@ -949,21 +949,18 @@ public class MainPlayer : MonoBehaviour
     public IEnumerator Slow(float effectTime)
     {
         isSlow = true;
-        Debug.Log("Slow");
         yield return new WaitForSeconds(effectTime);
         isSlow = false;
     }
     public IEnumerator Fast(float effectTime)
     {
         isFast = true;
-        Debug.Log("Slow");
         yield return new WaitForSeconds(effectTime);
         isFast = false;
     }
     public IEnumerator Stuck(float effectTime)
     {
         isStuck = true;
-        Debug.Log("Slow");
         yield return new WaitForSeconds(effectTime);
         isStuck = false;
     }

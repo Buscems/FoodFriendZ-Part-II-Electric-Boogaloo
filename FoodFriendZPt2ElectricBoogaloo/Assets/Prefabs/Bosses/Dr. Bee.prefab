@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1390086966121789412}
   - component: {fileID: 5538270761184902709}
   m_Layer: 10
-  m_Name: Dr.Bee
+  m_Name: Dr. Bee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +162,10 @@ MonoBehaviour:
   money: 0
   cam: {fileID: 0}
   playerEntered: 0
+  healthImage: {fileID: 0}
+  healthBackground: {fileID: 0}
+  fadeInTime: 1.75
+  bossName: {fileID: 0}
   aggroScript: {fileID: 1170927021004534174}
   stage: 0
 --- !u!114 &1170927021004534174

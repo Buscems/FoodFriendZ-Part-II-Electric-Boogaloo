@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BaseBoss : MonoBehaviour
 {
@@ -30,6 +32,13 @@ public class BaseBoss : MonoBehaviour
     public bool playerEntered;
     bool startAnim;
 
+    [Header("Boss UI")]
+    public GameObject healthImage;
+    public GameObject healthBackground;
+    public float fadeInTime;
+
+    public GameObject bossName;
+
     [Header("Current Aggro Script")]
     public Aggro aggroScript;
 
@@ -55,6 +64,13 @@ public class BaseBoss : MonoBehaviour
     void Start()
     {
         cam = GameObject.Find("Main Camera");
+        healthImage = GameObject.Find("Health");
+        healthBackground = GameObject.Find("HealthBackground");
+        bossName = GameObject.Find("BossName");
+
+        healthImage.GetComponent<Image>().enabled = false;
+        healthBackground.GetComponent<Image>().enabled = false;
+        bossName.GetComponent<TextMeshProUGUI>().enabled = false;
 
         if (GetComponent<Animator>() != null)
         {
@@ -77,11 +93,11 @@ public class BaseBoss : MonoBehaviour
         //keeping track of the percentage of the bosses health to have different stages
         healthPercent = health / maxHealth;
 
-        if(healthPercent > .5f)
+        if(healthPercent > .75f)
         {
             stage = BossStage.stage1;
         }
-        if (healthPercent > .25f)
+        if (healthPercent > .5f)
         {
             stage = BossStage.stage2;
         }
@@ -89,6 +105,9 @@ public class BaseBoss : MonoBehaviour
         {
             stage = BossStage.stage3;
         }
+
+        //setting the health bar equal to the boss
+        healthImage.GetComponent<Image>().fillAmount = healthPercent;
 
         speed = speed * slowDownPercentage;
 
@@ -188,9 +207,66 @@ public class BaseBoss : MonoBehaviour
         follow.bossCamera = false;
         aggroScript.aggro = true;
     }
+
+    private IEnumerator HealthFadeIn()
+    {
+        healthImage.GetComponent<Image>().enabled = true;
+        healthBackground.GetComponent<Image>().enabled = true;
+        bossName.GetComponent<TextMeshProUGUI>().enabled = true;
+        //health bar
+        healthImage.GetComponent<Image>().color = new Color(healthImage.GetComponent<Image>().color.r, healthImage.GetComponent<Image>().color.g, healthImage.GetComponent<Image>().color.b, 0);
+        //health bar background
+        healthBackground.GetComponent<Image>().color = new Color(healthBackground.GetComponent<Image>().color.r, healthBackground.GetComponent<Image>().color.g, healthBackground.GetComponent<Image>().color.b, 0);
+        //boss name
+        bossName.GetComponent<TextMeshProUGUI>().text = this.gameObject.name;
+        bossName.GetComponent<TextMeshProUGUI>().color = new Color(bossName.GetComponent<TextMeshProUGUI>().color.r, bossName.GetComponent<TextMeshProUGUI>().color.g, bossName.GetComponent<TextMeshProUGUI>().color.b, 0);
+
+        while (healthImage.GetComponent<Image>().color.a < 1 && healthBackground.GetComponent<Image>().color.a < 1 && bossName.GetComponent<TextMeshProUGUI>().color.a < 1)
+        {
+            healthImage.GetComponent<Image>().color += new Color(0, 0, 0, fadeInTime * Time.deltaTime);
+            healthBackground.GetComponent<Image>().color += new Color(0, 0, 0, fadeInTime * Time.deltaTime);
+            bossName.GetComponent<TextMeshProUGUI>().color += new Color(0, 0, 0, fadeInTime * Time.deltaTime);
+            yield return null;
+        }
+    }
+    private IEnumerator HealthFadeOut()
+    {
+        //health bar
+        healthImage.GetComponent<Image>().color = new Color(healthImage.GetComponent<Image>().color.r, healthImage.GetComponent<Image>().color.g, healthImage.GetComponent<Image>().color.b, 1);
+        //health bar background
+        healthBackground.GetComponent<Image>().color = new Color(healthBackground.GetComponent<Image>().color.r, healthBackground.GetComponent<Image>().color.g, healthBackground.GetComponent<Image>().color.b, 1);
+        //boss name
+        bossName.GetComponent<TextMeshProUGUI>().text = this.gameObject.name;
+        bossName.GetComponent<TextMeshProUGUI>().color = new Color(bossName.GetComponent<TextMeshProUGUI>().color.r, bossName.GetComponent<TextMeshProUGUI>().color.g, bossName.GetComponent<TextMeshProUGUI>().color.b, 1);
+
+        while (healthImage.GetComponent<Image>().color.a > 0 && healthBackground.GetComponent<Image>().color.a > 0 && bossName.GetComponent<TextMeshProUGUI>().color.a > 0)
+        {
+            healthImage.GetComponent<Image>().color -= new Color(0, 0, 0, fadeInTime * Time.deltaTime);
+            healthBackground.GetComponent<Image>().color -= new Color(0, 0, 0, fadeInTime * Time.deltaTime);
+            bossName.GetComponent<TextMeshProUGUI>().color -= new Color(0, 0, 0, fadeInTime * Time.deltaTime);
+            yield return null;
+        }
+    }
+    public void StartFadeIn()
+    {
+        StartCoroutine(HealthFadeIn());
+    }
+
+    public void StartFadeOut()
+    {
+        StartCoroutine(HealthFadeOut());
+    }
+
     public void Death()
     {
-        
+        if(anim != null)
+        {
+            anim.SetTrigger("death");
+        }
+        if (backAnim != null)
+        {
+            anim.SetTrigger("death");
+        }
     }
 
 }

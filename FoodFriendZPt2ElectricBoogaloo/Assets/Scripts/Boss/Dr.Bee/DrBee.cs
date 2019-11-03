@@ -36,6 +36,10 @@ public class DrBee : MonoBehaviour
         {
             velocity = new Vector2(.5f, .5f);
         }
+
+        startStage2 = false;
+        startStage3 = false;
+
     }
 
     // Update is called once per frame
@@ -103,6 +107,11 @@ public class DrBee : MonoBehaviour
     void Stage2()
     {
         this.GetComponent<DropAttack>().enabled = true;
+    }
+
+    void Stage3()
+    {
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
