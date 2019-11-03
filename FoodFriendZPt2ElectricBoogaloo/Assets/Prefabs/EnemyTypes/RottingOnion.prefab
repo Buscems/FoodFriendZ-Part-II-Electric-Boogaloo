@@ -187,6 +187,7 @@ MonoBehaviour:
   health: 5
   speed: 1
   walkIntoDamage: 1
+  anim: {fileID: 0}
   aggroScript: {fileID: 4728474277593573587}
   items:
   - {fileID: 1188008098122328144, guid: dd93acb6d278b674dbeb1c8d12605d02, type: 3}
@@ -201,6 +202,7 @@ MonoBehaviour:
   - {fileID: 6031768757373064001, guid: cd07df8db0de3274994b8ec80df44b94, type: 3}
   dropRate: 0.05
   money: 0
+  objectToDestroy: {fileID: 0}
 --- !u!114 &4728474277593573587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,8 +243,9 @@ MonoBehaviour:
     type: 3}
   bulletDamage: 1
   projectileSpeed: 12
-  fireRate: 10
+  fireRate: 1
   clipSize: 5
+  slowBullets: 0
 --- !u!50 &4728474277593573590
 Rigidbody2D:
   serializedVersion: 4
