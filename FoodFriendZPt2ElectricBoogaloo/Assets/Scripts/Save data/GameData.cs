@@ -20,6 +20,12 @@ public class GameData
        /*9 */ "Sashimi",
        /*10*/ "Takoyaki",
        /*11*/ "Tofu",
+       /*12*/ "5RoundBurst",
+       /*13*/ "BlueberryMuffin",
+       /*14*/ "LobsterTail",
+       /*15*/ "Samosa",
+       /*16*/ "Taco",
+       /*17*/ "TunaCan",
     };
 
     //dont touch this one (unless you're trap loving lolicon)
@@ -204,6 +210,12 @@ public class GameData
          /* 9  */ true,  /* [Sashimi] */
          /* 10 */ true,  /* [Takoyaki] */
          /* 11 */ true,  /* [Tofu] */
+         /* 12 */ true,  /* [5RoundBurst] */
+         /* 13 */ true,  /* [Blueberry Muffin] */
+         /* 14 */ true,  /* [Lobster Tail] */
+         /* 15 */ true,  /* [Samosa] */
+         /* 16 */ true,  /* [Taco] */
+         /* 17 */ true,  /* [Tuna Can] */
     };
 
     public bool[] ItemsList { set; get; }

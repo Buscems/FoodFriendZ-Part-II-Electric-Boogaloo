@@ -10,28 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: _Cone
+  m_Name: Hotdog
   m_EditorClassIdentifier: 
-  hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
-  characterName: cone
-  attackType: 1
-  Mspeed: 1
-  baseDamage: 3
-  critChance: 0.351
+  hudIcon: {fileID: 0}
+  characterName: hotdog
+  attackType: 4
+  Mspeed: 3
+  baseDamage: 0.33
+  critChance: 0
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1017.9211
+  currentDodgeTime: -1109.9011
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -17.923563
+  currentDodgeWaitTime: -109.86772
   attackSize: {x: 0, y: 0, z: 0}
-  canPierce: 1
-  pierceMultiplier: 1.74
-  maxAmountOfEnemiesCanPassThrough: 100
-  offset: 0.69
-  currentPosition: {x: -61.841614, y: 60.309654, z: 0}
-  currentDirection: {x: -1, y: -1, z: 0}
+  canPierce: 0
+  pierceMultiplier: 1
+  maxAmountOfEnemiesCanPassThrough: 42
+  offset: 0.72
+  currentPosition: {x: -57.5, y: 61.5, z: 0}
+  currentDirection: {x: 1, y: -1, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
@@ -42,13 +42,13 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  firerate: 1
-  bulletSpeed: 20
-  timeTillDespawn: 114.64
+  bullet: {fileID: 6395150998634022948, guid: 76da2d0d67f77f849a4c098de550d799, type: 3}
+  firerate: 0.09
+  bulletSpeed: 2
+  timeTillDespawn: 0.63
   canBounce: 0
-  radius: 0
-  bulletsPerShot: 0
+  radius: 45
+  bulletsPerShot: 15
   bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
@@ -56,12 +56,12 @@ MonoBehaviour:
   isPinshot: 0
   explosionDamage: 0
   timeBeforeExplosion: 0
-  timeBeforeReturning: 0
+  timeBeforeReturning: 0.44
   firing: 0
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -0.22142121
+  currentFirerateTimer: -2.5685406
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
@@ -69,10 +69,10 @@ MonoBehaviour:
   baseDamageMulitplier: 1
   maxDamageMultiplier: 1
   critChanceMultiplier: 1
-  bleedChance: 0.751
-  bleedDamage: 0.42
-  bleedLength: 3
-  bleedTickRate: 1
+  bleedChance: 0
+  bleedDamage: 0
+  bleedLength: 0
+  bleedTickRate: 0
   burnChance: 0
   burnDamage: 0
   burnLength: 0

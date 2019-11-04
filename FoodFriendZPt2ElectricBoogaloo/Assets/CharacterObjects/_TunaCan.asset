@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: _StabMelee
+  m_Name: _TunaCan
   m_EditorClassIdentifier: 
   hudIcon: {fileID: 1002645427171640083, guid: 6370625e5cfd74127b0c87c620cc99b6, type: 3}
-  characterName: stabMelee
+  characterName: tunaCan
   attackType: 0
   Mspeed: 7
   baseDamage: 4
@@ -22,20 +22,20 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.25
-  currentDodgeTime: -237.12769
+  currentDodgeTime: -258.4447
   dodgeWaitTime: 2
-  currentDodgeWaitTime: -235.12767
+  currentDodgeWaitTime: -256.4456
   attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -57.5, y: 61.5, z: 0}
-  currentDirection: {x: 1, y: -1, z: 0}
-  weapon: {fileID: 1791375524048153698, guid: f7e7f35abf30248cf9b3141b572bf0c6, type: 3}
+  currentPosition: {x: -58.525917, y: 62.177288, z: 0}
+  currentDirection: {x: 0.10504101, y: 0.14705741, z: 0}
+  weapon: {fileID: 1791375524048153698, guid: d59dd6451cbd0ed48a10e7289d50cf00, type: 3}
   awayPos: {x: 5000, y: 5000, z: 0}
   attackSpeed: 0.5
-  rotationalOffset: 45
+  rotationalOffset: 0
   isChargable: 0
   maxDamage: 5
   timeTillMaxDamage: 1
@@ -64,7 +64,7 @@ MonoBehaviour:
   dropRadius: 0
   explosionForce: 0
   currentFirerateTimer: -1.2300735
-  currentAttackSpeedTimer: -107.537674
+  currentAttackSpeedTimer: -1.6440246
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1

@@ -84,7 +84,7 @@ public class InGameFridgeManager : MonoBehaviour
         if (playerWithinRange)
         {
             //scroll to the right
-            if (Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(KeyCode.T) || myPlayer.GetButtonDown("RightDPad"))
             {
                 if (currentScrollNum + 4 < allPlayableCharacters.Length)
                 {
@@ -104,7 +104,7 @@ public class InGameFridgeManager : MonoBehaviour
             }
 
             //scroll to the left
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R) || myPlayer.GetButtonDown("LeftDPad"))
             {
                 if (currentScrollNum - 4 >= 0)
                 {
@@ -224,7 +224,7 @@ public class InGameFridgeManager : MonoBehaviour
                 //if character is even in the GameData script
                 if (index != -1)
                 {
-                    fridgeCharacterPlaceHolders[i].SetActive(true);
+                    fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = alphaOn;
                     fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().sprite = allPlayableCharacters[currentScrollNum + i].hudIcon;
                     //if you dont own the character set sprite to be black
                     if (gameData.CharacterList[index] == false)
@@ -255,12 +255,12 @@ public class InGameFridgeManager : MonoBehaviour
                 //if character is not in the GameData script
                 else
                 {
-                    fridgeCharacterPlaceHolders[i].SetActive(false);
+                    fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = alphaOff;
                 }
             }
             else
             {
-                fridgeCharacterPlaceHolders[i].SetActive(false);
+                fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = alphaOff;
             }
         }
 
@@ -322,12 +322,10 @@ public class InGameFridgeManager : MonoBehaviour
         {
             inUseUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
         }
+        switchCharacterPhase = false;
 
         rightArrow.SetActive(false);
         leftArrow.SetActive(false);
-        switchCharacterPhase = false;
-        
-
         if (other.gameObject.tag == "Player1")
         {
             playerWithinRange = false;
