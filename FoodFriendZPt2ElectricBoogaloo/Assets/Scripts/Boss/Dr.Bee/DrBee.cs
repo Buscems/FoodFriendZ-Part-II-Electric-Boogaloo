@@ -9,8 +9,6 @@ public class DrBee : MonoBehaviour
 
     Vector3 direction;
 
-    public GameObject honeyProjectile;
-
     Rigidbody2D rb;
 
     [HideInInspector]
@@ -45,8 +43,6 @@ public class DrBee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //what stage the boss is currently in
-        BossStageHandler();
 
         //if the boss is in aggro, fight
         if (baseBoss.aggroScript.aggro)
@@ -75,22 +71,6 @@ public class DrBee : MonoBehaviour
             }
         }
 
-    }
-
-    void BossStageHandler()
-    {
-        if (baseBoss.healthPercent > .5f)
-        {
-            baseBoss.stage = BaseBoss.BossStage.stage1;
-        }
-        else if (baseBoss.healthPercent > .25f)
-        {
-            baseBoss.stage = BaseBoss.BossStage.stage2;
-        }
-        else
-        {
-            baseBoss.stage = BaseBoss.BossStage.stage3;
-        }
     }
 
     void Stage1()

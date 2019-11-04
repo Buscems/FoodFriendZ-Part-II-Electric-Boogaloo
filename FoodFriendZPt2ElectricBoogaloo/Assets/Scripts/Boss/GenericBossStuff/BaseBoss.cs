@@ -20,6 +20,8 @@ public class BaseBoss : MonoBehaviour
     [Range(0, 1)]
     public int walkIntoDamage;
 
+    bool dead;
+
     Animator anim;
     public Animator backAnim;
 
@@ -113,6 +115,16 @@ public class BaseBoss : MonoBehaviour
 
         StatusEffectTimers();
         StatusEffects();
+
+        //boss death
+        if(health <= 0)
+        {
+            if (!dead)
+            {
+                StartCoroutine(Death());
+            }
+        }
+
     }
 
     private void StatusEffectTimers()
@@ -198,7 +210,10 @@ public class BaseBoss : MonoBehaviour
             yield return null;
         }
         anim.SetTrigger("roar");
-        backAnim.SetTrigger("roar");
+        if (backAnim != null)
+        {
+            backAnim.SetTrigger("roar");
+        }
     }
     public void StartFightCamera()
     {
@@ -257,7 +272,7 @@ public class BaseBoss : MonoBehaviour
         StartCoroutine(HealthFadeOut());
     }
 
-    public void Death()
+    IEnumerator Death()
     {
         if(anim != null)
         {
@@ -267,6 +282,9 @@ public class BaseBoss : MonoBehaviour
         {
             anim.SetTrigger("death");
         }
+        //testing now
+        yield return new WaitForSeconds(2);
+        Destroy(this.gameObject);
     }
 
 }
