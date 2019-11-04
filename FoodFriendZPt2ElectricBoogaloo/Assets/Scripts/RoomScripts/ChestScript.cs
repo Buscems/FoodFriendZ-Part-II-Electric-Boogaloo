@@ -134,12 +134,18 @@ public class ChestScript : MonoBehaviour
 
     public void SpawnItem()
     {
+        StartCoroutine(ChestItem());
+    }
+
+    IEnumerator ChestItem()
+    {
         GameObject pu = Instantiate(currentPowerup, transform.position, Quaternion.identity);
         pu.GetComponent<BoxCollider2D>().enabled = false;
         if (currentSparkle != null)
         {
             Destroy(currentSparkle);
         }
+        yield return new WaitForSeconds(2);
     }
 
 }

@@ -168,6 +168,12 @@ public class MainPlayer : MonoBehaviour
             case 8:
                 currentChar = allCharacters[7];
                 break;
+            case 9:
+                currentChar = allCharacters[8];
+                break;
+            case 10:
+                currentChar = allCharacters[9];
+                break;
         }
 
         cross = currentChar;

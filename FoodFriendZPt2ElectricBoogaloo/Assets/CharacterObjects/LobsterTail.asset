@@ -10,50 +10,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: _TunaCan
+  m_Name: LobsterTail
   m_EditorClassIdentifier: 
-  hudIcon: {fileID: 1002645427171640083, guid: 6370625e5cfd74127b0c87c620cc99b6, type: 3}
-  characterName: tunaCan
+  hudIcon: {fileID: 5217690489139590396, guid: 333b20e51d1bd4f06b5256879d2d822b, type: 3}
+  characterName: lobsterTail
   attackType: 0
-  Mspeed: 7
-  baseDamage: 4
-  critChance: 0.16
-  critDamageMulitiplier: 1
+  Mspeed: 5
+  baseDamage: 1
+  critChance: 0.308
+  critDamageMulitiplier: 3.6
   dodgeSpeedMultiplier: 1
-  currentDodgeSpeedMultiplier: 1
-  dodgeLength: 0.25
-  currentDodgeTime: -258.4447
-  dodgeWaitTime: 2
-  currentDodgeWaitTime: -256.4456
-  attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
+  currentDodgeSpeedMultiplier: 0
+  dodgeLength: 1
+  currentDodgeTime: -1000
+  dodgeWaitTime: 1
+  currentDodgeWaitTime: 0
+  attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  offset: 0
-  currentPosition: {x: -58.525917, y: 62.177288, z: 0}
-  currentDirection: {x: 0.10504101, y: 0.14705741, z: 0}
-  weapon: {fileID: 1791375524048153698, guid: d59dd6451cbd0ed48a10e7289d50cf00, type: 3}
-  awayPos: {x: 5000, y: 5000, z: 0}
-  attackSpeed: 0.5
+  offset: 0.66
+  currentPosition: {x: 0, y: 0, z: 0}
+  currentDirection: {x: 0, y: 0, z: 0}
+  weapon: {fileID: 1791375524048153698, guid: f7e7f35abf30248cf9b3141b572bf0c6, type: 3}
+  awayPos: {x: 0, y: 0, z: 0}
+  attackSpeed: 1
   rotationalOffset: 0
-  isChargable: 0
-  maxDamage: 5
+  isChargable: 1
+  maxDamage: 10
   timeTillMaxDamage: 1
   currentChargeTimer: 0
   startCharging: 0
-  isAttacking: 1
+  isAttacking: 0
   bullet: {fileID: 0}
-  firerate: 0.13
-  bulletSpeed: 20
+  firerate: 0
+  bulletSpeed: 0
   timeTillDespawn: 0
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
-  bulletTypes:
-  - {fileID: 6395150998634022948, guid: 17bf945f555f29e42a1bcc89accbb6db, type: 3}
-  - {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  bulletsPerBurst: 3
-  timeBetweenBursts: 1
+  bulletTypes: []
+  bulletsPerBurst: 0
+  timeBetweenBursts: 0
   isNeedler: 0
   isPinshot: 0
   explosionDamage: 0
@@ -63,8 +61,8 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -1.2300735
-  currentAttackSpeedTimer: -1.6440246
+  currentFirerateTimer: 0
+  currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
