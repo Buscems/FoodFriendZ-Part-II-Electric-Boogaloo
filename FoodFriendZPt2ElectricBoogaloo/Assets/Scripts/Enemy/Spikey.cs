@@ -8,6 +8,7 @@ public class Spikey : MonoBehaviour
     BaseEnemy baseEnemy;
     PathfindingAI path;
     [SerializeField] GameObject spike;
+    [SerializeField] GameObject spikeRight;
     [SerializeField]  GameObject frontLeft;
     [SerializeField]  GameObject midLeft;
     [SerializeField]  GameObject backLeft;
@@ -39,12 +40,12 @@ public class Spikey : MonoBehaviour
 
         if(baseEnemy.aggroScript.aggro && reload == false)
         {
-            Instantiate(spike, frontLeft.transform.position, frontLeft.transform.rotation);
-            Instantiate(spike, midLeft.transform.position, frontLeft.transform.rotation);
-            Instantiate(spike, backLeft.transform.position, frontLeft.transform.rotation);
-            Instantiate(spike, frontRight.transform.position, frontLeft.transform.rotation);
-            Instantiate(spike, midRight.transform.position, frontLeft.transform.rotation);
-            Instantiate(spike, backRight.transform.position, frontLeft.transform.rotation);
+            Instantiate(spike, frontLeft.transform.position, Quaternion.Euler(0, 0, 120));
+            Instantiate(spike, midLeft.transform.position, Quaternion.Euler(0, 0, 180));
+            Instantiate(spike, backLeft.transform.position, Quaternion.Euler(0, 0, 225));
+            Instantiate(spikeRight, frontRight.transform.position, Quaternion.Euler(0, 0, -120));
+            Instantiate(spikeRight, midRight.transform.position, Quaternion.Euler(0, 0, -180));
+            Instantiate(spikeRight, backRight.transform.position, Quaternion.Euler(0, 0, -225));
             StartCoroutine(Reloading());
             //reload = false;
             //path.enabled = false;

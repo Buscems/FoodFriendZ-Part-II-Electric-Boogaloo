@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeMove : MonoBehaviour
+public class SpikeMoveRight : MonoBehaviour
 {
-
     Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private int damage;
@@ -13,13 +12,13 @@ public class SpikeMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        velocity = transform.right * speed;
+        velocity = transform.right * -1 * speed;
     }
 
-    
+
     void FixedUpdate()
     {
-         rb.MovePosition(transform.position + velocity * Time.deltaTime);
+        rb.MovePosition(transform.position + velocity * Time.deltaTime);
     }
 
 
@@ -38,4 +37,3 @@ public class SpikeMove : MonoBehaviour
         }
     }
 }
-
