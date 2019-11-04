@@ -174,6 +174,30 @@ public class MainPlayer : MonoBehaviour
             case 10:
                 currentChar = allCharacters[9];
                 break;
+            case 11:
+                currentChar = allCharacters[10];
+                break;
+            case 12:
+                currentChar = allCharacters[11];
+                break;
+            case 13:
+                currentChar = allCharacters[12];
+                break;
+            case 14:
+                currentChar = allCharacters[13];
+                break;
+            case 15:
+                currentChar = allCharacters[14];
+                break;
+            case 16:
+                currentChar = allCharacters[15];
+                break;
+            case 17:
+                currentChar = allCharacters[16];
+                break;
+            case 18:
+                currentChar = allCharacters[17];
+                break;
         }
 
         cross = currentChar;
@@ -715,6 +739,33 @@ public class MainPlayer : MonoBehaviour
 
             case "fries":
                 anim.SetInteger("characterID", 8);
+                break;
+            case "taco":
+                anim.SetInteger("characterID", 9);
+                break;
+            case "donut":
+                anim.SetInteger("characterID", 10);
+                break;
+            case "hotdog":
+                anim.SetInteger("characterID", 11);
+                break;
+            case "napoleon":
+                anim.SetInteger("characterID", 12);
+                break;
+            case "blueberryMuffin":
+                anim.SetInteger("characterID", 13);
+                break;
+            case "cone":
+                anim.SetInteger("characterID", 14);
+                break;
+            case "lobsterTail":
+                anim.SetInteger("characterID", 15);
+                break;
+            case "samosa":
+                anim.SetInteger("characterID", 16);
+                break;
+            case "tunaCan":
+                anim.SetInteger("characterID", 17);
                 break;
         }
 
