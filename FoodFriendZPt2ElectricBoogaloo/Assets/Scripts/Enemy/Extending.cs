@@ -10,6 +10,7 @@ public class Extending : MonoBehaviour
     [SerializeField] float speed;
     float originalScale;
     float endScale;
+    float offset;
     private Vector3 targetPos;
 
     void Start()
@@ -18,6 +19,7 @@ public class Extending : MonoBehaviour
         targetPos = transform.position;
         originalScale = transform.localScale.x;
         endScale = 7;
+        offset = endScale * .0005f;
     }
 
     
@@ -26,7 +28,7 @@ public class Extending : MonoBehaviour
         if (baseEnemy.aggroScript.aggro)
         {
             transform.localScale = new Vector3(Mathf.MoveTowards(transform.localScale.x, endScale, Time.deltaTime * speed), transform.localScale.y, 0);
-            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+            transform.position = new Vector3(transform.position.x + offset, transform.position.y, 0);
         }
     }
 }

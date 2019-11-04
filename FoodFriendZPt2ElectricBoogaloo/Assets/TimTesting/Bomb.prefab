@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3669596745832177086}
   - component: {fileID: 6968387851366935529}
   - component: {fileID: 4867206387806405013}
+  - component: {fileID: 4070947873846803886}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -125,3 +126,24 @@ PolygonCollider2D:
       - {x: -0.2938925, y: -0.41006416}
       - {x: 0.29389277, y: -0.4100641}
       - {x: 0.47552833, y: 0.14895293}
+--- !u!50 &4070947873846803886
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8410543974528150372}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -6,6 +6,7 @@ public class Spikey : MonoBehaviour
 {
 
     BaseEnemy baseEnemy;
+    PathfindingAI path;
     [SerializeField] GameObject spike;
     [SerializeField]  GameObject frontLeft;
     [SerializeField]  GameObject midLeft;
@@ -14,13 +15,14 @@ public class Spikey : MonoBehaviour
     [SerializeField]  GameObject midRight;
     [SerializeField]  GameObject backRight;
     [SerializeField] float DownTime;
-    private bool reload;
+    [SerializeField] private bool reload;
     private float savedSpeed;
 
 
     void Start()
     {
         baseEnemy = GetComponent<BaseEnemy>();
+        path = GetComponent<PathfindingAI>();
         reload = false;
         savedSpeed = baseEnemy.speed;
     }
@@ -28,24 +30,33 @@ public class Spikey : MonoBehaviour
     
     void Update()
     {
-        if (baseEnemy.aggroScript.aggro)
+        /*
+        if (reload)
         {
+             StartCoroutine(Reloading());
+            reload = false;
+        }*/
 
-            if (reload)
-            {
-                StartCoroutine(Reloading());
-            }
+        if(baseEnemy.aggroScript.aggro && reload == false)
+        {
+            Instantiate(spike, frontLeft.transform.position, frontLeft.transform.rotation);
+            Instantiate(spike, midLeft.transform.position, frontLeft.transform.rotation);
+            Instantiate(spike, backLeft.transform.position, frontLeft.transform.rotation);
+            Instantiate(spike, frontRight.transform.position, frontLeft.transform.rotation);
+            Instantiate(spike, midRight.transform.position, frontLeft.transform.rotation);
+            Instantiate(spike, backRight.transform.position, frontLeft.transform.rotation);
+            StartCoroutine(Reloading());
+            //reload = false;
+            //path.enabled = false;
+            //Instantiate(spike, frontLeft.transform.position, frontLeft.transform.rotation);
+            //reload = true;
 
-            if(reload == false)
-            {
-                Shoot();
-            }
-
+            Debug.Log(reload);
         }
 
     }
 
-    void Shoot()
+    /*void Shoot()
     {
         baseEnemy.speed = 0;
         reload = true;
@@ -55,11 +66,12 @@ public class Spikey : MonoBehaviour
         Instantiate(spike, frontRight.transform.position, frontLeft.transform.rotation);
         Instantiate(spike, midRight.transform.position, frontLeft.transform.rotation);
         Instantiate(spike, backRight.transform.position, frontLeft.transform.rotation);
-    }
+    }*/
 
     IEnumerator Reloading()
     {
-        baseEnemy.speed = savedSpeed;
+        reload = true;
+        path.enabled = true;
         yield return new WaitForSeconds(DownTime);
         reload = false;
     }
