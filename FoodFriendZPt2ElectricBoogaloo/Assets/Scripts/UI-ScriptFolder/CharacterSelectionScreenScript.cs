@@ -91,30 +91,76 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         HighlightedCharacterNameDisplay.text = "Cannoli";
         PlayerPrefs.SetInt("startCharacter", 5);
     }
-    public void Fries()
-    {
-        HighlightedCharacterIMG.sprite = characterSprites[5];
-        HighlightedCharacterNameDisplay.text = "Fries";
-        PlayerPrefs.SetInt("startCharacter", 8);
-    }
     public void Burger()
     {
-        HighlightedCharacterIMG.sprite = characterSprites[6];
+        HighlightedCharacterIMG.sprite = characterSprites[5];
         HighlightedCharacterNameDisplay.text = "Burger";
         PlayerPrefs.SetInt("startCharacter", 6);
     }
     public void Sashimi()
     {
-        HighlightedCharacterIMG.sprite = characterSprites[7];
+        HighlightedCharacterIMG.sprite = characterSprites[6];
         HighlightedCharacterNameDisplay.text = "Sashimi";
         PlayerPrefs.SetInt("startCharacter", 7);
     }
-    public void Napoleon()
+    public void Fries()
     {
         HighlightedCharacterIMG.sprite = characterSprites[7];
-        HighlightedCharacterNameDisplay.text = "Napoleon";
+        HighlightedCharacterNameDisplay.text = "Fries";
         PlayerPrefs.SetInt("startCharacter", 8);
     }
-
-    
+    public void Taco()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[8];
+        HighlightedCharacterNameDisplay.text = "Taco";
+        PlayerPrefs.SetInt("startCharacter", 9);
+    }
+    public void Donut()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[9];
+        HighlightedCharacterNameDisplay.text = "Napoleon";
+        PlayerPrefs.SetInt("startCharacter", 10);
+    }
+    public void Hotdog()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[10];
+        HighlightedCharacterNameDisplay.text = "Hot Dog";
+        PlayerPrefs.SetInt("startCharacter", 11);
+    }
+    public void Napoleon()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[11];
+        HighlightedCharacterNameDisplay.text = "Napoleon";
+        PlayerPrefs.SetInt("startCharacter", 12);
+    }
+    public void Muffin()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[12];
+        HighlightedCharacterNameDisplay.text = "Blueberry Muffin";
+        PlayerPrefs.SetInt("startCharacter", 13);
+    }
+    public void MintChip()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[13];
+        HighlightedCharacterNameDisplay.text = "Mint Chocolate Chip";
+        PlayerPrefs.SetInt("startCharacter", 14);
+    }
+    public void LobsterTail()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[14];
+        HighlightedCharacterNameDisplay.text = "Lobster Tail";
+        PlayerPrefs.SetInt("startCharacter", 15);
+    }
+    public void Samosa()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[15];
+        HighlightedCharacterNameDisplay.text = "Samosa";
+        PlayerPrefs.SetInt("startCharacter", 16);
+    }
+    public void TunaCan()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[16];
+        HighlightedCharacterNameDisplay.text = "Tuna Can";
+        PlayerPrefs.SetInt("startCharacter", 17);
+    }
 }

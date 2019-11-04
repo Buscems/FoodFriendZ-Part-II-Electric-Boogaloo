@@ -7,6 +7,8 @@ using TMPro;
 public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
 {
     [Header("Scripts")]
+    public GameObject player;
+    [Space]
     public MainPlayer pScript;
     public ItemManager ItemMangerScript;
 
@@ -27,6 +29,14 @@ public class DEBUG_PlayerStatsDisplayScript : MonoBehaviour
     public TextMeshProUGUI MaxCoolDownDuration;
     public TextMeshProUGUI effectTimer;
     public TextMeshProUGUI curTimer;
+
+    private void Start()
+    {
+        //assign stuff
+        player = GameObject.FindGameObjectWithTag("Player1");
+        pScript = player.GetComponent<MainPlayer>();
+        ItemMangerScript = player.GetComponent<ItemManager>();
+    }
 
     void Update()
     {

@@ -22,6 +22,7 @@ public class DownTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1")
         {
+            pillar.baseEnemy.walkIntoDamage = 0;
             pillar.spawnPtRight.SetActive(false);
             pillar.spawnPtUp.SetActive(false);
             pillar.spawnPtDown.SetActive(true);
@@ -30,6 +31,10 @@ public class DownTrigger : MonoBehaviour
             pillar.spawnRight = false;
             pillar.spawnDown = true;
             pillar.spawnLeft = false;
+        }
+        else
+        {
+            pillar.baseEnemy.walkIntoDamage = 1;
         }
     }
 }

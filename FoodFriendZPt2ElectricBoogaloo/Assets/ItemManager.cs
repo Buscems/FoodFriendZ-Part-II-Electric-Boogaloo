@@ -22,12 +22,16 @@ public class ItemManager : MonoBehaviour
 
     public Color readyCDcolor;
     public Color rechargingCDcolor;
+
+    public Image curEquippedItemIMG;
     #endregion
     
     //[START]
     void Start()
     {
+        //assigning stuff
         mp = GetComponent<MainPlayer>();
+        curEquippedItemIMG = GameObject.Find("EquippedItem").GetComponent<Image>();
 
         //FOR DEBUGGING
         if (item != null)
@@ -136,6 +140,8 @@ public class ItemManager : MonoBehaviour
             {
                 Debug.Log("Player already has an item");
             }
+
+            
         }
     }
 }

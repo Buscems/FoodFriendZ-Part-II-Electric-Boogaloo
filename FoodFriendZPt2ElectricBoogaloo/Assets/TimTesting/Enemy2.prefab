@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8017048956525375211}
   - component: {fileID: 9099779703031479161}
   - component: {fileID: 1217658274526357828}
+  - component: {fileID: -5328275769790496291}
+  - component: {fileID: 7530464948193392319}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -121,3 +123,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   height: 10
+--- !u!114 &-5328275769790496291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157367129231824202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggroRange: 7
+  aggroTimerMax: 2
+  aggro: 0
+  target:
+  - {fileID: 0}
+  currentTarget: {fileID: 0}
+  currentPos: {x: 0, y: 0, z: 0}
+--- !u!114 &7530464948193392319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157367129231824202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  speed: 3
+  walkIntoDamage: 1
+  anim: {fileID: 0}
+  aggroScript: {fileID: 5349391127804620904, guid: 9f796e5cb3f7939438fb77e350add3a9,
+    type: 3}
+  items:
+  - {fileID: 1188008098122328144, guid: dd93acb6d278b674dbeb1c8d12605d02, type: 3}
+  - {fileID: 6024263376733084149, guid: 3cf102483f0a48849bba2a79c3884f09, type: 3}
+  - {fileID: 5987431524022525153, guid: 508c240110b9ab84e85af60c7b6e3def, type: 3}
+  - {fileID: 7109659021501123068, guid: b2ecc68bc8460fc47862fb649e94ea9c, type: 3}
+  - {fileID: 1102815877644695261, guid: abe6dd9aab39e754daf22d0ff43c8928, type: 3}
+  - {fileID: 4024102898815256532, guid: 5cbdd23711b90d44cbadd9630d17ebfe, type: 3}
+  - {fileID: 551530364281563291, guid: ed3a1b9b203850644a72513faa3cea38, type: 3}
+  - {fileID: 4543157069601003370, guid: ec19f75c4f97f4b4eb349867ba1e2e34, type: 3}
+  - {fileID: 7281940281577464585, guid: 0f5757bc2f80b6e41bd0ef7a18b1a5ef, type: 3}
+  - {fileID: 6031768757373064001, guid: cd07df8db0de3274994b8ec80df44b94, type: 3}
+  dropRate: 0.02
+  money: 0
+  objectToDestroy: {fileID: 0}

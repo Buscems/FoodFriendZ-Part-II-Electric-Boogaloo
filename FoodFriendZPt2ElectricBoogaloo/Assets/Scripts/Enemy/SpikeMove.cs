@@ -8,16 +8,19 @@ public class SpikeMove : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private int damage;
+    private Vector3 velocity;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        velocity = transform.right * speed;
     }
 
     
     void FixedUpdate()
     {
-        rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
+        //rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
+         rb.MovePosition(transform.position + velocity * Time.deltaTime);
     }
 
 
