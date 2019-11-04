@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 31729018}
   - component: {fileID: 31729017}
   m_Layer: 5
-  m_Name: CherrySprite
+  m_Name: NapoleonSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 59996537}
   - component: {fileID: 59996536}
   m_Layer: 5
-  m_Name: Sashimi (1)
+  m_Name: Samosa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1980952683}
-        m_MethodName: Sashimi
+        m_MethodName: Samosa
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 99340187}
   - component: {fileID: 99340186}
   m_Layer: 5
-  m_Name: BurgerSprite
+  m_Name: LobsterTailSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1633,7 +1633,7 @@ GameObject:
   - component: {fileID: 335892470}
   - component: {fileID: 335892469}
   m_Layer: 5
-  m_Name: TakoyakiSprite
+  m_Name: HotdogSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 347480109}
   - component: {fileID: 347480108}
   m_Layer: 5
-  m_Name: SashimiSprite
+  m_Name: SamosaSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3435,7 +3435,7 @@ GameObject:
   - component: {fileID: 712226861}
   - component: {fileID: 712226860}
   m_Layer: 5
-  m_Name: Takoyaki (1)
+  m_Name: Hotdog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3505,7 +3505,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1980952683}
-        m_MethodName: Takoyaki
+        m_MethodName: Hotdog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3850,7 +3850,7 @@ GameObject:
   - component: {fileID: 787851320}
   - component: {fileID: 787851319}
   m_Layer: 5
-  m_Name: Cannoli (1)
+  m_Name: Muffin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3920,7 +3920,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1980952683}
-        m_MethodName: Cannoli
+        m_MethodName: Muffin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4014,6 +4014,7 @@ RectTransform:
   - {fileID: 1129913102}
   - {fileID: 1825026770}
   - {fileID: 59996535}
+  - {fileID: 1872424406}
   m_Father: {fileID: 511162823}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4917,6 +4918,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965412596}
   m_CullTransparentMesh: 0
+--- !u!1 &1051732546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1051732547}
+  - component: {fileID: 1051732549}
+  - component: {fileID: 1051732548}
+  m_Layer: 5
+  m_Name: TunaCanSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1051732547
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051732546}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1872424406}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1051732548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051732546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1051732549
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051732546}
+  m_CullTransparentMesh: 0
 --- !u!1 &1086969997
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,7 +5233,7 @@ GameObject:
   - component: {fileID: 1129913104}
   - component: {fileID: 1129913103}
   m_Layer: 5
-  m_Name: Fries (1)
+  m_Name: MintChip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5228,7 +5303,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1980952683}
-        m_MethodName: Fries
+        m_MethodName: MintChip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6674,7 +6749,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 593556487}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5614458
+  m_Size: 0.44807693
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7284,7 +7359,7 @@ GameObject:
   - component: {fileID: 1568963765}
   - component: {fileID: 1568963764}
   m_Layer: 5
-  m_Name: Cherry (1)
+  m_Name: Napoleon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7354,7 +7429,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1980952683}
-        m_MethodName: Cherry
+        m_MethodName: Napoleon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7583,7 +7658,7 @@ GameObject:
   - component: {fileID: 1610370164}
   - component: {fileID: 1610370163}
   m_Layer: 5
-  m_Name: FriesSprite
+  m_Name: MintChipSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7936,7 +8011,7 @@ GameObject:
   - component: {fileID: 1765729133}
   - component: {fileID: 1765729132}
   m_Layer: 5
-  m_Name: Tofu (1)
+  m_Name: Taco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7986,7 +8061,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1980952683}
-        m_MethodName: Tofu
+        m_MethodName: Taco
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8555,7 +8630,7 @@ GameObject:
   - component: {fileID: 1825026772}
   - component: {fileID: 1825026771}
   m_Layer: 5
-  m_Name: Burger (1)
+  m_Name: LobsterTail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8625,7 +8700,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1980952683}
-        m_MethodName: Burger
+        m_MethodName: LobsterTail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8871,6 +8946,138 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1872424405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1872424406}
+  - component: {fileID: 1872424409}
+  - component: {fileID: 1872424408}
+  - component: {fileID: 1872424407}
+  m_Layer: 5
+  m_Name: TunaCan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1872424406
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872424405}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000151, y: 1.0000151, z: 1.0000151}
+  m_Children:
+  - {fileID: 1051732547}
+  m_Father: {fileID: 792775027}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1872424407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872424405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.49019608, g: 0, b: 0, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1872424408}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1980952683}
+        m_MethodName: TunaCan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1872424408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872424405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 9e5bc0ff73219dd4dbf19d928c0b867a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1872424409
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872424405}
+  m_CullTransparentMesh: 0
 --- !u!1 &1882528014
 GameObject:
   m_ObjectHideFlags: 0
@@ -9163,7 +9370,7 @@ GameObject:
   - component: {fileID: 1894093870}
   - component: {fileID: 1894093869}
   m_Layer: 5
-  m_Name: OnigiriSprite
+  m_Name: DonutSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9238,7 +9445,7 @@ GameObject:
   - component: {fileID: 1925590214}
   - component: {fileID: 1925590213}
   m_Layer: 5
-  m_Name: Onigiri (1)
+  m_Name: Donut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9308,7 +9515,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1980952683}
-        m_MethodName: Onigiri
+        m_MethodName: Donut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9600,7 +9807,7 @@ GameObject:
   - component: {fileID: 1958050897}
   - component: {fileID: 1958050896}
   m_Layer: 5
-  m_Name: TofuSprite
+  m_Name: TacoSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9799,6 +10006,15 @@ MonoBehaviour:
   - {fileID: 731375368619335737, guid: a50946ca57f9c42ec899b790b68db37b, type: 3}
   - {fileID: 3922987957411462201, guid: 011be092f58594e5e9ca5fd0f849aeb4, type: 3}
   - {fileID: -6406154281553637950, guid: c03b65141570443e6b1e6aa356cd959c, type: 3}
+  - {fileID: -2925908689177850180, guid: fe6e3a2daeff6494dbb820668ca4b32e, type: 3}
+  - {fileID: 2569236167131993415, guid: 6bf3721e2c0754bcfa836c60566e16bf, type: 3}
+  - {fileID: -3766080000172859765, guid: f71fc69a9f9f6411b8788123ea4209db, type: 3}
+  - {fileID: 1910741430806484629, guid: 674ef52b9c81b447e89e6973ff6479e0, type: 3}
+  - {fileID: -4460872821418865276, guid: 91ad15317c9014a179dfb229f640bf6f, type: 3}
+  - {fileID: 3431000811770234237, guid: 1026837ef1e7144aa8a98589e8f59a04, type: 3}
+  - {fileID: 5217690489139590396, guid: 333b20e51d1bd4f06b5256879d2d822b, type: 3}
+  - {fileID: -2920718168878195541, guid: 9d3e0629738ca43b688f2829b12875df, type: 3}
+  - {fileID: 6338356545781371509, guid: ae7f3ca6c8456402c85e4fdd7257d6ee, type: 3}
   characterButtons:
   - {fileID: 1336211124}
   - {fileID: 408392051}
@@ -9808,6 +10024,15 @@ MonoBehaviour:
   - {fileID: 646133646}
   - {fileID: 1804958063}
   - {fileID: 1524907279}
+  - {fileID: 1958050896}
+  - {fileID: 1894093869}
+  - {fileID: 335892469}
+  - {fileID: 31729017}
+  - {fileID: 2095749088}
+  - {fileID: 1610370163}
+  - {fileID: 99340186}
+  - {fileID: 347480108}
+  - {fileID: 1051732548}
 --- !u!82 &1980952684
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10056,7 +10281,7 @@ GameObject:
   - component: {fileID: 2095749089}
   - component: {fileID: 2095749088}
   m_Layer: 5
-  m_Name: CannoliSprite
+  m_Name: MuffinSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
