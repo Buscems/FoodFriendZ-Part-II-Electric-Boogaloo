@@ -115,5 +115,6 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         HighlightedCharacterNameDisplay.text = "Napoleon";
         PlayerPrefs.SetInt("startCharacter", 8);
     }
+
     
 }
