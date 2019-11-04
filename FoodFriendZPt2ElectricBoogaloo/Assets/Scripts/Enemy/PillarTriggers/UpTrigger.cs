@@ -15,6 +15,7 @@ public class UpTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player1"){
+            pillar.baseEnemy.walkIntoDamage = 0;
             pillar.spawnPtRight.SetActive(false);
             pillar.spawnPtUp.SetActive(true);
             pillar.spawnPtDown.SetActive(false);
@@ -23,6 +24,9 @@ public class UpTrigger : MonoBehaviour
             pillar.spawnRight = false;
             pillar.spawnDown = false;
             pillar.spawnLeft = false;
+        } else
+        {
+            pillar.baseEnemy.walkIntoDamage = 1;
         }
     }
 }

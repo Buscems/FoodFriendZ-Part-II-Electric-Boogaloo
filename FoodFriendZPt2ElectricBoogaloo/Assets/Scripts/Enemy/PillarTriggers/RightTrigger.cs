@@ -22,6 +22,7 @@ public class RightTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1")
         {
+            pillar.baseEnemy.walkIntoDamage = 0;
             pillar.spawnPtRight.SetActive(true);
             pillar.spawnPtUp.SetActive(false);
             pillar.spawnPtDown.SetActive(false);
@@ -30,6 +31,9 @@ public class RightTrigger : MonoBehaviour
             pillar.spawnRight = true;
             pillar.spawnDown = false;
             pillar.spawnLeft = false;
+        } else
+        {
+            pillar.baseEnemy.walkIntoDamage = 1;
         }
     }
 }
