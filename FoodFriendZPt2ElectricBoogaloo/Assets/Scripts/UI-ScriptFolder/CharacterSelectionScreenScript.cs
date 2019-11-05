@@ -108,48 +108,72 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         HighlightedCharacterIMG.sprite = characterSprites[0];
         HighlightedCharacterNameDisplay.text = "Tofu";
         PlayerPrefs.SetInt("startCharacter", 1);
+        string[] descText = descriptionSections[0].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Onigiri()
     {
         HighlightedCharacterIMG.sprite = characterSprites[1];
         HighlightedCharacterNameDisplay.text = "Onigiri";
         PlayerPrefs.SetInt("startCharacter", 2);
+        string[] descText = descriptionSections[1].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Takoyaki()
     {
         HighlightedCharacterIMG.sprite = characterSprites[2];
         HighlightedCharacterNameDisplay.text = "Takoyaki";
         PlayerPrefs.SetInt("startCharacter", 3);
+        string[] descText = descriptionSections[2].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Cherry()
     {
         HighlightedCharacterIMG.sprite = characterSprites[3];
         HighlightedCharacterNameDisplay.text = "Cherry";
         PlayerPrefs.SetInt("startCharacter", 4);
+        string[] descText = descriptionSections[3].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Cannoli()
     {
         HighlightedCharacterIMG.sprite = characterSprites[4];
         HighlightedCharacterNameDisplay.text = "Cannoli";
         PlayerPrefs.SetInt("startCharacter", 5);
+        string[] descText = descriptionSections[4].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Burger()
     {
         HighlightedCharacterIMG.sprite = characterSprites[5];
         HighlightedCharacterNameDisplay.text = "Burger";
         PlayerPrefs.SetInt("startCharacter", 6);
+        string[] descText = descriptionSections[5].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Sashimi()
     {
         HighlightedCharacterIMG.sprite = characterSprites[6];
         HighlightedCharacterNameDisplay.text = "Sashimi";
         PlayerPrefs.SetInt("startCharacter", 7);
+        string[] descText = descriptionSections[6].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Fries()
     {
         HighlightedCharacterIMG.sprite = characterSprites[7];
         HighlightedCharacterNameDisplay.text = "Fries";
         PlayerPrefs.SetInt("startCharacter", 8);
+        string[] descText = descriptionSections[7].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Taco()
     {
