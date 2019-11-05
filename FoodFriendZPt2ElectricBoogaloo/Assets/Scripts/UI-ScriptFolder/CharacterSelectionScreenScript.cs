@@ -37,7 +37,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     [Header("Description Variables")]
     public TextMeshProUGUI descriptionHeader;
     public TextMeshProUGUI descriptionBody;
-    public StreamReader description;
+    public TextAsset descriptionText;
     public string[] descriptionSections;
 
     //the following is in order to use rewired
@@ -63,10 +63,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     private void Start()
     {
         //setting up the text file
-        string path = "Assets/TextFiles/CharacterDescriptions";
-        description = new StreamReader(path);
-        descriptionSections = description.ToString().Split('\n');
-        description.Close();
+        descriptionSections = descriptionText.ToString().Split('\n');
         audioSource = GetComponent<AudioSource>();
 
         PlayerPrefs.SetFloat("startCharacter", 0);
@@ -78,6 +75,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
         HighlightedCharacterIMG.sprite = characterSprites[0];
         HighlightedCharacterNameDisplay.text = "Tofu";
+        string[] descText = descriptionSections[0].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
 
     }
 
