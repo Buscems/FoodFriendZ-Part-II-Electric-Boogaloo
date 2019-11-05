@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;  //NEED to access other scenes
 using UnityEngine.EventSystems;     //NEED to use for Buttons
 using UnityEngine.UI;               //NEEDS to use UI
 using TMPro;                        //NEEDS to use TextMeshPro
+using Rewired;
+using Rewired.ControllerExtensions;
+using System.IO;
 
 /* [[[TO DO]]]
 *
@@ -31,8 +34,39 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public Sprite[] characterSprites;
     public Image[] characterButtons;
 
+    [Header("Description Variables")]
+    public TextMeshProUGUI descriptionHeader;
+    public TextMeshProUGUI descriptionBody;
+    public StreamReader description;
+    public string[] descriptionSections;
+
+    //the following is in order to use rewired
+    [Tooltip("Reference for using rewired")]
+    private Player myPlayer;
+    [Header("Rewired")]
+    [Tooltip("Number identifier for each player, must be above 0")]
+    public int playerNum;
+
+    [Header("Scrollbar Variables")]
+    public Scrollbar scrollbar;
+    public float scrollSpeed;
+    public float joystickThreshold;
+
+    private void Awake()
+    {
+        //Rewired Code
+        myPlayer = ReInput.players.GetPlayer(playerNum - 1);
+        ReInput.ControllerConnectedEvent += OnControllerConnected;
+        CheckController(myPlayer);
+    }
+
     private void Start()
     {
+        //setting up the text file
+        string path = "Assets/TextFiles/CharacterDescriptions";
+        description = new StreamReader(path);
+        descriptionSections = description.ToString().Split('\n');
+        description.Close();
         audioSource = GetComponent<AudioSource>();
 
         PlayerPrefs.SetFloat("startCharacter", 0);
@@ -45,6 +79,14 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         HighlightedCharacterIMG.sprite = characterSprites[0];
         HighlightedCharacterNameDisplay.text = "Tofu";
 
+    }
+
+    private void Update()
+    {
+        if(Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) >= joystickThreshold)
+        {
+            scrollbar.value += myPlayer.GetAxis("DirectionVertical") * scrollSpeed * Time.deltaTime;
+        }
     }
 
     public void BackToTitleScreenFunction()
@@ -118,7 +160,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public void Donut()
     {
         HighlightedCharacterIMG.sprite = characterSprites[9];
-        HighlightedCharacterNameDisplay.text = "Napoleon";
+        HighlightedCharacterNameDisplay.text = "Donut";
         PlayerPrefs.SetInt("startCharacter", 10);
     }
     public void Hotdog()
@@ -136,19 +178,19 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public void Muffin()
     {
         HighlightedCharacterIMG.sprite = characterSprites[12];
-        HighlightedCharacterNameDisplay.text = "Blueberry Muffin";
+        HighlightedCharacterNameDisplay.text = "Blueberry \nMuffin";
         PlayerPrefs.SetInt("startCharacter", 13);
     }
     public void MintChip()
     {
         HighlightedCharacterIMG.sprite = characterSprites[13];
-        HighlightedCharacterNameDisplay.text = "Mint Chocolate Chip";
+        HighlightedCharacterNameDisplay.text = "Mint \nChip";
         PlayerPrefs.SetInt("startCharacter", 14);
     }
     public void LobsterTail()
     {
         HighlightedCharacterIMG.sprite = characterSprites[14];
-        HighlightedCharacterNameDisplay.text = "Lobster Tail";
+        HighlightedCharacterNameDisplay.text = "Lobster \nTail";
         PlayerPrefs.SetInt("startCharacter", 15);
     }
     public void Samosa()
@@ -160,7 +202,44 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public void TunaCan()
     {
         HighlightedCharacterIMG.sprite = characterSprites[16];
-        HighlightedCharacterNameDisplay.text = "Tuna Can";
+        HighlightedCharacterNameDisplay.text = "Tuna \nCan";
         PlayerPrefs.SetInt("startCharacter", 17);
     }
+
+
+    //[REWIRED METHODS]
+    //these two methods are for ReWired, if any of you guys have any questions about it I can answer them, but you don't need to worry about this for working on the game - Buscemi
+    void OnControllerConnected(ControllerStatusChangedEventArgs arg)
+    {
+        CheckController(myPlayer);
+    }
+
+    void CheckController(Player player)
+    {
+        foreach (Joystick joyStick in player.controllers.Joysticks)
+        {
+            var ds4 = joyStick.GetExtension<DualShock4Extension>();
+            if (ds4 == null) continue;//skip this if not DualShock4
+            switch (playerNum)
+            {
+                case 4:
+                    ds4.SetLightColor(Color.yellow);
+                    break;
+                case 3:
+                    ds4.SetLightColor(Color.green);
+                    break;
+                case 2:
+                    ds4.SetLightColor(Color.blue);
+                    break;
+                case 1:
+                    ds4.SetLightColor(Color.red);
+                    break;
+                default:
+                    ds4.SetLightColor(Color.white);
+                    Debug.LogError("Player Num is 0, please change to a number > 0");
+                    break;
+            }
+        }
+    }
+
 }
