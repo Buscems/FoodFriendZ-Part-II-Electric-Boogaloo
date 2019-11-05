@@ -15,6 +15,15 @@ public class PillarEnemy : MonoBehaviour
     public bool spawnDown;
     public bool spawnLeft;
 
+    public bool following;
+    public bool spawnPillar;
+    public bool throwingPillar;
+    public bool canSpawn;
+
+    public float spawnTime;
+    public float throwTime;
+    public float rechargeTime;
+
     public GameObject spawnPtUp;
     public GameObject spawnPtRight;
     public GameObject spawnPtDown;
@@ -29,6 +38,8 @@ public class PillarEnemy : MonoBehaviour
 
     public BaseEnemy baseEnemy;
 
+    public PathfindingAI path;
+
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -36,6 +47,7 @@ public class PillarEnemy : MonoBehaviour
     {
         baseEnemy = GetComponent<BaseEnemy>();
         rb = GetComponent<Rigidbody2D>();
+        path = GetComponent<PathfindingAI>();
         spawnPtUp.SetActive(false);
         spawnPtRight.SetActive(false);
         spawnPtDown.SetActive(false);
@@ -47,80 +59,44 @@ public class PillarEnemy : MonoBehaviour
     {
         playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
 
-        if (baseEnemy.aggroScript.aggro)
-        {
-            Vector3 direction = (baseEnemy.aggroScript.currentPos - playerPos).normalized;
-            Vector2 force = direction * baseEnemy.speed * Time.deltaTime;
-            rb.MovePosition(rb.position - force);
+        if (baseEnemy.aggroScript.aggro == true && canSpawn == true){
+            StartCoroutine(spawningPillar());
         }
+
+
+    }
+
+    IEnumerator spawningPillar(){
+        spawnPillar = true;
+        path.enabled = false;
+        canSpawn = false;
+        if (spawnUp == true){
+            Instantiate(pillar, spawnPtUp.transform.position, Quaternion.Euler(0, 0, 90));
+        }
+        if (spawnRight == true){
+            Instantiate(pillar, spawnPtRight.transform.position, Quaternion.Euler(0, 0, 180));
+        }
+        if (spawnPtDown == true){
+            Instantiate(pillar, spawnPtDown.transform.position, Quaternion.Euler(0, 0, 270));
+        }
+        if (spawnPtLeft == true){
+            Instantiate(pillar, spawnPtLeft.transform.position, Quaternion.Euler(0, 0, 0));
+        }
+        yield return new WaitForSeconds(spawnTime);
+        StartCoroutine(throwPillar());
+    }
+
+    IEnumerator throwPillar(){
+        spawnPillar = false;
+        throwingPillar = true;
+        yield return new WaitForSeconds(throwTime);
+        StartCoroutine(recharge());
+    }
+
+    IEnumerator recharge(){
+        throwingPillar = false;
+        path.enabled = true;
+        yield return new WaitForSeconds(rechargeTime);
+        canSpawn = true;
     }
 }
-
-           
-
-            /*RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right);
-            Debug.DrawLine(transform.position, hitRight.point);
-
-            if (hitRight.collider != null){
-                Debug.Log("rightttt");
-                
-            }
-
-            RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down);
-            Debug.DrawLine(transform.position, hitDown.point);
-
-            if (hitDown.collider != null){
-                Debug.Log("downnnn");
-               
-            }
-        }
-    }
-}
-
-            if (direction.x >= 0 )
-            {
-                spawnPtRight.SetActive(false);
-                spawnPtUp.SetActive(false);
-                spawnPtDown.SetActive(false);
-                spawnPtLeft.SetActive(true);
-                spawnUp = false;
-                spawnRight = false;
-                spawnDown = false;
-                spawnLeft = true;
-            }
-            else 
-            {
-                spawnPtRight.SetActive(true);
-                spawnPtUp.SetActive(false);
-                spawnPtDown.SetActive(false);
-                spawnPtLeft.SetActive(false);
-                spawnUp = false;
-                spawnRight = true;
-                spawnDown = false;
-                spawnLeft = false;
-            }
-            if (direction.y >= 0 )
-            {
-                spawnPtRight.SetActive(false);
-                spawnPtUp.SetActive(true);
-                spawnPtDown.SetActive(false);
-                spawnPtLeft.SetActive(false);
-                spawnUp = true;
-                spawnRight = false;
-                spawnDown = false;
-                spawnLeft = false;
-            }
-            else 
-            {
-                spawnPtRight.SetActive(false);
-                spawnPtUp.SetActive(false);
-                spawnPtDown.SetActive(true);
-                spawnPtLeft.SetActive(false);
-                spawnUp = false;
-                spawnRight = false;
-                spawnDown = true;
-                spawnLeft = false;
-            }
-        }
-    }
-}*/

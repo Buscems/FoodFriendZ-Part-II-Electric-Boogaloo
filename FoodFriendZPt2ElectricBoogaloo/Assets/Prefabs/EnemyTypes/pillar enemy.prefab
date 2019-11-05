@@ -495,10 +495,10 @@ GameObject:
   - component: {fileID: 2943224827962901084}
   - component: {fileID: 2943224827962901081}
   - component: {fileID: 7585897057663371314}
-  - component: {fileID: 3879908949575042588}
   - component: {fileID: 5415744474793553570}
   - component: {fileID: 6042624743842100192}
   - component: {fileID: 6042624743306549223}
+  - component: {fileID: 3879908949575042588}
   m_Layer: 10
   m_Name: pillar enemy
   m_TagString: Enemy
@@ -693,19 +693,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3879908949575042588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2943224827962901080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83980db72f9b2b45bdfde10d3e5a337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextWaypointDistance: 0.5
 --- !u!114 &5415744474793553570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,6 +766,13 @@ MonoBehaviour:
   spawnRight: 0
   spawnDown: 0
   spawnLeft: 0
+  following: 0
+  spawnPillar: 0
+  throwingPillar: 0
+  canSpawn: 1
+  spawnTime: 4
+  throwTime: 4
+  rechargeTime: 4
   spawnPtUp: {fileID: 6042624742472210191}
   spawnPtRight: {fileID: 6042624741890941931}
   spawnPtDown: {fileID: 6042624743738609900}
@@ -789,6 +783,20 @@ MonoBehaviour:
   downTrigger: {fileID: 1863492259}
   pillar: {fileID: 8877025991476190179, guid: 28b8ccf014f34244890fcf70cfcc5908, type: 3}
   baseEnemy: {fileID: 0}
+  path: {fileID: 3879908949575042588}
+--- !u!114 &3879908949575042588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2943224827962901080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83980db72f9b2b45bdfde10d3e5a337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextWaypointDistance: 0.5
 --- !u!1 &6042624741890941931
 GameObject:
   m_ObjectHideFlags: 0
