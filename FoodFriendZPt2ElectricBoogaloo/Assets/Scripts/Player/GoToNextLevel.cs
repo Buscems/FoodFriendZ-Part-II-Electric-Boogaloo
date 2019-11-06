@@ -7,7 +7,7 @@ public class GoToNextLevel : MonoBehaviour
     public GameObject[] levels;
 
     private int currentLevelNum = -1;
-    private GameObject currentScene;
+    private GameObject currentScene = null;
 
     private GameObject player;
     private GameObject mainCamera;
@@ -21,11 +21,12 @@ public class GoToNextLevel : MonoBehaviour
     {
         player = GameObject.Find("Player");
         mainCamera = GameObject.Find("Main Camera");
-        int randNumber = Random.Range(0, levels.Length);
-        currentScene = Instantiate(levels[randNumber], levels[randNumber].transform.position, Quaternion.identity);
-        Vector3 spawnPoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform.position;
-        player.transform.position = spawnPoint;
-        mainCamera.transform.position = spawnPoint;
+        NextLevel();
+        //int randNumber = Random.Range(0, levels.Length);
+        //currentScene = Instantiate(levels[randNumber], levels[randNumber].transform.position, Quaternion.identity);
+        //Vector3 spawnPoint = GameObject.FindGameObjectWithTag("Spawnpoint").transform.position;
+        //layer.transform.position = spawnPoint;
+        //mainCamera.transform.position = spawnPoint;
         Manager.currentLevel = 0;
     }
 

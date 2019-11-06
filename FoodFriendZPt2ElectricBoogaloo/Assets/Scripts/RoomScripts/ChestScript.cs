@@ -105,7 +105,6 @@ public class ChestScript : MonoBehaviour
             currentPowerup = r[Random.Range(0, r.Length)];
             baseCost = rareCost;
             anim.SetInteger("rarity", 3);
-            Debug.Log("Rare");
             currentSparkle = Instantiate(sparkles, transform.position, Quaternion.identity);
             rur = true;
         }

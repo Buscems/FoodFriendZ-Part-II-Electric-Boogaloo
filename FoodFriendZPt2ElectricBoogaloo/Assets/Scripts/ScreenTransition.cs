@@ -11,6 +11,11 @@ public class ScreenTransition : MonoBehaviour
 
     private GoToNextLevel player;
 
+    public float fadeSpeed;
+    private float alpha = 1; 
+    bool alphaUp = false;
+    bool doFade = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +29,34 @@ public class ScreenTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Color newColor = new Color(0, 0, 0, alpha);
+        fadeObject.GetComponent<Image>().color = newColor;
+        if (doFade)
+        {
+            if (alphaUp)
+            {
+                alpha += fadeSpeed * Time.deltaTime;
+            }
+            else if (!alphaUp)
+            {
+                alpha -= fadeSpeed * Time.deltaTime;
+            }
 
-        if(fadeObject.GetComponent<Image>().color.a >= 1)
+        }
+        if(alphaUp && alpha > 1.1f)
+        {
+            doFade = false;
+            alpha = 1;
+            player.NextLevel();
+        }
+        if (!alphaUp && alpha < -0.1f)
+        {
+            doFade = false;
+            alpha = 0;
+        }
+
+        /*
+        if (fadeObject.GetComponent<Image>().color.a >= 1)
         {
 
             player.NextLevel();
@@ -40,6 +71,7 @@ public class ScreenTransition : MonoBehaviour
 
             FadeIn();
         }
+        */
         /*
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -54,7 +86,9 @@ public class ScreenTransition : MonoBehaviour
 
     public void FadeOut()
     {
-        StartCoroutine(C_FadeOut());
+        doFade = true;
+        alphaUp = true;
+        //StartCoroutine(C_FadeOut());
     }
 
     IEnumerator C_FadeOut()
@@ -62,7 +96,7 @@ public class ScreenTransition : MonoBehaviour
         float alpha = fadeObject.GetComponent<Image>().color.a;
         for (float i = 0.0f; i < 1.0f; i += Time.deltaTime / fadeLength)
         {
-            Color newColor = new Color(0, 0, 0, Mathf.Lerp(alpha, 1.2f, i));
+            Color newColor = new Color(0, 0, 0, Mathf.Lerp(alpha, 1f, i));
             fadeObject.GetComponent<Image>().color = newColor;
             yield return null;
         }
@@ -70,7 +104,9 @@ public class ScreenTransition : MonoBehaviour
 
     private void FadeIn()
     {
-        StartCoroutine(C_FadeIn());
+        doFade = true;
+        alphaUp = false;
+        // StartCoroutine(C_FadeIn());
     }
 
     IEnumerator C_FadeIn()
@@ -78,7 +114,7 @@ public class ScreenTransition : MonoBehaviour
         float alpha = fadeObject.GetComponent<Image>().color.a;
         for (float i = 1.0f; i > 0.0f; i -= Time.deltaTime / fadeLength)
         {
-            Color newColor = new Color(0, 0, 0, Mathf.Lerp(-0.2f, alpha, i));
+            Color newColor = new Color(0, 0, 0, Mathf.Lerp(0f, alpha, i));
             fadeObject.GetComponent<Image>().color = newColor;
             yield return null;
         }

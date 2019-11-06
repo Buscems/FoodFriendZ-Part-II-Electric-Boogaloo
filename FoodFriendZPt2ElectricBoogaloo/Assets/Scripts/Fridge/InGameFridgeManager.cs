@@ -50,6 +50,12 @@ public class InGameFridgeManager : MonoBehaviour
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         CheckController(myPlayer);
+
+
+        //load the data from the save file so you can check if you own stuff or not
+        saveManager = GetComponent<SaveGame>();
+        saveManager.Load();
+        gameData = saveManager.gameData;
     }
 
     // Start is called before the first frame update
@@ -72,10 +78,6 @@ public class InGameFridgeManager : MonoBehaviour
         leftArrow.SetActive(false);
 
 
-        //load the data from the save file so you can check if you own stuff or not
-        saveManager = GetComponent<SaveGame>();
-        saveManager.Load();
-        gameData = saveManager.gameData;
     }
 
     // Update is called once per frame

@@ -42,12 +42,12 @@ public class SaveGame : MonoBehaviour
 
     private string savefileName = "SaveFile.ss";
     private bool loadOnStart = false;
-    private BinaryFormatter formatter;
+    private BinaryFormatter formatter = new BinaryFormatter();
 
     // Start is called before the first frame update
     void Start()
     {
-        formatter = new BinaryFormatter();
+        //formatter = new BinaryFormatter();
 
         if (loadOnStart)
         {
@@ -78,10 +78,9 @@ public class SaveGame : MonoBehaviour
         {
             //get current save file from directory. (this file its getting is a binary file)
             var file = new FileStream("SaveData/" + savefileName, FileMode.Open, FileAccess.Read);
-
+           
             //convert binary file data into a new instance of the GameData class
             gameData = (GameData)formatter.Deserialize(file);
-
             file.Close();
         }
         //if there is no save file yet, then make one
@@ -150,9 +149,9 @@ public class SaveGame : MonoBehaviour
         print("SaveData/" + savefileName);
 
         var file = new FileStream("SaveData/" + savefileName, FileMode.OpenOrCreate, FileAccess.Write);
+        print("SaveData/" + savefileName);
         formatter.Serialize(file, gameData);
         file.Close();
     }
-
 
 }
