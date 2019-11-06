@@ -43,6 +43,8 @@ public class StartMainMenuScript : MonoBehaviour
     public Button optionsBack;
     public Button creditsBack;
     public Button logBookCharacters;
+    public Image characterHighlight;
+    public float offset;
 
     public EventSystem es;
 
@@ -87,6 +89,16 @@ public class StartMainMenuScript : MonoBehaviour
             IsOnTitleScreen = false;
             es.SetSelectedGameObject(StartButton.gameObject);
         }
+
+        if(es.currentSelectedGameObject == StartButton.gameObject)
+        {
+            characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, StartButton.transform.position.y + offset);
+        }
+        if (es.currentSelectedGameObject == OptionsButton.gameObject)
+        {
+            characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, OptionsButton.transform.position.y + offset);
+        }
+
     }
 
     #region all buttons
