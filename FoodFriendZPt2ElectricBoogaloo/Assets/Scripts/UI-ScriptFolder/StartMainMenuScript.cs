@@ -45,6 +45,8 @@ public class StartMainMenuScript : MonoBehaviour
     public Button creditsBack;
     public Button logBookCharacters;
     public Image characterHighlight;
+    public Sprite[] allCharacterSprites;
+    public static Sprite currentHighlightSprite;
     public float offset;
     bool mouse;
 
@@ -73,6 +75,11 @@ public class StartMainMenuScript : MonoBehaviour
         IsOnTitleScreen = true;
 
         t = 0.0f;
+
+        var randNum = Random.Range(0, allCharacterSprites.Length);
+        currentHighlightSprite = allCharacterSprites[randNum];
+        characterHighlight.sprite = currentHighlightSprite;
+
     }
 
     void Update()
@@ -128,11 +135,6 @@ public class StartMainMenuScript : MonoBehaviour
         {
             StartCoroutine(SpawnConfetti());
         }
-        if (!MainMenuParent.activeInHierarchy)
-        {
-            
-        }
-
     }
 
     IEnumerator SpawnConfetti()
@@ -141,15 +143,21 @@ public class StartMainMenuScript : MonoBehaviour
         var randNum = Random.Range(0, 2);
         if(randNum == 0)
         {
-            Instantiate(Confetti1, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+            var c = Instantiate(Confetti1, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+            c.GetComponent<Confetti>().MainMenuScreen = MainMenuParent;
+            c.name = "Confetti";
         }
         if (randNum == 1)
         {
-            Instantiate(Confetti2, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+            var c = Instantiate(Confetti2, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+            c.GetComponent<Confetti>().MainMenuScreen = MainMenuParent;
+            c.name = "Confetti";
         }
         if (randNum == 2)
         {
-            Instantiate(Confetti3, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+            var c = Instantiate(Confetti3, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+            c.GetComponent<Confetti>().MainMenuScreen = MainMenuParent;
+            c.name = "Confetti";
         }
         yield return new WaitForSeconds(Random.Range(0, .25f));
         spawnConfetti = false;

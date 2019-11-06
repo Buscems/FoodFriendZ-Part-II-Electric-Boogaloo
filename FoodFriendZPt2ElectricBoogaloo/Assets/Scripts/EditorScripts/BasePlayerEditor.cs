@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-/*
+
 [CustomEditor(typeof(BasePlayer))]
 public class BasePlayerEditor : Editor
 {
@@ -89,7 +89,7 @@ public class BasePlayerEditor : Editor
 
     private void OnEnable()
     {
-        /myTarget = (BasePlayer)target;
+        myTarget = (BasePlayer)target;
         soTarget = new SerializedObject(target);
 
         #region Variables
@@ -291,4 +291,3 @@ public class BasePlayerEditor : Editor
     
 
 }
-*/
