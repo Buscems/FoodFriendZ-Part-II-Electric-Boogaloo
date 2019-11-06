@@ -184,6 +184,7 @@ MonoBehaviour:
   health: 5
   speed: 2
   walkIntoDamage: 1
+  anim: {fileID: 0}
   aggroScript: {fileID: 8714663361164895463}
   items:
   - {fileID: 1188008098122328144, guid: dd93acb6d278b674dbeb1c8d12605d02, type: 3}
@@ -211,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 5
+  aggroRange: 3
   aggroTimerMax: 0.1
   aggro: 0
   target:

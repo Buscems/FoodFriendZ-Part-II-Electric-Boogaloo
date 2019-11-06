@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3473217360845030908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.645639, y: -7.35, z: 1}
+  m_LocalPosition: {x: -15.645639, y: -7.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8385244215003939650}
@@ -95,10 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 0
-  aggroTimerMax: 0
+  aggroRange: 3
+  aggroTimerMax: 3
   aggro: 0
-  target: []
+  target:
+  - {fileID: 0}
   currentTarget: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
 --- !u!114 &6050335298230972369
@@ -113,13 +114,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  speed: 0
-  walkIntoDamage: 0
-  aggroScript: {fileID: 0}
+  health: 5
+  speed: 3
+  walkIntoDamage: 1
+  anim: {fileID: 0}
+  aggroScript: {fileID: 493399596654181578}
   items: []
   dropRate: 0
   money: 0
+  objectToDestroy: {fileID: 0}
 --- !u!114 &1030070882179376109
 MonoBehaviour:
   m_ObjectHideFlags: 0

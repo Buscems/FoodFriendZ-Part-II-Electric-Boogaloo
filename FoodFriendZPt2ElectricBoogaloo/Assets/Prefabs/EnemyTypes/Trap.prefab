@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7598388282913358165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.945896, y: -8.3939295, z: -5.05469}
+  m_LocalPosition: {x: -15.945896, y: -8.3939295, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,7 +128,9 @@ MonoBehaviour:
   health: 0
   speed: 0
   walkIntoDamage: 0
+  anim: {fileID: 0}
   aggroScript: {fileID: 0}
   items: []
   dropRate: 0
   money: 0
+  objectToDestroy: {fileID: 0}
