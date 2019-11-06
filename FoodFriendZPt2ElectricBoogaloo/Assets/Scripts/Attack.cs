@@ -210,8 +210,7 @@ public class Attack : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
-            if (!isBomb)
-            {
+
                 //decrease the enemy's health, this will be for regular enemies as well as boss enemies
                 if (other.GetComponent<BaseEnemy>() != null)
                 {
@@ -251,7 +250,7 @@ public class Attack : MonoBehaviour
 
                     currentEnemiesPassed -= 1;
                 }
-            }
+            
             if (enemy == null)
             {
                 enemy = other.gameObject;
@@ -312,5 +311,10 @@ public class Attack : MonoBehaviour
     public void Exploison()
     {
         Instantiate(explosionParticles, gameObject.transform.position, Quaternion.identity);
+        CircleCollider2D[] c = GetComponents<CircleCollider2D>();
+        for(int i = 0; i < c.Length; i++)
+        {
+            c[i].enabled = true;
+        }
     }
 }
