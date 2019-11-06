@@ -1025,9 +1025,7 @@ public class MainPlayer : MonoBehaviour
     //getting hit method
     public void GetHit(int damage)
     {
-        print(evasiveChance);
-
-
+               
         //[EVASIVENESS CHECK]
         //guarenteed hurt
         if (evasiveChance <= 0)

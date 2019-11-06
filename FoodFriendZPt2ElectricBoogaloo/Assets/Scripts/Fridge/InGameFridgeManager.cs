@@ -258,11 +258,13 @@ public class InGameFridgeManager : MonoBehaviour
                 else
                 {
                     fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = alphaOff;
+                    selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
                 }
             }
             else
             {
                 fridgeCharacterPlaceHolders[i].GetComponent<SpriteRenderer>().color = alphaOff;
+                selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
             }
         }
 

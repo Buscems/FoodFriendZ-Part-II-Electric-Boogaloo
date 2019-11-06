@@ -29,10 +29,11 @@ public class ScreenTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Color newColor = new Color(0, 0, 0, alpha);
-        fadeObject.GetComponent<Image>().color = newColor;
+       
         if (doFade)
         {
+            Color newColor = new Color(0, 0, 0, alpha);
+            fadeObject.GetComponent<Image>().color = newColor;
             if (alphaUp)
             {
                 alpha += fadeSpeed * Time.deltaTime;
@@ -55,69 +56,22 @@ public class ScreenTransition : MonoBehaviour
             alpha = 0;
         }
 
-        /*
-        if (fadeObject.GetComponent<Image>().color.a >= 1)
-        {
-
-            player.NextLevel();
-            try
-            {
-                GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Projectile");
-
-                for (var i = 0; i < gameObjects.Length; i++)
-                    Destroy(gameObjects[i]);
-            }
-            catch { }
-
-            FadeIn();
-        }
-        */
-        /*
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            FadeOut();
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            FadeIn();
-        }
-        */
     }
 
     public void FadeOut()
     {
         doFade = true;
         alphaUp = true;
+        alpha = 0;
         //StartCoroutine(C_FadeOut());
-    }
-
-    IEnumerator C_FadeOut()
-    {
-        float alpha = fadeObject.GetComponent<Image>().color.a;
-        for (float i = 0.0f; i < 1.0f; i += Time.deltaTime / fadeLength)
-        {
-            Color newColor = new Color(0, 0, 0, Mathf.Lerp(alpha, 1f, i));
-            fadeObject.GetComponent<Image>().color = newColor;
-            yield return null;
-        }
     }
 
     private void FadeIn()
     {
         doFade = true;
         alphaUp = false;
+        alpha = 1;
         // StartCoroutine(C_FadeIn());
-    }
-
-    IEnumerator C_FadeIn()
-    {
-        float alpha = fadeObject.GetComponent<Image>().color.a;
-        for (float i = 1.0f; i > 0.0f; i -= Time.deltaTime / fadeLength)
-        {
-            Color newColor = new Color(0, 0, 0, Mathf.Lerp(0f, alpha, i));
-            fadeObject.GetComponent<Image>().color = newColor;
-            yield return null;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
