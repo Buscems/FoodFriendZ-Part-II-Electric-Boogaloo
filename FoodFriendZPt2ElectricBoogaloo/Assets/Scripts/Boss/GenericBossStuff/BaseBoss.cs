@@ -99,7 +99,7 @@ public class BaseBoss : MonoBehaviour
         {
             stage = BossStage.stage1;
         }
-        if (healthPercent > .5f)
+        else if (healthPercent > .5f)
         {
             stage = BossStage.stage2;
         }

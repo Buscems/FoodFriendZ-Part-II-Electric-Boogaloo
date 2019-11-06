@@ -23,6 +23,7 @@ public class MilkGoneBad : MonoBehaviour
     public bool tackle;
     public float chargeTime;
     Transform tackleTarget;
+    public float tackleCooldown;
 
 
     // Start is called before the first frame update
@@ -47,7 +48,6 @@ public class MilkGoneBad : MonoBehaviour
             //stage1
             if (baseBoss.stage == BaseBoss.BossStage.stage1)
             {
-                print("yer");
                 Stage1();
                 Stage1Movement();
             }
@@ -85,7 +85,7 @@ public class MilkGoneBad : MonoBehaviour
 
     void Stage2()
     {
-
+        baseBoss.walkIntoDamage = 1;
         if (!tackle && (this.transform.position - baseBoss.aggroScript.currentTarget.position).magnitude < tackleDistance)
         {
             StartCoroutine(StartTackle());
