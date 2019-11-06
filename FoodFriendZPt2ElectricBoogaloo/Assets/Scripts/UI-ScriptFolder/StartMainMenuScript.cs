@@ -23,7 +23,7 @@ public class StartMainMenuScript : MonoBehaviour
     public Color TitleInstruction_EndColor;
 
     [Header("Title Screen")]
-    public TextMeshProUGUI TitleCard;
+    public Image TitleCard;
     public TextMeshProUGUI TitleInscruction;
 
     [Header("Parent GameObjects")]
