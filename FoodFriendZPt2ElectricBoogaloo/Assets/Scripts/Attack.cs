@@ -297,6 +297,11 @@ public class Attack : MonoBehaviour
 
     public void Destroy()
     {
+        CircleCollider2D[] c = GetComponents<CircleCollider2D>();
+        for (int i = 0; i < c.Length; i++)
+        {
+            c[i].enabled = true;
+        }
         try
         {
             if (transform.parent.name.Contains("Holder"))
@@ -311,10 +316,5 @@ public class Attack : MonoBehaviour
     public void Exploison()
     {
         Instantiate(explosionParticles, gameObject.transform.position, Quaternion.identity);
-        CircleCollider2D[] c = GetComponents<CircleCollider2D>();
-        for(int i = 0; i < c.Length; i++)
-        {
-            c[i].enabled = true;
-        }
     }
 }

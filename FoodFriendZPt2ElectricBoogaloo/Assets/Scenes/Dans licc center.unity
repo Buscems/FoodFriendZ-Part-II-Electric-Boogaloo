@@ -1767,7 +1767,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentChar
       value: 
-      objectReference: {fileID: 11400000, guid: 91ee94e58e9956f4e988384ed8cb0156,
+      objectReference: {fileID: 11400000, guid: 654196d7c464782428859ba263608a00,
         type: 2}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
@@ -1804,30 +1804,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 719bae922c32598419f93b599acd8299,
         type: 2}
-    - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
-      propertyPath: m_TagString
-      value: PlayerCollider
-      objectReference: {fileID: 0}
-    - target: {fileID: 895167997583135907, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 822394764877458805, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1208179063, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2342861788897084341, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -1888,6 +1865,24 @@ PrefabInstance:
       propertyPath: path
       value: 
       objectReference: {fileID: 2146578956}
+    - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
+      propertyPath: m_TagString
+      value: PlayerCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458805, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342861788897084341, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2068965905430751085, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: m_Enabled
@@ -1897,6 +1892,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 895167997583135907, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
