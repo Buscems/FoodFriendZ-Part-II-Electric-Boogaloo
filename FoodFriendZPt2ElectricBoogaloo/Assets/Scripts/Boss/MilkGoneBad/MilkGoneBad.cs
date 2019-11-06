@@ -17,6 +17,14 @@ public class MilkGoneBad : MonoBehaviour
     bool startStage2;
     bool startStage3;
 
+    [Header("Tackle Variables")]
+    public float tackleDistance;
+    public float tackleSpeed;
+    public bool tackle;
+    public float chargeTime;
+    Transform tackleTarget;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +47,7 @@ public class MilkGoneBad : MonoBehaviour
             //stage1
             if (baseBoss.stage == BaseBoss.BossStage.stage1)
             {
+                print("yer");
                 Stage1();
                 Stage1Movement();
             }
@@ -69,13 +78,38 @@ public class MilkGoneBad : MonoBehaviour
 
     void Stage1Movement()
     {
+        velocity = (transform.position - baseBoss.aggroScript.currentTarget.transform.position).normalized;
         rb.MovePosition(rb.position + velocity * baseBoss.speed * Time.deltaTime);
 
     }
 
     void Stage2()
     {
-        this.GetComponent<DropAttack>().enabled = true;
+
+        if (!tackle && (this.transform.position - baseBoss.aggroScript.currentTarget.position).magnitude < tackleDistance)
+        {
+            StartCoroutine(StartTackle());
+            print("Yer");
+        }
+
+    }
+
+    IEnumerator StartTackle()
+    {
+        tackle = true;
+        yield return new WaitForSeconds(chargeTime);
+        tackleTarget = baseBoss.aggroScript.currentTarget;
+        StartCoroutine(Tackle());
+    }
+
+    IEnumerator Tackle()
+    {
+        while(transform.position != tackleTarget.position)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, tackleTarget.position, tackleSpeed * Time.deltaTime);
+            yield return null;
+        }
+        tackle = false;
     }
 
     void Stage3()

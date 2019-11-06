@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1292834112106629762}
   - component: {fileID: 1128184423602154818}
   - component: {fileID: 8068192480603250451}
+  - component: {fileID: 2783504486587021435}
   m_Layer: 10
   m_Name: Milk Gone Bad
   m_TagString: Enemy
@@ -216,6 +217,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
+  tackleDistance: 5
+  tackleSpeed: 5
+  tackle: 0
+  chargeTime: 0.25
+--- !u!95 &2783504486587021435
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673209624451384131}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68cc812c06c066744a9efc0569e05f80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7583435334822972945
 GameObject:
   m_ObjectHideFlags: 0

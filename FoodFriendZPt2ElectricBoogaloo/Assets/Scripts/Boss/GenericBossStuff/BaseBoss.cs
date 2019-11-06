@@ -10,7 +10,7 @@ public class BaseBoss : MonoBehaviour
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
     public float maxHealth;
-    [HideInInspector]
+    //[HideInInspector]
     public float health;
     [HideInInspector]
     public float healthPercent;
@@ -45,7 +45,7 @@ public class BaseBoss : MonoBehaviour
     public Aggro aggroScript;
 
     public enum BossStage { stage1, stage2, stage3}
-    [HideInInspector]
+    //[HideInInspector]
     public BossStage stage;
 
 
