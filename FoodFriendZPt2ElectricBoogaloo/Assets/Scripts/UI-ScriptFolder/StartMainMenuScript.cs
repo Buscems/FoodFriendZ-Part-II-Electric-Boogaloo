@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;     //NEED to use for Buttons
 using UnityEngine.UI;               //NEEDS to use UI
 using TMPro;                        //NEEDS to use TextMeshPro
 
+
 public class StartMainMenuScript : MonoBehaviour
 {
     /* [[[TO DO]]]
@@ -45,6 +46,15 @@ public class StartMainMenuScript : MonoBehaviour
     public Button logBookCharacters;
     public Image characterHighlight;
     public float offset;
+    bool mouse;
+
+    [Header("Confetti Variables")]
+    public GameObject Confetti1;
+    public GameObject Confetti2;
+    public GameObject Confetti3;
+    public Transform spawn1;
+    public Transform spawn2;
+    bool spawnConfetti;
 
     public EventSystem es;
 
@@ -90,15 +100,70 @@ public class StartMainMenuScript : MonoBehaviour
             es.SetSelectedGameObject(StartButton.gameObject);
         }
 
-        if(es.currentSelectedGameObject == StartButton.gameObject)
+        if (!mouse)
         {
-            characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, StartButton.transform.position.y + offset);
-        }
-        if (es.currentSelectedGameObject == OptionsButton.gameObject)
-        {
-            characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, OptionsButton.transform.position.y + offset);
+            if (es.currentSelectedGameObject == StartButton.gameObject)
+            {
+                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, StartButton.transform.position.y + offset);
+            }
+            if (es.currentSelectedGameObject == OptionsButton.gameObject)
+            {
+                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, OptionsButton.transform.position.y + offset);
+            }
+            if (es.currentSelectedGameObject == CreditsButton.gameObject)
+            {
+                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, CreditsButton.transform.position.y + offset);
+            }
+            if (es.currentSelectedGameObject == LogButton.gameObject)
+            {
+                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, LogButton.transform.position.y + offset);
+            }
+            if (es.currentSelectedGameObject == QuitButton.gameObject)
+            {
+                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, QuitButton.transform.position.y + offset);
+            }
         }
 
+        if (MainMenuParent.activeInHierarchy && !spawnConfetti)
+        {
+            StartCoroutine(SpawnConfetti());
+        }
+        if (!MainMenuParent.activeInHierarchy)
+        {
+            
+        }
+
+    }
+
+    IEnumerator SpawnConfetti()
+    {
+        spawnConfetti = true;
+        var randNum = Random.Range(0, 2);
+        if(randNum == 0)
+        {
+            Instantiate(Confetti1, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+        }
+        if (randNum == 1)
+        {
+            Instantiate(Confetti2, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+        }
+        if (randNum == 2)
+        {
+            Instantiate(Confetti3, new Vector3(Random.Range(spawn1.position.x, spawn2.position.x), spawn1.position.y, 0), Quaternion.identity);
+        }
+        yield return new WaitForSeconds(Random.Range(0, .25f));
+        spawnConfetti = false;
+    }
+
+    public void StartHighlight()
+    {
+        mouse = true;
+        characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, StartButton.transform.position.y + offset);
+    }
+
+    public void LeaveButton()
+    {
+        mouse = false;
     }
 
     #region all buttons

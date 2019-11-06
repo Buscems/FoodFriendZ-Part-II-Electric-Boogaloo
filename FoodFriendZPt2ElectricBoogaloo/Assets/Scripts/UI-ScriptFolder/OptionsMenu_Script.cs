@@ -20,6 +20,9 @@ public class OptionsMenu_Script : MonoBehaviour
     public GameObject DefaultScreenOverlay; //Title Screen or GUI
     public GameObject OptionsScreenOverlay;
 
+    [Header("Button References")]
+    public Button backButton;
+    public Image buttonHighlight;
     public Button startButton;
     public EventSystem es;
 
