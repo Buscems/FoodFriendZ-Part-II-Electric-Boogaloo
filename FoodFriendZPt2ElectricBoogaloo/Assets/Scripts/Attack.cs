@@ -97,14 +97,6 @@ public class Attack : MonoBehaviour
                 }
             }
         }
-        if (enemy != null)
-        {
-            if (isPinshot)
-            {
-
-                enemy.transform.position = transform.position;
-            }
-        }
     }
 
     public void SetStatusEffectsBools(bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
@@ -226,17 +218,19 @@ public class Attack : MonoBehaviour
                 try
                 {
                     //if attack is non pierce-able, destroy on collision with enemy
-                    if (transform.root.GetComponent<MainPlayer>().HitEnemy(gameObject.tag))
+                    if (gameObject.tag == "Projectile")
                     {
                         if (!canPierce)
                         {
+                        print("1");
                             DestroyBullet(other.gameObject);
                         }
                     }
                 }
                 catch
                 {
-                    DestroyBullet(other.gameObject);
+                print("2");
+                DestroyBullet(other.gameObject);
                 }
 
                 damage *= pierceMultiplier;
@@ -245,7 +239,8 @@ public class Attack : MonoBehaviour
                 {
                     if (currentEnemiesPassed == 0)
                     {
-                        DestroyBullet(other.gameObject);
+                    print("3");
+                    DestroyBullet(other.gameObject);
                     }
 
                     currentEnemiesPassed -= 1;
