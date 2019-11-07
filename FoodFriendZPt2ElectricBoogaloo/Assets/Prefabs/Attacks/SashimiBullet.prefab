@@ -162,8 +162,6 @@ MonoBehaviour:
   timeBeforeReturning: 0
   velocity: {x: 0, y: 0, z: 0}
   instantiateOnDestroy: {fileID: 0}
-  soundToInstantiate: {fileID: 2109474220939513840, guid: d9d24ada14b49a24fa51c73e8524bb4b,
-    type: 3}
   player: {fileID: 0}
   stopMoving: 0
 --- !u!50 &6395150998634023896
@@ -207,6 +205,9 @@ MonoBehaviour:
   force: 0
   radius: 0
   explosionParticles: {fileID: 0}
+  soundToInstantiate: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
+    type: 3}
+  soundClip: {fileID: 8300000, guid: 996246a8366d949c4b7841ff15c908a2, type: 3}
 --- !u!95 &7578642382690505313
 Animator:
   serializedVersion: 3

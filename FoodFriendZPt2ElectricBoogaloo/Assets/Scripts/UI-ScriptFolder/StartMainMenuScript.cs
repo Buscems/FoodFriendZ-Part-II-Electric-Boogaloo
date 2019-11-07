@@ -17,8 +17,6 @@ public class StartMainMenuScript : MonoBehaviour
 
     static float t = 0.0f; //starting value for lerp
 
-    AudioSource audioSource;
-
     [Header("Lerping Colors")]
     public Color TitleInstruction_StartColor;
     public Color TitleInstruction_EndColor;
@@ -65,7 +63,6 @@ public class StartMainMenuScript : MonoBehaviour
 
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
 
         //Default Title Screen elements
         TitleCard.enabled = true;
@@ -178,7 +175,6 @@ public class StartMainMenuScript : MonoBehaviour
     //Start Button
     public void StartButtonFunction()
     {
-        audioSource.Play();
         Debug.Log("Starting Game");
         //this is just for now so that the game can be played, have to add back character select
         //SceneManager.LoadScene("Dans licc center");
@@ -188,7 +184,6 @@ public class StartMainMenuScript : MonoBehaviour
     //LogBook Button
     public void LogBookButtonFunction()
     {
-        audioSource.Play();
         Debug.Log("Opening Log Book");
         es.SetSelectedGameObject(logBookCharacters.gameObject);
         LogBookParent.SetActive(true);
@@ -198,7 +193,6 @@ public class StartMainMenuScript : MonoBehaviour
     //Options Button
     public void OptionsButtonFunction()
     {
-        audioSource.Play();
         OptionsMenuParent.SetActive(true);
         MainMenuParent.SetActive(false);
         es.SetSelectedGameObject(optionsBack.gameObject);
@@ -208,7 +202,6 @@ public class StartMainMenuScript : MonoBehaviour
     //Credits Button
     public void CreditsButtonFunction()
     {
-        audioSource.Play();
         CreditScreenParent.SetActive(true);
         es.SetSelectedGameObject(creditsBack.gameObject);
         //turn off all other elements
@@ -218,7 +211,6 @@ public class StartMainMenuScript : MonoBehaviour
     //Quit Button
     public void QuitButtonFunction()
     {
-        audioSource.Play();
         Application.Quit();     //This should work in the build. Doesn't work in editor because it would close Unity
         Debug.Log("Quitting Game");
     }

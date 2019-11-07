@@ -24,6 +24,8 @@ public class Attack : MonoBehaviour
     public float radius;
 
     public GameObject explosionParticles;
+    public AudioSource soundToInstantiate;
+    public AudioClip soundClip;
 
     private GameObject enemy = null;
 
@@ -51,6 +53,18 @@ public class Attack : MonoBehaviour
     void Start()
     {
         currentEnemiesPassed = maxAmountOfEnemiesCanPassThrough;
+
+        //this is for the attack sounds Dan
+        try
+        {
+            soundToInstantiate.clip = soundClip;
+            Instantiate(soundToInstantiate.gameObject, transform.position, Quaternion.identity);
+        }
+        catch
+        {
+
+        }
+
     }
 
     // Update is called once per frame

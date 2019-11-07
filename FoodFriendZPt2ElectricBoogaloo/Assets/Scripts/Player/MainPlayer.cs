@@ -1034,6 +1034,7 @@ public class MainPlayer : MonoBehaviour
             {
                 health -= damage;
                 sr.color = new Color(1, .35f, .35f);
+                audioSource.clip = clips[0];
                 cam.StartShake();
             }
         }
