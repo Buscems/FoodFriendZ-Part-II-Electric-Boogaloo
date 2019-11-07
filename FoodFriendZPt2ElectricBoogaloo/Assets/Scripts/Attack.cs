@@ -27,7 +27,6 @@ public class Attack : MonoBehaviour
 
     private GameObject enemy = null;
 
-
     bool isPinshot;
     bool isNeedler;
     bool canBounce;

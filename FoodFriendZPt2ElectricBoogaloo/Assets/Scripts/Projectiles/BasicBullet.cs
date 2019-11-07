@@ -21,6 +21,7 @@ public class BasicBullet : MonoBehaviour
     public Vector3 velocity;
 
     public GameObject instantiateOnDestroy;
+    public GameObject soundToInstantiate;
 
     [HideInInspector]
     public GameObject player;
@@ -39,6 +40,16 @@ public class BasicBullet : MonoBehaviour
         transform.rotation = Quaternion.identity;
 
         transform.up = velocity;
+
+        //this is for the bullet sounds Dan
+        try
+        {
+            Instantiate(soundToInstantiate, transform.position, Quaternion.identity);
+        }
+        catch
+        {
+
+        }
 
     }
 

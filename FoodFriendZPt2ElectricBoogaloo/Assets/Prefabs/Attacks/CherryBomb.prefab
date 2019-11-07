@@ -106,6 +106,8 @@ MonoBehaviour:
   radius: 0
   explosionParticles: {fileID: 5005083030566172368, guid: 63e7cb134a48c4589a17dbd5a091f2c3,
     type: 3}
+  sound: {fileID: 8969379555809621875}
+  explosion: {fileID: 8300000, guid: 18cb1ae556e46421a9f430860700fe0f, type: 3}
 --- !u!58 &4473644114682443014
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -151,7 +153,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f1492ec2166cd104d9cfcb7f7f97cccb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 547c1a84543a64a91871a611a0b29a87, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
