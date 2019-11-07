@@ -155,7 +155,7 @@ public class Attack : MonoBehaviour
             {
                 be.SetBurn(fireVariables);
             }
-            if(poison)
+            if (poison)
             {
                 be.SetPoison(poisonVariables);
             }
@@ -216,49 +216,46 @@ public class Attack : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
 
-                //decrease the enemy's health, this will be for regular enemies as well as boss enemies
-                if (other.GetComponent<BaseEnemy>() != null)
-                {
-                    other.GetComponent<BaseEnemy>().health -= damage;
-                    SetStatusEffectsToEnemy(other.gameObject);
-                }
-                if (other.GetComponent<BaseBoss>() != null)
-                {
-                    other.GetComponent<BaseBoss>().health -= damage;
-                    SetStatusEffectsToEnemy(other.gameObject);
-                }
+            //decrease the enemy's health, this will be for regular enemies as well as boss enemies
+            if (other.GetComponent<BaseEnemy>() != null)
+            {
+                other.GetComponent<BaseEnemy>().health -= damage;
+                SetStatusEffectsToEnemy(other.gameObject);
+            }
+            if (other.GetComponent<BaseBoss>() != null)
+            {
+                other.GetComponent<BaseBoss>().health -= damage;
+                SetStatusEffectsToEnemy(other.gameObject);
+            }
 
-                try
+            try
+            {
+                //if attack is non pierce-able, destroy on collision with enemy
+                if (gameObject.tag == "Projectile")
                 {
-                    //if attack is non pierce-able, destroy on collision with enemy
-                    if (gameObject.tag == "Projectile")
+                    if (!canPierce)
                     {
-                        if (!canPierce)
-                        {
-                        print("1");
-                            DestroyBullet(other.gameObject);
-                        }
+                        DestroyBullet(other.gameObject);
                     }
                 }
-                catch
-                {
-                print("2");
+            }
+            catch
+            {
                 DestroyBullet(other.gameObject);
-                }
+            }
 
-                damage *= pierceMultiplier;
+            damage *= pierceMultiplier;
 
-                if (currentEnemiesPassed != -1)
+            if (currentEnemiesPassed != -1)
+            {
+                if (currentEnemiesPassed == 0)
                 {
-                    if (currentEnemiesPassed == 0)
-                    {
-                    print("3");
                     DestroyBullet(other.gameObject);
-                    }
-
-                    currentEnemiesPassed -= 1;
                 }
-            
+
+                currentEnemiesPassed -= 1;
+            }
+
             if (enemy == null)
             {
                 enemy = other.gameObject;
@@ -290,7 +287,7 @@ public class Attack : MonoBehaviour
                 transform.parent = _enemy.transform;
             }
         }
-        else if(!isPinshot)
+        else if (!isPinshot)
         {
             try
             {
