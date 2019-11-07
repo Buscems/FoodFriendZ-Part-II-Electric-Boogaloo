@@ -3,26 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class revolvingEnemy : MonoBehaviour
-{ 
-    public GameObject[] projectiles;
-    public float numProjectiles;
+{
+    public GameObject[] enemy;
+    public float numEnemies;
 
+    [Tooltip("This is going to be how far away from the enemy, (up, down, left and right), that you want the small enemies to be able to be spawned")]
     public float rangeOfSpawn;
+
+    public float spawnTime;
+
+    BaseEnemy baseEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        baseEnemy = GetComponent<BaseEnemy>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i <= numProjectiles; i++)
-        {
-            int rand = Random.Range(0, 1);
-            var temp = Instantiate(projectiles[rand], transform.position, transform.rotation);
-            temp.transform.position = new Vector3(Random.Range(temp.transform.position.x - rangeOfSpawn, temp.transform.position.x + rangeOfSpawn), Random.Range(temp.transform.position.y - rangeOfSpawn, temp.transform.position.y + rangeOfSpawn));
+        if (baseEnemy.aggroScript.aggro == true){
+            StartCoroutine(spawnProjectiles());
         }
+    }
+
+    IEnumerator spawnProjectiles(){
+        yield return new WaitForSeconds(spawnTime);
+        int rand = Random.Range(0, 1);
+        var temp = Instantiate(enemy[rand], transform.position, transform.rotation);
+        temp.transform.position = new Vector3(Random.Range(temp.transform.position.x - rangeOfSpawn, temp.transform.position.x + rangeOfSpawn), Random.Range(temp.transform.position.y - rangeOfSpawn, temp.transform.position.y + rangeOfSpawn));
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class revolvingBullet : MonoBehaviour
 {
-
+    public GameObject proj;
     public Transform revolveAround;
     public float speed;
 
@@ -25,7 +25,7 @@ public class revolvingBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            Destroy(gameObject);
+            Destroy(proj);
         }
     }
 }
