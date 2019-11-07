@@ -54,7 +54,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   healthPercent: 0
-  speed: 8
+  speed: 2
   walkIntoDamage: 0
   backAnim: {fileID: 0}
   money: 0
@@ -221,6 +221,7 @@ MonoBehaviour:
   tackleSpeed: 5
   tackle: 0
   chargeTime: 0.25
+  tackleCooldownMax: 5
 --- !u!95 &2783504486587021435
 Animator:
   serializedVersion: 3

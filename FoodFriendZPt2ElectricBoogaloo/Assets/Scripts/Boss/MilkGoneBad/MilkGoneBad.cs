@@ -23,7 +23,8 @@ public class MilkGoneBad : MonoBehaviour
     public bool tackle;
     public float chargeTime;
     Transform tackleTarget;
-    public float tackleCooldown;
+    float tackleCooldown;
+    public float tackleCooldownMax;
 
 
     // Start is called before the first frame update
@@ -61,6 +62,7 @@ public class MilkGoneBad : MonoBehaviour
                     baseBoss.speed *= 1.5f;
                     startStage2 = true;
                 }
+                tackleCooldown -= Time.deltaTime;
             }
             //stage3
             if (baseBoss.stage == BaseBoss.BossStage.stage3)
@@ -78,15 +80,17 @@ public class MilkGoneBad : MonoBehaviour
 
     void Stage1Movement()
     {
-        velocity = (transform.position - baseBoss.aggroScript.currentTarget.transform.position).normalized;
+        if (!tackle)
+        {
+            velocity = (baseBoss.aggroScript.currentTarget.transform.position - transform.position).normalized;
+        }
         rb.MovePosition(rb.position + velocity * baseBoss.speed * Time.deltaTime);
-
     }
 
     void Stage2()
     {
         baseBoss.walkIntoDamage = 1;
-        if (!tackle && (this.transform.position - baseBoss.aggroScript.currentTarget.position).magnitude < tackleDistance)
+        if (!tackle && (this.transform.position - baseBoss.aggroScript.currentTarget.position).magnitude < tackleDistance && tackleCooldown <= 0)
         {
             StartCoroutine(StartTackle());
             print("Yer");
@@ -97,6 +101,7 @@ public class MilkGoneBad : MonoBehaviour
     IEnumerator StartTackle()
     {
         tackle = true;
+        velocity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(chargeTime);
         tackleTarget = baseBoss.aggroScript.currentTarget;
         StartCoroutine(Tackle());
@@ -106,9 +111,10 @@ public class MilkGoneBad : MonoBehaviour
     {
         while(transform.position != tackleTarget.position)
         {
-            transform.position = Vector2.MoveTowards(transform.position, tackleTarget.position, tackleSpeed * Time.deltaTime);
+            velocity = (tackleTarget.position - transform.position).normalized;
             yield return null;
         }
+        tackleCooldown = tackleCooldownMax;
         tackle = false;
     }
 
