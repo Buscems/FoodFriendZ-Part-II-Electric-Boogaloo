@@ -96,6 +96,7 @@ public class PowerUps : MonoBehaviour
         Salt,
         //NOV 8 
         JunkFood,
+        PeacefulTea,
         #endregion
 
         #region [HEALING]
@@ -274,6 +275,16 @@ public class PowerUps : MonoBehaviour
             #region JunkFood
             case PowerUpTypes.JunkFood:
                 print("Using JunkFood");
+
+                //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion 
+                
+                #region PeacefulTea
+            case PowerUpTypes.PeacefulTea:
+                print("Using Peaceful Tea");
 
                 //[STAT BOOST]
 

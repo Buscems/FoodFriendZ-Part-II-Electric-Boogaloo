@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class ItemExtension : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //[ALL VARIABLES]
+    ItemManager iMScript;
+
+    BaseEnemy bEScript;
+
+    bool needEnemyScript;
+
+
+    void Awake()
     {
-        
+        //assign variables
+        iMScript = GetComponent<ItemManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (needEnemyScript)
+        {
+
+        }
     }
 }
