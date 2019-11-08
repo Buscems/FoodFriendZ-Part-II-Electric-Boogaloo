@@ -207,12 +207,21 @@ public class Attack : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
 
+            ItemExtension ie = GameObject.Find("Player").GetComponent<ItemExtension>();
+            if (ie.needEnemyScript)
+            {
+                ie.bEScript = other.gameObject.GetComponent<BaseEnemy>();
+                ie.hasPlayerHitEnemy = true;
+            }
+
             //decrease the enemy's health, this will be for regular enemies as well as boss enemies
             if (other.GetComponent<BaseEnemy>() != null)
             {
                 other.GetComponent<BaseEnemy>().TakeDamage(damage);
                 SetStatusEffectsToEnemy(other.gameObject);
             }
+
+
             if (other.GetComponent<BaseBoss>() != null)
             {
                 other.GetComponent<BaseEnemy>().TakeDamage(damage);

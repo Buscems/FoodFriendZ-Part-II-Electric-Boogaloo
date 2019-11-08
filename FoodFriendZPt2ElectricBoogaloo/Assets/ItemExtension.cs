@@ -7,22 +7,42 @@ public class ItemExtension : MonoBehaviour
     //[ALL VARIABLES]
     ItemManager iMScript;
 
-    BaseEnemy bEScript;
+    [HideInInspector] public BaseEnemy bEScript;
 
-    bool needEnemyScript;
+    GetOddsScript gOScript;
+
+    //bools
+    [HideInInspector] public bool needEnemyScript;
+
+    [HideInInspector] public bool hasJunkFood;
+    float junkFoodChance = .25f;
+    float junkFoodModifer = .8f;
+
+    [HideInInspector] public bool hasPlayerHitEnemy;
+
 
 
     void Awake()
     {
         //assign variables
         iMScript = GetComponent<ItemManager>();
+        gOScript = GetComponent<GetOddsScript>();
     }
 
     void Update()
     {
-        if (needEnemyScript)
+        if (needEnemyScript && hasPlayerHitEnemy)
         {
+            if (hasJunkFood)
+            {
+                if (gOScript.GetStunOdds(junkFoodChance))
+                {
+                    bEScript.speed *= junkFoodModifer;
+                }
+            }
 
+            //reset
+            hasPlayerHitEnemy = false;
         }
     }
 }

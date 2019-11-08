@@ -9,6 +9,7 @@ public class PowerUps : MonoBehaviour
     //[SCRIPTS]
     public MainPlayer stats;
     [HideInInspector] public BasePlayer baseStats;
+    ItemExtension ieScript;
 
     Collider2D myCollider;
 
@@ -79,6 +80,7 @@ public class PowerUps : MonoBehaviour
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
 
         baseStats = stats.currentChar;
+        ieScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemExtension>();
     }
 
     //this gives drop down menu selects, make new line write name then put comma
@@ -277,12 +279,14 @@ public class PowerUps : MonoBehaviour
                 print("Using JunkFood");
 
                 //[STAT BOOST]
+                ieScript.needEnemyScript = true;
+                ieScript.hasJunkFood = true;
 
                 yield return null;
                 break;
-            #endregion 
-                
-                #region PeacefulTea
+            #endregion
+
+            #region PeacefulTea
             case PowerUpTypes.PeacefulTea:
                 print("Using Peaceful Tea");
 
