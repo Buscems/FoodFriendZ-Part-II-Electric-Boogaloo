@@ -347,6 +347,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b469074f685f0d848976cf4eb0e359b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData:
+    CharacterListNames:
+    - Cannoli
+    - Cherry
+    - Cone
+    - Donut
+    - Fries
+    - Burger
+    - Hotdog
+    - Napolean
+    - Onigiri
+    - Sashimi
+    - Takoyaki
+    - Tofu
+    - 5RoundBurst
+    - BlueberryMuffin
+    - LobsterTail
+    - Samosa
+    - Taco
+    - TunaCan
+    CharacterList: 010101010101010101010101010101010101
 --- !u!50 &822394764877458803
 Rigidbody2D:
   serializedVersion: 4
@@ -484,8 +505,6 @@ MonoBehaviour:
   item: {fileID: 0}
   curCDTimer: 0
   curEffectTimer: 0
-  CoolDownSlider: {fileID: 0}
-  CoolDownFillBar: {fileID: 0}
   readyCDcolor: {r: 1, g: 1, b: 1, a: 1}
   rechargingCDcolor: {r: 1, g: 0.52518374, b: 0, a: 1}
 --- !u!1 &5285187768009801998

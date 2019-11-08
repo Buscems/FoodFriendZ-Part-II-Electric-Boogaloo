@@ -16,23 +16,29 @@ public class ItemManager : MonoBehaviour
     public float curEffectTimer;
 
     #region [UI bar]
-//[UI]
-    public Slider CoolDownSlider;
-    public Image CoolDownFillBar;
-
+    //[UI]
     public Color readyCDcolor;
     public Color rechargingCDcolor;
+    Slider CoolDownSlider;
 
-    public Image curEquippedItemIMG;
+    Image CoolDownFillBar;
+    Image curEquippedItemIMG;
     #endregion
-    
-    //[START]
-    void Start()
+
+    void Awake()
     {
         //assigning stuff
         mp = GetComponent<MainPlayer>();
-        curEquippedItemIMG = GameObject.Find("EquippedItem").GetComponent<Image>();
 
+        //assignning UI
+        CoolDownSlider = GameObject.Find("CoolDownBar").GetComponent<Slider>();
+        CoolDownFillBar = GameObject.Find("CDFill").GetComponent<Image>();
+
+        curEquippedItemIMG = GameObject.Find("EquippedItem").GetComponent<Image>();
+    }
+
+    void Start()
+    {
         //FOR DEBUGGING
         if (item != null)
         {
@@ -141,7 +147,7 @@ public class ItemManager : MonoBehaviour
                 Debug.Log("Player already has an item");
             }
 
-            
+
         }
     }
 }
