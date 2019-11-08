@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4370473858649795901}
   - component: {fileID: 2342861788897084341}
   - component: {fileID: 895167997583135907}
+  - component: {fileID: 4353887692898803888}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player1
@@ -595,6 +596,18 @@ MonoBehaviour:
   curEffectTimer: 0
   readyCDcolor: {r: 1, g: 1, b: 1, a: 1}
   rechargingCDcolor: {r: 1, g: 0.52518374, b: 0, a: 1}
+--- !u!114 &4353887692898803888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822394764877458807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da171f1ed4094b24bb585c20b0fd6c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5285187768009801998
 GameObject:
   m_ObjectHideFlags: 0
