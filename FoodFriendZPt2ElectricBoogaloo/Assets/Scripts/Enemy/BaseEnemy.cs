@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
+    ItemExtension ieScript;
 
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
@@ -11,7 +12,7 @@ public class BaseEnemy : MonoBehaviour
     [Tooltip("How fast we want the enemy to move")]
     public float speed;
     [Tooltip("How much damage this enemy deals to the player when the player runs into them (Should only be between 0 and 1)")]
-    [Range(0,1)]
+    [Range(0, 1)]
     public int walkIntoDamage;
 
     [HideInInspector]
@@ -49,12 +50,18 @@ public class BaseEnemy : MonoBehaviour
 
     private SpriteRenderer sr;
 
+    private void Awake()
+    {
+        //assign script
+        ieScript = GameObject.Find("Player").GetComponent<ItemExtension>();
+    }
+
     // Start is called before the first frame update
     public void Start()
     {
         //this is making sure that if there are any parents of the main object, it knows to destroy the parent so that nothing is left behind.
         //if(this.gameObject.transform.parent != null && this.gameObject.transform.parent.name != "ENEMIES")
-        if(objectToDestroy == null)
+        if (objectToDestroy == null)
         {
             objectToDestroy = this.gameObject;
         }
@@ -65,17 +72,18 @@ public class BaseEnemy : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
-        else if(this.transform.parent.GetComponent<Animator>() != null)
+        else if (this.transform.parent.GetComponent<Animator>() != null)
         {
             anim = this.transform.parent.GetComponent<Animator>();
         }
-        if(Random.Range(0f, 1f) <= dropRate)
+        if (Random.Range(0f, 1f) <= dropRate)
         {
             //Debug.Log("Cool");
             itemDrop = true;
         }
 
-        if (transform.name == "turret"){
+        if (transform.name == "turret")
+        {
             sr = transform.parent.GetComponent<SpriteRenderer>();
         }
         else
@@ -92,7 +100,7 @@ public class BaseEnemy : MonoBehaviour
             AnimationHandler();
         }
 
-        sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime); 
+        sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime);
         speed = speed * slowDownPercentage;
 
         StatusEffectTimers();
@@ -111,21 +119,21 @@ public class BaseEnemy : MonoBehaviour
 
     public void StatusEffects()
     {
-        if(bleedTimer > 0)
+        if (bleedTimer > 0)
         {
-            if(currentBleedTickRate < 0)
+            if (currentBleedTickRate < 0)
             {
                 currentBleedTickRate = bleedTickRate;
                 health -= bleedDamage;
             }
         }
 
-        if(burnTimer > 0)
+        if (burnTimer > 0)
         {
             health -= burnDamage;
         }
 
-        if(poisonTimer > 0)
+        if (poisonTimer > 0)
         {
             health -= poisonDamage;
         }
@@ -134,7 +142,7 @@ public class BaseEnemy : MonoBehaviour
             slowDownPercentage = 1;
         }
 
-        if(freezeTimer < 0 && stunTimer < 0)
+        if (freezeTimer < 0 && stunTimer < 0)
         {
             slowDownPercentage = 1;
         }
@@ -178,7 +186,7 @@ public class BaseEnemy : MonoBehaviour
         Vector3 direction = (aggroScript.currentTarget.position - aggroScript.currentPos).normalized;
 
         //this will switch the animation of the current character
-        if ( direction.x > 0 && direction.y < 0)
+        if (direction.x > 0 && direction.y < 0)
         {
             anim.SetFloat("Blend", 0);
             //Debug.Log("Right Front");
