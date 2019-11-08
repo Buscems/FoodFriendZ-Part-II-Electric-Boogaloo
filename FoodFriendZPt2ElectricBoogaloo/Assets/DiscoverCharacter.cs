@@ -10,8 +10,6 @@ public class DiscoverCharacter : MonoBehaviour
 
     public BasePlayer[] characters;
 
-    private MainPlayer player;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +18,6 @@ public class DiscoverCharacter : MonoBehaviour
         int randNum = (int)Random.Range(0, characters.Length);
         currentChar = characters[randNum];
         AnimationHandler();
-
-        player = GameObject.Find("Player").GetComponent<MainPlayer>();
     }
 
     // Update is called once per frame
@@ -101,6 +97,7 @@ public class DiscoverCharacter : MonoBehaviour
     {
         if(other.gameObject.tag == "Player1")
         {
+            MainPlayer player = other.gameObject.GetComponent<MainPlayer>();
             if (player.square != currentChar && player.triangle != currentChar && player.circle != currentChar && player.cross != currentChar)
             {
                 if (player.square == null)
