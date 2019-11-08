@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: LobsterTail
+  m_Name: _LobsterTail
   m_EditorClassIdentifier: 
   hudIcon: {fileID: 5217690489139590396, guid: 333b20e51d1bd4f06b5256879d2d822b, type: 3}
   characterName: lobsterTail
@@ -42,7 +42,8 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 0}
+  bullet:
+  - {fileID: 0}
   firerate: 0
   bulletSpeed: 0
   timeTillDespawn: 0
