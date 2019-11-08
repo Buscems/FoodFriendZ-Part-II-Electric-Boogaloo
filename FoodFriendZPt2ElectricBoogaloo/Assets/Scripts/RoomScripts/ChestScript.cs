@@ -128,12 +128,14 @@ public class ChestScript : MonoBehaviour
         if(anim != null)
         {
             anim.SetBool("Open", true);
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
     public void SpawnItem()
     {
         StartCoroutine(ChestItem());
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     IEnumerator ChestItem()

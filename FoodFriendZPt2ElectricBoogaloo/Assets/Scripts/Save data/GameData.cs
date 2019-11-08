@@ -69,7 +69,8 @@ public class GameData
        /*33*/ "Drink Coaster",
        /*34*/ "Spinach",
        /*35*/ "Spicy Jalapeno",
-       /*36*/ "Aluminum Foil"
+       /*36*/ "Aluminum Foil",
+       /*37*/ "Egg Timer"
     };
 
     public bool[] ItemsList = new bool[]
@@ -115,8 +116,8 @@ public class GameData
          /* 33 */ false,  /* [Drink Coaster] */
          /* 34 */ false,  /* [Spinach] */
          /* 35 */ false,  /* [Spicy Jalapeno] */
-         /* 36 */ false   /* [Aluminum Foil] */
-
+         /* 36 */ false,   /* [Aluminum Foil] */
+         /* 37 */ false    /* [Egg Timer] */
     };
 
 
@@ -131,11 +132,11 @@ public class GameData
        /*3 */ "Maggots",
        /*4 */ " ",
        /*5 */ "Kiss The Cook Apron",
-       /*6 */ " ",
+       /*6 */ "Sweet Carolina",
        /*7 */ "Scored Cutting Board",
        /*8 */ "Bludgeoned Cutting Board",
-       /*9 */ " ",
-       /*10*/ " ",
+       /*9 */ "Cooking Spray",
+       /*10*/ "Kitchen Knife",
        /*11*/ "Freeze Pops",
        /*12*/ "XXL Soda",
        /*13*/ "Marshmallow Cereal",
@@ -171,7 +172,8 @@ public class GameData
        /*43*/ "Pepper Grinder",
        /*44*/ "Mold",
        /*45*/ "Left Overs",
-       /*46*/ "Vacuumed-Sealed Bag"
+       /*46*/ "Vacuumed-Sealed Bag",
+       /*47*/ "Coconut"
     };
 
     public bool[] EquipmentList = new bool[]
@@ -187,11 +189,11 @@ public class GameData
          /* 3  */ false,  /* [Maggots] */
          /* 4  */ false,  /* [] */
          /* 5  */ false,  /* [Kiss The Cook Apron] */
-         /* 6  */ false,  /* [] */
+         /* 6  */ false,  /* [Sweet Carolina] */
          /* 7  */ false,  /* [Scored Cutting Board] */
          /* 8  */ false,  /* [Bludgeoned Cutting Board] */
-         /* 9  */ false,  /* [] */
-         /* 10 */ false,  /* [] */
+         /* 9  */ false,  /* [Cooking Spray] */
+         /* 10 */ false,  /* [Kitchen Knife] */
          /* 11 */ false,  /* [Freeze Pops] */
          /* 12 */ false,  /* [XXL Soda] */
          /* 13 */ false,  /* [Marshmallow Cereal] */
@@ -227,7 +229,8 @@ public class GameData
          /* 43 */ false,  /* [Pepper Grinder] */
          /* 44 */ false,  /* [Mold] */
          /* 45 */ false,  /* [Left Overs] */
-         /* 46 */ false  /* [Vacuumed-Sealed Bag] */
+         /* 46 */ false,  /* [Vacuumed-Sealed Bag] */
+         /* 47 */ false   /* [Coconut] */
 
    };
 
