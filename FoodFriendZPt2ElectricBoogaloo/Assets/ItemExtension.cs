@@ -60,6 +60,9 @@ public class ItemExtension : MonoBehaviour
                         bEScript_mAtkPlayer.health *= .5f;
                     }
                 }
+
+                //reset detector
+                hasEnemyHitPlayer = false;
             }
 
 

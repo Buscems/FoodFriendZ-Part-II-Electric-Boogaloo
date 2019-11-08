@@ -261,6 +261,7 @@ public class BaseEnemy : MonoBehaviour
         {
             //item extension script
             ieScript.bEScript_mAtkPlayer = this;
+            ieScript.hasEnemyHitPlayer = true;
 
             if (walkIntoDamage == 1)
             {
