@@ -26,6 +26,7 @@ public class ItemExtension : MonoBehaviour
     [HideInInspector] public bool hasPeacefulTea;
 
     [HideInInspector] public bool hasPineAppleSlice;
+    float pineAppleSliceChance = .5f;
 
 
     [HideInInspector] public bool hasPlayerHitEnemy;
@@ -54,7 +55,10 @@ public class ItemExtension : MonoBehaviour
                 if (hasPineAppleSlice)
                 {
                     print("pineappleslice");
-
+                    if (gOScript.GetStunOdds(pineAppleSliceChance))
+                    {
+                        bEScript_mAtkPlayer.health *= .5f;
+                    }
                 }
             }
 

@@ -144,7 +144,7 @@ public class MainPlayer : MonoBehaviour
 
     void Awake()
     {
-        ieScript.GetComponent<ItemExtension>();
+        ieScript = GetComponent<ItemExtension>();
 
         switch (PlayerPrefs.GetInt("startCharacter"))
         {
