@@ -98,11 +98,11 @@ public class Attack : MonoBehaviour
                     {
                         if (enemy.GetComponent<BaseEnemy>() != null)
                         {
-                            enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                            enemy.GetComponent<BaseEnemy>().TakeDamage(explosionDamage);
                         }
                         if (enemy.GetComponent<BaseBoss>() != null)
                         {
-                            enemy.GetComponent<BaseBoss>().health -= explosionDamage;
+                            enemy.GetComponent<BaseBoss>().TakeDamage(explosionDamage);
                         }
                         GetComponent<BasicBullet>().timeTillDespawn = -6;
                         Destroy(gameObject);
@@ -194,11 +194,11 @@ public class Attack : MonoBehaviour
                             {
                                 if (enemy.GetComponent<BaseEnemy>() != null)
                                 {
-                                    enemy.GetComponent<BaseEnemy>().health -= explosionDamage;
+                                    other.GetComponent<BaseEnemy>().TakeDamage(explosionDamage);
                                 }
                                 if (enemy.GetComponent<BaseBoss>() != null)
                                 {
-                                    enemy.GetComponent<BaseBoss>().health -= explosionDamage;
+                                    enemy.GetComponent<BaseBoss>().TakeDamage(explosionDamage);
                                 }
                             }
                             Destroy(gameObject);
@@ -219,12 +219,12 @@ public class Attack : MonoBehaviour
             //decrease the enemy's health, this will be for regular enemies as well as boss enemies
             if (other.GetComponent<BaseEnemy>() != null)
             {
-                other.GetComponent<BaseEnemy>().health -= damage;
+                other.GetComponent<BaseEnemy>().TakeDamage(damage);
                 SetStatusEffectsToEnemy(other.gameObject);
             }
             if (other.GetComponent<BaseBoss>() != null)
             {
-                other.GetComponent<BaseBoss>().health -= damage;
+                other.GetComponent<BaseEnemy>().TakeDamage(damage);
                 SetStatusEffectsToEnemy(other.gameObject);
             }
 

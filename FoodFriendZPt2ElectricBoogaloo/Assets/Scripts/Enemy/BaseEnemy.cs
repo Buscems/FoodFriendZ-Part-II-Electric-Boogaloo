@@ -47,6 +47,8 @@ public class BaseEnemy : MonoBehaviour
 
     private float slowDownPercentage = 1;
 
+    private SpriteRenderer sr;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -73,6 +75,13 @@ public class BaseEnemy : MonoBehaviour
             itemDrop = true;
         }
 
+        if (transform.name == "turret"){
+            sr = transform.parent.GetComponent<SpriteRenderer>();
+        }
+        else
+        {
+            sr = GetComponent<SpriteRenderer>();
+        }
     }
 
     // Update is called once per frame
@@ -83,6 +92,7 @@ public class BaseEnemy : MonoBehaviour
             AnimationHandler();
         }
 
+        sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime); 
         speed = speed * slowDownPercentage;
 
         StatusEffectTimers();
@@ -224,6 +234,12 @@ public class BaseEnemy : MonoBehaviour
 
         Destroy(objectToDestroy);
 
+    }
+
+    public void TakeDamage(float _damage)
+    {
+        health -= _damage;
+        sr.color = new Color(1, .35f, .35f);
     }
 
     public void DestroyThisObject()

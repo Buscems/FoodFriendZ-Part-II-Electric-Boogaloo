@@ -333,7 +333,7 @@ public class MainPlayer : MonoBehaviour
                 AttackLogic();
                 SwapLogic();
                 DodgeLogic();
-                sr.color = new Color(1, sr.color.g + 10f * Time.deltaTime, sr.color.b + 10f * Time.deltaTime); ;
+                sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime); ;
 
                 //[INTERACTIONS WITH OBJECTS]
                 //this is for interacting with a chest

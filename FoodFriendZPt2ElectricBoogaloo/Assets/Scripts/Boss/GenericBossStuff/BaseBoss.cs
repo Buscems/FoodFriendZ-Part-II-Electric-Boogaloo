@@ -62,6 +62,8 @@ public class BaseBoss : MonoBehaviour
 
     private float slowDownPercentage = 1;
 
+    private SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,12 +81,14 @@ public class BaseBoss : MonoBehaviour
             anim = GetComponent<Animator>();
         }
         health = maxHealth;
+
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime);
         //starting the animations for the boss fight
         if (playerEntered && !startAnim)
         {
@@ -270,6 +274,12 @@ public class BaseBoss : MonoBehaviour
     public void StartFadeOut()
     {
         StartCoroutine(HealthFadeOut());
+    }
+
+    public void TakeDamage(float _damage)
+    {
+        health -= _damage;
+        sr.color = new Color(1, .35f, .35f);
     }
 
     IEnumerator Death()
