@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: Hotdog
+  m_Name: _Hotdog
   m_EditorClassIdentifier: 
   hudIcon: {fileID: -3766080000172859765, guid: f71fc69a9f9f6411b8788123ea4209db,
     type: 3}
@@ -43,7 +43,8 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 6395150998634022948, guid: 76da2d0d67f77f849a4c098de550d799, type: 3}
+  bullet:
+  - {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
   firerate: 0.09
   bulletSpeed: 2
   timeTillDespawn: 0.63

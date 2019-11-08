@@ -203,7 +203,7 @@ public class BasePlayerEditor : Editor
         if (myTarget.attackType == BasePlayer.AttackType.Ranged_Basic || myTarget.attackType == BasePlayer.AttackType.Ranged_Burst_Fire || myTarget.attackType == BasePlayer.AttackType.Ranged_Semi_Auto
             || myTarget.attackType == BasePlayer.AttackType.Ranged_Split_Fire || myTarget.attackType == BasePlayer.AttackType.Boomerang || myTarget.attackType == BasePlayer.AttackType.Napolean)
         {
-            EditorGUILayout.PropertyField(bullet);
+            EditorGUILayout.PropertyField(bullet, includeChildren: true);
             EditorGUILayout.PropertyField(firerate);
             EditorGUILayout.PropertyField(bulletSpeed);
             EditorGUILayout.PropertyField(timeTillDespawn);

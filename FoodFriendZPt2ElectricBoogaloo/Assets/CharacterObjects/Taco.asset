@@ -21,17 +21,17 @@ MonoBehaviour:
   critChance: 0.081
   critDamageMulitiplier: 2.26
   dodgeSpeedMultiplier: 1
-  currentDodgeSpeedMultiplier: 0
+  currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1000
+  currentDodgeTime: -1006.3635
   dodgeWaitTime: 1
-  currentDodgeWaitTime: 0
+  currentDodgeWaitTime: -6.363547
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: 0, y: 0, z: 0}
+  currentPosition: {x: -57.5, y: 61.5, z: 0}
   currentDirection: {x: 0, y: 0, z: 0}
   weapon: {fileID: 0}
   awayPos: {x: 0, y: 0, z: 0}
@@ -43,7 +43,11 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
+  bullet:
+  - {fileID: 6395150998634022948, guid: 88f200daac6a09243b729c1deda3ac5f, type: 3}
+  - {fileID: 6395150998634022948, guid: 0afab6830c95e2840ac6ab0cf6782231, type: 3}
+  - {fileID: 6395150998634022948, guid: 19da3c504ee40e64385748f70f566c0d, type: 3}
+  - {fileID: 6395150998634022948, guid: aae6c632669084841b34cc505900004d, type: 3}
   firerate: 0.24
   bulletSpeed: 15
   timeTillDespawn: 0.26
@@ -62,7 +66,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: 0
+  currentFirerateTimer: -0.8996028
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

@@ -42,7 +42,8 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 6395150998634022948, guid: 51e697468f6066c40aadc53a6d9a978a, type: 3}
+  bullet:
+  - {fileID: 6395150998634022948, guid: 51e697468f6066c40aadc53a6d9a978a, type: 3}
   firerate: 1
   bulletSpeed: 12.97
   timeTillDespawn: 114.64

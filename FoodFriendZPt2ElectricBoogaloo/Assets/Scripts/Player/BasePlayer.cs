@@ -94,7 +94,7 @@ public class BasePlayer : ScriptableObject
     public bool isAttacking;
 
     [Header("Variables for all ranged characters")]
-    public GameObject bullet;
+    public GameObject[] bullet;
     public float firerate;
     public float bulletSpeed;
     public float timeTillDespawn;
@@ -405,7 +405,8 @@ public class BasePlayer : ScriptableObject
             damage *= critDamageMulitiplier;
         }
         currentFirerateTimer = firerate * firerateMultiplier;
-        GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+        GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+        GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform, false);
         attack.GetComponent<Attack>().damage = damage;
     }
@@ -424,7 +425,8 @@ public class BasePlayer : ScriptableObject
             damage *= critDamageMulitiplier;
         }
         currentFirerateTimer = firerate * firerateMultiplier;
-        GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+        GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+        GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform, true);
         attack.GetComponent<Attack>().damage = damage;
     }
@@ -447,7 +449,8 @@ public class BasePlayer : ScriptableObject
 
         for (int i = 0; i < bulletsPerShot; i++)
         {
-            GameObject attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
+            GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+            GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
             SetBulletVariables(attack, parentTransform, false);
             attack.GetComponent<Attack>().damage = damage;
         }
@@ -490,7 +493,8 @@ public class BasePlayer : ScriptableObject
 
             if (attackType == AttackType.Ranged_Burst_Fire)
             {
-                 attack = Instantiate(bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+                GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+                attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
             }
             else if (attackType == AttackType.Napolean)
             {
