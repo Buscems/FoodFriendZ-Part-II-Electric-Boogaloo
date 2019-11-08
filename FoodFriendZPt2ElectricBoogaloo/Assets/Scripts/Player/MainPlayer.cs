@@ -10,6 +10,8 @@ using TMPro;
 public class MainPlayer : MonoBehaviour
 {
     #region All Variables
+    ItemExtension ieScript;
+
     public int health;
     [HideInInspector] public int currency;
 
@@ -140,8 +142,9 @@ public class MainPlayer : MonoBehaviour
 
     #endregion
 
-    private void Awake()
+    void Awake()
     {
+        ieScript.GetComponent<ItemExtension>();
 
         switch (PlayerPrefs.GetInt("startCharacter"))
         {
@@ -1104,7 +1107,7 @@ public class MainPlayer : MonoBehaviour
     //getting hit method
     public void GetHit(int damage)
     {
-               
+
         //[EVASIVENESS CHECK]
         //guarenteed hurt
         if (evasiveChance <= 0)

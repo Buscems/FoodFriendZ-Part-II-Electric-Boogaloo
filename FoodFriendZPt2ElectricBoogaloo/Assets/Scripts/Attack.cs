@@ -206,8 +206,9 @@ public class Attack : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
-
+            //for items
             ItemExtension ie = GameObject.Find("Player").GetComponent<ItemExtension>();
+
             if (ie.needEnemyScript)
             {
                 ie.bEScript = other.gameObject.GetComponent<BaseEnemy>();

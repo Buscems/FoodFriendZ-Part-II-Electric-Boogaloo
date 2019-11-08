@@ -24,6 +24,8 @@ public class ItemExtension : MonoBehaviour
 
     [HideInInspector] public bool hasPeacefulTea;
 
+    [HideInInspector] public bool hasPineAppleSlice;
+
 
     [HideInInspector] public bool hasPlayerHitEnemy;
     [HideInInspector] public bool areEnemiesInProxy;
@@ -43,24 +45,33 @@ public class ItemExtension : MonoBehaviour
     void Update()
     {
         //if enemy script is needed
-        if (needEnemyScript && hasPlayerHitEnemy)
+        if (needEnemyScript)
         {
-            if (hasJunkFood)
+            if (hasPineAppleSlice)
             {
-                if (gOScript.GetStunOdds(junkFoodChance))
-                {
-                    bEScript.speed *= junkFoodModifer;
-                }
+                print("pineappleslice");
             }
 
-            //reset
-            hasPlayerHitEnemy = false;
+            if (hasPlayerHitEnemy)
+            {
+                if (hasJunkFood)
+                {
+                    if (gOScript.GetStunOdds(junkFoodChance))
+                    {
+                        bEScript.speed *= junkFoodModifer;
+                    }
+                }
+
+                //reset
+                hasPlayerHitEnemy = false;
+            }
         }
 
         if (hasPeacefulTea)
         {
             mPScript.isFast = !areEnemiesInProxy;
         }
+
     }
 
     public void EnableEnemyDetector()

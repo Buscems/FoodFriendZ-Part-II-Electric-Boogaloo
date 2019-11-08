@@ -99,6 +99,7 @@ public class PowerUps : MonoBehaviour
         //NOV 8 
         JunkFood,
         PeacefulTea,
+        PineAppleSlice,
         #endregion
 
         #region [HEALING]
@@ -293,6 +294,18 @@ public class PowerUps : MonoBehaviour
                 //[STAT BOOST]
                 ieScript.EnableEnemyDetector();
                 ieScript.hasPeacefulTea = true;
+
+                yield return null;
+                break;
+            #endregion
+
+            #region PineAppleSlice
+            case PowerUpTypes.PineAppleSlice:
+                print("Using PineAppleSlice");
+
+                //[STAT BOOST]
+                ieScript.needEnemyScript = true;
+                ieScript.hasPineAppleSlice = true;
 
                 yield return null;
                 break;
