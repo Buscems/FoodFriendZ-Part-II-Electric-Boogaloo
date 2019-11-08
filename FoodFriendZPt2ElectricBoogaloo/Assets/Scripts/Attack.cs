@@ -171,102 +171,105 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!canBounce)
+        if (gameObject.tag != "Takoyaki")
         {
-            if (gameObject.tag == "Projectile")
+            if (!canBounce)
             {
-                if (other.gameObject.tag == "TilesHere")
-                {
-                    try
-                    {
-                        if (isPinshot)
-                        {
-                            if (enemy != null)
-                            {
-                                if (enemy.GetComponent<BaseEnemy>() != null)
-                                {
-                                    other.GetComponent<BaseEnemy>().TakeDamage(explosionDamage);
-                                }
-                                if (enemy.GetComponent<BaseBoss>() != null)
-                                {
-                                    enemy.GetComponent<BaseBoss>().TakeDamage(explosionDamage);
-                                }
-                            }
-                            Destroy(gameObject);
-                        }
-                        else
-                        {
-                            Destroy(this.gameObject);
-                        }
-                    }
-                    catch { }
-                }
-            }
-        }
-
-        if (other.gameObject.tag == "Enemy")
-        {
-            //for items
-            ItemExtension ie = GameObject.Find("Player").GetComponent<ItemExtension>();
-
-            if (ie.needEnemyScript)
-            {
-                ie.bEScript = other.gameObject.GetComponent<BaseEnemy>();
-                ie.hasPlayerHitEnemy = true;
-            }
-
-            //decrease the enemy's health, this will be for regular enemies as well as boss enemies
-            if (other.GetComponent<BaseEnemy>() != null)
-            {
-                other.GetComponent<BaseEnemy>().TakeDamage(damage);
-                SetStatusEffectsToEnemy(other.gameObject);
-            }
-
-
-            if (other.GetComponent<BaseBoss>() != null)
-            {
-                other.GetComponent<BaseEnemy>().TakeDamage(damage);
-                SetStatusEffectsToEnemy(other.gameObject);
-            }
-
-            try
-            {
-                //if attack is non pierce-able, destroy on collision with enemy
                 if (gameObject.tag == "Projectile")
                 {
-                    if (!canPierce)
+                    if (other.gameObject.tag == "TilesHere")
                     {
-                        DestroyBullet(other.gameObject);
+                        try
+                        {
+                            if (isPinshot)
+                            {
+                                if (enemy != null)
+                                {
+                                    if (enemy.GetComponent<BaseEnemy>() != null)
+                                    {
+                                        other.GetComponent<BaseEnemy>().TakeDamage(explosionDamage);
+                                    }
+                                    if (enemy.GetComponent<BaseBoss>() != null)
+                                    {
+                                        enemy.GetComponent<BaseBoss>().TakeDamage(explosionDamage);
+                                    }
+                                }
+                                Destroy(gameObject);
+                            }
+                            else
+                            {
+                                Destroy(this.gameObject);
+                            }
+                        }
+                        catch { }
                     }
                 }
             }
-            catch
-            {
-                DestroyBullet(other.gameObject);
-            }
 
-            damage *= pierceMultiplier;
-
-            if (currentEnemiesPassed != -1)
+            if (other.gameObject.tag == "Enemy")
             {
-                if (currentEnemiesPassed == 0)
+                //for items
+                ItemExtension ie = GameObject.Find("Player").GetComponent<ItemExtension>();
+
+                if (ie.needEnemyScript)
+                {
+                    ie.bEScript = other.gameObject.GetComponent<BaseEnemy>();
+                    ie.hasPlayerHitEnemy = true;
+                }
+
+                //decrease the enemy's health, this will be for regular enemies as well as boss enemies
+                if (other.GetComponent<BaseEnemy>() != null)
+                {
+                    other.GetComponent<BaseEnemy>().TakeDamage(damage);
+                    SetStatusEffectsToEnemy(other.gameObject);
+                }
+
+
+                if (other.GetComponent<BaseBoss>() != null)
+                {
+                    other.GetComponent<BaseEnemy>().TakeDamage(damage);
+                    SetStatusEffectsToEnemy(other.gameObject);
+                }
+
+                try
+                {
+                    //if attack is non pierce-able, destroy on collision with enemy
+                    if (gameObject.tag == "Projectile")
+                    {
+                        if (!canPierce)
+                        {
+                            DestroyBullet(other.gameObject);
+                        }
+                    }
+                }
+                catch
                 {
                     DestroyBullet(other.gameObject);
                 }
 
-                currentEnemiesPassed -= 1;
-            }
+                damage *= pierceMultiplier;
 
-            if (isPinshot)
-            {
-                if (other.gameObject.name.Contains("turret"))
+                if (currentEnemiesPassed != -1)
                 {
-                    Destroy(gameObject);
+                    if (currentEnemiesPassed == 0)
+                    {
+                        DestroyBullet(other.gameObject);
+                    }
+
+                    currentEnemiesPassed -= 1;
                 }
-            }
-            if (enemy == null)
-            {
-                enemy = other.gameObject;
+
+                if (isPinshot)
+                {
+                    if (other.gameObject.name.Contains("turret"))
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+                if (enemy == null)
+                {
+                    enemy = other.gameObject;
+                }
             }
         }
     }
@@ -317,6 +320,16 @@ public class Attack : MonoBehaviour
         {
             c[i].enabled = true;
         }
+
+        try
+        {
+            if (transform.parent.parent.tag == "Takoyaki")
+            {
+                Destroy(transform.parent.parent.gameObject);
+            }
+        }
+        catch { }
+
         try
         {
             if (transform.parent.name.Contains("Holder"))
@@ -325,6 +338,7 @@ public class Attack : MonoBehaviour
             }
         }
         catch { Destroy(gameObject); }
+
     }
 
 
