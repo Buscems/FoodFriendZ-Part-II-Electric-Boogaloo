@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ExitLogic : MonoBehaviour
 {
-    public ScreenTransition st;
+    private ScreenTransition st;
 
     public bool pickRandomScene;
     private string sceneToGoTo;
@@ -14,6 +14,7 @@ public class ExitLogic : MonoBehaviour
 
     void Start()
     {
+        st = GameObject.Find("Player").GetComponent<ScreenTransition>();
         //print("num scenes: " + SceneManager.sceneCountInBuildSettings);
     }
 
@@ -36,7 +37,8 @@ public class ExitLogic : MonoBehaviour
     {
         if(other.gameObject.tag == "Player1")
         {
-            StartCoroutine(StartTransition());
+            st.FadeOut();
+           // StartCoroutine(StartTransition());
         }
     }
 }

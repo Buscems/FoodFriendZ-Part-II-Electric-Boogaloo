@@ -46,7 +46,8 @@ public class ScreenTransition : MonoBehaviour
         }
         if(alphaUp && alpha > 1.1f)
         {
-            doFade = false;
+            doFade = true;
+            alphaUp = false;
             alpha = 1;
             player.NextLevel();
         }
