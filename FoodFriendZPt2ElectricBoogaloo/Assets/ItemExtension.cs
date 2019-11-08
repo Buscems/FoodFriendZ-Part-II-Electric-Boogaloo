@@ -59,7 +59,7 @@ public class ItemExtension : MonoBehaviour
 
         if (hasPeacefulTea)
         {
-            mPScript.isFast = areEnemiesInProxy;
+            mPScript.isFast = !areEnemiesInProxy;
         }
     }
 
