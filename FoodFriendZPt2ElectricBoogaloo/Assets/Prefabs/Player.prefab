@@ -108,7 +108,6 @@ GameObject:
   - component: {fileID: 4370473858649795901}
   - component: {fileID: 2342861788897084341}
   - component: {fileID: 895167997583135907}
-  - component: {fileID: 8012078217273511684}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player1
@@ -368,6 +367,94 @@ MonoBehaviour:
     - Samosa
     - Taco
     - TunaCan
+    ItemsListNames:
+    - Thyme
+    - Drain Trap
+    - Soul Sake
+    - Donut Holes
+    - Couple's Milkshake
+    - Starfruit
+    - King of Cola
+    - Caviar
+    - Stopwatch
+    - Whole Milk
+    - Rabbit Stew
+    - Utensil Box
+    - Weird Dough
+    - Molasses
+    - Preserves
+    - Paper Towel
+    - Sponge
+    - Rag
+    - Granola
+    - Ceramic Plate
+    - Whipped Cream
+    - Pizza Cutter
+    - Tenderizer
+    - Whisk
+    - Canned Good
+    - Smoothie
+    - Detergent Pod
+    - Culinary Torch
+    - Paprika
+    - Rosemary
+    - Garnish
+    - Easter Egg
+    - Banana Peel
+    - Drink Coaster
+    - Spinach
+    - Spicy Jalapeno
+    - Aluminum Foil
+    ItemsList: 00000000000000000000000000000000000000000000000000000000000000000000000000
+    EquipmentListNames:
+    - Hot Sauce
+    - ' '
+    - Valentine's Day Chocolate
+    - Maggots
+    - ' '
+    - Kiss The Cook Apron
+    - ' '
+    - Scored Cutting Board
+    - Bludgeoned Cutting Board
+    - ' '
+    - ' '
+    - Freeze Pops
+    - XXL Soda
+    - Marshmallow Cereal
+    - Protein Shake
+    - Truffles
+    - Bag Of Ice
+    - Rocket Popsicle
+    - Turtle Soup
+    - Starfruit
+    - Sugar
+    - Caffeine
+    - Frog Legs
+    - Garlic Powder
+    - Italian Seasoning
+    - Aluminum Foil
+    - Plastic Tupperware
+    - Plastic Wrap
+    - Plastic Straw
+    - Chopsticks
+    - Spatula
+    - Spork
+    - Swiss Army Cheese
+    - Butcher's Knife
+    - Rat Poison
+    - Oven Mitt
+    - Knife Sharpening Steel
+    - Crazy Straw
+    - Bendy Straw
+    - Food Stamp
+    - Coupon
+    - Non-Stick Spray
+    - Salt
+    - Pepper Grinder
+    - Mold
+    - Left Overs
+    - Vacuumed-Sealed Bag
+    EquipmentList: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     CharacterList: 010101010101010101010101010101010101
 --- !u!50 &822394764877458803
 Rigidbody2D:
@@ -508,18 +595,6 @@ MonoBehaviour:
   curEffectTimer: 0
   readyCDcolor: {r: 1, g: 1, b: 1, a: 1}
   rechargingCDcolor: {r: 1, g: 0.52518374, b: 0, a: 1}
---- !u!114 &8012078217273511684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822394764877458807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da171f1ed4094b24bb585c20b0fd6c8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5285187768009801998
 GameObject:
   m_ObjectHideFlags: 0

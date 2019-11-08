@@ -64,7 +64,7 @@ public class PowerUps : MonoBehaviour
     public Rarity rarity;
 
     //for chest
-    private float cantPickUpTime = .3f;
+    private float cantPickUpTime = 1;
 
     //cooldown/ effect duration
     public float effectDuration;
@@ -94,6 +94,8 @@ public class PowerUps : MonoBehaviour
         IceCubes,
         CookingAppron,
         Salt,
+        //NOV 8 
+        JunkFood,
         #endregion
 
         #region [HEALING]
@@ -175,15 +177,12 @@ public class PowerUps : MonoBehaviour
         //if equipment
         if (other.CompareTag("Player1"))
         {
-            MainPlayer player = other.gameObject.GetComponent<MainPlayer>();
             if (tag == "StatBooster")
             {
-                player.AddEquipmentToSaveFile(powerUpName);
             }
 
             if (tag == "Item")
             {
-                player.AddItemToSaveFile(powerUpName);
                 GetComponent<BoxCollider2D>().enabled = false;
             }
         }
@@ -271,6 +270,17 @@ public class PowerUps : MonoBehaviour
                 yield return null;
                 break;
             #endregion
+            //[NOV 8]
+            #region JunkFood
+            case PowerUpTypes.JunkFood:
+                print("Using JunkFood");
+
+                //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion
+
             //**********************************
 
             #region Slow Time
