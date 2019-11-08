@@ -259,6 +259,9 @@ public class BaseEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
+            //item extension script
+            ieScript.bEScript_mAtkPlayer = this;
+
             if (walkIntoDamage == 1)
             {
                 collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);

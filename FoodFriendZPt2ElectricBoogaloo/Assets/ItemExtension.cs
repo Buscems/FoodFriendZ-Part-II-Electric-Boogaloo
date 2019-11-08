@@ -9,6 +9,7 @@ public class ItemExtension : MonoBehaviour
     MainPlayer mPScript;
 
     [HideInInspector] public BaseEnemy bEScript;
+    [HideInInspector] public BaseEnemy bEScript_mAtkPlayer;
 
     GameObject eDetectGO;
 
@@ -28,6 +29,7 @@ public class ItemExtension : MonoBehaviour
 
 
     [HideInInspector] public bool hasPlayerHitEnemy;
+    [HideInInspector] public bool hasEnemyHitPlayer;
     [HideInInspector] public bool areEnemiesInProxy;
 
 
@@ -47,10 +49,15 @@ public class ItemExtension : MonoBehaviour
         //if enemy script is needed
         if (needEnemyScript)
         {
-            if (hasPineAppleSlice)
+            if (hasEnemyHitPlayer)
             {
-                print("pineappleslice");
+                if (hasPineAppleSlice)
+                {
+                    print("pineappleslice");
+
+                }
             }
+
 
             if (hasPlayerHitEnemy)
             {
