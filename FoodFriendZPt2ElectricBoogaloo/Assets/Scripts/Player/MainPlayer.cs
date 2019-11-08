@@ -129,6 +129,7 @@ public class MainPlayer : MonoBehaviour
 
     private GetOddsScript getOdds;
     private SpriteRenderer sr;
+    private SaveGame saveData;
 
     //elements
     private float bleedMultiplier = 1;
@@ -277,6 +278,7 @@ public class MainPlayer : MonoBehaviour
 
         //**temporary
         youDiedText.gameObject.SetActive(false);
+        saveData = GetComponent<SaveGame>();
     }
 
     void Update()
@@ -493,6 +495,41 @@ public class MainPlayer : MonoBehaviour
             downCharacter.sprite = cross.hudIcon;
         }
         if (_faceDirection == "Circle" && circle != null)
+        {
+            if (currentChar == circle)
+            {
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
+                currentChar = _character;
+            }
+            circle = _character;
+            rightCharacter.sprite = circle.hudIcon;
+        }
+        currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+    }
+
+    public void AddCharacter(BasePlayer _character, string _faceDirection)
+    {
+        if (_faceDirection == "Square")
+        {
+            if (currentChar == square)
+            {
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
+                currentChar = _character;
+            }
+            square = _character;
+            leftCharacter.sprite = square.hudIcon;
+        }
+        if (_faceDirection == "Triangle")
+        {
+            if (currentChar == triangle)
+            {
+                Instantiate(swapPuff, transform.position, Quaternion.identity);
+                currentChar = _character;
+            }
+            triangle = _character;
+            upCharacter.sprite = triangle.hudIcon;
+        }
+        if (_faceDirection == "Circle")
         {
             if (currentChar == circle)
             {
@@ -1020,6 +1057,20 @@ public class MainPlayer : MonoBehaviour
         isStuck = true;
         yield return new WaitForSeconds(effectTime);
         isStuck = false;
+    }
+
+    public void AddCharacterToSaveFile(string name)
+    {
+        saveData.Load();
+        GameData gameData = saveData.gameData;
+        for (int i = 0; i < gameData.CharacterListNames.Length; i++)
+        {
+            if (name.ToLower() == gameData.CharacterListNames[i].ToLower())
+            {
+                gameData.CharacterList[i] = true;
+                break;
+            }
+        }
     }
 
     //getting hit method
