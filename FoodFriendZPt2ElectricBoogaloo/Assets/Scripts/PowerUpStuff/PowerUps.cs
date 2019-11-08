@@ -291,6 +291,8 @@ public class PowerUps : MonoBehaviour
                 print("Using Peaceful Tea");
 
                 //[STAT BOOST]
+                ieScript.EnableEnemyDetector();
+                ieScript.hasPeacefulTea = true;
 
                 yield return null;
                 break;
