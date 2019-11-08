@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [HideInInspector]
-    public float damage;
+    [HideInInspector] public float damage;
 
-    [HideInInspector]
-    public bool canPierce = false;
-    [HideInInspector]
-    public float pierceMultiplier = 1;
-    [HideInInspector]
-    public int maxAmountOfEnemiesCanPassThrough = -1;
+    [HideInInspector] public bool canPierce = false;
+    [HideInInspector] public float pierceMultiplier = 1;
+    [HideInInspector] public int maxAmountOfEnemiesCanPassThrough = -1;
 
     private int currentEnemiesPassed = -1;
 
-    [HideInInspector]
-    public bool isBomb;
-    [HideInInspector]
-    public float force;
-    [HideInInspector]
-    public float radius;
+    [HideInInspector] public bool isBomb;
+    [HideInInspector] public float force;
+    [HideInInspector] public float radius;
 
     public GameObject explosionParticles;
     public AudioSource soundToInstantiate;
@@ -49,7 +42,6 @@ public class Attack : MonoBehaviour
     private float stunLength;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         currentEnemiesPassed = maxAmountOfEnemiesCanPassThrough;
@@ -67,7 +59,6 @@ public class Attack : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Time.timeScale != 0)
@@ -267,12 +258,7 @@ public class Attack : MonoBehaviour
             {
                 enemy = other.gameObject;
             }
-
-
         }
-
-
-        // if(other.gameObject.tag == "")
     }
 
     public void DestroyBullet(GameObject _enemy)
