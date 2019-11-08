@@ -103,11 +103,12 @@ GameObject:
   - component: {fileID: 822394764877458803}
   - component: {fileID: 1208179063}
   - component: {fileID: 1208179059}
-  - component: {fileID: 2342861788897084341}
   - component: {fileID: 2812613003649850060}
   - component: {fileID: 2068965905430751085}
   - component: {fileID: 4370473858649795901}
+  - component: {fileID: 2342861788897084341}
   - component: {fileID: 895167997583135907}
+  - component: {fileID: 8012078217273511684}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player1
@@ -424,20 +425,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2342861788897084341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822394764877458807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 534851817ee86ff49bcea6dfd660d3b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statBoostHolder: {fileID: 2730007998345397093, guid: 26758dc0c5ad9644cb1082b2d08ba1e6,
-    type: 3}
 --- !u!114 &2812613003649850060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +476,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb14b9f746983044ea4b38ab73141ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2342861788897084341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822394764877458807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534851817ee86ff49bcea6dfd660d3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statBoostHolder: {fileID: 2730007998345397093, guid: 26758dc0c5ad9644cb1082b2d08ba1e6,
+    type: 3}
 --- !u!114 &895167997583135907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,6 +508,18 @@ MonoBehaviour:
   curEffectTimer: 0
   readyCDcolor: {r: 1, g: 1, b: 1, a: 1}
   rechargingCDcolor: {r: 1, g: 0.52518374, b: 0, a: 1}
+--- !u!114 &8012078217273511684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822394764877458807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da171f1ed4094b24bb585c20b0fd6c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5285187768009801998
 GameObject:
   m_ObjectHideFlags: 0
