@@ -17,25 +17,15 @@ public class AttackDirection : MonoBehaviour
 
     private void Awake()
     {
-
         //Rewired Code
         playerNum = transform.parent.GetComponent<MainPlayer>().playerNum;
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         CheckController(myPlayer);
-
     }
 
-    // Start is called before the first frame update
-    void Start()
+       void Update()
     {
-     
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
         direction.x = myPlayer.GetAxisRaw("DirectionHorizontal");
         direction.y = myPlayer.GetAxisRaw("DirectionVertical");
 
@@ -62,7 +52,6 @@ public class AttackDirection : MonoBehaviour
             transform.rotation = Quaternion.Euler(lookDirection * 90);
         }
         */
-
     }
 
     //these two methods are for ReWired, if any of you guys have any questions about it I can answer them, but you don't need to worry about this for working on the game - Buscemi
@@ -96,9 +85,6 @@ public class AttackDirection : MonoBehaviour
                     Debug.LogError("Player Num is 0, please change to a number > 0");
                     break;
             }
-
-
         }
     }
-
 }
