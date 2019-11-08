@@ -14,24 +14,28 @@ public class revolvingEnemy : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    public bool plezSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
         baseEnemy = GetComponent<BaseEnemy>();
+        plezSpawn = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (baseEnemy.aggroScript.aggro == true){
-            StartCoroutine(spawnProjectiles());
-        }
-    }
 
-    IEnumerator spawnProjectiles(){
-        yield return new WaitForSeconds(spawnTime);
+    }
+}
+
+
+    /*IEnumerator spawnProjectiles(){
+        plezSpawn = false;
         int rand = Random.Range(0, 1);
         var temp = Instantiate(enemy[rand], transform.position, transform.rotation);
         temp.transform.position = new Vector3(Random.Range(temp.transform.position.x - rangeOfSpawn, temp.transform.position.x + rangeOfSpawn), Random.Range(temp.transform.position.y - rangeOfSpawn, temp.transform.position.y + rangeOfSpawn));
+        yield return new WaitForSeconds(spawnTime);
     }
-}
+}*/
