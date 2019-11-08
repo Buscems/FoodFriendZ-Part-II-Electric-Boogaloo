@@ -256,6 +256,13 @@ public class Attack : MonoBehaviour
                 currentEnemiesPassed -= 1;
             }
 
+            if (isPinshot)
+            {
+                if (other.gameObject.name.Contains("turret"))
+                {
+                    Destroy(gameObject);
+                }
+            }
             if (enemy == null)
             {
                 enemy = other.gameObject;
@@ -284,7 +291,14 @@ public class Attack : MonoBehaviour
                 }
                 enemy = _enemy;
                 Destroy(GetComponent<Rigidbody2D>());
-                transform.parent = _enemy.transform;
+                if (_enemy.gameObject.name.Contains("turret"))
+                {
+                    transform.parent = _enemy.transform.parent;
+                }
+                else
+                {
+                    transform.parent = _enemy.transform;
+                }
             }
         }
         else if (!isPinshot)
