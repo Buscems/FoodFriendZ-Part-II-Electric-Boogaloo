@@ -1749,6 +1749,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458805, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: allCharacters.Array.size
@@ -1788,12 +1793,12 @@ PrefabInstance:
         type: 3}
       propertyPath: currentChar
       value: 
-      objectReference: {fileID: 11400000, guid: 62b5a0938dc2c1342b83936ec543f586,
+      objectReference: {fileID: 11400000, guid: 15482a04ad74dd040856a81e05842bce,
         type: 2}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: usingMouse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
@@ -1889,19 +1894,6 @@ PrefabInstance:
       propertyPath: circle
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
-      propertyPath: m_TagString
-      value: PlayerCollider
-      objectReference: {fileID: 0}
-    - target: {fileID: 822394764877458805, guid: 84bc0511b46d0ed41a52cefe75499541,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1208179063, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1925,7 +1917,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[0]
       value: 
-      objectReference: {fileID: 9191362929539883942, guid: 4441aa302e131d741bb229dadaf1025f,
+      objectReference: {fileID: 269890427803099223, guid: 67aa790063deabd409d10f0603dbceca,
         type: 3}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
@@ -1977,6 +1969,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
+      propertyPath: m_TagString
+      value: PlayerCollider
       objectReference: {fileID: 0}
     - target: {fileID: 8455370887547469606, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
