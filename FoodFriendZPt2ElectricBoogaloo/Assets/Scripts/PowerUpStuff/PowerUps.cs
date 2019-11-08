@@ -64,7 +64,7 @@ public class PowerUps : MonoBehaviour
     public Rarity rarity;
 
     //for chest
-    private float cantPickUpTime = 1;
+    private float cantPickUpTime = .3f;
 
     //cooldown/ effect duration
     public float effectDuration;
@@ -175,12 +175,15 @@ public class PowerUps : MonoBehaviour
         //if equipment
         if (other.CompareTag("Player1"))
         {
+            MainPlayer player = other.gameObject.GetComponent<MainPlayer>();
             if (tag == "StatBooster")
             {
+                player.AddEquipmentToSaveFile(powerUpName);
             }
 
             if (tag == "Item")
             {
+                player.AddItemToSaveFile(powerUpName);
                 GetComponent<BoxCollider2D>().enabled = false;
             }
         }

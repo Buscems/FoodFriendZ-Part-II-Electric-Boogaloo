@@ -96,12 +96,17 @@ MonoBehaviour:
   stats: {fileID: 0}
   baseStats: {fileID: 0}
   effectIsActive: 1
-  powerUpName: Ice Cubes
+  powerUpName: Bag of Ice
   movementSpeed: 0
   attackSize: 0
   attackSpeed: 0
   attackDamage: 0
   critChance: 0
+  bleedChance: 1
+  burnChance: 1
+  poisonChance: 1
+  freezeChance: 1
+  stunChance: 1
   healAmount: 0
   vampHeal: 0
   stunTimer: 0

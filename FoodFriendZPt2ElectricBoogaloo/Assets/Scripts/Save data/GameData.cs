@@ -28,21 +28,23 @@ public class GameData
        /*17*/ "TunaCan",
     };
 
+
+
     //dont touch this one (unless you're trap loving lolicon)
-    string[] ItemsListNames = new string[] 
+    public string[] ItemsListNames = new string[] 
     {
        /*0 */ "Thyme",
        /*1 */ "Drain Trap",
        /*2 */ "Soul Sake",
        /*3 */ "Donut Holes",
        /*4 */ "Couple's Milkshake",
-       /*5 */ "",
+       /*5 */ "Starfruit",
        /*6 */ "King of Cola",
        /*7 */ "Caviar",
-       /*8 */ "",
+       /*8 */ "Stopwatch",
        /*9 */ "Whole Milk",
        /*10*/ "Rabbit Stew",
-       /*11*/ "",
+       /*11*/ "Utensil Box",
        /*12*/ "Weird Dough",
        /*13*/ "Molasses",
        /*14*/ "Preserves",
@@ -66,11 +68,62 @@ public class GameData
        /*32*/ "Banana Peel",
        /*33*/ "Drink Coaster",
        /*34*/ "Spinach",
-       /*36*/ "Spicy Jalapeno"
+       /*35*/ "Spicy Jalapeno",
+       /*36*/ "Aluminum Foil"
     };
 
+    public bool[] ItemsList = new bool[]
+    {
+        /*
+        items list [Bool] -> true = picked up item in past, false = never picked up item 
+        
+         * Array Pos - Item
+         */
+         /* 0  */ false,  /* [Thyme] */
+         /* 1  */ false,  /* [Drain Trap] */
+         /* 2  */ false,  /* [Soul Sake] */
+         /* 3  */ false,  /* [Donut Holes] */
+         /* 4  */ false,  /* [Couple's Milkshake] */
+         /* 5  */ false,  /* [Starfruit] */
+         /* 6  */ false,  /* [King of Cola] */
+         /* 7  */ false,  /* [Caviar] */
+         /* 8  */ false,  /* [Stopwatch] */
+         /* 9  */ false,  /* [Whole Milk] */
+         /* 10 */ false,  /* [Rabbit Stew] */
+         /* 11 */ false,  /* [Utensil Box] */
+         /* 12 */ false,  /* [Weird Dough] */
+         /* 13 */ false,  /* [Molasses] */
+         /* 14 */ false,  /* [Preserves] */
+         /* 15 */ false,  /* [Paper Towel] */
+         /* 16 */ false,  /* [Sponge] */
+         /* 17 */ false,  /* [Rag] */
+         /* 18 */ false,  /* [Granola] */
+         /* 19 */ false,  /* [Ceramic Plate] */
+         /* 20 */ false,  /* [Whipped Cream] */
+         /* 21 */ false,  /* [Pizza Cutter] */
+         /* 22 */ false,  /* [Tenderizer] */
+         /* 23 */ false,  /* [Whisk] */
+         /* 24 */ false,  /* [Canned Good] */
+         /* 25 */ false,  /* [Smoothie] */
+         /* 26 */ false,  /* [Detergent Pod] */
+         /* 27 */ false,  /* [Culinary Torch] */
+         /* 28 */ false,  /* [Paprika] */
+         /* 29 */ false,  /* [Rosemary] */
+         /* 30 */ false,  /* [Garnish] */
+         /* 31 */ false,  /* [Easter Egg] */
+         /* 32 */ false,  /* [Banana Peel] */
+         /* 33 */ false,  /* [Drink Coaster] */
+         /* 34 */ false,  /* [Spinach] */
+         /* 35 */ false,  /* [Spicy Jalapeno] */
+         /* 36 */ false   /* [Aluminum Foil] */
+
+    };
+
+
+
+
     //dont touch this one either (unless you're trap loving lolicon)
-    string[] EquipmentListNames = new string[]
+    public string[] EquipmentListNames = new string[]
     {
        /*0 */ "Hot Sauce",
        /*1 */ " ",
@@ -107,19 +160,77 @@ public class GameData
        /*32*/ "Swiss Army Cheese",
        /*33*/ "Butcher's Knife",
        /*34*/ "Rat Poison",
-       /*36*/ "Oven Mitt",
-       /*37*/ "Knife Sharpening Steel",
-       /*38*/ "Crazy Straw",
-       /*39*/ "Bendy Straw",
-       /*40*/ "Food Stamp",
-       /*41*/ "Coupon",
-       /*42*/ "Non-Stick Spray",
-       /*43*/ "Salt",
-       /*44*/ "Pepper Grinder",
-       /*45*/ "Mold",
-       /*46*/ "Left Overs",
-       /*47*/ "Vacuumed-Sealed Bag"
+       /*35*/ "Oven Mitt",
+       /*36*/ "Knife Sharpening Steel",
+       /*37*/ "Crazy Straw",
+       /*38*/ "Bendy Straw",
+       /*39*/ "Food Stamp",
+       /*40*/ "Coupon",
+       /*41*/ "Non-Stick Spray",
+       /*42*/ "Salt",
+       /*43*/ "Pepper Grinder",
+       /*44*/ "Mold",
+       /*45*/ "Left Overs",
+       /*46*/ "Vacuumed-Sealed Bag"
     };
+
+    public bool[] EquipmentList = new bool[]
+   {
+        /*
+        items list [Bool] -> true = picked up item in past, false = never picked up item 
+        
+         * Array Pos - Item
+         */
+         /* 0  */ false,  /* [Hot Sauce] */
+         /* 1  */ false,  /* [] */
+         /* 2  */ false,  /* [Valentine's Day Chocolate] */
+         /* 3  */ false,  /* [Maggots] */
+         /* 4  */ false,  /* [] */
+         /* 5  */ false,  /* [Kiss The Cook Apron] */
+         /* 6  */ false,  /* [] */
+         /* 7  */ false,  /* [Scored Cutting Board] */
+         /* 8  */ false,  /* [Bludgeoned Cutting Board] */
+         /* 9  */ false,  /* [] */
+         /* 10 */ false,  /* [] */
+         /* 11 */ false,  /* [Freeze Pops] */
+         /* 12 */ false,  /* [XXL Soda] */
+         /* 13 */ false,  /* [Marshmallow Cereal] */
+         /* 14 */ false,  /* [Protein Shake] */
+         /* 15 */ false,  /* [Truffles] */
+         /* 16 */ false,  /* [Bag Of Ice] */
+         /* 17 */ false,  /* [Rocket Popsicle] */
+         /* 18 */ false,  /* [Turtle Soup] */
+         /* 19 */ false,  /* [Starfruit] */
+         /* 20 */ false,  /* [Sugar] */
+         /* 21 */ false,  /* [Caffeine] */
+         /* 22 */ false,  /* [Frog Legs] */
+         /* 23 */ false,  /* [Garlic Powder] */
+         /* 24 */ false,  /* [Italian Seasoning] */
+         /* 25 */ false,  /* [Aluminum Foil] */
+         /* 26 */ false,  /* [Plastic Tupperware] */
+         /* 27 */ false,  /* [Plastic Wrap] */
+         /* 28 */ false,  /* [Plastic Straw] */
+         /* 29 */ false,  /* [Chopsticks] */
+         /* 30 */ false,  /* [Spatula] */
+         /* 31 */ false,  /* [Spork] */
+         /* 32 */ false,  /* [Swiss Army Cheese] */
+         /* 33 */ false,  /* [Butcher's Knife] */
+         /* 34 */ false,  /* [Rat Poison] */
+         /* 35 */ false,  /* [Oven Mitt] */
+         /* 36 */ false,  /* [Knife Sharpening Steel] */
+         /* 37 */ false,  /* [Crazy Straw] */
+         /* 38 */ false,  /* [Bendy Straw] */
+         /* 39 */ false,  /* [Food Stamp] */
+         /* 40 */ false,  /* [Coupon] */
+         /* 41 */ false,  /* [Non-Stick Spray] */
+         /* 42 */ false,  /* [Salt] */
+         /* 43 */ false,  /* [Pepper Grinder] */
+         /* 44 */ false,  /* [Mold] */
+         /* 45 */ false,  /* [Left Overs] */
+         /* 46 */ false  /* [Vacuumed-Sealed Bag] */
+
+   };
+
 
     //dont touch this one either either (unless you're trap loving lolicon)
     string[] EquipmentListDescriptions = new string[]
@@ -217,100 +328,6 @@ public class GameData
          /* 16 */ true,  /* [Taco] */
          /* 17 */ true,  /* [Tuna Can] */
     };
-
-    public bool[] ItemsList { set; get; }
-    //Items list [Bool] -> 1 = collected item in past, 0 = never collected item
-    /*
-     * Array Pos - Item Name
-     * 0           [Thyme] 
-     * 1           [Drain Trap] 
-     * 2           [Soul Sake] 
-     * 3           [Donut Holes] 
-     * 4           [Couple's Milkshake] 
-     * 5           [          ] 
-     * 6           [King of Cola] 
-     * 7           [Caviar] 
-     * 8           [          ] 
-     * 9           [Whole Milk] 
-     * 10          [Rabbit Stew] 
-     * 11          [          ] 
-     * 12          [Weird Dough] 
-     * 13          [Molasses] 
-     * 14          [Preserves] 
-     * 15          [Paper Towel]
-     * 16          [Sponge]
-     * 17          [Rag]
-     * 18          [Granola]
-     * 19          [Ceramic Plate]
-     * 20          [Whipped Cream]
-     * 21          [Pizza Cutter]
-     * 22          [Tenderizer]
-     * 23          [Whisk]
-     * 24          [Canned Good]
-     * 25          [Smoothie]
-     * 26          [Detergent Pod]
-     * 27          [Culinary Torch]
-     * 28          [Paprika]
-     * 29          [Rosemary]
-     * 30          [Garnish]
-     * 31          [Easter Egg]
-     * 32          [Banana Peel]
-     * 33          [Drink Coaster]
-     * 34          [Spinach]
-     * 35          [Spicy Jalapeno]
-     */
-     
-    public bool[] EquipmentList { set; get; }
-    //Equipment list [Bool] -> 1 = collected equipment in past, 0 = never collected equipment
-    /*
-     * Array Pos - Equipment
-     * 0           [Hot Sauce] 
-     * 1           [         ] 
-     * 2           [Valentine's Day Chocolate] 
-     * 3           [Maggots] 
-     * 4           [         ] 
-     * 5           [Kiss The Cook Apron] 
-     * 6           [         ] 
-     * 7           [Scored Cutting Board] 
-     * 8           [Bludgeoned Cutting Board] 
-     * 9           [         ] 
-     * 10          [         ] 
-     * 11          [Freeze Pops] 
-     * 12          [XXL Soda] 
-     * 13          [Marshmallow Cereal] 
-     * 14          [Protein Shake] 
-     * 15          [Truffle]
-     * 16          [Bag Of Ice]
-     * 17          [Rocket Popsicle]
-     * 18          [Turtle Soup]
-     * 19          [Starfruit]
-     * 20          [Sugar]
-     * 21          [Caffeine]
-     * 22          [Frog Legs]
-     * 23          [Garlic Powder]
-     * 24          [Italian Seasoning]
-     * 25          [Aluminum Foil]
-     * 26          [Plastic Tupperware]
-     * 27          [Plastic Wrap]
-     * 28          [Plastic Straw]
-     * 29          [Chopsticks]
-     * 30          [Spatula]
-     * 31          [Spork]
-     * 32          [Swiss Army Cheese]
-     * 33          [Butcher's Knife]
-     * 34          [Rat Poison]
-     * 35          [Oven Mitt]
-     * 36          [Knife Sharpening Steel]
-     * 37          [Crazy Straw] 
-     * 38          [Bendy Straw]
-     * 39          [Food Stamp]
-     * 40          [Coupon]
-     * 41          [Non-Stick Spray]
-     * 42          [Salt]
-     * 43          [Pepper Grinder]
-     * 44          [Mold] 
-     * 45          [Left Overs]
-     * 46          [Vacuumed-Sealed Bag]
-     */
+    
 
 }

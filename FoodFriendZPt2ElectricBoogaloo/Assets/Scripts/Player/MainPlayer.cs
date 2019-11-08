@@ -1073,6 +1073,34 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
+    public void AddItemToSaveFile(string name)
+    {
+        saveData.Load();
+        GameData gameData = saveData.gameData;
+        for (int i = 0; i < gameData.ItemsListNames.Length; i++)
+        {
+            if (name.ToLower() == gameData.ItemsListNames[i].ToLower())
+            {
+                gameData.ItemsList[i] = true;
+                break;
+            }
+        }
+    }
+
+    public void AddEquipmentToSaveFile(string name)
+    {
+        saveData.Load();
+        GameData gameData = saveData.gameData;
+        for (int i = 0; i < gameData.EquipmentListNames.Length; i++)
+        {
+            if (name.ToLower() == gameData.EquipmentListNames[i].ToLower())
+            {
+                gameData.EquipmentList[i] = true;
+                break;
+            }
+        }
+    }
+
     //getting hit method
     public void GetHit(int damage)
     {
