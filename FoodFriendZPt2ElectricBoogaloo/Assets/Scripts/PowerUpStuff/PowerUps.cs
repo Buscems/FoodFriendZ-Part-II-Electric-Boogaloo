@@ -100,6 +100,7 @@ public class PowerUps : MonoBehaviour
         JunkFood,
         PeacefulTea,
         PineAppleSlice,
+        PopCorn,
         #endregion
 
         #region [HEALING]
@@ -301,11 +302,21 @@ public class PowerUps : MonoBehaviour
 
             #region PineAppleSlice
             case PowerUpTypes.PineAppleSlice:
-                print("Using PineAppleSlice");
 
                 //[STAT BOOST]
                 ieScript.needEnemyScript = true;
                 ieScript.hasPineAppleSlice = true;
+
+                yield return null;
+                break;
+            #endregion 
+                
+                #region PopCorn
+            case PowerUpTypes.PopCorn:
+
+                //[STAT BOOST]
+                ieScript.needEnemyScript = true;
+                ieScript.hasPopcorn = true;
 
                 yield return null;
                 break;

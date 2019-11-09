@@ -24,7 +24,8 @@ public class ItemExtension : MonoBehaviour
     float junkFoodModifer = .8f;
 
     [HideInInspector] public bool hasSalt;
-
+    [HideInInspector] public bool hasPopcorn;
+    float popCornChance = 1f;
     [HideInInspector] public bool hasPeacefulTea;
 
     [HideInInspector] public bool hasPineAppleSlice;
@@ -83,6 +84,15 @@ public class ItemExtension : MonoBehaviour
                     print("has Salt");
 
                     // bEScript.health;
+                }
+
+                if (hasPopcorn)
+                {
+                    print("has PopCorn");
+                    if (gOScript.GetStunOdds(popCornChance))
+                    {
+                        bEScript.gameObject.AddComponent<CircleCollider2D>();
+                    }
                 }
 
                 //reset

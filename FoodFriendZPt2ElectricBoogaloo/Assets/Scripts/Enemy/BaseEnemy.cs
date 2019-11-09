@@ -9,6 +9,7 @@ public class BaseEnemy : MonoBehaviour
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
     public float health;
+    [HideInInspector] float maxHP;
     [Tooltip("How fast we want the enemy to move")]
     public float speed;
     [Tooltip("How much damage this enemy deals to the player when the player runs into them (Should only be between 0 and 1)")]
@@ -54,6 +55,8 @@ public class BaseEnemy : MonoBehaviour
     {
         //assign script
         ieScript = GameObject.Find("Player").GetComponent<ItemExtension>();
+
+        maxHP = health;
     }
 
     // Start is called before the first frame update
