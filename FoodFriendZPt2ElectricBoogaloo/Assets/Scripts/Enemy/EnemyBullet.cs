@@ -6,42 +6,27 @@ public class EnemyBullet : MonoBehaviour
 {
 
 
-
-    [HideInInspector]
-    public float speed;
-    [HideInInspector]
-    public Vector3 velocity;
-    [HideInInspector]
-    public int damage;
+    [HideInInspector] public float speed;
+    [HideInInspector] public Vector3 velocity;
+    [HideInInspector] public int damage;
 
     Rigidbody2D rb;
 
-    [HideInInspector]
-    public bool slowBullet;
+    [HideInInspector] public bool slowBullet;
 
-    // Start is called before the first frame update
     void Start()
     {
-
         rb = GetComponent<Rigidbody2D>();
-
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        
         rb.MovePosition(transform.position + velocity * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player1" || collision.tag == "Player2")
+        if (collision.tag == "Player1" || collision.tag == "Player2")
         {
             var targ = collision.GetComponent<MainPlayer>();
             targ.GetHit(damage);
