@@ -8,10 +8,12 @@ public class ItemExtension : MonoBehaviour
     ItemManager iMScript;
     MainPlayer mPScript;
 
-    BaseBoss bossScript;
+    [HideInInspector] public BaseBoss bossScript;
 
-    BaseEnemy bEScript;
-    BaseEnemy bEScript_mAtkPlayer;
+    [HideInInspector] public BaseBoss projectileScript;
+
+    [HideInInspector] public BaseEnemy bEScript;
+    [HideInInspector] public BaseEnemy bEScript_mAtkPlayer;
 
 
 
@@ -20,7 +22,6 @@ public class ItemExtension : MonoBehaviour
     GetOddsScript gOScript;
 
     //bools
-
     [HideInInspector] public bool hasSalt;
     [HideInInspector] public bool hasSpatula;
     [HideInInspector] public bool hasPeacefulTea;
@@ -41,6 +42,7 @@ public class ItemExtension : MonoBehaviour
     //enemy related bools
     [HideInInspector] public bool needEnemyScript;
     [HideInInspector] public bool needBossScript;
+    [HideInInspector] public bool needProjectileScript;
 
     [HideInInspector] public bool hasPlayerHitEnemy;
     [HideInInspector] public bool hasEnemyHitPlayer;
@@ -128,9 +130,21 @@ public class ItemExtension : MonoBehaviour
             hasPlayerHitBoss = false;
         }
 
-        if (hasProjectileHitPlayer)
+        if (needProjectileScript)
         {
+            if (hasProjectileHitPlayer)
+            {
+                if (hasLunchTray)
+                {
+                    if (gOScript.GetStunOdds(lunchTrayChance))
+                    {
 
+                    }
+                }
+            }
+
+            //reset
+            hasProjectileHitPlayer = false;
         }
 
         if (hasPeacefulTea)
