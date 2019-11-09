@@ -94,7 +94,7 @@ public class BaseBoss : MonoBehaviour
 
     void Update()
     {
-        if (ieScript.needBossScript)
+        if (ieScript.needBossScript && ieScript != this)
         {
             ieScript.bossScript = this;
         }

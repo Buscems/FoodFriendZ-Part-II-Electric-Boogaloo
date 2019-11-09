@@ -108,8 +108,9 @@ public class ItemExtension : MonoBehaviour
         {
             if (hasSpatula)
             {
-                print("has PopCorn");
+                print("has Spatula");
 
+                bossScript.health *= .95f;
             }
         }
 
