@@ -6,6 +6,8 @@ using TMPro;
 
 public class BaseBoss : MonoBehaviour
 {
+    ItemExtension ieScript;
+
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
     public float maxHealth;

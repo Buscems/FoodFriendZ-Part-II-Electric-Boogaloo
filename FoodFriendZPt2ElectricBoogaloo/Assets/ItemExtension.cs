@@ -8,6 +8,7 @@ public class ItemExtension : MonoBehaviour
     ItemManager iMScript;
     MainPlayer mPScript;
 
+    [HideInInspector] public BaseEnemy bossScript;
     [HideInInspector] public BaseEnemy bEScript;
     [HideInInspector] public BaseEnemy bEScript_mAtkPlayer;
 
@@ -17,13 +18,13 @@ public class ItemExtension : MonoBehaviour
     GetOddsScript gOScript;
 
     //bools
-    [HideInInspector] public bool needEnemyScript;
 
     [HideInInspector] public bool hasJunkFood;
     float junkFoodChance = .25f;
     float junkFoodModifer = .8f;
 
     [HideInInspector] public bool hasSalt;
+    [HideInInspector] public bool hasSpatula;
     [HideInInspector] public bool hasPopcorn;
     float popCornChance = 1f;
     [HideInInspector] public bool hasPeacefulTea;
@@ -31,9 +32,12 @@ public class ItemExtension : MonoBehaviour
     [HideInInspector] public bool hasPineAppleSlice;
     float pineAppleSliceChance = .5f;
 
+    [HideInInspector] public bool needEnemyScript;
+    [HideInInspector] public bool needBossScript;
 
     [HideInInspector] public bool hasPlayerHitEnemy;
     [HideInInspector] public bool hasEnemyHitPlayer;
+
     [HideInInspector] public bool areEnemiesInProxy;
 
 
@@ -97,6 +101,15 @@ public class ItemExtension : MonoBehaviour
 
                 //reset
                 hasPlayerHitEnemy = false;
+            }
+        }
+
+        if (needBossScript)
+        {
+            if (hasSpatula)
+            {
+                print("has PopCorn");
+
             }
         }
 
