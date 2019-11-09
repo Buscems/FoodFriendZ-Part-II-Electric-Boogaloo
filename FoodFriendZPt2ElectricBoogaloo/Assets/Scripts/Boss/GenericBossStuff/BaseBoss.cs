@@ -289,6 +289,11 @@ public class BaseBoss : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
+        if (ieScript.needBossScript)
+        {
+            ieScript.hasPlayerHitBoss = true;
+        }
+
         health -= _damage;
         sr.color = new Color(1, .35f, .35f);
     }

@@ -227,7 +227,7 @@ public class Attack : MonoBehaviour
 
                 if (other.GetComponent<BaseBoss>() != null)
                 {
-                    other.GetComponent<BaseEnemy>().TakeDamage(damage);
+                    other.GetComponent<BaseBoss>().TakeDamage(damage);
                     SetStatusEffectsToEnemy(other.gameObject);
                 }
 

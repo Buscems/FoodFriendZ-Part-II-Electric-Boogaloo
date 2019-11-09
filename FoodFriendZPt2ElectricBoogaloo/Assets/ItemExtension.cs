@@ -38,6 +38,9 @@ public class ItemExtension : MonoBehaviour
     [HideInInspector] public bool hasPlayerHitEnemy;
     [HideInInspector] public bool hasEnemyHitPlayer;
 
+    [HideInInspector] public bool hasPlayerHitBoss;
+    [HideInInspector] public bool hasBossHitPlayer;
+
     [HideInInspector] public bool areEnemiesInProxy;
 
 
@@ -106,12 +109,18 @@ public class ItemExtension : MonoBehaviour
 
         if (needBossScript)
         {
-            if (hasSpatula)
+            if (hasPlayerHitBoss)
             {
-                print("has Spatula");
+                if (hasSpatula)
+                {
+                    print("has Spatula");
 
-                bossScript.health *= .95f;
+                    bossScript.health *= .95f;
+                }
             }
+
+            //reset
+            hasPlayerHitBoss = false;
         }
 
         if (hasPeacefulTea)

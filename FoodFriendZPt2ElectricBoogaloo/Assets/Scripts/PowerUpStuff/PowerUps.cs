@@ -342,6 +342,8 @@ public class PowerUps : MonoBehaviour
             case PowerUpTypes.Spatula:
 
                 //[STAT BOOST]
+                ieScript.needBossScript = true;
+                ieScript.hasSpatula = true;
 
                 yield return null;
                 break;
