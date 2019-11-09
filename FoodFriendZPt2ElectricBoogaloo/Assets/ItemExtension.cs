@@ -8,35 +8,44 @@ public class ItemExtension : MonoBehaviour
     ItemManager iMScript;
     MainPlayer mPScript;
 
-    [HideInInspector] public BaseBoss bossScript;
-    [HideInInspector] public BaseEnemy bEScript;
-    [HideInInspector] public BaseEnemy bEScript_mAtkPlayer;
+    BaseBoss bossScript;
+
+    BaseEnemy bEScript;
+    BaseEnemy bEScript_mAtkPlayer;
+
+
 
     GameObject eDetectGO;
-
 
     GetOddsScript gOScript;
 
     //bools
 
+    [HideInInspector] public bool hasSalt;
+    [HideInInspector] public bool hasSpatula;
+    [HideInInspector] public bool hasPeacefulTea;
+
     [HideInInspector] public bool hasJunkFood;
     float junkFoodChance = .25f;
     float junkFoodModifer = .8f;
 
-    [HideInInspector] public bool hasSalt;
-    [HideInInspector] public bool hasSpatula;
     [HideInInspector] public bool hasPopcorn;
     float popCornChance = 1f;
-    [HideInInspector] public bool hasPeacefulTea;
 
     [HideInInspector] public bool hasPineAppleSlice;
     float pineAppleSliceChance = .5f;
 
+    [HideInInspector] public bool hasLunchTray;
+    float lunchTrayChance = .5f;
+
+    //enemy related bools
     [HideInInspector] public bool needEnemyScript;
     [HideInInspector] public bool needBossScript;
 
     [HideInInspector] public bool hasPlayerHitEnemy;
     [HideInInspector] public bool hasEnemyHitPlayer;
+
+    [HideInInspector] public bool hasProjectileHitPlayer;
 
     [HideInInspector] public bool hasPlayerHitBoss;
     [HideInInspector] public bool hasBossHitPlayer;
@@ -64,7 +73,6 @@ public class ItemExtension : MonoBehaviour
             {
                 if (hasPineAppleSlice)
                 {
-                    print("pineappleslice");
                     if (gOScript.GetStunOdds(pineAppleSliceChance))
                     {
                         bEScript_mAtkPlayer.health *= .5f;
@@ -74,7 +82,6 @@ public class ItemExtension : MonoBehaviour
                 //reset detector
                 hasEnemyHitPlayer = false;
             }
-
 
             if (hasPlayerHitEnemy)
             {
@@ -88,8 +95,6 @@ public class ItemExtension : MonoBehaviour
 
                 if (hasSalt)
                 {
-                    print("has Salt");
-
                     bEScript.health *= .9f;
                 }
 
@@ -123,8 +128,14 @@ public class ItemExtension : MonoBehaviour
             hasPlayerHitBoss = false;
         }
 
+        if (hasProjectileHitPlayer)
+        {
+
+        }
+
         if (hasPeacefulTea)
         {
+            //if enemies are not in proxy, make player fast
             mPScript.isFast = !areEnemiesInProxy;
         }
 
