@@ -11,6 +11,7 @@ public class ItemManager : MonoBehaviour
     public GameObject item = null;
 
     public ParticleSystem itemParticleSystem;
+    ParticleSystem refilledCDParticle;
 
     //timer stuff
     float MAXcurCDTimer;
@@ -34,6 +35,7 @@ public class ItemManager : MonoBehaviour
 
         //assignning UI
         CoolDownSlider = GameObject.Find("CoolDownBar").GetComponent<Slider>();
+        refilledCDParticle = GameObject.Find("temp_refillParticles").GetComponent<ParticleSystem>();
         CoolDownFillBar = GameObject.Find("CDFill").GetComponent<Image>();
 
         curEquippedItemIMG = GameObject.Find("EquippedItem").GetComponent<Image>();
@@ -104,6 +106,8 @@ public class ItemManager : MonoBehaviour
             //when timer hits
             if (curCDTimer <= 0)
             {
+                refilledCDParticle.Play();
+
                 //resets timer
                 curCDTimer = 0;
             }

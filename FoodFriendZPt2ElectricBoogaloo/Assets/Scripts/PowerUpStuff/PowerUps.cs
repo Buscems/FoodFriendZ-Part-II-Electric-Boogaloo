@@ -105,6 +105,7 @@ public class PowerUps : MonoBehaviour
         PopCorn,
         GreenMushroom,
         Spatula,
+        LunchTray,
         #endregion
 
         #region [HEALING]
@@ -344,6 +345,17 @@ public class PowerUps : MonoBehaviour
                 //[STAT BOOST]
                 ieScript.needBossScript = true;
                 ieScript.hasSpatula = true;
+
+                yield return null;
+                break;
+            #endregion
+
+            #region LunchTray
+            case PowerUpTypes.LunchTray:
+
+                //[STAT BOOST]
+                // ieScript.needBossScript = true;
+                // ieScript.hasSpatula = true;
 
                 yield return null;
                 break;
