@@ -10,7 +10,7 @@ public class ItemExtension : MonoBehaviour
 
     [HideInInspector] public BaseBoss bossScript;
 
-    [HideInInspector] public BaseBoss projectileScript;
+    [HideInInspector] public EnemyBullet projectileScripts;
 
     [HideInInspector] public BaseEnemy bEScript;
     [HideInInspector] public BaseEnemy bEScript_mAtkPlayer;
@@ -37,7 +37,7 @@ public class ItemExtension : MonoBehaviour
     float pineAppleSliceChance = .5f;
 
     [HideInInspector] public bool hasLunchTray;
-    float lunchTrayChance = .5f;
+    float lunchTrayChance = 1f;
 
     //enemy related bools
     [HideInInspector] public bool needEnemyScript;
@@ -138,7 +138,7 @@ public class ItemExtension : MonoBehaviour
                 {
                     if (gOScript.GetStunOdds(lunchTrayChance))
                     {
-
+                        projectileScripts.returnToSender = true;
                     }
                 }
             }

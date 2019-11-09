@@ -354,8 +354,8 @@ public class PowerUps : MonoBehaviour
             case PowerUpTypes.LunchTray:
 
                 //[STAT BOOST]
-                // ieScript.needBossScript = true;
-                // ieScript.hasSpatula = true;
+                ieScript.needProjectileScript = true;
+                ieScript.hasLunchTray = true;
 
                 yield return null;
                 break;

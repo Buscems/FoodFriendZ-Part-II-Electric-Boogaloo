@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-
+    ItemExtension ieScript;
 
     [HideInInspector] public float speed;
     [HideInInspector] public Vector3 velocity;
@@ -14,31 +14,60 @@ public class EnemyBullet : MonoBehaviour
 
     [HideInInspector] public bool slowBullet;
 
+    [HideInInspector] public bool returnToSender;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        //assigned script
+        ieScript = GameObject.Find("Player").GetComponent<ItemExtension>();
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(transform.position + velocity * speed * Time.deltaTime);
+        if (!returnToSender)
+        {
+            rb.MovePosition(transform.position + velocity * speed * Time.deltaTime);
+        }
+        else
+        {
+            rb.MovePosition(transform.position - velocity * speed * 2 * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player1" || collision.tag == "Player2")
         {
-            var targ = collision.GetComponent<MainPlayer>();
-            targ.GetHit(damage);
-            if (slowBullet)
+            if (ieScript.needProjectileScript)
             {
-                targ.StartCoroutine(targ.Slow(3));
+                ieScript.projectileScripts = this;
+                ieScript.hasProjectileHitPlayer = true;
             }
-            Destroy(this.gameObject);
+
+            else
+            {
+                var targ = collision.GetComponent<MainPlayer>();
+                targ.GetHit(damage);
+                if (slowBullet)
+                {
+                    targ.StartCoroutine(targ.Slow(3));
+                }
+                Destroy(this.gameObject);
+            }
         }
 
         if (collision.tag == "TilesHere")
         {
+            Destroy(this.gameObject);
+        }
+
+        if (collision.tag == "Enemy" && returnToSender)
+        {
+            var targ = collision.GetComponent<BaseEnemy>();
+            targ.TakeDamage(damage);
+
             Destroy(this.gameObject);
         }
     }
