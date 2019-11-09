@@ -17,8 +17,7 @@ public class PowerUps : MonoBehaviour
 
     public bool effectIsActive = true;
 
-    [Tooltip("Power-Up Names")]
-    public string powerUpName = "";
+    [Tooltip("Power-Up Names")] public string powerUpName = "";
 
     #region Base Stats
     [Header("Base Stats")]
@@ -74,7 +73,6 @@ public class PowerUps : MonoBehaviour
     public float maxCoolDownDuration;
     #endregion
 
-
     //[AWAKE]
     public void Awake()
     {
@@ -85,7 +83,6 @@ public class PowerUps : MonoBehaviour
         ieScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemExtension>();
     }
 
-    //this gives drop down menu selects, make new line write name then put comma
     public enum PowerUpTypes
     {
         Null,//only for base stat powerups, ex. raise atk, health, speed
@@ -178,8 +175,6 @@ public class PowerUps : MonoBehaviour
         EspressoShot,
         #endregion
 
-        ItemReedem, //coupons
-        NullAttack //nullify one attack ex. plastic wrap
     }
 
     public PowerUpTypes currentPowerUp;
