@@ -115,7 +115,7 @@ public class ItemExtension : MonoBehaviour
                 {
                     print("has Spatula");
 
-                    bossScript.health *= .95f;
+                    bossScript.health *= .9f;
                 }
             }
 
