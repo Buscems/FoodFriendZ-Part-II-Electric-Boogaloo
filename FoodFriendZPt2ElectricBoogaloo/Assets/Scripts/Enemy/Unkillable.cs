@@ -7,6 +7,7 @@ public class Unkillable : MonoBehaviour
     BaseEnemy baseEnemy;
 
     private float starthealth;
+    [SerializeField] int damage;
 
     void Start()
     {
@@ -22,6 +23,14 @@ public class Unkillable : MonoBehaviour
         if(baseEnemy.health <= 1)
         {
             baseEnemy.health = starthealth;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
+        {
+            collision.gameObject.GetComponent<MainPlayer>().health -= damage;
         }
     }
 }
