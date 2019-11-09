@@ -4,38 +4,65 @@ using UnityEngine;
 
 public class WormEnemy : MonoBehaviour
 {
-    public GameObject[] bodyParts;
-    public float numParts;
+    //code from https://answers.unity.com/questions/1359733/moving-an-enemy-randomly.html
 
-    public float speed;
-    private float waitTime;
-    public float startWaitTime;
+    private float latestDirectionChangeTime;
+    private readonly float directionChangeTime = 3f;
+    private float characterVelocity = 3f;
+    private Vector2 movementDirection;
+    private Vector2 movementPerSecond;
 
-    public Transform moveSpot;
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
+    public Rigidbody2D rb;
+
+    public CircleCollider2D alert;
+
+    Vector3 dir;
+
+    public bool isDead;
+
+    BaseEnemy baseEnemy;
 
     void Start()
     {
-        waitTime = startWaitTime;
+        latestDirectionChangeTime = 0f;
+        calcuateNewMovementVector();
+        rb = GetComponent<Rigidbody2D>();
+        baseEnemy = GetComponent<BaseEnemy>();
+        isDead = false;
+    }
 
-        moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+    void calcuateNewMovementVector()
+    {
+        //create a random direction vector with the magnitude of 1, later multiply it with the velocity of the enemy
+        movementDirection = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
+        movementPerSecond = movementDirection * characterVelocity;
     }
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
+        //if the changeTime was reached, calculate a new movement vector
+        if (Time.time - latestDirectionChangeTime > directionChangeTime)
+        {
+            latestDirectionChangeTime = Time.time;
+            calcuateNewMovementVector();
+        }
 
-        if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f){
-            if(waitTime <= 0){
-                moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-                waitTime = startWaitTime;
-            } else
-            {
-                waitTime -= Time.deltaTime;
-            }
+        //move enemy: 
+        transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime),
+        transform.position.y + (movementPerSecond.y * Time.deltaTime));
+
+        if (baseEnemy.health == 0){
+            isDead = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "TilesHere")
+        {
+            Debug.Log("CHANGE");
+            movementPerSecond = -movementPerSecond;
+            movementDirection = -movementDirection;
         }
     }
 }

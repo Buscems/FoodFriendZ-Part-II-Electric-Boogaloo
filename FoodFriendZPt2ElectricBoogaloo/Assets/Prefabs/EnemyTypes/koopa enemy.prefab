@@ -67,7 +67,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8864166343848695219}
   - component: {fileID: 8864166343848695218}
-  - component: {fileID: 8864166343848695222}
   - component: {fileID: 8864166343848695221}
   - component: {fileID: 8864166343848695220}
   - component: {fileID: 8864166343848695217}
@@ -76,6 +75,7 @@ GameObject:
   - component: {fileID: 1797817886666881354}
   - component: {fileID: 3148362177175378965}
   - component: {fileID: 544498696}
+  - component: {fileID: 6908281607012930956}
   m_Layer: 10
   m_Name: koopa enemy
   m_TagString: Enemy
@@ -146,32 +146,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8864166343848695222
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864166343848695216}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31733c7e9fc3bbe419a0a59409d818c2, type: 2}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &8864166343848695221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  maxHP: 0
   speed: 1
   walkIntoDamage: 1
   anim: {fileID: 0}
@@ -348,3 +323,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1510391, y: 1.1133388}
   m_EdgeRadius: 0
+--- !u!58 &6908281607012930956
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864166343848695216}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.73
