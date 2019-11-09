@@ -6,7 +6,6 @@ using TMPro;
 
 public class BaseBoss : MonoBehaviour
 {
-
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
     public float maxHealth;
@@ -44,7 +43,7 @@ public class BaseBoss : MonoBehaviour
     [Header("Current Aggro Script")]
     public Aggro aggroScript;
 
-    public enum BossStage { stage1, stage2, stage3}
+    public enum BossStage { stage1, stage2, stage3 }
     //[HideInInspector]
     public BossStage stage;
 
@@ -99,7 +98,7 @@ public class BaseBoss : MonoBehaviour
         //keeping track of the percentage of the bosses health to have different stages
         healthPercent = health / maxHealth;
 
-        if(healthPercent > .75f)
+        if (healthPercent > .75f)
         {
             stage = BossStage.stage1;
         }
@@ -121,7 +120,7 @@ public class BaseBoss : MonoBehaviour
         StatusEffects();
 
         //boss death
-        if(health <= 0)
+        if (health <= 0)
         {
             if (!dead)
             {
@@ -284,7 +283,7 @@ public class BaseBoss : MonoBehaviour
 
     IEnumerator Death()
     {
-        if(anim != null)
+        if (anim != null)
         {
             anim.SetTrigger("death");
         }

@@ -6,6 +6,8 @@ public class PowerUps : MonoBehaviour
 {
     //[ALL VARIABLES]
     #region [ALL VARIABLES]
+    float storedSpeedMult;
+
     //[SCRIPTS]
     public MainPlayer stats;
     [HideInInspector] public BasePlayer baseStats;
@@ -102,6 +104,7 @@ public class PowerUps : MonoBehaviour
         PineAppleSlice,
         PopCorn,
         GreenMushroom,
+        Spatula,
         #endregion
 
         #region [HEALING]
@@ -169,6 +172,9 @@ public class PowerUps : MonoBehaviour
         EasterEgg,
         StunAttack,
         Starfruit,
+
+        //NOV8
+        EspressoShot,
         #endregion
 
         ItemReedem, //coupons
@@ -332,6 +338,15 @@ public class PowerUps : MonoBehaviour
                 break;
             #endregion
 
+            #region Spatula
+            case PowerUpTypes.Spatula:
+
+                //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion
+
             //**********************************
 
             #region Slow Time
@@ -453,11 +468,28 @@ public class PowerUps : MonoBehaviour
                     stats.critChanceMultiplier /= 3;
                     effectIsActive = false;
                 }
-
-
                 break;
             #endregion
 
+            //NOV8
+            #region EspressoShot
+            case PowerUpTypes.EspressoShot:
+                //[ACTIVE STATE]
+                if (effectIsActive)
+                {
+                    Debug.Log("Effect is active");
+                    storedSpeedMult = stats.speedMultiplier;
+                    stats.speedMultiplier = 3;
+                }
+                //[DEACTIVE STATE]
+                else
+                {
+                    Debug.Log("Effect is deactivated");
+                    stats.speedMultiplier = storedSpeedMult;
+                    effectIsActive = false;
+                }
+                break;
+            #endregion
             #region Null
             //case last - null for base stats - DO NOT FILL IN LEAVE BLANK
             case PowerUpTypes.Null:

@@ -10,6 +10,8 @@ public class ItemManager : MonoBehaviour
     public PowerUps PowerUpScript;
     public GameObject item = null;
 
+    public ParticleSystem itemParticleSystem;
+
     //timer stuff
     float MAXcurCDTimer;
     public float curCDTimer;
@@ -71,6 +73,8 @@ public class ItemManager : MonoBehaviour
             if (item != null && curCDTimer == 0)
             {
                 UseItem(true);
+                //particle effect
+                itemParticleSystem.Play();
             }
             //if cooldown isn't ready yet
             else if (curCDTimer > 0)
@@ -109,9 +113,8 @@ public class ItemManager : MonoBehaviour
     //[METHODS]
     private void UseItem(bool _isEffectActive)
     {
+        //
         PowerUpScript.effectIsActive = _isEffectActive;
-
-        // Instantiate(item, transform.position, Quaternion.Euler(mp.attackDirection.transform.eulerAngles.x, mp.attackDirection.transform.eulerAngles.y, mp.attackDirection.transform.eulerAngles.z));
 
         //use powerup script
         StartCoroutine(PowerUpScript.Pickup());
