@@ -35,7 +35,7 @@ public class PathfindingAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         baseEnemy = GetComponent<BaseEnemy>();
 
-        speed = baseEnemy.speed;
+       
 
         InvokeRepeating("UpdatePath", 0, .5f);
 
@@ -62,7 +62,7 @@ public class PathfindingAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        speed = baseEnemy.speed;
         if (path == null)
             return;
 

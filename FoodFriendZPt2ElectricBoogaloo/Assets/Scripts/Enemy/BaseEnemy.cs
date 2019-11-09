@@ -12,6 +12,7 @@ public class BaseEnemy : MonoBehaviour
     [HideInInspector] public float maxHP;
     [Tooltip("How fast we want the enemy to move")]
     public float speed;
+    private float origSpeed;
     [Tooltip("How much damage this enemy deals to the player when the player runs into them (Should only be between 0 and 1)")]
     [Range(0, 1)]
     public int walkIntoDamage;
@@ -62,6 +63,7 @@ public class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        origSpeed = speed;
         //this is making sure that if there are any parents of the main object, it knows to destroy the parent so that nothing is left behind.
         //if(this.gameObject.transform.parent != null && this.gameObject.transform.parent.name != "ENEMIES")
         if (objectToDestroy == null)
@@ -104,8 +106,7 @@ public class BaseEnemy : MonoBehaviour
         }
 
         sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime);
-        speed = speed * slowDownPercentage;
-
+        speed = origSpeed * slowDownPercentage;
         StatusEffectTimers();
         StatusEffects();
     }
@@ -140,12 +141,8 @@ public class BaseEnemy : MonoBehaviour
         {
             health -= poisonDamage;
         }
-        else
-        {
-            slowDownPercentage = 1;
-        }
 
-        if (freezeTimer < 0 && stunTimer < 0)
+        if (freezeTimer < 0 && stunTimer < 0 && poisonTimer < 0)
         {
             slowDownPercentage = 1;
         }

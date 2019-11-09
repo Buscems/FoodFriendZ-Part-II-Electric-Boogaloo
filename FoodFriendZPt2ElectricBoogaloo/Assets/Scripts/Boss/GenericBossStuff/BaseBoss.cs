@@ -15,6 +15,7 @@ public class BaseBoss : MonoBehaviour
     public float healthPercent;
     [Tooltip("How fast we want the enemy to move")]
     public float speed;
+    private float origSpeed;
     [Tooltip("How much damage this enemy deals to the player when the player runs into them (Should only be between 0 and 1)")]
     [Range(0, 1)]
     public int walkIntoDamage;
@@ -66,6 +67,7 @@ public class BaseBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        origSpeed = speed;
         cam = GameObject.Find("Main Camera");
         healthImage = GameObject.Find("Health");
         healthBackground = GameObject.Find("HealthBackground");
@@ -114,7 +116,7 @@ public class BaseBoss : MonoBehaviour
         //setting the health bar equal to the boss
         healthImage.GetComponent<Image>().fillAmount = healthPercent;
 
-        speed = speed * slowDownPercentage;
+        speed = origSpeed * slowDownPercentage;
 
         StatusEffectTimers();
         StatusEffects();
