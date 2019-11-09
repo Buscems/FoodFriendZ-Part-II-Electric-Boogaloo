@@ -101,6 +101,7 @@ public class PowerUps : MonoBehaviour
         PeacefulTea,
         PineAppleSlice,
         PopCorn,
+        GreenMushroom,
         #endregion
 
         #region [HEALING]
@@ -309,15 +310,24 @@ public class PowerUps : MonoBehaviour
 
                 yield return null;
                 break;
-            #endregion 
-                
-                #region PopCorn
+            #endregion
+
+            #region PopCorn
             case PowerUpTypes.PopCorn:
 
                 //[STAT BOOST]
                 ieScript.needEnemyScript = true;
                 ieScript.hasPopcorn = true;
 
+                yield return null;
+                break;
+            #endregion
+
+            #region GreenMushroom
+            case PowerUpTypes.GreenMushroom:
+
+                //[STAT BOOST]
+                
                 yield return null;
                 break;
             #endregion

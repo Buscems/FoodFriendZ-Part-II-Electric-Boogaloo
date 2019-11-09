@@ -83,7 +83,7 @@ public class ItemExtension : MonoBehaviour
                 {
                     print("has Salt");
 
-                    // bEScript.health;
+                    bEScript.health *= .9f;
                 }
 
                 if (hasPopcorn)
@@ -91,7 +91,7 @@ public class ItemExtension : MonoBehaviour
                     print("has PopCorn");
                     if (gOScript.GetStunOdds(popCornChance))
                     {
-                        bEScript.gameObject.AddComponent<CircleCollider2D>();
+
                     }
                 }
 

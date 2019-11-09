@@ -10,7 +10,9 @@ using TMPro;
 public class MainPlayer : MonoBehaviour
 {
     #region All Variables
+
     ItemExtension ieScript;
+    [HideInInspector] public int GreenMushrooms;
 
     public int health;
     [HideInInspector] public int currency;
@@ -350,6 +352,12 @@ public class MainPlayer : MonoBehaviour
 
         }
 
+        else if (GreenMushrooms > 0)
+        {
+            GreenMushrooms--;
+            health = 1;
+        }
+
         //if player is dead
         else
         {
@@ -398,8 +406,6 @@ public class MainPlayer : MonoBehaviour
             }
         }
     }
-
-
 
     private void SwapLogic()
     {
