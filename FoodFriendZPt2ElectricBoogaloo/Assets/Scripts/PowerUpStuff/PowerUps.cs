@@ -214,8 +214,8 @@ public class PowerUps : MonoBehaviour
             case PowerUpTypes.Salt:
 
                 //[STAT BOOST]
-                float storedDMGvalue = stats.baseDamageMulitplier;
-
+                ieScript.needEnemyScript = true;
+                ieScript.hasSalt = true;
                 yield return null;
                 break;
             #endregion

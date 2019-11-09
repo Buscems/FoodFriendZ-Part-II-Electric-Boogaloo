@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 9176bb912ce30eb4aa6fdc3a783f7d0a, type: 3}
-  m_Color: {r: 0, g: 0.3960271, b: 1, a: 0.44705883}
+  m_Color: {r: 1, g: 0.9685757, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,6 +102,11 @@ MonoBehaviour:
   attackSpeed: 0
   attackDamage: 0
   critChance: 0
+  bleedChance: 1
+  burnChance: 1
+  poisonChance: 1
+  freezeChance: 1
+  stunChance: 1
   healAmount: 0
   vampHeal: 0
   stunTimer: 0
@@ -109,7 +114,7 @@ MonoBehaviour:
   rarity: 0
   effectDuration: 0
   maxCoolDownDuration: 0
-  currentPowerUp: 0
+  currentPowerUp: 7
 --- !u!61 &6008930720049942331
 BoxCollider2D:
   m_ObjectHideFlags: 0

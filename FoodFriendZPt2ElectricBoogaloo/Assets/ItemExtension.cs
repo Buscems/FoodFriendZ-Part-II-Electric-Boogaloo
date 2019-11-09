@@ -23,6 +23,8 @@ public class ItemExtension : MonoBehaviour
     float junkFoodChance = .25f;
     float junkFoodModifer = .8f;
 
+    [HideInInspector] public bool hasSalt;
+
     [HideInInspector] public bool hasPeacefulTea;
 
     [HideInInspector] public bool hasPineAppleSlice;
@@ -74,6 +76,13 @@ public class ItemExtension : MonoBehaviour
                     {
                         bEScript.speed *= junkFoodModifer;
                     }
+                }
+
+                if (hasSalt)
+                {
+                    print("has Salt");
+
+                    // bEScript.health;
                 }
 
                 //reset
