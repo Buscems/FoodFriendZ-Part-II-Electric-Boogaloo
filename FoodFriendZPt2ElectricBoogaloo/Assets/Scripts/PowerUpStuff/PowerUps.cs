@@ -105,24 +105,16 @@ public class PowerUps : MonoBehaviour
         LunchTray,
         #endregion
 
-        #region [HEALING]
         Heal,
         FullHeal,
-        #endregion
 
-        #region [GAMEPLAY EFFECTS]
         SlowTime,
-        #endregion  DebuffRemove,
+        DebuffRemove,
 
-        #region [ATTACK ENHANCER (poison, burn)]
         PassivePoison,
-        #endregion
 
-        #region [TEMPORARY BUFF]
         TemporaryAttackPowerUp,
-        #endregion
 
-        #region [CONDITIONAL BUFF]
         //absorb
         AbsorbAttackUp,
         AbsorbProjectile,
@@ -136,21 +128,12 @@ public class PowerUps : MonoBehaviour
         HealthGainPerDMG,
 
         FatalChance,
-        #endregion
 
-        #region [ENEMY STATUS EFFECTS]
         DebuffTrail,
         EnemyConfusion,
-        #endregion
 
-        #region [ENEMY BEHAVIOR]
         AvoidPlayer,
         SlowEnemy,
-        #endregion
-
-        #region [PERMANENT ADDITION ONTO PLAYER]
-        ExtraLife,
-        #endregion
 
         //**[[ITEMS]]**
         #region [ITEMS]
