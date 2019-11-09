@@ -104,6 +104,7 @@ public class BasePlayer : ScriptableObject
     [Header("Ranged-Split Fire")]
     public float radius;
     public int bulletsPerShot;
+    public bool isOrb;
 
     [Header("Napolean")]
     public GameObject[] bulletTypes;
@@ -450,10 +451,22 @@ public class BasePlayer : ScriptableObject
 
         for (int i = 0; i < bulletsPerShot; i++)
         {
-            GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
-            GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
-            SetBulletVariables(attack, parentTransform, false);
-            attack.GetComponent<Attack>().damage = damage;
+            if (isOrb)
+            {
+                attackDirection.eulerAngles += new Vector3(0, 0, angleInterval);
+                GameObject _bullet1 = bullet[Random.Range(0, bullet.Length)];
+                GameObject attack1 = Instantiate(_bullet1, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+                SetBulletVariables(attack1, parentTransform, false);
+                attack1.transform.parent = parentTransform;
+                attack1.GetComponent<Attack>().damage = damage;
+            }
+            else
+            {
+                GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+                GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
+                SetBulletVariables(attack, parentTransform, false);
+                attack.GetComponent<Attack>().damage = damage;
+            }
         }
     }
 

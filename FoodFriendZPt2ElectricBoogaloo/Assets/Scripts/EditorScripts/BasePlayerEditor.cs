@@ -67,6 +67,7 @@ public class BasePlayerEditor : Editor
     //Ranged-Split Fire
     SerializedProperty radius;
     SerializedProperty bulletsPerShot;
+    SerializedProperty isOrb;
 
     //Napoleon
     SerializedProperty bulletTypes;
@@ -121,6 +122,7 @@ public class BasePlayerEditor : Editor
         timeTillDespawn = soTarget.FindProperty("timeTillDespawn");
         canBounce = soTarget.FindProperty("canBounce");
         radius = soTarget.FindProperty("radius");
+        isOrb = soTarget.FindProperty("isOrb");
         bulletsPerShot = soTarget.FindProperty("bulletsPerShot");
         bulletsPerBurst = soTarget.FindProperty("bulletsPerBurst");
         timeBetweenBursts = soTarget.FindProperty("timeBetweenBursts");
@@ -213,6 +215,7 @@ public class BasePlayerEditor : Editor
         {
             EditorGUILayout.PropertyField(radius);
             EditorGUILayout.PropertyField(bulletsPerShot);
+            EditorGUILayout.PropertyField(isOrb);
         }
         if(myTarget.attackType == BasePlayer.AttackType.Napolean)
         {
