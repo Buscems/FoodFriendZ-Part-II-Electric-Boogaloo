@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179b53a8204469d438142104c186b38f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrapTime: 0
+  TrapTime: 2
 --- !u!114 &971650812289419950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 0
-  aggroTimerMax: 0
+  aggroRange: 3
+  aggroTimerMax: 2
   aggro: 0
   target: []
   currentTarget: {fileID: 0}
@@ -125,11 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 1
   speed: 0
   walkIntoDamage: 0
   anim: {fileID: 0}
-  aggroScript: {fileID: 0}
+  aggroScript: {fileID: 971650812289419950}
   items: []
   dropRate: 0
   money: 0

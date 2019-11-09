@@ -106,8 +106,9 @@ GameObject:
   - component: {fileID: 8755644883805507535}
   - component: {fileID: 7558356372130862886}
   - component: {fileID: 6086958672557167370}
+  - component: {fileID: 8474367571629201754}
   m_Layer: 10
-  m_Name: TimTestEnemy
+  m_Name: SpikeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,6 +328,29 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &8474367571629201754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432798692379433224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a02fe2de859ced4ea434cf231d41cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spike: {fileID: 8872604728489419081, guid: 98c418554bbd1034fa417f78c33f7593, type: 3}
+  spikeRight: {fileID: 3969791381171706741, guid: a7c12543bb1796a44b4f2b2627fe5991,
+    type: 3}
+  frontLeft: {fileID: 8978160400059338270}
+  midLeft: {fileID: 793432929447625699}
+  backLeft: {fileID: 5096094209137837934}
+  frontRight: {fileID: 3150720438409729871}
+  midRight: {fileID: 7249244380565610751}
+  backRight: {fileID: 2321206338345780364}
+  DownTime: 2
+  reload: 0
 --- !u!1 &5096094209137837934
 GameObject:
   m_ObjectHideFlags: 0
