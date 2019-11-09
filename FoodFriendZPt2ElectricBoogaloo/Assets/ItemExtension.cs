@@ -8,7 +8,7 @@ public class ItemExtension : MonoBehaviour
     ItemManager iMScript;
     MainPlayer mPScript;
 
-    [HideInInspector] public BaseEnemy bossScript;
+    [HideInInspector] public BaseBoss bossScript;
     [HideInInspector] public BaseEnemy bEScript;
     [HideInInspector] public BaseEnemy bEScript_mAtkPlayer;
 

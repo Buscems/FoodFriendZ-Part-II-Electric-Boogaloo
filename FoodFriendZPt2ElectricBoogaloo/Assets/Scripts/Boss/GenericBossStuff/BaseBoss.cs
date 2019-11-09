@@ -66,7 +66,11 @@ public class BaseBoss : MonoBehaviour
 
     private SpriteRenderer sr;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        ieScript = GameObject.Find("Player").GetComponent<ItemExtension>();
+    }
+
     void Start()
     {
         origSpeed = speed;
@@ -88,9 +92,13 @@ public class BaseBoss : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (ieScript.needBossScript)
+        {
+            ieScript.bossScript = this;
+        }
+
         sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime);
         //starting the animations for the boss fight
         if (playerEntered && !startAnim)
