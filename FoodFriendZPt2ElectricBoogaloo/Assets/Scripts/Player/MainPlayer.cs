@@ -355,7 +355,7 @@ public class MainPlayer : MonoBehaviour
         else if (GreenMushrooms > 0)
         {
             GreenMushrooms--;
-            health = 1;
+            health = 5;
         }
 
         //if player is dead

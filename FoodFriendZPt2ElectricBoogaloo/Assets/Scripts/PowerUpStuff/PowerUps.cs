@@ -327,7 +327,7 @@ public class PowerUps : MonoBehaviour
             case PowerUpTypes.GreenMushroom:
 
                 //[STAT BOOST]
-                
+                stats.GreenMushrooms++;
                 yield return null;
                 break;
             #endregion
