@@ -27,12 +27,20 @@ public class Parry : MonoBehaviour
     
     void Update()
     {
-  
 
-        if (isBlocking)
+        if (baseEnemy.aggroScript.aggro)
         {
-            Shield.SetActive(true);
-            Block();
+            isBlocking = true;
+            if (isBlocking)
+            {
+                Shield.SetActive(true);
+                Block();
+            }
+
+            if(isBlocking == false)
+            {
+                Shield.SetActive(false);
+            }
         }
 
         /*if (baseEnemy.aggroScript.aggro)
