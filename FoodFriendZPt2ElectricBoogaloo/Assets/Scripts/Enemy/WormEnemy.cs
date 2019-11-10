@@ -7,8 +7,8 @@ public class WormEnemy : MonoBehaviour
     //code from https://answers.unity.com/questions/1359733/moving-an-enemy-randomly.html
 
     private float latestDirectionChangeTime;
-    private readonly float directionChangeTime = 3f;
-    private float characterVelocity = 3f;
+    private readonly float directionChangeTime = 2f;
+    private float characterVelocity = 2f;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
 
@@ -21,6 +21,7 @@ public class WormEnemy : MonoBehaviour
     public bool isDead;
 
     BaseEnemy baseEnemy;
+
 
     void Start()
     {
