@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemExtension : MonoBehaviour
 {
     //[ALL VARIABLES]
+    //scripts
     ItemManager iMScript;
     MainPlayer mPScript;
 
@@ -15,11 +16,13 @@ public class ItemExtension : MonoBehaviour
     [HideInInspector] public BaseEnemy bEScript;
     [HideInInspector] public BaseEnemy bEScript_mAtkPlayer;
 
-
-
     GameObject eDetectGO;
 
     GetOddsScript gOScript;
+
+    //prefabs
+    public GameObject AOE;
+    [HideInInspector] public AOE_Script aoeScript;
 
     //bools
     [HideInInspector] public bool hasSalt;
@@ -108,6 +111,7 @@ public class ItemExtension : MonoBehaviour
                     print("has PopCorn");
                     if (gOScript.GetStunOdds(popCornChance))
                     {
+                        Instantiate(AOE, bEScript.transform.position, Quaternion.identity);
 
                     }
                 }

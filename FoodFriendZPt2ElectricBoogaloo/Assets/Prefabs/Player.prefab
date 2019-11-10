@@ -244,6 +244,7 @@ MonoBehaviour:
   walkPuff: {fileID: 1712527220912024, guid: eb6f5883224fd4f1fba1647209183be2, type: 3}
   maxPoofTime: 0.5
   youDiedText: {fileID: 0}
+  orb: {fileID: 0}
 --- !u!82 &2110259292106485824
 AudioSource:
   m_ObjectHideFlags: 0
@@ -614,18 +615,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 0}
+  projectileScripts: {fileID: 0}
   bEScript: {fileID: 0}
   bEScript_mAtkPlayer: {fileID: 0}
-  hasJunkFood: 0
+  AOE: {fileID: 5983498300362710398, guid: b06aea3e2a0d5ea43a518aef812112d7, type: 3}
   hasSalt: 0
   hasSpatula: 0
-  hasPopcorn: 0
   hasPeacefulTea: 0
+  hasKissTheCookApron: 0
+  hasJunkFood: 0
+  hasPopcorn: 0
   hasPineAppleSlice: 0
+  hasLunchTray: 0
   needEnemyScript: 0
   needBossScript: 0
+  needProjectileScript: 0
   hasPlayerHitEnemy: 0
   hasEnemyHitPlayer: 0
+  hasProjectileHitPlayer: 0
   hasPlayerHitBoss: 0
   hasBossHitPlayer: 0
   areEnemiesInProxy: 0
