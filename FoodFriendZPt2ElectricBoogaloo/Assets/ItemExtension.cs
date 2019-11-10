@@ -26,6 +26,9 @@ public class ItemExtension : MonoBehaviour
     [HideInInspector] public bool hasSpatula;
     [HideInInspector] public bool hasPeacefulTea;
 
+    [HideInInspector] public bool hasKissTheCookApron;
+    float kissTheCookChance = 1f;
+
     [HideInInspector] public bool hasJunkFood;
     float junkFoodChance = .25f;
     float junkFoodModifer = .8f;
@@ -109,6 +112,13 @@ public class ItemExtension : MonoBehaviour
                     }
                 }
 
+                if (hasKissTheCookApron)
+                {
+                    if (gOScript.GetStunOdds(kissTheCookChance))
+                    {
+                        mPScript.health++;
+                    }
+                }
                 //reset
                 hasPlayerHitEnemy = false;
             }
@@ -152,6 +162,7 @@ public class ItemExtension : MonoBehaviour
             //if enemies are not in proxy, make player fast
             mPScript.isFast = !areEnemiesInProxy;
         }
+
 
     }
 

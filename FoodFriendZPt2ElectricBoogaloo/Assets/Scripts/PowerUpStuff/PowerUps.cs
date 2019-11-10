@@ -103,8 +103,10 @@ public class PowerUps : MonoBehaviour
         GreenMushroom,
         Spatula,
         LunchTray,
+        KissTheCookApron,
         #endregion
 
+        #region [OLD EQUIPMENT]
         Heal,
         FullHeal,
 
@@ -134,6 +136,7 @@ public class PowerUps : MonoBehaviour
 
         AvoidPlayer,
         SlowEnemy,
+        #endregion
 
         //**[[ITEMS]]**
         #region [ITEMS]
@@ -339,6 +342,16 @@ public class PowerUps : MonoBehaviour
                 break;
             #endregion
 
+            #region KissTheCookApron
+            case PowerUpTypes.KissTheCookApron:
+                ieScript.needEnemyScript = true;
+                ieScript.hasKissTheCookApron = true;
+                //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion
+
             //**********************************
 
             #region Slow Time
@@ -482,10 +495,9 @@ public class PowerUps : MonoBehaviour
                 }
                 break;
             #endregion
-            #region Null
-            //case last - null for base stats - DO NOT FILL IN LEAVE BLANK
-            case PowerUpTypes.Null:
 
+            #region Null
+            case PowerUpTypes.Null:
                 break;
             #endregion
             default:
