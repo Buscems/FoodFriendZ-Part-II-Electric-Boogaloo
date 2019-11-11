@@ -11,7 +11,6 @@ public class ExitLogic : MonoBehaviour
     private string sceneToGoTo;
     private int randomSceneToGoTo;
 
-
     void Start()
     {
         st = GameObject.Find("Player").GetComponent<ScreenTransition>();

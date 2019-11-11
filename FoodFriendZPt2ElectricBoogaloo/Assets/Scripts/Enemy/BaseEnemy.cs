@@ -52,6 +52,9 @@ public class BaseEnemy : MonoBehaviour
 
     private SpriteRenderer sr;
 
+    public AudioSource deathSound;
+    public AudioClip[] deathClips;
+
     private void Awake()
     {
         //assign script
@@ -239,6 +242,9 @@ public class BaseEnemy : MonoBehaviour
             DestroyThisObject();
         }
         */
+
+        deathSound.clip = deathClips[Random.Range(0, deathClips.Length + 1)];
+        Instantiate(deathSound.gameObject, transform.position, Quaternion.identity);
 
         Destroy(objectToDestroy);
 

@@ -26,7 +26,7 @@ public class KillSpawner : MonoBehaviour
         {
             for (int i = 0; i <= numEnemies; i++)
             {
-                int rand = Random.Range(0, 1);                
+                int rand = Random.Range(0, 2);
                 var temp = Instantiate(enemy[rand], transform.position, transform.rotation);
                 temp.transform.position = new Vector3(Random.Range(temp.transform.position.x - rangeOfSpawn, temp.transform.position.x + rangeOfSpawn), Random.Range(temp.transform.position.y - rangeOfSpawn, temp.transform.position.y + rangeOfSpawn));
             }

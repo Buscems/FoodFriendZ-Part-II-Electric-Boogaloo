@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  maxHP: 0
   speed: 1
   walkIntoDamage: 1
   anim: {fileID: 0}
@@ -203,6 +204,14 @@ MonoBehaviour:
   dropRate: 0.05
   money: 0
   objectToDestroy: {fileID: 0}
+  deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
+    type: 3}
+  deathClips:
+  - {fileID: 8300000, guid: cbd4de7e5be284e088a84f7005a59236, type: 3}
+  - {fileID: 8300000, guid: 7008461fa704a4a66a3f44ed7f1cff25, type: 3}
+  - {fileID: 8300000, guid: cebf2325eb1394cbe8435242ed1ae03e, type: 3}
+  - {fileID: 8300000, guid: e98f4c55259b9430d84d840967295a80, type: 3}
+  - {fileID: 8300000, guid: f4ffd52757fac4a00b9cf554deb5da2c, type: 3}
 --- !u!114 &4728474277593573587
 MonoBehaviour:
   m_ObjectHideFlags: 0

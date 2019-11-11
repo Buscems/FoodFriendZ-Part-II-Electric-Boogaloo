@@ -6,6 +6,7 @@ using Rewired;
 using UnityEngine.SceneManagement;
 using Rewired.ControllerExtensions;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MainPlayer : MonoBehaviour
 {
@@ -129,7 +130,9 @@ public class MainPlayer : MonoBehaviour
 
     //[TEMPORARY]
     [Header("**TEMPORARY ELEMENTS")]
-    public TextMeshProUGUI youDiedText;
+    public GameObject deathScreen;
+    public Button restart;
+    public EventSystem es;
 
     public GameObject orb;
 
@@ -143,6 +146,9 @@ public class MainPlayer : MonoBehaviour
     private float poisonMultiplier = 1;
     private float freezeMultiplier = 1;
     private float stunMultiplier = 1;
+
+    //death sound bool
+    bool playedDeathSound;
 
     #endregion
 
@@ -283,8 +289,10 @@ public class MainPlayer : MonoBehaviour
 
         currentChar.Start();
 
+        playedDeathSound = false;
+
         //**temporary
-        youDiedText.gameObject.SetActive(false);
+        deathScreen.gameObject.SetActive(false);
         saveData = GetComponent<SaveGame>();
     }
 
@@ -365,11 +373,16 @@ public class MainPlayer : MonoBehaviour
         {
             //freeze time
             Time.timeScale = 0;
-
             //**temporary
             GetComponent<ScreenTransition>().fadeObject.color = new Color(0, 0, 0, 1);
-            youDiedText.gameObject.SetActive(true);
-
+            deathScreen.gameObject.SetActive(true);
+            es.SetSelectedGameObject(restart.gameObject);
+            if (!playedDeathSound)
+            {
+                audioSource.clip = clips[4];
+                audioSource.Play();
+                playedDeathSound = true;
+            }
             //**temporary - Load Dans Scene
             if (myPlayer.GetButtonDown("Cross"))
             {
@@ -436,6 +449,8 @@ public class MainPlayer : MonoBehaviour
                 downHighlight.enabled = true;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
+                audioSource.clip = clips[1];
+                audioSource.Play();
             }
             if (myPlayer.GetButtonDown("Square") && currentChar != square && square != null)
             {
@@ -447,6 +462,8 @@ public class MainPlayer : MonoBehaviour
                 downHighlight.enabled = false;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
+                audioSource.clip = clips[1];
+                audioSource.Play();
             }
             if (myPlayer.GetButtonDown("Triangle") && currentChar != triangle && triangle != null)
             {
@@ -458,6 +475,8 @@ public class MainPlayer : MonoBehaviour
                 downHighlight.enabled = false;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
+                audioSource.clip = clips[1];
+                audioSource.Play();
             }
             if (myPlayer.GetButtonDown("Circle") && currentChar != circle && circle != null)
             {
@@ -469,6 +488,8 @@ public class MainPlayer : MonoBehaviour
                 downHighlight.enabled = false;
                 currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
+                audioSource.clip = clips[1];
+                audioSource.Play();
             }
         }
     }
@@ -481,6 +502,8 @@ public class MainPlayer : MonoBehaviour
             {
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
                 currentChar = _character;
+                audioSource.clip = clips[1];
+                audioSource.Play();
             }
             square = _character;
             leftCharacter.sprite = square.hudIcon;
@@ -491,6 +514,8 @@ public class MainPlayer : MonoBehaviour
             {
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
                 currentChar = _character;
+                audioSource.clip = clips[1];
+                audioSource.Play();
             }
             triangle = _character;
             upCharacter.sprite = triangle.hudIcon;
@@ -501,6 +526,8 @@ public class MainPlayer : MonoBehaviour
             {
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
                 currentChar = _character;
+                audioSource.clip = clips[1];
+                audioSource.Play();
             }
             cross = _character;
             downCharacter.sprite = cross.hudIcon;
@@ -511,6 +538,8 @@ public class MainPlayer : MonoBehaviour
             {
                 Instantiate(swapPuff, transform.position, Quaternion.identity);
                 currentChar = _character;
+                audioSource.clip = clips[1];
+                audioSource.Play();
             }
             circle = _character;
             rightCharacter.sprite = circle.hudIcon;
@@ -823,6 +852,12 @@ public class MainPlayer : MonoBehaviour
             case "tunaCan":
                 anim.SetInteger("characterID", 17);
                 break;
+            case "pancakes":
+                anim.SetInteger("characterID", 18);
+                break;
+            case "bubbleTea":
+                anim.SetInteger("characterID", 19);
+                break;
         }
 
         //this will switch the animation of the current character
@@ -1027,7 +1062,8 @@ public class MainPlayer : MonoBehaviour
 
             currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
 
-
+            audioSource.clip = clips[Random.Range(2,3)];
+            audioSource.Play();
 
             //destroys item
             Destroy(other.gameObject);
@@ -1132,8 +1168,9 @@ public class MainPlayer : MonoBehaviour
             {
                 health -= damage;
                 sr.color = new Color(1, .35f, .35f);
-                audioSource.clip = clips[0];
                 cam.StartShake();
+                audioSource.clip = clips[0];
+                audioSource.Play();
             }
         }
         //is player has evasive chance
@@ -1153,6 +1190,8 @@ public class MainPlayer : MonoBehaviour
                 {
                     health -= damage;
                     cam.StartShake();
+                    audioSource.clip = clips[0];
+                    audioSource.Play();
                 }
             }
         }

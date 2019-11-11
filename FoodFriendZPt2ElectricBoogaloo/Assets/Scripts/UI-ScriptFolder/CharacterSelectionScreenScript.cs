@@ -180,54 +180,99 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         HighlightedCharacterIMG.sprite = characterSprites[8];
         HighlightedCharacterNameDisplay.text = "Taco";
         PlayerPrefs.SetInt("startCharacter", 9);
+        string[] descText = descriptionSections[8].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Donut()
     {
         HighlightedCharacterIMG.sprite = characterSprites[9];
         HighlightedCharacterNameDisplay.text = "Donut";
         PlayerPrefs.SetInt("startCharacter", 10);
+        string[] descText = descriptionSections[9].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Hotdog()
     {
         HighlightedCharacterIMG.sprite = characterSprites[10];
         HighlightedCharacterNameDisplay.text = "Hot Dog";
         PlayerPrefs.SetInt("startCharacter", 11);
+        string[] descText = descriptionSections[10].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Napoleon()
     {
         HighlightedCharacterIMG.sprite = characterSprites[11];
         HighlightedCharacterNameDisplay.text = "Napoleon";
         PlayerPrefs.SetInt("startCharacter", 12);
+        string[] descText = descriptionSections[11].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Muffin()
     {
         HighlightedCharacterIMG.sprite = characterSprites[12];
         HighlightedCharacterNameDisplay.text = "Blueberry \nMuffin";
         PlayerPrefs.SetInt("startCharacter", 13);
+        string[] descText = descriptionSections[12].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void MintChip()
     {
         HighlightedCharacterIMG.sprite = characterSprites[13];
         HighlightedCharacterNameDisplay.text = "Mint \nChip";
         PlayerPrefs.SetInt("startCharacter", 14);
+        string[] descText = descriptionSections[13].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void LobsterTail()
     {
         HighlightedCharacterIMG.sprite = characterSprites[14];
         HighlightedCharacterNameDisplay.text = "Lobster \nTail";
         PlayerPrefs.SetInt("startCharacter", 15);
+        string[] descText = descriptionSections[14].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void Samosa()
     {
         HighlightedCharacterIMG.sprite = characterSprites[15];
         HighlightedCharacterNameDisplay.text = "Samosa";
         PlayerPrefs.SetInt("startCharacter", 16);
+        string[] descText = descriptionSections[15].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
     public void TunaCan()
     {
         HighlightedCharacterIMG.sprite = characterSprites[16];
         HighlightedCharacterNameDisplay.text = "Tuna \nCan";
         PlayerPrefs.SetInt("startCharacter", 17);
+        string[] descText = descriptionSections[16].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
+    }
+    public void Pancake()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[17];
+        HighlightedCharacterNameDisplay.text = "Pancakes";
+        PlayerPrefs.SetInt("startCharacter", 18);
+        string[] descText = descriptionSections[17].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
+    }
+    public void BubbleTea()
+    {
+        HighlightedCharacterIMG.sprite = characterSprites[18];
+        HighlightedCharacterNameDisplay.text = "BubbleTea";
+        PlayerPrefs.SetInt("startCharacter", 19);
+        string[] descText = descriptionSections[18].Split(';');
+        descriptionHeader.text = descText[0];
+        descriptionBody.text = descText[1];
     }
 
 

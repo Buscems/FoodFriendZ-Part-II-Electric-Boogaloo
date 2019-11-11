@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;  //NEED to access other scenes
 using UnityEngine.EventSystems;     //NEED to use for Buttons
 using UnityEngine.UI;               //NEEDS to use UI
 using TMPro;                        //NEEDS to use TextMeshPro
+using Rewired;
+using Rewired.ControllerExtensions;
 
 public class PauseMenuScript : MonoBehaviour
 {
@@ -25,15 +27,29 @@ public class PauseMenuScript : MonoBehaviour
     public Button ResetRunButton;
     public Button ExitGameButton;
 
+    [Header("Event System")]
+    public EventSystem es;
+
+    //the following is in order to use rewired
+    [Tooltip("Reference for using rewired")]
+    private Player myPlayer;
+    [Header("Rewired")]
+    [Tooltip("Number identifier for each player, must be above 0")]
+    public int playerNum;
+
     private void Awake()
     {
         PauseMenuUI.SetActive(false); //makes sure the pause screen is off upon loading
+        //Rewired Code
+        myPlayer = ReInput.players.GetPlayer(playerNum - 1);
+        ReInput.ControllerConnectedEvent += OnControllerConnected;
+        CheckController(myPlayer);
     }
 
     void Update()
     {
         //Pause toggle input
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || myPlayer.GetButtonDown("Pause"))
         //Input
         {
             //Pause check
@@ -53,16 +69,21 @@ public class PauseMenuScript : MonoBehaviour
     void Pause()
     {
         PauseMenuUI.SetActive(true);
-        
+
+        es.SetSelectedGameObject(ResumeGameButton.gameObject);
+
         Time.timeScale = 0f;    //freezes time
         IsGamePaused = true;
     }
 
     public void OptionsButtonFunction()
     {
+        //need to fix
+        /*
         Debug.Log("Calling Options Menu");
         PauseMenuOverlay.SetActive(false);
         OptionsOverlay.SetActive(true);
+        */
     }
 
     public void ResumeGameButtonFunction()
@@ -76,7 +97,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         Time.timeScale = 1f;            //Sets time back to normal before loading another scene [May affect animator]
         Debug.Log("Reseting Run");
-        SceneManager.LoadScene("GameplayScreen");
+        SceneManager.LoadScene("Dans licc center");
     }
 
     public void ExitGameButtonFunction()
@@ -86,4 +107,36 @@ public class PauseMenuScript : MonoBehaviour
         SceneManager.LoadScene("TitleScreen");
     }
     #endregion
+    //rewired
+    void OnControllerConnected(ControllerStatusChangedEventArgs arg)
+    {
+        CheckController(myPlayer);
+    }
+    void CheckController(Player player)
+    {
+        foreach (Joystick joyStick in player.controllers.Joysticks)
+        {
+            var ds4 = joyStick.GetExtension<DualShock4Extension>();
+            if (ds4 == null) continue;//skip this if not DualShock4
+            switch (playerNum)
+            {
+                case 4:
+                    ds4.SetLightColor(Color.yellow);
+                    break;
+                case 3:
+                    ds4.SetLightColor(Color.green);
+                    break;
+                case 2:
+                    ds4.SetLightColor(Color.blue);
+                    break;
+                case 1:
+                    ds4.SetLightColor(Color.red);
+                    break;
+                default:
+                    ds4.SetLightColor(Color.white);
+                    Debug.LogError("Player Num is 0, please change to a number > 0");
+                    break;
+            }
+        }
+    }
 }
