@@ -109,6 +109,8 @@ public class PowerUps : MonoBehaviour
         Popsicle,
         BagOfIce,
         RocketPopsicle,
+        //NOV 11
+        IcedTea,
         #endregion
 
         #region [OLD EQUIPMENT]
@@ -183,6 +185,7 @@ public class PowerUps : MonoBehaviour
             if (tag == "Item")
             {
                 GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
@@ -379,6 +382,15 @@ public class PowerUps : MonoBehaviour
                 ieScript.needEnemyScript = true;
                 ieScript.hasKissTheCookApron = true;
                 //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion
+            //[NOV 11]
+            #region IcedTea
+            case PowerUpTypes.IcedTea:
+
+                 ieScript.hasIcedTea = true;
 
                 yield return null;
                 break;

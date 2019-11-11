@@ -86,7 +86,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9176bb912ce30eb4aa6fdc3a783f7d0a, type: 3}
+  m_Sprite: {fileID: 2766408606741763261, guid: 3991776be48424c7f8e365a138a363dd,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,7 +115,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -136,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  maxHP: 0
   speed: 1
   walkIntoDamage: 1
   anim: {fileID: 0}
@@ -154,6 +156,8 @@ MonoBehaviour:
   dropRate: 0.05
   money: 0
   objectToDestroy: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathClips: []
 --- !u!114 &713600866824404204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,11 +340,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -396,6 +395,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -406,6 +410,12 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &828909491900077791 stripped
@@ -421,11 +431,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -481,6 +486,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -491,6 +501,12 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &819833953050919537 stripped
@@ -506,11 +522,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -566,6 +577,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -591,11 +607,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -651,6 +662,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -661,6 +677,12 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &4194006487284655946 stripped
@@ -676,11 +698,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -736,6 +753,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -746,6 +768,12 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &2510087107034071922 stripped
@@ -761,11 +789,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -821,6 +844,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -831,6 +859,12 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &4970846679741160396 stripped
@@ -846,11 +880,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -906,6 +935,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -916,6 +950,12 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6445923857796694718, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &8391683006241601194 stripped
@@ -931,11 +971,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -991,6 +1026,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1016,11 +1056,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1076,6 +1111,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1086,6 +1126,12 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &7082320898596203311 stripped

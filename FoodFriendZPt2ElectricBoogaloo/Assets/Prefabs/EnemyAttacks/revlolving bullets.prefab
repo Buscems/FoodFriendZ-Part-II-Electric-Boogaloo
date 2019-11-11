@@ -71,7 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: dbc96fe9da0910c498a41def217dffe1, type: 3}
+  m_Sprite: {fileID: 6445923857796694718, guid: 3991776be48424c7f8e365a138a363dd,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  maxHP: 0
   speed: 0
   walkIntoDamage: 1
   anim: {fileID: 0}
@@ -135,3 +137,5 @@ MonoBehaviour:
   dropRate: 0
   money: 0
   objectToDestroy: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathClips: []

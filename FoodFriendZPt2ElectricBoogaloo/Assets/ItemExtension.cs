@@ -26,6 +26,7 @@ public class ItemExtension : MonoBehaviour
 
     //power up bools
     [HideInInspector] public bool hasSalt;
+    [HideInInspector] public bool hasIcedTea;
     [HideInInspector] public bool hasSpatula;
     [HideInInspector] public bool hasPeacefulTea;
 
@@ -179,6 +180,12 @@ public class ItemExtension : MonoBehaviour
             //if enemies are not in proxy, make player fast
             mPScript.isFast = !areEnemiesInProxy;
         }
+
+        if (hasIcedTea)
+        {
+
+        }
+
     }
 
     public void EnableEnemyDetector()

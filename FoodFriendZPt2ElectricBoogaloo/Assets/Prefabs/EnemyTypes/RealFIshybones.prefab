@@ -10,13 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1697725661757329390}
   - component: {fileID: 1697725661757329391}
-  - component: {fileID: 1697725661757329384}
   - component: {fileID: 1697725661757329385}
   - component: {fileID: 5530647485021368097}
   - component: {fileID: 6033385274661719380}
-  m_Layer: 0
-  m_Name: Spin Melee
-  m_TagString: Untagged
+  - component: {fileID: 189670827572881911}
+  - component: {fileID: 7057745831610651366}
+  - component: {fileID: 7186349249555260683}
+  - component: {fileID: 4436089395889312431}
+  m_Layer: 10
+  m_Name: RealFIshybones
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +32,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697725661757329386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.945896, y: -8.3939295, z: -5.05469}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -15.983, y: -8.3641, z: -5.05469}
+  m_LocalScale: {x: 0.49084297, y: 0.49084297, z: 0.49084297}
   m_Children:
   - {fileID: 7525431274929454456}
   m_Father: {fileID: 0}
@@ -73,7 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fb21d43469c422e4799d052c515883f3, type: 3}
+  m_Sprite: {fileID: 7296575829026624558, guid: e6216edd6405d704297914c930aa8ea2,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,20 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1697725661757329384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697725661757329386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf3821e0bc1f5248aad463b883479c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  meleeObject: {fileID: 0}
 --- !u!114 &1697725661757329385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,11 +106,12 @@ MonoBehaviour:
   MeleePause: 2
   meleeObject: {fileID: 4309835604491251850}
   DownTime: 2
-  rotateSpeed: 5
+  rotateSpeed: 10
   bullet: {fileID: 0}
   timeInBetweenBullets: 0
   bulletSpeed: 0
   bulletDamage: 0
+  bulletSprite: []
 --- !u!114 &5530647485021368097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,10 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 0
-  aggroTimerMax: 0
+  aggroRange: 10
+  aggroTimerMax: 5
   aggro: 0
-  target: []
+  target:
+  - {fileID: 0}
   currentTarget: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
 --- !u!114 &6033385274661719380
@@ -151,14 +143,106 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  speed: 0
+  health: 3
+  maxHP: 0
+  speed: 2
   walkIntoDamage: 0
-  aggroScript: {fileID: 0}
+  anim: {fileID: 0}
+  aggroScript: {fileID: 5530647485021368097}
   items: []
   dropRate: 0
   money: 0
   objectToDestroy: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathClips: []
+--- !u!61 &189670827572881911
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697725661757329386}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.35, y: 0.95}
+    newSize: {x: 0.3, y: 0.27}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.35, y: 0.95}
+  m_EdgeRadius: 0
+--- !u!114 &7057745831610651366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697725661757329386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83980db72f9b2b45bdfde10d3e5a337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextWaypointDistance: 0.5
+--- !u!114 &7186349249555260683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697725661757329386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!50 &4436089395889312431
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697725661757329386}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4309835604491251850
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +254,8 @@ GameObject:
   - component: {fileID: 7525431274929454456}
   - component: {fileID: 4946486279698024302}
   - component: {fileID: 34177338597369154}
-  m_Layer: 0
+  - component: {fileID: 4354623761383300396}
+  m_Layer: 10
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,13 +269,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4309835604491251850}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.301, y: 0, z: 0}
-  m_LocalScale: {x: 0.15114, y: 0.15114, z: 0.15114}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.73, y: -0.22, z: 0}
+  m_LocalScale: {x: 2.7237988, y: 2.7237988, z: 2.7237988}
   m_Children: []
   m_Father: {fileID: 1697725661757329390}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &4946486279698024302
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -228,7 +313,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ab50eddfd4deefb4c84f38f813189326, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6224c1eb38e034f6797f306026f79068, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -251,5 +336,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf3821e0bc1f5248aad463b883479c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   meleeObject: {fileID: 4309835604491251850}
+--- !u!61 &4354623761383300396
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309835604491251850}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.3, y: 0.27}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.32}
+  m_EdgeRadius: 0

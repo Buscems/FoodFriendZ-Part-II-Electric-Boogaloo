@@ -15,6 +15,10 @@ public class MainPlayer : MonoBehaviour
     ItemExtension ieScript;
     [HideInInspector] public int GreenMushrooms;
 
+    [HideInInspector] public bool isPlayerCurrentlyMoving;
+    [HideInInspector] public Vector3 curPos;
+    [HideInInspector] public Vector3 _curPos;
+
     public int health;
     [HideInInspector] public int currency;
 
@@ -298,17 +302,8 @@ public class MainPlayer : MonoBehaviour
 
     void Update()
     {
-        //if the player is using the mouse turn the controller pointer off and vice versa
-        /*
-        if (usingMouse)
-        {
-            pointer.SetActive(false);
-        }
-        else
-        {
-            pointer.SetActive(true);
-        }
-        */
+        //for powerups
+        curPos = gameObject.transform.position;
 
         if (myPlayer.GetButtonDown("Pause"))
         {
@@ -392,8 +387,9 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
+
         //applied player movement
         Vector3 currentPos = transform.position;
         currentPos.z = 1;
@@ -687,11 +683,11 @@ public class MainPlayer : MonoBehaviour
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
-                if (currentChar.isOrb &&  orb.transform.childCount == 0)
+                if (currentChar.isOrb && orb.transform.childCount == 0)
                 {
                     currentChar.RangedSplit(transform.position, attackDirection, orb.transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
                 }
-                else if(!currentChar.isOrb)
+                else if (!currentChar.isOrb)
                 {
                     currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
 
@@ -1062,7 +1058,7 @@ public class MainPlayer : MonoBehaviour
 
             currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
 
-            audioSource.clip = clips[Random.Range(2,3)];
+            audioSource.clip = clips[Random.Range(2, 3)];
             audioSource.Play();
 
             //destroys item
