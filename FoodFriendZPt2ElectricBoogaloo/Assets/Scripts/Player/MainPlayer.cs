@@ -406,6 +406,7 @@ public class MainPlayer : MonoBehaviour
         //if player presses (DODGE)
         if (myPlayer.GetButtonDown("Dodge"))
         {
+            if(myPlayer.GetAxis("MoveHorizontal") > 0 || myPlayer.GetAxis("MoveVertical") > 0)
             //dodge timer check
             if (currentChar.currentDodgeWaitTime < 0)
             {
@@ -433,8 +434,8 @@ public class MainPlayer : MonoBehaviour
         }
 
         //holding face buttons
-        if (isHolding)
-        {
+        //if (isHolding)
+        //{
             if (myPlayer.GetButtonDown("Cross") && currentChar != cross && cross != null)
             {
                 currentChar = cross;
@@ -487,7 +488,7 @@ public class MainPlayer : MonoBehaviour
                 audioSource.clip = clips[1];
                 audioSource.Play();
             }
-        }
+        //}
     }
 
     public void CharacterSwap(BasePlayer _character, string _faceDirection)
@@ -1127,6 +1128,7 @@ public class MainPlayer : MonoBehaviour
             if (name.ToLower() == gameData.CharacterListNames[i].ToLower())
             {
                 gameData.CharacterList[i] = true;
+                saveData.SaveToFile();
                 break;
             }
         }
