@@ -243,7 +243,7 @@ public class BaseEnemy : MonoBehaviour
         }
         */
 
-        deathSound.clip = deathClips[Random.Range(0, deathClips.Length + 1)];
+        deathSound.clip = deathClips[Random.Range(0, deathClips.Length)];
         Instantiate(deathSound.gameObject, transform.position, Quaternion.identity);
 
         Destroy(objectToDestroy);
