@@ -390,7 +390,7 @@ public class PowerUps : MonoBehaviour
             #region IcedTea
             case PowerUpTypes.IcedTea:
 
-                 ieScript.hasIcedTea = true;
+                ieScript.hasIcedTea = true;
 
                 yield return null;
                 break;
@@ -507,7 +507,6 @@ public class PowerUps : MonoBehaviour
                 if (effectIsActive)
                 {
                     Debug.Log("Effect is active");
-                    Debug.Log(stats);
                     stats.critChanceMultiplier *= 3;
                 }
                 //[DEACTIVE STATE]
