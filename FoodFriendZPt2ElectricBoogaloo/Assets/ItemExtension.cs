@@ -20,6 +20,10 @@ public class ItemExtension : MonoBehaviour
 
     GetOddsScript gOScript;
 
+    //storedVariables
+    float storCDrechargeMultiplier;
+
+
     //prefabs
     public GameObject AOE;
     [HideInInspector] public AOE_Script aoeScript;
@@ -183,9 +187,20 @@ public class ItemExtension : MonoBehaviour
 
         if (hasIcedTea)
         {
+            //movement detector
+            if (mPScript.curPos != mPScript._curPos)
+            {
+                iMScript.isRechargeRateDoubled = false;
 
+                //reset detector
+                mPScript._curPos = mPScript.curPos;
+            }
+            //player is still
+            else
+            {
+                iMScript.isRechargeRateDoubled = true;
+            }
         }
-
     }
 
     public void EnableEnemyDetector()

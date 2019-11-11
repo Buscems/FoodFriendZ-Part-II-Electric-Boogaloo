@@ -17,6 +17,10 @@ public class ItemManager : MonoBehaviour
     float MAXcurCDTimer;
     public float curCDTimer;    //recharge timer
     [HideInInspector] public float rechargeRateMultiplier = 1;
+
+    public bool isRechargeRateDoubled;
+
+
     public float curEffectTimer;
 
     #region [UI bar]
@@ -104,6 +108,12 @@ public class ItemManager : MonoBehaviour
         {
             //trickle timer down
             curCDTimer -= Time.deltaTime * rechargeRateMultiplier;
+
+            if (isRechargeRateDoubled)
+            {
+                curCDTimer -= Time.deltaTime * rechargeRateMultiplier;
+            }
+
 
             //when timer hits
             if (curCDTimer <= 0)
