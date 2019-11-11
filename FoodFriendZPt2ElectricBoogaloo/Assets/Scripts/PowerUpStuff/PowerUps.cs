@@ -108,6 +108,7 @@ public class PowerUps : MonoBehaviour
         KissTheCookApron,
         Popsicle,
         BagOfIce,
+        RocketPopsicle,
         #endregion
 
         #region [OLD EQUIPMENT]
@@ -328,7 +329,15 @@ public class PowerUps : MonoBehaviour
             case PowerUpTypes.BagOfIce:
                 imScript.rechargeRateMultiplier = 1 + GetProportional(imScript.rechargeRateMultiplier, stats.health, 10, false);
                 print(imScript.rechargeRateMultiplier);
-                //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion
+
+            #region RocketPopsicle
+            case PowerUpTypes.RocketPopsicle:
+                ieScript.needEnemyScript = true;
+                ieScript.hasRocketPopsicle = true;
 
                 yield return null;
                 break;

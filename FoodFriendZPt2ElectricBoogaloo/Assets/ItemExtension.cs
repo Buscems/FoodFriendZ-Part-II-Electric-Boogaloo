@@ -24,7 +24,7 @@ public class ItemExtension : MonoBehaviour
     public GameObject AOE;
     [HideInInspector] public AOE_Script aoeScript;
 
-    //bools
+    //power up bools
     [HideInInspector] public bool hasSalt;
     [HideInInspector] public bool hasSpatula;
     [HideInInspector] public bool hasPeacefulTea;
@@ -44,6 +44,9 @@ public class ItemExtension : MonoBehaviour
 
     [HideInInspector] public bool hasLunchTray;
     float lunchTrayChance = 1f;
+
+    [HideInInspector] public bool hasRocketPopsicle;
+    float rocketPopsicleChance = .1f;
 
     //enemy related bools
     [HideInInspector] public bool needEnemyScript;
@@ -74,7 +77,7 @@ public class ItemExtension : MonoBehaviour
 
     void Update()
     {
-        //if enemy script is needed
+        //if script is needed
         if (needEnemyScript)
         {
             if (hasEnemyHitPlayer)
@@ -123,6 +126,15 @@ public class ItemExtension : MonoBehaviour
                         mPScript.health++;
                     }
                 }
+
+                if (hasRocketPopsicle)
+                {
+                    if (gOScript.GetStunOdds(rocketPopsicleChance))
+                    {
+                        iMScript.curCDTimer = 0;
+                    }
+                }
+
                 //reset
                 hasPlayerHitEnemy = false;
             }
@@ -161,13 +173,12 @@ public class ItemExtension : MonoBehaviour
             hasProjectileHitPlayer = false;
         }
 
+        //no scripts needed
         if (hasPeacefulTea)
         {
             //if enemies are not in proxy, make player fast
             mPScript.isFast = !areEnemiesInProxy;
         }
-
-
     }
 
     public void EnableEnemyDetector()
