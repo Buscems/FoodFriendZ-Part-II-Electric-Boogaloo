@@ -19,9 +19,9 @@ MonoBehaviour:
   baseDamage: 4
   critChance: 0.16
   critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
+  dodgeSpeedMultiplier: 2
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 0.25
+  dodgeLength: 0.5
   currentDodgeTime: -237.12769
   dodgeWaitTime: 2
   currentDodgeWaitTime: -235.12767
@@ -42,13 +42,15 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 1
-  bullet: {fileID: 0}
+  bullet:
+  - {fileID: 0}
   firerate: 0.13
   bulletSpeed: 20
   timeTillDespawn: 0
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
+  isOrb: 0
   bulletTypes:
   - {fileID: 6395150998634022948, guid: 17bf945f555f29e42a1bcc89accbb6db, type: 3}
   - {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}

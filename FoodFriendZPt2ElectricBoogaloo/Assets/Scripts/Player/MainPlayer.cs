@@ -411,7 +411,7 @@ public class MainPlayer : MonoBehaviour
             {
                 currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                 currentChar.currentDodgeTime = currentChar.dodgeLength;
-
+                Debug.Log("Dodge");
                 //dash effect
                 Instantiate(dashPoof, transform.position, Quaternion.identity);
             }
@@ -929,8 +929,16 @@ public class MainPlayer : MonoBehaviour
         currentChar.currentPosition = this.transform.position;
 
         //velocity update
-        velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
-        velocity.y = myPlayer.GetAxisRaw("MoveVertical");
+        if (currentChar.currentDodgeTime < 0)
+        {
+            velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
+            velocity.y = myPlayer.GetAxisRaw("MoveVertical");
+            this.gameObject.layer = 8;
+        }
+        else
+        {
+            this.gameObject.layer = 15;
+        }
 
         //[IF STATEMENTS]
 
