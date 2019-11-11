@@ -243,7 +243,9 @@ MonoBehaviour:
   swapPuff: {fileID: 1555602966978052, guid: 7d22f20c936df4022a0ca218664ef09d, type: 3}
   walkPuff: {fileID: 1712527220912024, guid: eb6f5883224fd4f1fba1647209183be2, type: 3}
   maxPoofTime: 0.5
-  youDiedText: {fileID: 0}
+  deathScreen: {fileID: 0}
+  restart: {fileID: 0}
+  es: {fileID: 0}
   orb: {fileID: 0}
 --- !u!82 &2110259292106485824
 AudioSource:
@@ -629,6 +631,7 @@ MonoBehaviour:
   hasPopcorn: 0
   hasPineAppleSlice: 0
   hasLunchTray: 0
+  hasRocketPopsicle: 0
   needEnemyScript: 0
   needBossScript: 0
   needProjectileScript: 0
