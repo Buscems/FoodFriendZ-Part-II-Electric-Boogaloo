@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4327499577962674383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.74, y: -1.69, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,12 +95,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   baseStats: {fileID: 0}
+  effectIsActive: 1
   powerUpName: Caffeine
   movementSpeed: 0
   attackSize: 0
   attackSpeed: 0.5
   attackDamage: 0
   critChance: 0
+  bleedChance: 1
+  burnChance: 1
+  poisonChance: 1
+  freezeChance: 1
+  stunChance: 1
   healAmount: 0
   vampHeal: 0
   stunTimer: 0
@@ -108,7 +114,6 @@ MonoBehaviour:
   rarity: 0
   effectDuration: 0
   maxCoolDownDuration: 0
-  doesSomethingWhenCoolDownWearsOff: 0
   currentPowerUp: 0
 --- !u!61 &2186281773471596320
 BoxCollider2D:
