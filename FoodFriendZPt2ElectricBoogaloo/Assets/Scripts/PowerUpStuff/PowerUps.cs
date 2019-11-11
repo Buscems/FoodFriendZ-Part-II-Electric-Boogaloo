@@ -12,6 +12,7 @@ public class PowerUps : MonoBehaviour
     public MainPlayer stats;
     [HideInInspector] public BasePlayer baseStats;
     ItemExtension ieScript;
+    ItemManager imScript;
 
     Collider2D myCollider;
 
@@ -81,6 +82,7 @@ public class PowerUps : MonoBehaviour
 
         baseStats = stats.currentChar;
         ieScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemExtension>();
+        imScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemManager>();
     }
 
     public enum PowerUpTypes
@@ -104,6 +106,7 @@ public class PowerUps : MonoBehaviour
         Spatula,
         LunchTray,
         KissTheCookApron,
+        Popsicle,
         #endregion
 
         #region [OLD EQUIPMENT]
@@ -307,6 +310,15 @@ public class PowerUps : MonoBehaviour
                 ieScript.needEnemyScript = true;
                 ieScript.hasPopcorn = true;
 
+                yield return null;
+                break;
+            #endregion
+
+            #region Popsicle
+            case PowerUpTypes.Popsicle:
+
+                //[STAT BOOST]
+                imScript.rechargeRateMultiplier += 1f;
                 yield return null;
                 break;
             #endregion

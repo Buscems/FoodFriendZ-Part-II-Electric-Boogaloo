@@ -15,7 +15,8 @@ public class ItemManager : MonoBehaviour
 
     //timer stuff
     float MAXcurCDTimer;
-    public float curCDTimer;
+    public float curCDTimer;    //recharge timer
+    [HideInInspector] public float rechargeRateMultiplier = 1;
     public float curEffectTimer;
 
     #region [UI bar]
@@ -52,7 +53,7 @@ public class ItemManager : MonoBehaviour
 
     void Update()
     {
-        #region SliderMechanics
+        #region Slider Color Mechanics
         CoolDownSlider.value = 1 - (curCDTimer / MAXcurCDTimer);
 
         //effects color of the slider
@@ -98,10 +99,11 @@ public class ItemManager : MonoBehaviour
             }
         }
 
+        //recharging
         else if (curCDTimer > 0)
         {
             //trickle timer down
-            curCDTimer -= Time.deltaTime;
+            curCDTimer -= Time.deltaTime * rechargeRateMultiplier;
 
             //when timer hits
             if (curCDTimer <= 0)
