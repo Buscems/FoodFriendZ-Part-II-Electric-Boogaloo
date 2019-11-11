@@ -4867,7 +4867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7269377017089175975}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.02, y: 1.02, z: 0}
+  m_LocalPosition: {x: -0.52, y: 1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4475735735733967522}
@@ -9706,6 +9706,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 4336566615380784, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.25
+      objectReference: {fileID: 0}
     - target: {fileID: 212771798637360868, guid: c6d0c278001f64fdf9740d6d0045d2dd,
         type: 3}
       propertyPath: m_Sprite
@@ -9726,6 +9730,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039923362607646, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039923362607646, guid: c6d0c278001f64fdf9740d6d0045d2dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 7065181376598519654, guid: c6d0c278001f64fdf9740d6d0045d2dd,
         type: 3}
@@ -9761,6 +9773,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065181376598519654, guid: c6d0c278001f64fdf9740d6d0045d2dd,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 4.97
       objectReference: {fileID: 0}
     - target: {fileID: 212839508136622588, guid: c6d0c278001f64fdf9740d6d0045d2dd,
         type: 3}
