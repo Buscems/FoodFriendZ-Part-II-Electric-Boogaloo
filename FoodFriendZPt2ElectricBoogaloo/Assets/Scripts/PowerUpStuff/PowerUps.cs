@@ -107,6 +107,7 @@ public class PowerUps : MonoBehaviour
         LunchTray,
         KissTheCookApron,
         Popsicle,
+        BagOfIce,
         #endregion
 
         #region [OLD EQUIPMENT]
@@ -323,6 +324,16 @@ public class PowerUps : MonoBehaviour
                 break;
             #endregion
 
+            #region BagOfIce
+            case PowerUpTypes.BagOfIce:
+                imScript.rechargeRateMultiplier = 1 + GetProportional(imScript.rechargeRateMultiplier, stats.health, 10, false);
+                print(imScript.rechargeRateMultiplier);
+                //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion
+
             #region GreenMushroom
             case PowerUpTypes.GreenMushroom:
 
@@ -525,13 +536,13 @@ public class PowerUps : MonoBehaviour
         //value to be returned
         float newModifiedValue = 0;
 
-        //[Proportionally Higher]
+        //[Proportionally Higher (low input low output)]
         if (isScalingUp)
         {
             newModifiedValue = (curValue / maxValue);
         }
 
-        //[Proportionally Lower]
+        //[Proportionally Lower (low input high output)]
         else
         {
             newModifiedValue = 1 - (curValue / maxValue);

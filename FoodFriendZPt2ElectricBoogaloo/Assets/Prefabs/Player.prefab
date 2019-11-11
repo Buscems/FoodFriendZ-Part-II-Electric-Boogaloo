@@ -599,6 +599,7 @@ MonoBehaviour:
   item: {fileID: 0}
   itemParticleSystem: {fileID: 8891904151346878587}
   curCDTimer: 0
+  rechargeRateMultiplier: 1
   curEffectTimer: 0
   readyCDcolor: {r: 1, g: 1, b: 1, a: 1}
   rechargingCDcolor: {r: 1, g: 0.52518374, b: 0, a: 1}
@@ -619,6 +620,7 @@ MonoBehaviour:
   bEScript: {fileID: 0}
   bEScript_mAtkPlayer: {fileID: 0}
   AOE: {fileID: 5983498300362710398, guid: b06aea3e2a0d5ea43a518aef812112d7, type: 3}
+  aoeScript: {fileID: 0}
   hasSalt: 0
   hasSpatula: 0
   hasPeacefulTea: 0
@@ -891,8 +893,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 0.3
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -944,8 +946,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 3
+      scalar: 15
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
