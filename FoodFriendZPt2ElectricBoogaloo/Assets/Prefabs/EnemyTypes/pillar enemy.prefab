@@ -496,7 +496,6 @@ GameObject:
   - component: {fileID: 2943224827962901081}
   - component: {fileID: 7585897057663371314}
   - component: {fileID: 5415744474793553570}
-  - component: {fileID: 6042624743842100192}
   - component: {fileID: 6042624743306549223}
   - component: {fileID: 3879908949575042588}
   m_Layer: 10
@@ -616,6 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  maxHP: 0
   speed: 1
   walkIntoDamage: 1
   anim: {fileID: 0}
@@ -634,6 +634,8 @@ MonoBehaviour:
   dropRate: 0.05
   money: 0
   objectToDestroy: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathClips: []
 --- !u!114 &2943224827962901084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,32 +723,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!61 &6042624743842100192
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2943224827962901080}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.006296575}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1510391, y: 1.1133388}
-  m_EdgeRadius: 0
 --- !u!114 &6042624743306549223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,7 +757,14 @@ MonoBehaviour:
   rightTrigger: {fileID: 438839604}
   leftTrigger: {fileID: 1780315033}
   downTrigger: {fileID: 1863492259}
-  pillar: {fileID: 8877025991476190179, guid: 28b8ccf014f34244890fcf70cfcc5908, type: 3}
+  pillarLeft: {fileID: 3482006010956591376, guid: f2a8fb062d8c2464daa50e193c58e329,
+    type: 3}
+  pillarRight: {fileID: 3482006010956591376, guid: 7bb84a6f12286fa41bd4e374c00b42e3,
+    type: 3}
+  pillarUp: {fileID: 5056933597267949116, guid: f67f3a80ae7eb3045bef8bd87a387480,
+    type: 3}
+  pillarDown: {fileID: 5056933597267949116, guid: 51a8a2f245193664da3c8d80f0a5f736,
+    type: 3}
   baseEnemy: {fileID: 0}
   path: {fileID: 3879908949575042588}
 --- !u!114 &3879908949575042588

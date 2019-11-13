@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 9158567608581715764}
   - component: {fileID: 3994017237699981682}
   - component: {fileID: 8206767662879019051}
-  - component: {fileID: 8007203964334855771}
-  m_Layer: 0
-  m_Name: pillar
+  - component: {fileID: 3537522360228816171}
+  - component: {fileID: -2008245449996132967}
+  m_Layer: 10
+  m_Name: pillar right
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8007203964334855771
+--- !u!114 &3537522360228816171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,8 +139,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 3482006010956591376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49d93996abe82384c9ef8dea98a0c2ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 1017158ab9d031b4a98fd286ab687437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pillar: {fileID: 6042624743306549223, guid: fe9f052b67508784991745d630a63a78, type: 3}
+  pillar: {fileID: 0}
   speed: 4
+--- !u!114 &-2008245449996132967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3482006010956591376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  maxHP: 0
+  speed: 0
+  walkIntoDamage: 1
+  anim: {fileID: 0}
+  aggroScript: {fileID: 0}
+  items: []
+  dropRate: 0
+  money: 0
+  objectToDestroy: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathClips: []
