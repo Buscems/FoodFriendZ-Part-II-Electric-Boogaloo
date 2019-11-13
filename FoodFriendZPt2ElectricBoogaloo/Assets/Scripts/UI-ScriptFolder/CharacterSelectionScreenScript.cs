@@ -25,10 +25,6 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     [Space]
     public Image LockedCharacterSprite;
 
-    [Header("Bottom Screen Buttons")]
-    public Button BackToTitleScreen;
-    public Button PlayGame;
-
     public EventSystem events;
 
     public Sprite[] characterSprites;
@@ -47,10 +43,11 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
 
-    [Header("Scrollbar Variables")]
-    public Scrollbar scrollbar;
-    public float scrollSpeed;
+    [Header("Scrolling Variables")]
+    public GameObject[] characterSets;
+    public GameObject[] switchCharacter;
     public float joystickThreshold;
+    bool hasScrolled;
 
     private void Awake()
     {
@@ -62,6 +59,8 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     private void Start()
     {
+        //buttonSpot.position = new Vector3(buttonSpot.position.x, scrollbarValues[0], 0);
+
         //setting up the text file
         descriptionSections = descriptionText.ToString().Split('\n');
         audioSource = GetComponent<AudioSource>();
@@ -78,14 +77,51 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         string[] descText = descriptionSections[0].Split(';');
         descriptionHeader.text = descText[0];
         descriptionBody.text = descText[1];
-
+        for(int i = 0; i < characterSets.Length; i++)
+        {
+            if(i != 0)
+            {
+                characterSets[i].SetActive(false);
+            }
+        }
     }
 
     private void Update()
     {
-        if(Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) >= joystickThreshold)
+        //this is handling all of the scrolling code
+        if (Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) >= joystickThreshold)
         {
-            scrollbar.value += myPlayer.GetAxis("DirectionVertical") * scrollSpeed * Time.deltaTime;
+            for (int i = 0; i < characterSets.Length; i++)
+            {
+                if (!hasScrolled)
+                {
+                    if (characterSets[i].activeSelf)
+                    {
+                        //if going down
+                        if (myPlayer.GetAxisRaw("DirectionVertical") < 0 && i != characterSets.Length - 1)
+                        {
+                            characterSets[i].SetActive(false);
+                            characterSets[i + 1].SetActive(true);
+                            events.SetSelectedGameObject(switchCharacter[i + 1]);
+                            audioSource.Play();
+                            hasScrolled = true;
+                        }
+                        //if going up
+                        if (myPlayer.GetAxisRaw("DirectionVertical") > 0 && i != 0)
+                        {
+                            characterSets[i].SetActive(false);
+                            characterSets[i - 1].SetActive(true);
+                            events.SetSelectedGameObject(switchCharacter[i - 1]);
+                            audioSource.Play();
+                            hasScrolled = true;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            hasScrolled = false;
         }
     }
 
