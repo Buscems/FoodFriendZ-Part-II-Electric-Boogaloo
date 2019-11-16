@@ -146,7 +146,7 @@ public class ChestScript : MonoBehaviour
         {
             Destroy(currentSparkle);
         }
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(.5f);
         pu.GetComponent<BoxCollider2D>().enabled = true;
     }
 

@@ -25,10 +25,6 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     [Space]
     public Image LockedCharacterSprite;
 
-    [Header("Bottom Screen Buttons")]
-    public Button BackToTitleScreen;
-    public Button PlayGame;
-
     public EventSystem events;
 
     public Sprite[] characterSprites;
@@ -40,6 +36,12 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public TextAsset descriptionText;
     public string[] descriptionSections;
 
+    [Header("Stat Sliders")]
+    public Image damage;
+    public Image movementSpeed;
+    public Image attackSpeed;
+    public Vector3[] stats;
+
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
     private Player myPlayer;
@@ -47,10 +49,11 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
 
-    [Header("Scrollbar Variables")]
-    public Scrollbar scrollbar;
-    public float scrollSpeed;
+    [Header("Scrolling Variables")]
+    public GameObject[] characterSets;
+    public GameObject[] switchCharacter;
     public float joystickThreshold;
+    bool hasScrolled;
 
     private void Awake()
     {
@@ -62,6 +65,8 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     private void Start()
     {
+        //buttonSpot.position = new Vector3(buttonSpot.position.x, scrollbarValues[0], 0);
+
         //setting up the text file
         descriptionSections = descriptionText.ToString().Split('\n');
         audioSource = GetComponent<AudioSource>();
@@ -78,14 +83,51 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         string[] descText = descriptionSections[0].Split(';');
         descriptionHeader.text = descText[0];
         descriptionBody.text = descText[1];
-
+        for(int i = 0; i < characterSets.Length; i++)
+        {
+            if(i != 0)
+            {
+                characterSets[i].SetActive(false);
+            }
+        }
     }
 
     private void Update()
     {
-        if(Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) >= joystickThreshold)
+        //this is handling all of the scrolling code
+        if (Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) >= joystickThreshold)
         {
-            scrollbar.value += myPlayer.GetAxis("DirectionVertical") * scrollSpeed * Time.deltaTime;
+            for (int i = 0; i < characterSets.Length; i++)
+            {
+                if (!hasScrolled)
+                {
+                    if (characterSets[i].activeSelf)
+                    {
+                        //if going down
+                        if (myPlayer.GetAxisRaw("DirectionVertical") < 0 && i != characterSets.Length - 1)
+                        {
+                            characterSets[i].SetActive(false);
+                            characterSets[i + 1].SetActive(true);
+                            events.SetSelectedGameObject(switchCharacter[i + 1]);
+                            audioSource.Play();
+                            hasScrolled = true;
+                        }
+                        //if going up
+                        if (myPlayer.GetAxisRaw("DirectionVertical") > 0 && i != 0)
+                        {
+                            characterSets[i].SetActive(false);
+                            characterSets[i - 1].SetActive(true);
+                            events.SetSelectedGameObject(switchCharacter[i - 1]);
+                            audioSource.Play();
+                            hasScrolled = true;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            hasScrolled = false;
         }
     }
 
@@ -105,15 +147,22 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     public void Tofu()
     {
+        damage.fillAmount = stats[0].x;
+        movementSpeed.fillAmount = stats[0].y;
+        attackSpeed.fillAmount = stats[0].z;
         HighlightedCharacterIMG.sprite = characterSprites[0];
         HighlightedCharacterNameDisplay.text = "Tofu";
         PlayerPrefs.SetInt("startCharacter", 1);
         string[] descText = descriptionSections[0].Split(';');
         descriptionHeader.text = descText[0];
         descriptionBody.text = descText[1];
+        //damage.fillAmount
     }
     public void Onigiri()
     {
+        damage.fillAmount = stats[1].x;
+        movementSpeed.fillAmount = stats[1].y;
+        attackSpeed.fillAmount = stats[1].z;
         HighlightedCharacterIMG.sprite = characterSprites[1];
         HighlightedCharacterNameDisplay.text = "Onigiri";
         PlayerPrefs.SetInt("startCharacter", 2);
@@ -123,6 +172,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Takoyaki()
     {
+        damage.fillAmount = stats[2].x;
+        movementSpeed.fillAmount = stats[2].y;
+        attackSpeed.fillAmount = stats[2].z;
         HighlightedCharacterIMG.sprite = characterSprites[2];
         HighlightedCharacterNameDisplay.text = "Takoyaki";
         PlayerPrefs.SetInt("startCharacter", 3);
@@ -132,6 +184,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Cherry()
     {
+        damage.fillAmount = stats[3].x;
+        movementSpeed.fillAmount = stats[3].y;
+        attackSpeed.fillAmount = stats[3].z;
         HighlightedCharacterIMG.sprite = characterSprites[3];
         HighlightedCharacterNameDisplay.text = "Cherry";
         PlayerPrefs.SetInt("startCharacter", 4);
@@ -141,6 +196,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Cannoli()
     {
+        damage.fillAmount = stats[4].x;
+        movementSpeed.fillAmount = stats[4].y;
+        attackSpeed.fillAmount = stats[4].z;
         HighlightedCharacterIMG.sprite = characterSprites[4];
         HighlightedCharacterNameDisplay.text = "Cannoli";
         PlayerPrefs.SetInt("startCharacter", 5);
@@ -150,6 +208,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Burger()
     {
+        damage.fillAmount = stats[5].x;
+        movementSpeed.fillAmount = stats[5].y;
+        attackSpeed.fillAmount = stats[5].z;
         HighlightedCharacterIMG.sprite = characterSprites[5];
         HighlightedCharacterNameDisplay.text = "Burger";
         PlayerPrefs.SetInt("startCharacter", 6);
@@ -159,6 +220,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Sashimi()
     {
+        damage.fillAmount = stats[6].x;
+        movementSpeed.fillAmount = stats[6].y;
+        attackSpeed.fillAmount = stats[6].z;
         HighlightedCharacterIMG.sprite = characterSprites[6];
         HighlightedCharacterNameDisplay.text = "Sashimi";
         PlayerPrefs.SetInt("startCharacter", 7);
@@ -168,6 +232,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Fries()
     {
+        damage.fillAmount = stats[7].x;
+        movementSpeed.fillAmount = stats[7].y;
+        attackSpeed.fillAmount = stats[7].z;
         HighlightedCharacterIMG.sprite = characterSprites[7];
         HighlightedCharacterNameDisplay.text = "Fries";
         PlayerPrefs.SetInt("startCharacter", 8);
@@ -177,6 +244,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Taco()
     {
+        damage.fillAmount = stats[8].x;
+        movementSpeed.fillAmount = stats[8].y;
+        attackSpeed.fillAmount = stats[8].z;
         HighlightedCharacterIMG.sprite = characterSprites[8];
         HighlightedCharacterNameDisplay.text = "Taco";
         PlayerPrefs.SetInt("startCharacter", 9);
@@ -186,6 +256,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Donut()
     {
+        damage.fillAmount = stats[9].x;
+        movementSpeed.fillAmount = stats[9].y;
+        attackSpeed.fillAmount = stats[9].z;
         HighlightedCharacterIMG.sprite = characterSprites[9];
         HighlightedCharacterNameDisplay.text = "Donut";
         PlayerPrefs.SetInt("startCharacter", 10);
@@ -195,6 +268,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Hotdog()
     {
+        damage.fillAmount = stats[10].x;
+        movementSpeed.fillAmount = stats[10].y;
+        attackSpeed.fillAmount = stats[10].z;
         HighlightedCharacterIMG.sprite = characterSprites[10];
         HighlightedCharacterNameDisplay.text = "Hot Dog";
         PlayerPrefs.SetInt("startCharacter", 11);
@@ -204,6 +280,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Napoleon()
     {
+        damage.fillAmount = stats[11].x;
+        movementSpeed.fillAmount = stats[11].y;
+        attackSpeed.fillAmount = stats[11].z;
         HighlightedCharacterIMG.sprite = characterSprites[11];
         HighlightedCharacterNameDisplay.text = "Napoleon";
         PlayerPrefs.SetInt("startCharacter", 12);
@@ -213,6 +292,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Muffin()
     {
+        damage.fillAmount = stats[12].x;
+        movementSpeed.fillAmount = stats[12].y;
+        attackSpeed.fillAmount = stats[12].z;
         HighlightedCharacterIMG.sprite = characterSprites[12];
         HighlightedCharacterNameDisplay.text = "Blueberry \nMuffin";
         PlayerPrefs.SetInt("startCharacter", 13);
@@ -222,6 +304,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void MintChip()
     {
+        damage.fillAmount = stats[13].x;
+        movementSpeed.fillAmount = stats[13].y;
+        attackSpeed.fillAmount = stats[13].z;
         HighlightedCharacterIMG.sprite = characterSprites[13];
         HighlightedCharacterNameDisplay.text = "Mint \nChip";
         PlayerPrefs.SetInt("startCharacter", 14);
@@ -231,6 +316,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void LobsterTail()
     {
+        damage.fillAmount = stats[14].x;
+        movementSpeed.fillAmount = stats[14].y;
+        attackSpeed.fillAmount = stats[14].z;
         HighlightedCharacterIMG.sprite = characterSprites[14];
         HighlightedCharacterNameDisplay.text = "Lobster \nTail";
         PlayerPrefs.SetInt("startCharacter", 15);
@@ -240,6 +328,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Samosa()
     {
+        damage.fillAmount = stats[15].x;
+        movementSpeed.fillAmount = stats[15].y;
+        attackSpeed.fillAmount = stats[15].z;
         HighlightedCharacterIMG.sprite = characterSprites[15];
         HighlightedCharacterNameDisplay.text = "Samosa";
         PlayerPrefs.SetInt("startCharacter", 16);
@@ -249,6 +340,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void TunaCan()
     {
+        damage.fillAmount = stats[16].x;
+        movementSpeed.fillAmount = stats[16].y;
+        attackSpeed.fillAmount = stats[16].z;
         HighlightedCharacterIMG.sprite = characterSprites[16];
         HighlightedCharacterNameDisplay.text = "Tuna \nCan";
         PlayerPrefs.SetInt("startCharacter", 17);
@@ -258,6 +352,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void Pancake()
     {
+        damage.fillAmount = stats[17].x;
+        movementSpeed.fillAmount = stats[17].y;
+        attackSpeed.fillAmount = stats[17].z;
         HighlightedCharacterIMG.sprite = characterSprites[17];
         HighlightedCharacterNameDisplay.text = "Pancakes";
         PlayerPrefs.SetInt("startCharacter", 18);
@@ -267,6 +364,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     }
     public void BubbleTea()
     {
+        damage.fillAmount = stats[18].x;
+        movementSpeed.fillAmount = stats[18].y;
+        attackSpeed.fillAmount = stats[18].z;
         HighlightedCharacterIMG.sprite = characterSprites[18];
         HighlightedCharacterNameDisplay.text = "BubbleTea";
         PlayerPrefs.SetInt("startCharacter", 19);

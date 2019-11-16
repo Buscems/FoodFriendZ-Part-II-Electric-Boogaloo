@@ -17,7 +17,15 @@ public class ItemManager : MonoBehaviour
     float MAXcurCDTimer;
     public float curCDTimer;    //recharge timer
     [HideInInspector] public float rechargeRateMultiplier = 1;
+
+    public bool isRechargeRateDoubled;
+
+
     public float curEffectTimer;
+
+    // ui stuff
+    [HideInInspector] public Sprite itemSprite;
+    Color white = new Color(1, 1, 1);
 
     #region [UI bar]
     //[UI]
@@ -39,7 +47,7 @@ public class ItemManager : MonoBehaviour
         refilledCDParticle = GameObject.Find("temp_refillParticles").GetComponent<ParticleSystem>();
         CoolDownFillBar = GameObject.Find("CDFill").GetComponent<Image>();
 
-        curEquippedItemIMG = GameObject.Find("EquippedItem").GetComponent<Image>();
+        curEquippedItemIMG = GameObject.Find("curItemEquipedIMG").GetComponent<Image>();
     }
 
     void Start()
@@ -53,6 +61,12 @@ public class ItemManager : MonoBehaviour
 
     void Update()
     {
+        //reset color on item displayed
+        if (curEquippedItemIMG != null && curEquippedItemIMG.color != white)
+        {
+            curEquippedItemIMG.color = white;
+        }
+
         #region Slider Color Mechanics
         CoolDownSlider.value = 1 - (curCDTimer / MAXcurCDTimer);
 
@@ -105,6 +119,12 @@ public class ItemManager : MonoBehaviour
             //trickle timer down
             curCDTimer -= Time.deltaTime * rechargeRateMultiplier;
 
+            if (isRechargeRateDoubled)
+            {
+                curCDTimer -= Time.deltaTime * rechargeRateMultiplier;
+            }
+
+
             //when timer hits
             if (curCDTimer <= 0)
             {
@@ -142,6 +162,10 @@ public class ItemManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Item")
         {
+            //assign the item sprite to the UI
+
+            curEquippedItemIMG.sprite = itemSprite;
+
             //if the player currently possesses no active items
             if (item == null)
             {

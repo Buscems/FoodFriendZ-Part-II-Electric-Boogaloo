@@ -34,7 +34,10 @@ public class PillarEnemy : MonoBehaviour
     public GameObject leftTrigger;
     public GameObject downTrigger;
 
-    public GameObject pillar;
+    public GameObject pillarLeft;
+    public GameObject pillarRight;
+    public GameObject pillarUp;
+    public GameObject pillarDown;
 
     public BaseEnemy baseEnemy;
 
@@ -70,17 +73,21 @@ public class PillarEnemy : MonoBehaviour
         spawnPillar = true;
         path.enabled = false;
         canSpawn = false;
-        if (spawnUp == true){
-            Instantiate(pillar, spawnPtUp.transform.position, Quaternion.Euler(0, 0, 90));
+        if (spawnUp == true && spawnDown == false && spawnLeft == false && spawnRight == false){
+            Instantiate(pillarUp, spawnPtUp.transform.position, Quaternion.identity);
+            Debug.Log("ooofff");
         }
-        if (spawnRight == true){
-            Instantiate(pillar, spawnPtRight.transform.position, Quaternion.Euler(0, 0, 180));
+        if (spawnRight == true && spawnDown == false && spawnLeft == false && spawnUp == false)
+        {
+            Instantiate(pillarRight, spawnPtRight.transform.position, Quaternion.identity);
         }
-        if (spawnPtDown == true){
-            Instantiate(pillar, spawnPtDown.transform.position, Quaternion.Euler(0, 0, 270));
+        if (spawnPtDown == true && spawnUp == false && spawnLeft == false && spawnRight == false)
+        {
+            Instantiate(pillarDown, spawnPtDown.transform.position, Quaternion.identity);
         }
-        if (spawnPtLeft == true){
-            Instantiate(pillar, spawnPtLeft.transform.position, Quaternion.Euler(0, 0, 0));
+        if (spawnPtLeft == true && spawnDown == false && spawnUp == false && spawnRight == false)
+        {
+            Instantiate(pillarLeft, spawnPtLeft.transform.position, Quaternion.identity);
         }
         yield return new WaitForSeconds(spawnTime);
         StartCoroutine(throwPillar());

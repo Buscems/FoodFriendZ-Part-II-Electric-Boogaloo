@@ -187,6 +187,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[14]._id
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[14]._name
+      value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[14]._type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[14]._descriptiveName
+      value: Action0
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[14]._userAssignable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.data[14]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.actionIdCounter
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60e88b968cc08742bc9e00db1882491, type: 3}
 --- !u!1 &351784218 stripped
@@ -4715,7 +4760,7 @@ PrefabInstance:
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: usingMouse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
@@ -4893,7 +4938,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[0]
       value: 
-      objectReference: {fileID: 5541899853639339420, guid: 50c2d6b0b47c8b04790a50409f52790b,
+      objectReference: {fileID: 6833100394612088969, guid: 488c9af40e4496d49b4f57f488f79bbc,
         type: 3}
     - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}

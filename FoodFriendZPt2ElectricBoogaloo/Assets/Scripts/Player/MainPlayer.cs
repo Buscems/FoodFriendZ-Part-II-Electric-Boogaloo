@@ -15,6 +15,10 @@ public class MainPlayer : MonoBehaviour
     ItemExtension ieScript;
     [HideInInspector] public int GreenMushrooms;
 
+    [HideInInspector] public bool isPlayerCurrentlyMoving;
+    [HideInInspector] public Vector3 curPos;
+    [HideInInspector] public Vector3 _curPos;
+
     public int health;
     [HideInInspector] public int currency;
 
@@ -298,17 +302,8 @@ public class MainPlayer : MonoBehaviour
 
     void Update()
     {
-        //if the player is using the mouse turn the controller pointer off and vice versa
-        /*
-        if (usingMouse)
-        {
-            pointer.SetActive(false);
-        }
-        else
-        {
-            pointer.SetActive(true);
-        }
-        */
+        //for powerups
+        curPos = gameObject.transform.position;
 
         if (myPlayer.GetButtonDown("Pause"))
         {
@@ -392,8 +387,9 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
+
         //applied player movement
         Vector3 currentPos = transform.position;
         currentPos.z = 1;
@@ -410,12 +406,13 @@ public class MainPlayer : MonoBehaviour
         //if player presses (DODGE)
         if (myPlayer.GetButtonDown("Dodge"))
         {
+            if(myPlayer.GetAxis("MoveHorizontal") > 0 || myPlayer.GetAxis("MoveVertical") > 0)
             //dodge timer check
             if (currentChar.currentDodgeWaitTime < 0)
             {
                 currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                 currentChar.currentDodgeTime = currentChar.dodgeLength;
-
+                Debug.Log("Dodge");
                 //dash effect
                 Instantiate(dashPoof, transform.position, Quaternion.identity);
             }
@@ -437,8 +434,8 @@ public class MainPlayer : MonoBehaviour
         }
 
         //holding face buttons
-        if (isHolding)
-        {
+        //if (isHolding)
+        //{
             if (myPlayer.GetButtonDown("Cross") && currentChar != cross && cross != null)
             {
                 currentChar = cross;
@@ -491,7 +488,7 @@ public class MainPlayer : MonoBehaviour
                 audioSource.clip = clips[1];
                 audioSource.Play();
             }
-        }
+        //}
     }
 
     public void CharacterSwap(BasePlayer _character, string _faceDirection)
@@ -687,11 +684,11 @@ public class MainPlayer : MonoBehaviour
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
-                if (currentChar.isOrb &&  orb.transform.childCount == 0)
+                if (currentChar.isOrb && orb.transform.childCount == 0)
                 {
                     currentChar.RangedSplit(transform.position, attackDirection, orb.transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
                 }
-                else if(!currentChar.isOrb)
+                else if (!currentChar.isOrb)
                 {
                     currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
 
@@ -933,8 +930,16 @@ public class MainPlayer : MonoBehaviour
         currentChar.currentPosition = this.transform.position;
 
         //velocity update
-        velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
-        velocity.y = myPlayer.GetAxisRaw("MoveVertical");
+        if (currentChar.currentDodgeTime < 0)
+        {
+            velocity.x = myPlayer.GetAxisRaw("MoveHorizontal");
+            velocity.y = myPlayer.GetAxisRaw("MoveVertical");
+            this.gameObject.layer = 8;
+        }
+        else
+        {
+            this.gameObject.layer = 15;
+        }
 
         //[IF STATEMENTS]
 
@@ -1062,7 +1067,7 @@ public class MainPlayer : MonoBehaviour
 
             currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
 
-            audioSource.clip = clips[Random.Range(2,3)];
+            audioSource.clip = clips[Random.Range(2, 3)];
             audioSource.Play();
 
             //destroys item
@@ -1123,6 +1128,7 @@ public class MainPlayer : MonoBehaviour
             if (name.ToLower() == gameData.CharacterListNames[i].ToLower())
             {
                 gameData.CharacterList[i] = true;
+                saveData.SaveToFile();
                 break;
             }
         }

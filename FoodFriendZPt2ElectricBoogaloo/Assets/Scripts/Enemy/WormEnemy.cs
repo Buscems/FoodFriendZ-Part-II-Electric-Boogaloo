@@ -54,6 +54,7 @@ public class WormEnemy : MonoBehaviour
 
         if (baseEnemy.health == 0){
             isDead = true;
+            Destroy(gameObject);
         }
     }
 

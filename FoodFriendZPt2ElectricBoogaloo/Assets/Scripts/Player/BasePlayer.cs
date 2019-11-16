@@ -196,6 +196,8 @@ public class BasePlayer : ScriptableObject
 
     public void Start()
     {
+        //don't need but keep
+        /*
         #region Set Multipliers to 1
         dodgeSpeedMultiplier = 1;
         attackSizeMultiplier = 1;
@@ -207,7 +209,7 @@ public class BasePlayer : ScriptableObject
 
         currentDodgeSpeedMultiplier = 1;
         #endregion
-
+        */
         #region check attack type
         //this will be taking care of whether or not the player might accidentally have the wrong weapon for anything
         if (attackType == AttackType.Melee)

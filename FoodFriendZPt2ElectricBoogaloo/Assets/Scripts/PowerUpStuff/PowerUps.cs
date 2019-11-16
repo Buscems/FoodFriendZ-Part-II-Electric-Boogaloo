@@ -109,6 +109,8 @@ public class PowerUps : MonoBehaviour
         Popsicle,
         BagOfIce,
         RocketPopsicle,
+        //NOV 11
+        IcedTea,
         #endregion
 
         #region [OLD EQUIPMENT]
@@ -183,6 +185,11 @@ public class PowerUps : MonoBehaviour
             if (tag == "Item")
             {
                 GetComponent<BoxCollider2D>().enabled = false;
+
+                //gives sprite to item manager before ghosting
+                imScript.itemSprite = this.gameObject.GetComponent<SpriteRenderer>().sprite;
+                print(imScript.itemSprite);
+                GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
@@ -328,7 +335,7 @@ public class PowerUps : MonoBehaviour
             #region BagOfIce
             case PowerUpTypes.BagOfIce:
                 imScript.rechargeRateMultiplier = 1 + GetProportional(imScript.rechargeRateMultiplier, stats.health, 10, false);
-                print(imScript.rechargeRateMultiplier);
+                // print(imScript.rechargeRateMultiplier);
 
                 yield return null;
                 break;
@@ -379,6 +386,15 @@ public class PowerUps : MonoBehaviour
                 ieScript.needEnemyScript = true;
                 ieScript.hasKissTheCookApron = true;
                 //[STAT BOOST]
+
+                yield return null;
+                break;
+            #endregion
+            //[NOV 11]
+            #region IcedTea
+            case PowerUpTypes.IcedTea:
+
+                ieScript.hasIcedTea = true;
 
                 yield return null;
                 break;
@@ -495,7 +511,6 @@ public class PowerUps : MonoBehaviour
                 if (effectIsActive)
                 {
                     Debug.Log("Effect is active");
-                    Debug.Log(stats);
                     stats.critChanceMultiplier *= 3;
                 }
                 //[DEACTIVE STATE]

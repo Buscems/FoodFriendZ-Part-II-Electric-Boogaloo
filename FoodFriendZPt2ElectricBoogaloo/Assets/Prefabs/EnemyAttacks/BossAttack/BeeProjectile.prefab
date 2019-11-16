@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1816630379069008022}
   - component: {fileID: 722465813027156247}
   - component: {fileID: -7495004314573125799}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BeeProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   damage: 0
   slowBullet: 0
+  returnToSender: 0
 --- !u!61 &722465813027156247
 BoxCollider2D:
   m_ObjectHideFlags: 0

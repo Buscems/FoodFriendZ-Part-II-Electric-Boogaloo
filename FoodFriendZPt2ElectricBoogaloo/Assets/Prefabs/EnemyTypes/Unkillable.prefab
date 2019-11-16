@@ -148,7 +148,8 @@ MonoBehaviour:
   aggroRange: 7
   aggroTimerMax: 5
   aggro: 0
-  target: []
+  target:
+  - {fileID: 0}
   currentTarget: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
 --- !u!114 &3349005322058247503
@@ -173,6 +174,8 @@ MonoBehaviour:
   dropRate: 0
   money: 0
   objectToDestroy: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathClips: []
 --- !u!114 &8379108169004357772
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,8 +23,10 @@ public class WormBody : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, wormHead.position, baseEnemy.speed * Time.deltaTime);
         }
-        if (wormHead.GetComponent<WormEnemy>().isDead == true){
-            Destroy(gameObject);
-        }
     }
 }
+        /*if (wormHead.GetComponent<WormEnemy>().isDead == true){
+            Destroy(gameObject);
+        }
+    }*/
+

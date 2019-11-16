@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2433441765960508206}
   - component: {fileID: 4395773246354849}
   - component: {fileID: 7097437714295791010}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,8 @@ MonoBehaviour:
   speed: 0
   velocity: {x: 0, y: 0, z: 0}
   damage: 2
+  slowBullet: 0
+  returnToSender: 0
 --- !u!50 &4395773246354849
 Rigidbody2D:
   serializedVersion: 4

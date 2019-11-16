@@ -20,12 +20,17 @@ public class ItemExtension : MonoBehaviour
 
     GetOddsScript gOScript;
 
+    //storedVariables
+    float storCDrechargeMultiplier;
+
+
     //prefabs
     public GameObject AOE;
     [HideInInspector] public AOE_Script aoeScript;
 
     //power up bools
     [HideInInspector] public bool hasSalt;
+    [HideInInspector] public bool hasIcedTea;
     [HideInInspector] public bool hasSpatula;
     [HideInInspector] public bool hasPeacefulTea;
 
@@ -178,6 +183,23 @@ public class ItemExtension : MonoBehaviour
         {
             //if enemies are not in proxy, make player fast
             mPScript.isFast = !areEnemiesInProxy;
+        }
+
+        if (hasIcedTea)
+        {
+            //movement detector
+            if (mPScript.curPos != mPScript._curPos)
+            {
+                iMScript.isRechargeRateDoubled = false;
+
+                //reset detector
+                mPScript._curPos = mPScript.curPos;
+            }
+            //player is still
+            else
+            {
+                iMScript.isRechargeRateDoubled = true;
+            }
         }
     }
 
