@@ -331,7 +331,7 @@ public class PowerUps : MonoBehaviour
             #region BagOfIce
             case PowerUpTypes.BagOfIce:
                 imScript.rechargeRateMultiplier = 1 + GetProportional(imScript.rechargeRateMultiplier, stats.health, 10, false);
-                print(imScript.rechargeRateMultiplier);
+                // print(imScript.rechargeRateMultiplier);
 
                 yield return null;
                 break;
