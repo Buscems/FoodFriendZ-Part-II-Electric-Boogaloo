@@ -185,6 +185,10 @@ public class PowerUps : MonoBehaviour
             if (tag == "Item")
             {
                 GetComponent<BoxCollider2D>().enabled = false;
+
+                //gives sprite to item manager before ghosting
+                imScript.itemSprite = this.gameObject.GetComponent<SpriteRenderer>().sprite;
+                print(imScript.itemSprite);
                 GetComponent<SpriteRenderer>().enabled = false;
             }
         }
