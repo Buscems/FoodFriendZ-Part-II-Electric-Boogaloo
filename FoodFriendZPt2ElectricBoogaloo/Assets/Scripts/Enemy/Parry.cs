@@ -30,7 +30,7 @@ public class Parry : MonoBehaviour
 
         if (baseEnemy.aggroScript.aggro)
         {
-            isBlocking = true;
+            
             if (isBlocking)
             {
                 Shield.SetActive(true);

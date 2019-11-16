@@ -241,6 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2946901452548013732}
   - component: {fileID: 1549518992219288826}
+  - component: {fileID: 8437161293642364939}
   m_Layer: 0
   m_Name: TriggerZone
   m_TagString: Untagged
@@ -288,6 +289,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.22, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8437161293642364939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661367894684022194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0f43c39b66b9343acf881621072cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parry: {fileID: 1030070882179376109}
 --- !u!1 &7639626705638255733
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +312,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8385244215003939650}
   - component: {fileID: 518387810662399520}
-  - component: {fileID: 1751106293600916029}
   - component: {fileID: 2643633679342582657}
   m_Layer: 0
   m_Name: Parry Shield
@@ -369,19 +382,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1751106293600916029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7639626705638255733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0f43c39b66b9343acf881621072cc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parry: {fileID: 1030070882179376109}
 --- !u!61 &2643633679342582657
 BoxCollider2D:
   m_ObjectHideFlags: 0

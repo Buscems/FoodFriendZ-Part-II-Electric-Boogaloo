@@ -6,12 +6,10 @@ public class ParryShieldZone : MonoBehaviour
 {
 
     public Parry parry;
-    GameObject Foe;
 
     void Start()
     {
-        //parry = GetComponent<Parry>();
-        Foe = GameObject.FindGameObjectWithTag("Enemy");
+
     }
 
     void Update()

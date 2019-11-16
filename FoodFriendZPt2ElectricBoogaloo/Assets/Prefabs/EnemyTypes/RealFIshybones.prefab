@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1697725661757329390}
   - component: {fileID: 1697725661757329391}
-  - component: {fileID: 1697725661757329385}
   - component: {fileID: 5530647485021368097}
   - component: {fileID: 6033385274661719380}
   - component: {fileID: 189670827572881911}
   - component: {fileID: 7057745831610651366}
   - component: {fileID: 7186349249555260683}
   - component: {fileID: 4436089395889312431}
+  - component: {fileID: 4812941010992909405}
   m_Layer: 10
   m_Name: RealFIshybones
   m_TagString: Enemy
@@ -88,30 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1697725661757329385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697725661757329386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b8e7663fd86bb4ea6a4da366346239, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ranged: 0
-  melee: 1
-  meleeDelete: 0
-  MeleePause: 2
-  meleeObject: {fileID: 4309835604491251850}
-  DownTime: 2
-  rotateSpeed: 10
-  bullet: {fileID: 0}
-  timeInBetweenBullets: 0
-  bulletSpeed: 0
-  bulletDamage: 0
-  bulletSprite: []
 --- !u!114 &5530647485021368097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +219,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4812941010992909405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697725661757329386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf3821e0bc1f5248aad463b883479c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  meleeObject: {fileID: 4309835604491251850}
+  turnspeed: 3
+  swordActive: 0
 --- !u!1 &4309835604491251850
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +245,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7525431274929454456}
   - component: {fileID: 4946486279698024302}
-  - component: {fileID: 34177338597369154}
   - component: {fileID: 4354623761383300396}
   m_Layer: 10
   m_Name: Sword
@@ -270,7 +261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4309835604491251850}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.73, y: -0.22, z: 0}
+  m_LocalPosition: {x: 0.786, y: -0.22, z: 0}
   m_LocalScale: {x: 2.7237988, y: 2.7237988, z: 2.7237988}
   m_Children: []
   m_Father: {fileID: 1697725661757329390}
@@ -324,20 +315,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &34177338597369154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4309835604491251850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf3821e0bc1f5248aad463b883479c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  meleeObject: {fileID: 4309835604491251850}
 --- !u!61 &4354623761383300396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -351,7 +328,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.005, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -362,5 +339,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.32}
+  m_Size: {x: 0.11, y: 0.32}
   m_EdgeRadius: 0
