@@ -198,6 +198,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GreenMushrooms: 0
+  isPlayerCurrentlyMoving: 0
+  curPos: {x: 0, y: 0, z: 0}
+  _curPos: {x: 0, y: 0, z: 0}
   health: 10
   currency: 0
   isSlow: 0
@@ -602,6 +605,7 @@ MonoBehaviour:
   itemParticleSystem: {fileID: 8891904151346878587}
   curCDTimer: 0
   rechargeRateMultiplier: 1
+  isRechargeRateDoubled: 0
   curEffectTimer: 0
   readyCDcolor: {r: 1, g: 1, b: 1, a: 1}
   rechargingCDcolor: {r: 1, g: 0.52518374, b: 0, a: 1}
@@ -624,6 +628,7 @@ MonoBehaviour:
   AOE: {fileID: 5983498300362710398, guid: b06aea3e2a0d5ea43a518aef812112d7, type: 3}
   aoeScript: {fileID: 0}
   hasSalt: 0
+  hasIcedTea: 0
   hasSpatula: 0
   hasPeacefulTea: 0
   hasKissTheCookApron: 0
