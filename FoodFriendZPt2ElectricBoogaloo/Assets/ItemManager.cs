@@ -6,49 +6,48 @@ using UnityEngine.UI;
 public class ItemManager : MonoBehaviour
 {
     //[ALL VARIABLES]
+    //scripts
     private MainPlayer mp;
     public PowerUps PowerUpScript;
+
+    //active item
     public GameObject item = null;
 
+    //particle effects
     public ParticleSystem itemParticleSystem;
     ParticleSystem refilledCDParticle;
 
     //timer stuff
     float MAXcurCDTimer;
     public float curCDTimer;    //recharge timer
-    [HideInInspector] public float rechargeRateMultiplier = 1;
-
-    public bool isRechargeRateDoubled;
-
-
     public float curEffectTimer;
 
-    // ui stuff
-    [HideInInspector] public Sprite itemSprite;
+    [HideInInspector] public float rechargeRateMultiplier = 1;
+    [HideInInspector] public bool isRechargeRateDoubled;
 
+    //[UI STUFF]
+    //colors
     Color white = new Color(1, 1, 1);
     Color red = new Color(1, 0, 0);
     Color black = new Color(0, 0, 0);
 
-    #region [UI bar]
-    //[UI]
+    //cool down bar
     public Color readyCDcolor;
     public Color rechargingCDcolor;
     Slider CoolDownSlider;
-
     Image CoolDownFillBar;
 
-    //to display item
+    //item display
+    [HideInInspector] public Sprite itemSprite;
     Image EquippedItemFrameIMG;
     Image curEquippedItemIMG;
-    #endregion
 
     void Awake()
     {
         //make sure this enables
         this.enabled = true;
 
-        //assigning stuff
+        //assigning scripts
         mp = GetComponent<MainPlayer>();
 
         //assignning UI
@@ -75,9 +74,6 @@ public class ItemManager : MonoBehaviour
         //[DISPLAY ITEM]
         if (item != null || curEquippedItemIMG.sprite == null)
         {
-            curEquippedItemIMG.sprite = itemSprite;
-
-
             //if ready
             if (CoolDownSlider.value == 1)
             {
@@ -91,15 +87,16 @@ public class ItemManager : MonoBehaviour
                 curEquippedItemIMG.color = black;
                 EquippedItemFrameIMG.color = red;
             }
+
+            curEquippedItemIMG.sprite = itemSprite;
         }
+
         //if player has nothing
         else if (item == null)
         {
             curEquippedItemIMG.color = red;
         }
-
         #endregion
-
 
         #region Slider Color Mechanics
         CoolDownSlider.value = 1 - (curCDTimer / MAXcurCDTimer);
@@ -119,18 +116,24 @@ public class ItemManager : MonoBehaviour
         //check if player can use the item
 
         //[use ACTIVE ITEM button]
-        if (Input.GetKeyDown(KeyCode.E))
+        if (item != null)
         {
-            if (item != null && curCDTimer == 0)
+            //active item button
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                UseItem(true);
-                //particle effect
-                itemParticleSystem.Play();
-            }
-            //if cooldown isn't ready yet
-            else if (curCDTimer > 0)
-            {
-                print("Cannot Use Item Yet!!");
+                if (curCDTimer == 0)
+                {
+                    UseItem(true);
+
+                    //particle effect
+                    itemParticleSystem.Play();
+                }
+
+                //cooldown isn't ready
+                else if (curCDTimer > 0)
+                {
+                    print("Cannot Use Item Yet!!");
+                }
             }
         }
 
@@ -150,14 +153,13 @@ public class ItemManager : MonoBehaviour
         //recharging
         else if (curCDTimer > 0)
         {
-            //trickle timer down
             curCDTimer -= Time.deltaTime * rechargeRateMultiplier;
 
+            //double condition
             if (isRechargeRateDoubled)
             {
                 curCDTimer -= Time.deltaTime * rechargeRateMultiplier;
             }
-
 
             //when timer hits
             if (curCDTimer <= 0)
@@ -171,9 +173,9 @@ public class ItemManager : MonoBehaviour
     }
 
     //[METHODS]
-    private void UseItem(bool _isEffectActive)
+    void UseItem(bool _isEffectActive)
     {
-        //
+        //assign arguments
         PowerUpScript.effectIsActive = _isEffectActive;
 
         //use powerup script
@@ -185,18 +187,13 @@ public class ItemManager : MonoBehaviour
             curEffectTimer = PowerUpScript.effectDuration;
             curCDTimer = PowerUpScript.maxCoolDownDuration;
         }
-
-        else
-        {
-            curCDTimer = PowerUpScript.maxCoolDownDuration;
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Item")
         {
-            //if the player currently possesses no active items
+            //if player has no item
             if (item == null)
             {
                 item = other.gameObject;
@@ -209,8 +206,6 @@ public class ItemManager : MonoBehaviour
             {
                 Debug.Log("Player already has an item");
             }
-
-
         }
     }
 }
