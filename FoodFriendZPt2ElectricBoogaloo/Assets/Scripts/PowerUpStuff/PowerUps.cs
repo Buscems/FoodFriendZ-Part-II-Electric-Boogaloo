@@ -79,10 +79,10 @@ public class PowerUps : MonoBehaviour
     {
         //assign main player script
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
-
-        baseStats = stats.currentChar;
         ieScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemExtension>();
         imScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemManager>();
+
+        baseStats = stats.currentChar;
     }
 
     public enum PowerUpTypes
@@ -532,7 +532,6 @@ public class PowerUps : MonoBehaviour
 
     //[PROPORTIONAL VALUE GENERATOR]
     #region [PROPORTIONAL VALUE GENERATOR]
-    //used to calculate proportional values
     public float GetProportional(float modifiedValue, float curValue, float maxValue, bool isScalingUp)
     {
         //value to be returned
@@ -553,5 +552,4 @@ public class PowerUps : MonoBehaviour
         return newModifiedValue;
     }
     #endregion
-
 }

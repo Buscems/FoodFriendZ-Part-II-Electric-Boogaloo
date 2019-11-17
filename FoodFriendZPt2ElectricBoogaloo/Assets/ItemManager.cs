@@ -84,7 +84,6 @@ public class ItemManager : MonoBehaviour
             //if not ready
             else
             {
-                print("hi");
                 curEquippedItemIMG.color = black;
                 EquippedItemFrameIMG.color = red;
             }
@@ -171,6 +170,34 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Item")
+        {
+            //if player has no item
+            if (item == null)
+            {
+                AssignItem(other.gameObject);
+            }
+
+            //if player has an item
+            else if (item != null)
+            {
+                //swapping items
+                GameObject prevItem = item;
+
+                //places item in game world
+                prevItem.transform.position = this.gameObject.transform.position + new Vector3(2, 0, 0);
+                prevItem.GetComponent<SpriteRenderer>().enabled = true;
+                prevItem.GetComponent<BoxCollider2D>().enabled = true;
+
+                AssignItem(other.gameObject);
+
+                //for debugging
+            }
+        }
+    }
+
     //[METHODS]
     void UseItem(bool _isEffectActive)
     {
@@ -188,50 +215,18 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void AssignItem(GameObject _item)
     {
-        if (other.gameObject.tag == "Item")
-        {
-            //if player has no item
-            if (item == null)
-            {
-                //access item componenets
-                item = other.gameObject;
-                curEquippedItemIMG.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
-                PowerUpScript = other.gameObject.GetComponent<PowerUps>();
+        //access item componenets
+        item = _item;
+        PowerUpScript = _item.GetComponent<PowerUps>();
 
-                //make invisible
-                other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        curEquippedItemIMG.sprite = _item.GetComponent<SpriteRenderer>().sprite;
 
-                MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
-            }
-            //if player has an item
-            else if (item != null)
-            {
-                Debug.Log("swapping items");
+        //make invisible
+        _item.GetComponent<SpriteRenderer>().enabled = false;
+        _item.GetComponent<BoxCollider2D>().enabled = false;
 
-                GameObject prevItem = item;
-
-                //places item in game world
-                prevItem.transform.position = this.gameObject.transform.position + new Vector3(2, 0, 0);
-                prevItem.GetComponent<SpriteRenderer>().enabled = true;
-                prevItem.GetComponent<BoxCollider2D>().enabled = true;
-
-                //access item components
-                item = other.gameObject;
-                curEquippedItemIMG.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
-                PowerUpScript = other.gameObject.GetComponent<PowerUps>();
-
-                //make invisible
-                other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-                MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
-
-                print("prevItem: " + prevItem.name);
-                print("curItem: " + item.name);
-            }
-        }
+        MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
     }
 }
