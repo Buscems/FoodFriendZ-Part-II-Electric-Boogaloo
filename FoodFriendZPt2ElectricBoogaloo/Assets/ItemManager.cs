@@ -196,15 +196,29 @@ public class ItemManager : MonoBehaviour
             //if player has no item
             if (item == null)
             {
+                //access item componenets
                 item = other.gameObject;
                 PowerUpScript = other.gameObject.GetComponent<PowerUps>();
 
                 MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
-                curCDTimer = 0;
             }
-            else
+            //if player has an item
+            else if (item != null)
             {
-                Debug.Log("Player already has an item");
+                Debug.Log("swapping items");
+
+                GameObject prevItem = item;
+
+                //places item in game world
+                prevItem.transform.position = this.gameObject.transform.position + new Vector3(2, 0, 0);
+                prevItem.GetComponent<SpriteRenderer>().enabled = true;
+                prevItem.GetComponent<BoxCollider2D>().enabled = true;
+
+                //access item components
+                item = other.gameObject;
+                PowerUpScript = other.gameObject.GetComponent<PowerUps>();
+
+                MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
             }
         }
     }
