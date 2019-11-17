@@ -25,7 +25,10 @@ public class ItemManager : MonoBehaviour
 
     // ui stuff
     [HideInInspector] public Sprite itemSprite;
+
     Color white = new Color(1, 1, 1);
+    Color red = new Color(1, 0, 0);
+    Color black = new Color(0, 0, 0);
 
     #region [UI bar]
     //[UI]
@@ -34,11 +37,17 @@ public class ItemManager : MonoBehaviour
     Slider CoolDownSlider;
 
     Image CoolDownFillBar;
+
+    //to display item
+    Image EquippedItemFrameIMG;
     Image curEquippedItemIMG;
     #endregion
 
     void Awake()
     {
+        //make sure this enables
+        this.enabled = true;
+
         //assigning stuff
         mp = GetComponent<MainPlayer>();
 
@@ -48,6 +57,7 @@ public class ItemManager : MonoBehaviour
         CoolDownFillBar = GameObject.Find("CDFill").GetComponent<Image>();
 
         curEquippedItemIMG = GameObject.Find("curItemEquipedIMG").GetComponent<Image>();
+        EquippedItemFrameIMG = GameObject.Find("EquippedItemFrame").GetComponent<Image>();
     }
 
     void Start()
@@ -61,11 +71,35 @@ public class ItemManager : MonoBehaviour
 
     void Update()
     {
-        //reset color on item displayed
-        if (curEquippedItemIMG != null && curEquippedItemIMG.color != white)
+        #region [Item Display Mechanics]
+        //[DISPLAY ITEM]
+        if (item != null || curEquippedItemIMG.sprite == null)
         {
-            curEquippedItemIMG.color = white;
+            curEquippedItemIMG.sprite = itemSprite;
+
+
+            //if ready
+            if (CoolDownSlider.value == 1)
+            {
+                //white for actual colors
+                curEquippedItemIMG.color = white;
+                EquippedItemFrameIMG.color = white;
+            }
+            //if not ready
+            else
+            {
+                curEquippedItemIMG.color = black;
+                EquippedItemFrameIMG.color = red;
+            }
         }
+        //if player has nothing
+        else if (item == null)
+        {
+            curEquippedItemIMG.color = red;
+        }
+
+        #endregion
+
 
         #region Slider Color Mechanics
         CoolDownSlider.value = 1 - (curCDTimer / MAXcurCDTimer);
@@ -158,14 +192,10 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Item")
         {
-            //assign the item sprite to the UI
-
-            curEquippedItemIMG.sprite = itemSprite;
-
             //if the player currently possesses no active items
             if (item == null)
             {
