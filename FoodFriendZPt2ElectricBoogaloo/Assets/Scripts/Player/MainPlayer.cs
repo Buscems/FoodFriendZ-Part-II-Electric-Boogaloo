@@ -406,16 +406,16 @@ public class MainPlayer : MonoBehaviour
         //if player presses (DODGE)
         if (myPlayer.GetButtonDown("Dodge"))
         {
-            if(myPlayer.GetAxis("MoveHorizontal") > 0 || myPlayer.GetAxis("MoveVertical") > 0)
-            //dodge timer check
-            if (currentChar.currentDodgeWaitTime < 0)
-            {
-                currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
-                currentChar.currentDodgeTime = currentChar.dodgeLength;
-                Debug.Log("Dodge");
-                //dash effect
-                Instantiate(dashPoof, transform.position, Quaternion.identity);
-            }
+            if (myPlayer.GetAxis("MoveHorizontal") > 0 || myPlayer.GetAxis("MoveVertical") > 0)
+                //dodge timer check
+                if (currentChar.currentDodgeWaitTime < 0)
+                {
+                    currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
+                    currentChar.currentDodgeTime = currentChar.dodgeLength;
+                    Debug.Log("Dodge");
+                    //dash effect
+                    Instantiate(dashPoof, transform.position, Quaternion.identity);
+                }
         }
     }
 
@@ -436,58 +436,58 @@ public class MainPlayer : MonoBehaviour
         //holding face buttons
         //if (isHolding)
         //{
-            if (myPlayer.GetButtonDown("Cross") && currentChar != cross && cross != null)
-            {
-                currentChar = cross;
-                upHighlight.enabled = false;
-                leftHighlight.enabled = false;
-                rightHighlight.enabled = false;
-                //down true
-                downHighlight.enabled = true;
-                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
-                Instantiate(swapPuff, transform.position, Quaternion.identity);
-                audioSource.clip = clips[1];
-                audioSource.Play();
-            }
-            if (myPlayer.GetButtonDown("Square") && currentChar != square && square != null)
-            {
-                currentChar = square;
-                upHighlight.enabled = false;
-                //left true
-                leftHighlight.enabled = true;
-                rightHighlight.enabled = false;
-                downHighlight.enabled = false;
-                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
-                Instantiate(swapPuff, transform.position, Quaternion.identity);
-                audioSource.clip = clips[1];
-                audioSource.Play();
-            }
-            if (myPlayer.GetButtonDown("Triangle") && currentChar != triangle && triangle != null)
-            {
-                currentChar = triangle;
-                //up true
-                upHighlight.enabled = true;
-                leftHighlight.enabled = false;
-                rightHighlight.enabled = false;
-                downHighlight.enabled = false;
-                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
-                Instantiate(swapPuff, transform.position, Quaternion.identity);
-                audioSource.clip = clips[1];
-                audioSource.Play();
-            }
-            if (myPlayer.GetButtonDown("Circle") && currentChar != circle && circle != null)
-            {
-                currentChar = circle;
-                upHighlight.enabled = false;
-                leftHighlight.enabled = false;
-                //right true
-                rightHighlight.enabled = true;
-                downHighlight.enabled = false;
-                currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
-                Instantiate(swapPuff, transform.position, Quaternion.identity);
-                audioSource.clip = clips[1];
-                audioSource.Play();
-            }
+        if (myPlayer.GetButtonDown("Cross") && currentChar != cross && cross != null)
+        {
+            currentChar = cross;
+            upHighlight.enabled = false;
+            leftHighlight.enabled = false;
+            rightHighlight.enabled = false;
+            //down true
+            downHighlight.enabled = true;
+            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            Instantiate(swapPuff, transform.position, Quaternion.identity);
+            audioSource.clip = clips[1];
+            audioSource.Play();
+        }
+        if (myPlayer.GetButtonDown("Square") && currentChar != square && square != null)
+        {
+            currentChar = square;
+            upHighlight.enabled = false;
+            //left true
+            leftHighlight.enabled = true;
+            rightHighlight.enabled = false;
+            downHighlight.enabled = false;
+            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            Instantiate(swapPuff, transform.position, Quaternion.identity);
+            audioSource.clip = clips[1];
+            audioSource.Play();
+        }
+        if (myPlayer.GetButtonDown("Triangle") && currentChar != triangle && triangle != null)
+        {
+            currentChar = triangle;
+            //up true
+            upHighlight.enabled = true;
+            leftHighlight.enabled = false;
+            rightHighlight.enabled = false;
+            downHighlight.enabled = false;
+            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            Instantiate(swapPuff, transform.position, Quaternion.identity);
+            audioSource.clip = clips[1];
+            audioSource.Play();
+        }
+        if (myPlayer.GetButtonDown("Circle") && currentChar != circle && circle != null)
+        {
+            currentChar = circle;
+            upHighlight.enabled = false;
+            leftHighlight.enabled = false;
+            //right true
+            rightHighlight.enabled = true;
+            downHighlight.enabled = false;
+            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            Instantiate(swapPuff, transform.position, Quaternion.identity);
+            audioSource.clip = clips[1];
+            audioSource.Play();
+        }
         //}
     }
 
@@ -1079,19 +1079,15 @@ public class MainPlayer : MonoBehaviour
             StartCoroutine(Slow(3));
         }
 
-
         if (other.gameObject.tag == "Fast")
         {
             StartCoroutine(Fast(3));
         }
 
-
         if (other.gameObject.tag == "Stuck")
         {
             StartCoroutine(Stuck(3));
         }
-
-
 
         if (other.gameObject.tag == "Chest")
         {

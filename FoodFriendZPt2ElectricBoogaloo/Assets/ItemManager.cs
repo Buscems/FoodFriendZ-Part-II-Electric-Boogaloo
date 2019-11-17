@@ -72,10 +72,10 @@ public class ItemManager : MonoBehaviour
     {
         #region [Item Display Mechanics]
         //[DISPLAY ITEM]
-        if (item != null || curEquippedItemIMG.sprite == null)
+        if (item != null)
         {
             //if ready
-            if (CoolDownSlider.value == 1)
+            if (CoolDownSlider.value >= 1)
             {
                 //white for actual colors
                 curEquippedItemIMG.color = white;
@@ -84,17 +84,16 @@ public class ItemManager : MonoBehaviour
             //if not ready
             else
             {
+                print("hi");
                 curEquippedItemIMG.color = black;
                 EquippedItemFrameIMG.color = red;
             }
-
-            curEquippedItemIMG.sprite = itemSprite;
         }
-
         //if player has nothing
-        else if (item == null)
+        else
         {
-            curEquippedItemIMG.color = red;
+            curEquippedItemIMG.sprite = null;
+            EquippedItemFrameIMG.color = red;
         }
         #endregion
 
@@ -198,7 +197,12 @@ public class ItemManager : MonoBehaviour
             {
                 //access item componenets
                 item = other.gameObject;
+                curEquippedItemIMG.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
                 PowerUpScript = other.gameObject.GetComponent<PowerUps>();
+
+                //make invisible
+                other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
                 MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
             }
@@ -216,9 +220,17 @@ public class ItemManager : MonoBehaviour
 
                 //access item components
                 item = other.gameObject;
+                curEquippedItemIMG.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
                 PowerUpScript = other.gameObject.GetComponent<PowerUps>();
 
+                //make invisible
+                other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
                 MAXcurCDTimer = PowerUpScript.maxCoolDownDuration;
+
+                print("prevItem: " + prevItem.name);
+                print("curItem: " + item.name);
             }
         }
     }

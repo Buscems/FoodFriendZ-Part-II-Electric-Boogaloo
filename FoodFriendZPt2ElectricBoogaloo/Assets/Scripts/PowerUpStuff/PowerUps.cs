@@ -172,28 +172,6 @@ public class PowerUps : MonoBehaviour
 
     public PowerUpTypes currentPowerUp;
 
-    //[COLLIDER]
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //if equipment
-        if (other.CompareTag("Player1"))
-        {
-            if (tag == "StatBooster")
-            {
-            }
-
-            if (tag == "Item")
-            {
-                //gives sprite to item manager before ghosting
-                imScript.itemSprite = this.gameObject.GetComponent<SpriteRenderer>().sprite;
-
-                //make invisible
-                GetComponent<SpriteRenderer>().enabled = false;
-                GetComponent<BoxCollider2D>().enabled = false;
-            }
-        }
-    }
-
     public IEnumerator Pickup()
     {
         switch (currentPowerUp)
