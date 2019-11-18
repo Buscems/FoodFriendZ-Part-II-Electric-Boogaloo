@@ -58600,7 +58600,7 @@ Transform:
   - {fileID: 710414034}
   - {fileID: 1807489300}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858703120
 GameObject:
@@ -58691,7 +58691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &966333413
 PrefabInstance:
@@ -58743,7 +58743,7 @@ PrefabInstance:
     - target: {fileID: 2392885752999680878, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 2392885752999680878, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
@@ -60505,7 +60505,7 @@ Transform:
   - {fileID: 225679926}
   - {fileID: 441759127}
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1380649296
 PrefabInstance:
@@ -60654,7 +60654,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1457332567
 GameObject:
@@ -60748,7 +60748,7 @@ RectTransform:
   m_Children:
   - {fileID: 1246814541}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -61262,7 +61262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1807489299
 GameObject:
@@ -69659,11 +69659,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2520677104554372990, guid: 0af3a0d2cd3df4dca82d5ea74c883c90,
-        type: 3}
-      propertyPath: m_Name
-      value: Locked Door (Sushi Tiles) Holder
-      objectReference: {fileID: 0}
     - target: {fileID: 2520677104554372976, guid: 0af3a0d2cd3df4dca82d5ea74c883c90,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69718,6 +69713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520677104554372990, guid: 0af3a0d2cd3df4dca82d5ea74c883c90,
+        type: 3}
+      propertyPath: m_Name
+      value: Locked Door (Sushi Tiles) Holder
       objectReference: {fileID: 0}
     - target: {fileID: 2520677105045627502, guid: 0af3a0d2cd3df4dca82d5ea74c883c90,
         type: 3}
