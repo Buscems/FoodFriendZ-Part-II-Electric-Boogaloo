@@ -66,6 +66,7 @@ public class BasePlayer : ScriptableObject
 
     [Header("Melee Characters")]
     public GameObject weapon;
+    public bool isFlamethrower;
 
     [Tooltip("This is the position the weapon will be at when it is not being used.")]
     public Vector3 awayPos;
@@ -354,7 +355,14 @@ public class BasePlayer : ScriptableObject
         }
 
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
-        SetMeleeVariables(attack, parentTransform);
+        if (isFlamethrower)
+        {
+           SetMeleeVariables(attack, attackDirection);
+        }
+        else
+        {
+            SetMeleeVariables(attack, parentTransform);
+        }
         currentAttackSpeedTimer = attackSpeed;
 
         if (attack.transform.childCount > 0)

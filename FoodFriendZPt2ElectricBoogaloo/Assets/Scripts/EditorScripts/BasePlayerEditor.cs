@@ -47,6 +47,9 @@ public class BasePlayerEditor : Editor
     SerializedProperty freezeSlowDownPercentage;
     #endregion
 
+    //Melee Variables
+    SerializedProperty isFlamethrower;
+
     //These are going to be all melee specific variables
     SerializedProperty weapon;
     SerializedProperty awayPos;
@@ -151,6 +154,7 @@ public class BasePlayerEditor : Editor
         freezeChance = soTarget.FindProperty("freezeChance");
         freezeLength = soTarget.FindProperty("freezeLength");
         freezeSlowDownPercentage = soTarget.FindProperty("freezeSlowdownPercentage");
+        isFlamethrower = soTarget.FindProperty("isFlamethrower");
         #endregion
 
     }
@@ -190,6 +194,7 @@ public class BasePlayerEditor : Editor
             EditorGUILayout.PropertyField(awayPos);
             EditorGUILayout.PropertyField(attackSpeed);
             EditorGUILayout.PropertyField(rotationalOffset);
+            EditorGUILayout.PropertyField(isFlamethrower);
         }
         if (myTarget.attackType == BasePlayer.AttackType.Melee || myTarget.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
         {

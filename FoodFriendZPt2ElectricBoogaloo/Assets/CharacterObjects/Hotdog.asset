@@ -10,47 +10,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: _Hotdog
+  m_Name: Hotdog
   m_EditorClassIdentifier: 
   hudIcon: {fileID: -3766080000172859765, guid: f71fc69a9f9f6411b8788123ea4209db,
     type: 3}
   characterName: hotdog
-  attackType: 4
+  attackType: 0
   Mspeed: 3
-  baseDamage: 0.33
+  baseDamage: 0.53
   critChance: 0
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1109.9011
+  currentDodgeTime: -29.77038
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -109.86772
+  currentDodgeWaitTime: -28.77039
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: 42
-  offset: 0.72
-  currentPosition: {x: -57.5, y: 61.5, z: 0}
-  currentDirection: {x: 1, y: -1, z: 0}
-  weapon: {fileID: 0}
+  offset: 1.15
+  currentPosition: {x: 39.91546, y: -5.8528976, z: 0}
+  currentDirection: {x: -1, y: 1, z: 0}
+  weapon: {fileID: 8565507827733616493, guid: 997882740430d0d4ea9cc25bd75a5880, type: 3}
+  isFlamethrower: 1
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
-  rotationalOffset: 0
+  rotationalOffset: -90
   isChargable: 0
   maxDamage: 0
   timeTillMaxDamage: 0
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet:
-  - {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
+  bullet: []
   firerate: 0.09
   bulletSpeed: 2
   timeTillDespawn: 0.63
   canBounce: 0
   radius: 45
   bulletsPerShot: 15
+  isOrb: 0
   bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
@@ -64,7 +65,7 @@ MonoBehaviour:
   dropRadius: 0
   explosionForce: 0
   currentFirerateTimer: -2.5685406
-  currentAttackSpeedTimer: 0
+  currentAttackSpeedTimer: -6.4797297
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
