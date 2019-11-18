@@ -190,6 +190,12 @@ public class StartMainMenuScript : MonoBehaviour
         MainMenuParent.SetActive(false);
     }
 
+    public void TutorialButtonFunction()
+    {
+        Debug.Log("Tutorial");
+        SceneManager.LoadScene("Tutorial");
+    }
+
     //Options Button
     public void OptionsButtonFunction()
     {

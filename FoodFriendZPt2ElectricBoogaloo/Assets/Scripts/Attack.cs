@@ -173,6 +173,14 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //checking if it is a chest
+        if (other.gameObject.tag == "Chest")
+        {
+            if (!other.GetComponent<ChestScript>().hasOpened)
+            {
+                other.gameObject.GetComponent<ChestScript>().hits++;
+            }
+        }
         if (gameObject.tag != "Takoyaki")
         {
             if (!canBounce)

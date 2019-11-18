@@ -39,6 +39,11 @@ public class ChestScript : MonoBehaviour
     public bool medRare;
     public bool rur;
 
+    public int maxHits;
+    [HideInInspector]
+    public int hits;
+    public bool hasOpened;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,7 +125,11 @@ public class ChestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(hits >= maxHits && !hasOpened)
+        {
+            OpenChest();
+            hasOpened = true;
+        }
     }
 
     public void OpenChest()

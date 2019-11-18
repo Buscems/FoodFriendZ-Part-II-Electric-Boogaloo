@@ -355,7 +355,7 @@ public class MainPlayer : MonoBehaviour
                 if (touchingChest && myPlayer.GetButtonDown("Cross"))
                 {
                     touchingChest = false;
-                    currentChest.OpenChest();
+                    //currentChest.OpenChest();
                 }
             }
 

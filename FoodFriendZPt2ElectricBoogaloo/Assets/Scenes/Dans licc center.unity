@@ -187,51 +187,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actions.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actions.Array.data[14]._id
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actions.Array.data[14]._name
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actions.Array.data[14]._type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actions.Array.data[14]._descriptiveName
-      value: Action0
-      objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actions.Array.data[14]._userAssignable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.data[14]
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
-        type: 3}
-      propertyPath: _userData.actionIdCounter
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60e88b968cc08742bc9e00db1882491, type: 3}
 --- !u!1 &351784218 stripped
@@ -2514,6 +2469,31 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2392885754005624388, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.28744
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392885754005624388, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.68767
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392885754005624388, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392885752878152770, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392885754646395829, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -124.41591
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0712b6790ff1d948ad1b3ccbdf45b9d, type: 3}
 --- !u!1 &966333414 stripped
@@ -4566,25 +4546,23 @@ PrefabInstance:
         type: 3}
       propertyPath: currentChar
       value: 
-      objectReference: {fileID: 11400000, guid: 19314d2ecbdb00b42a7bac4b4fa6829f,
+      objectReference: {fileID: 11400000, guid: 15482a04ad74dd040856a81e05842bce,
         type: 2}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: usingMouse
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: square
       value: 
-      objectReference: {fileID: 11400000, guid: 719bae922c32598419f93b599acd8299,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: triangle
       value: 
-      objectReference: {fileID: 11400000, guid: 29f7948a75b85374b838ec9e8a88d3d9,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: allCharacters.Array.data[5]

@@ -20,7 +20,7 @@ public class ItemHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        statBoostPanel = GameObject.Find("*EquipmentToolBarPanel");
+        //statBoostPanel = GameObject.Find("*EquipmentToolBarPanel");
     }
 
     // Update is called once per frame
@@ -50,12 +50,14 @@ public class ItemHandler : MonoBehaviour
 
             if (flag == false)
             {
+                /*
                 GameObject statBoost = Instantiate(statBoostHolder, transform.position, Quaternion.identity);
                 statBoost.transform.parent = statBoostPanel.transform;
                 statBoost.transform.GetChild(0).GetComponent<Image>().sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
                 statBoost.transform.localScale = new Vector3(1, 1, 1);
                 statBoost.name = other.gameObject.GetComponent<PowerUps>().powerUpName;
                 statBoostGameObjects.Add(statBoost);
+                */
             }
 
             foreach (GameObject statBoost in statBoostGameObjects)

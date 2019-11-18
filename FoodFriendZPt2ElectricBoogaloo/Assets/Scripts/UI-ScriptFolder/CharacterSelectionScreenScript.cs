@@ -52,6 +52,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     [Header("Scrolling Variables")]
     public GameObject[] characterSets;
     public GameObject[] switchCharacter;
+    public GameObject firstChar;
     public float joystickThreshold;
     bool hasScrolled;
 
@@ -94,6 +95,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     private void Update()
     {
+        
         //this is handling all of the scrolling code
         if (Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) >= joystickThreshold)
         {
@@ -129,6 +131,68 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         {
             hasScrolled = false;
         }
+        
+        /*
+        if (Mathf.Abs(myPlayer.GetAxis("MoveVertical")) >= joystickThreshold)
+        {
+            //if going down
+            if (myPlayer.GetAxis("MoveVertical") < 0)
+            {
+                try
+                {
+                    if (events.currentSelectedGameObject == switchCharacter[0] || events.currentSelectedGameObject == switchCharacter[1])
+                    {
+                        characterSets[0].SetActive(false);
+                        characterSets[1].SetActive(true);
+                        events.SetSelectedGameObject(switchCharacter[2]);
+                    }
+                    if (events.currentSelectedGameObject == switchCharacter[4] || events.currentSelectedGameObject == switchCharacter[5])
+                    {
+                        characterSets[1].SetActive(false);
+                        characterSets[2].SetActive(true);
+                        events.SetSelectedGameObject(switchCharacter[6]);
+                    }
+                    if (events.currentSelectedGameObject == switchCharacter[8] || events.currentSelectedGameObject == switchCharacter[9])
+                    {
+                        characterSets[2].SetActive(false);
+                        characterSets[3].SetActive(true);
+                        events.SetSelectedGameObject(switchCharacter[10]);
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+            //if going up
+            if (myPlayer.GetAxis("DirectionVertical") > 0)
+            {
+                try
+                {
+                    if (events.currentSelectedGameObject == switchCharacter[10] || events.currentSelectedGameObject == switchCharacter[11])
+                    {
+                        characterSets[3].SetActive(false);
+                        characterSets[2].SetActive(true);
+                        events.SetSelectedGameObject(switchCharacter[6]);
+                    }
+                    if (events.currentSelectedGameObject == switchCharacter[6] || events.currentSelectedGameObject == switchCharacter[7])
+                    {
+                        characterSets[2].SetActive(false);
+                        characterSets[1].SetActive(true);
+                        events.SetSelectedGameObject(switchCharacter[2]);
+                    }
+                    if (events.currentSelectedGameObject == switchCharacter[2] || events.currentSelectedGameObject == switchCharacter[3])
+                    {
+                        characterSets[1].SetActive(false);
+                        characterSets[0].SetActive(true);
+                        events.SetSelectedGameObject(firstChar);
+                    }
+                }
+                catch { }
+            }
+        }
+        */
+
     }
 
     public void BackToTitleScreenFunction()

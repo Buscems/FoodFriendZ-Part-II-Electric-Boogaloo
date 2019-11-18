@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEditor;
-
+/*
 [CustomEditor(typeof(BasePlayer))]
 public class BasePlayerEditor : Editor
-{
 
+{
+    
     private BasePlayer myTarget;
     private SerializedObject soTarget;
 
@@ -299,3 +300,4 @@ public class BasePlayerEditor : Editor
     
 
 }
+*/

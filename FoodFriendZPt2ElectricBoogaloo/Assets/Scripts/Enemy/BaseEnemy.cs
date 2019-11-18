@@ -103,10 +103,14 @@ public class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (anim != null && aggroScript.aggro)
+        try
         {
-            AnimationHandler();
+            if (anim != null && aggroScript.aggro)
+            {
+                AnimationHandler();
+            }
         }
+        catch { }
 
         sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime);
         speed = origSpeed * slowDownPercentage;
