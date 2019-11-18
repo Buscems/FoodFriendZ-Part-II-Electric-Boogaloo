@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
-  m_Name: _Takoyaki
+  m_Name: Takoyaki
   m_EditorClassIdentifier: 
   hudIcon: {fileID: -5435086016833673295, guid: 526345c04a1d89f4eaf9bb9643030873,
     type: 3}
@@ -50,6 +50,7 @@ MonoBehaviour:
   canBounce: 0
   radius: 60
   bulletsPerShot: 3
+  isOrb: 0
   bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
