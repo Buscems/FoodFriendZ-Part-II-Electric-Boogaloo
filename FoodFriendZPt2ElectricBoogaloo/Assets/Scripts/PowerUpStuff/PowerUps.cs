@@ -90,7 +90,7 @@ public class PowerUps : MonoBehaviour
         imScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemManager>();
 
         //temporary fail safe
-        if (powerUpDesc == null)
+        if (powerUpDesc == null || powerUpDesc == "")
         {
             powerUpDesc = "Nothing atm";
         }

@@ -163,7 +163,7 @@ public class MainPlayer : MonoBehaviour
     void Awake()
     {
         itemDescObject = GameObject.Find("*PickUpDesc");
-        powerUpDesc = itemDescObject.GetComponent<TextMeshProUGUI>();
+        powerUpDesc = GameObject.Find("pickUpText").GetComponent<TextMeshProUGUI>();
         itemDesc = GameObject.Find("*PickUpDesc").GetComponent<Animator>();
 
         ieScript = GetComponent<ItemExtension>();
@@ -1057,14 +1057,17 @@ public class MainPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "StatBoost")
         {
+            //applies all public variables on equipment to multipliers
+            PowerUps temp = other.GetComponent<PowerUps>();
+
             //assign text
-            powerUpDesc.text = other.gameObject.GetComponent<PowerUps>().powerUpDesc;
+            Debug.Log(temp);
+            Debug.Log(temp.powerUpDesc);
+
+            powerUpDesc.SetText(temp.powerUpDesc);
 
             //power up description animation
             itemDesc.SetTrigger("pickUpTrigger");
-
-            //applies all public variables on equipment to multipliers
-            PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
             //if equipment has a bonus effect OR does more than just boost multipliers, it'll be implmented here
             StartCoroutine(temp.Pickup());
