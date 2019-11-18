@@ -248,10 +248,10 @@ MonoBehaviour:
   mediumRareChance: 90
   rareChance: 100
   baseCost: 0
-  wellDoneCost: 0
-  mediumWellCost: 0
-  mediumRareCost: 0
-  rareCost: 0
+  wellDoneCost: 10
+  mediumWellCost: 25
+  mediumRareCost: 75
+  rareCost: 150
   currentPowerup: {fileID: 0}
   anim: {fileID: 8316142955066493607}
   sparkles: {fileID: 1166425690676615295, guid: 62d2243242d214f2c8675c80f935325c,
@@ -263,6 +263,7 @@ MonoBehaviour:
   rur: 0
   maxHits: 2
   hits: 0
+  hasOpened: 0
 --- !u!212 &3117695947573847471
 SpriteRenderer:
   m_ObjectHideFlags: 0
