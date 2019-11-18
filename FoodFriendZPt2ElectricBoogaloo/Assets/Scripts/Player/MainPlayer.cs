@@ -12,6 +12,8 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
+    [HideInInspector] Animator itemDesc;
+
     ItemExtension ieScript;
     [HideInInspector] public int GreenMushrooms;
 
@@ -158,6 +160,8 @@ public class MainPlayer : MonoBehaviour
 
     void Awake()
     {
+        itemDesc = GameObject.Find("*PickUpDesc").GetComponent<Animator>();
+
         ieScript = GetComponent<ItemExtension>();
 
         switch (PlayerPrefs.GetInt("startCharacter"))
@@ -1045,10 +1049,13 @@ public class MainPlayer : MonoBehaviour
     }
 
     //[COLLIDER METHODS]
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "StatBoost")
         {
+            //power up description animation
+            itemDesc.SetTrigger("pickUpTrigger");
+
             //applies all public variables on equipment to multipliers
             PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
