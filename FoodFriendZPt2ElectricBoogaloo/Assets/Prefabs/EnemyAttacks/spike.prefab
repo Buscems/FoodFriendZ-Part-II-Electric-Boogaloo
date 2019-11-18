@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 627287991680626988}
   - component: {fileID: 6999358950760240661}
   - component: {fileID: 2278360167478317920}
-  - component: {fileID: 2277039674838629032}
+  - component: {fileID: 6915609453997467844}
   m_Layer: 16
   m_Name: spike
   m_TagString: Projectile
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8872604728489419081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -57.108963, y: 56.503437, z: 0}
-  m_LocalScale: {x: 0.25531, y: 0.25531, z: 0.25531}
+  m_LocalScale: {x: 0.7458116, y: 0.7458116, z: 0.7458116}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b4a2f9f1d4eb304ea46864d3d38fb4f, type: 3}
+  m_Sprite: {fileID: -5583855826483745263, guid: 43eb8cb736b72403ab15baac2a7e3882,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 2
---- !u!60 &2277039674838629032
+--- !u!60 &6915609453997467844
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,14 +128,14 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 0.47, y: 1.07}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -142,9 +143,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.07, y: 0.02}
-      - {x: -1.5, y: -1.41}
-      - {x: -1.5, y: -1.5}
-      - {x: 1.5, y: -1.5}
-      - {x: 1.5, y: -1.4699999}
-      - {x: 0.099999994, y: 0.02}
+    - - {x: 0.15, y: 0.35}
+      - {x: -0.15, y: 0.35}
+      - {x: -0.4, y: -0.2}
+      - {x: -0.4, y: -0.4}
+      - {x: 0.3, y: -0.4}
+      - {x: 0.4, y: -0.3}
+      - {x: 0.4, y: -0.25}

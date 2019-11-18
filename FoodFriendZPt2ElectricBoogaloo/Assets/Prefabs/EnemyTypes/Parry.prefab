@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 493399596654181578}
   - component: {fileID: 6050335298230972369}
   - component: {fileID: 1030070882179376109}
-  - component: {fileID: 5833529621162520906}
   - component: {fileID: 1812254969337753735}
   - component: {fileID: 4127469755862183619}
   - component: {fileID: 2514516501769925274}
+  - component: {fileID: 7858918609360133542}
   m_Layer: 10
   m_Name: Parry
   m_TagString: Enemy
@@ -77,9 +77,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fb21d43469c422e4799d052c515883f3, type: 3}
+  m_Sprite: {fileID: 7296575829026624558, guid: e6216edd6405d704297914c930aa8ea2,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.3, y: 0.27}
@@ -153,22 +154,6 @@ MonoBehaviour:
   isBlocking: 0
   ParryDownTime: 2
   ParryUpTime: 2
---- !u!58 &5833529621162520906
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3473217360845030908}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!114 &1812254969337753735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +216,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &7858918609360133542
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3473217360845030908}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.35, y: 0.95}
+    newSize: {x: 0.3, y: 0.27}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.35, y: 0.95}
+  m_EdgeRadius: 0
 --- !u!1 &5661367894684022194
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5661367894684022194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.927, y: -0.004, z: -0.46992022}
+  m_LocalPosition: {x: -1.468, y: -0.004, z: -0.46992022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2297353830455895172}
@@ -287,7 +298,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.22, y: 1}
+  m_Size: {x: 4.07, y: 1.83}
   m_EdgeRadius: 0
 --- !u!114 &8437161293642364939
 MonoBehaviour:
@@ -312,7 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8385244215003939650}
   - component: {fileID: 518387810662399520}
-  - component: {fileID: 2643633679342582657}
+  - component: {fileID: 6062430787052155977}
   m_Layer: 0
   m_Name: Parry Shield
   m_TagString: Untagged
@@ -328,7 +339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7639626705638255733}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.265, y: -0, z: -6.05469}
+  m_LocalPosition: {x: -0.781, y: -0, z: -6.05469}
   m_LocalScale: {x: 1.29, y: 2.563875, z: 1.29}
   m_Children: []
   m_Father: {fileID: 2297353830455895172}
@@ -371,7 +382,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -4998574786478668113, guid: 33ff4aa52e16a4b108af608163fef449,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -382,7 +394,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2643633679342582657
+--- !u!61 &6062430787052155977
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,14 +409,14 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.13}
+  m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
