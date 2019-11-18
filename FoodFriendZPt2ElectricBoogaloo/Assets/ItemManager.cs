@@ -58,6 +58,7 @@ public class ItemManager : MonoBehaviour
 
         //Rewired Code
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
+
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         CheckController(myPlayer);
 

@@ -604,11 +604,13 @@ MonoBehaviour:
   item: {fileID: 0}
   itemParticleSystem: {fileID: 8891904151346878587}
   curCDTimer: 0
+  curEffectTimer: 0
   rechargeRateMultiplier: 1
   isRechargeRateDoubled: 0
-  curEffectTimer: 0
   readyCDcolor: {r: 1, g: 1, b: 1, a: 1}
   rechargingCDcolor: {r: 1, g: 0.52518374, b: 0, a: 1}
+  itemSprite: {fileID: 0}
+  playerNum: 1
 --- !u!114 &4353887692898803888
 MonoBehaviour:
   m_ObjectHideFlags: 0
