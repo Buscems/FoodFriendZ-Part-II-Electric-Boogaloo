@@ -6930,6 +6930,7 @@ GameObject:
   - component: {fileID: 1029956142}
   - component: {fileID: 1029956143}
   - component: {fileID: 1029956144}
+  - component: {fileID: 1029956145}
   m_Layer: 0
   m_Name: '***CharacterSelectionMenu'
   m_TagString: Untagged
@@ -7138,6 +7139,131 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1029956145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029956141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b469074f685f0d848976cf4eb0e359b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData:
+    CharacterListNames:
+    - Tofu
+    - Onigiri
+    - Takoyaki
+    - Cherry
+    - Cannoli
+    - Burger
+    - Sashimi
+    - Fries
+    - Taco
+    - Donut
+    - Hotdog
+    - Napoleon
+    - Muffin
+    - Cone
+    - LobsterTail
+    - Samosa
+    - TunaCan
+    - Pancakes
+    - Orb
+    - Pancakes
+    ItemsListNames:
+    - Thyme
+    - Drain Trap
+    - Soul Sake
+    - Donut Holes
+    - Couple's Milkshake
+    - Starfruit
+    - King of Cola
+    - Caviar
+    - Stopwatch
+    - Whole Milk
+    - Rabbit Stew
+    - Utensil Box
+    - Weird Dough
+    - Molasses
+    - Preserves
+    - Paper Towel
+    - Sponge
+    - Rag
+    - Granola
+    - Ceramic Plate
+    - Whipped Cream
+    - Pizza Cutter
+    - Tenderizer
+    - Whisk
+    - Canned Good
+    - Smoothie
+    - Detergent Pod
+    - Culinary Torch
+    - Paprika
+    - Rosemary
+    - Garnish
+    - Easter Egg
+    - Banana Peel
+    - Drink Coaster
+    - Spinach
+    - Spicy Jalapeno
+    - Aluminum Foil
+    - Egg Timer
+    ItemsList: 0000000000000000000000000000000000000000000000000000000000000000000000000000
+    EquipmentListNames:
+    - Hot Sauce
+    - ' '
+    - Valentine's Day Chocolate
+    - Maggots
+    - ' '
+    - Kiss The Cook Apron
+    - Sweet Carolina
+    - Scored Cutting Board
+    - Bludgeoned Cutting Board
+    - Cooking Spray
+    - Kitchen Knife
+    - Freeze Pops
+    - XXL Soda
+    - Marshmallow Cereal
+    - Protein Shake
+    - Truffles
+    - Bag Of Ice
+    - Rocket Popsicle
+    - Turtle Soup
+    - Starfruit
+    - Sugar
+    - Caffeine
+    - Frog Legs
+    - Garlic Powder
+    - Italian Seasoning
+    - Aluminum Foil
+    - Plastic Tupperware
+    - Plastic Wrap
+    - Plastic Straw
+    - Chopsticks
+    - Spatula
+    - Spork
+    - Swiss Army Cheese
+    - Butcher's Knife
+    - Rat Poison
+    - Oven Mitt
+    - Knife Sharpening Steel
+    - Crazy Straw
+    - Bendy Straw
+    - Food Stamp
+    - Coupon
+    - Non-Stick Spray
+    - Salt
+    - Pepper Grinder
+    - Mold
+    - Left Overs
+    - Vacuumed-Sealed Bag
+    - Coconut
+    EquipmentList: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    CharacterList: 0100000000000000000000000000000000000000
 --- !u!1 &1040928235
 GameObject:
   m_ObjectHideFlags: 0

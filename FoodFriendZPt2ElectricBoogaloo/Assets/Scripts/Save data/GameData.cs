@@ -8,24 +8,24 @@ public class GameData
     //dont touch this (unless you're trap loving lolicon)
     public string[] CharacterListNames = new string[]
     {
-       /*0 */ "Cannoli",
-       /*1 */ "Cherry",
-       /*2 */ "Cone",
-       /*3 */ "Donut",
-       /*4 */ "Fries",
+       /*0 */ "Tofu",
+       /*1 */ "Onigiri",
+       /*2 */ "Takoyaki",
+       /*3 */ "Cherry",
+       /*4 */ "Cannoli",
        /*5 */ "Burger",
-       /*6 */ "Hotdog",
-       /*7 */ "Napolean",
-       /*8 */ "Onigiri",
-       /*9 */ "Sashimi",
-       /*10*/ "Takoyaki",
-       /*11*/ "Tofu",
-       /*12*/ "5RoundBurst",
-       /*13*/ "BlueberryMuffin",
+       /*6 */ "Sashimi",
+       /*7 */ "Fries",
+       /*8 */ "Taco",
+       /*9 */ "Donut",
+       /*10*/ "Hotdog",
+       /*11*/ "Napoleon",
+       /*12*/ "Muffin",
+       /*13*/ "Cone",
        /*14*/ "LobsterTail",
        /*15*/ "Samosa",
-       /*16*/ "Taco",
-       /*17*/ "TunaCan",
+       /*16*/ "TunaCan",
+       /*17*/ "Pancakes",
        /*18*/ "Orb",
        /*19*/ "Pancakes",
     };
@@ -314,7 +314,7 @@ public class GameData
         
          * Array Pos - Character
          */
-         /* 0  */ false,   /* [Cannoli] */
+         /* 0  */ true,   /* [Cannoli] */
          /* 1  */ false,   /* [Cherry] */
          /* 2  */ false,  /* [Cone] */
          /* 3  */ false,  /* [Donut] */
@@ -325,7 +325,7 @@ public class GameData
          /* 8  */ false,  /* [Onigiri] */
          /* 9  */ false,  /* [Sashimi] */
          /* 10 */ false,  /* [Takoyaki] */
-         /* 11 */ true,  /* [Tofu] */
+         /* 11 */ false,  /* [Tofu] */
          /* 12 */ false,  /* [5RoundBurst] */
          /* 13 */ false,  /* [Blueberry Muffin] */
          /* 14 */ false,  /* [Lobster Tail] */
