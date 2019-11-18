@@ -6,6 +6,7 @@ public class PowerUps : MonoBehaviour
 {
     //[ALL VARIABLES]
     #region [ALL VARIABLES]
+
     float storedSpeedMult;
 
     //[SCRIPTS]

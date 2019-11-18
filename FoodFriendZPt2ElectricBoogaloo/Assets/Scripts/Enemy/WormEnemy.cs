@@ -22,6 +22,8 @@ public class WormEnemy : MonoBehaviour
 
     BaseEnemy baseEnemy;
 
+    public GameObject wormItself;
+
 
     void Start()
     {
@@ -52,9 +54,9 @@ public class WormEnemy : MonoBehaviour
         transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime),
         transform.position.y + (movementPerSecond.y * Time.deltaTime));
 
-        if (baseEnemy.health == 0){
+        if (baseEnemy.health <= 0){
             isDead = true;
-            Destroy(gameObject);
+            Destroy(wormItself);
         }
     }
 
