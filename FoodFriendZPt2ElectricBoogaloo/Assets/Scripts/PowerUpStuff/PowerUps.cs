@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PowerUps : MonoBehaviour
 {
     //[ALL VARIABLES]
     #region [ALL VARIABLES]
+
     float storedSpeedMult;
 
-    //[SCRIPTS]
+    //scripts
     public MainPlayer stats;
     [HideInInspector] public BasePlayer baseStats;
     ItemExtension ieScript;
