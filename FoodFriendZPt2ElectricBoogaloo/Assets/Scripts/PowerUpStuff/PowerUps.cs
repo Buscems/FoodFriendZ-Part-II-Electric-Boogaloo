@@ -14,6 +14,7 @@ public class PowerUps : MonoBehaviour
     //scripts
     public MainPlayer stats;
     [HideInInspector] public BasePlayer baseStats;
+
     ItemExtension ieScript;
     ItemManager imScript;
 
@@ -21,7 +22,10 @@ public class PowerUps : MonoBehaviour
 
     public bool effectIsActive = true;
 
-    [Tooltip("Power-Up Names")] public string powerUpName = "";
+    [Space]
+    public string powerUpName = "";
+    public string powerUpDesc;
+    [Space]
 
     #region Base Stats
     [Header("Base Stats")]
@@ -84,6 +88,12 @@ public class PowerUps : MonoBehaviour
         stats = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
         ieScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemExtension>();
         imScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<ItemManager>();
+
+        //temporary fail safe
+        if (powerUpDesc == null)
+        {
+            powerUpDesc = "Nothing atm";
+        }
 
         baseStats = stats.currentChar;
     }
