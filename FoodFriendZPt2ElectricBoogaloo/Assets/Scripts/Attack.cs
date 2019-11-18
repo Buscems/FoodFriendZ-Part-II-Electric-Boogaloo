@@ -183,17 +183,22 @@ public class Attack : MonoBehaviour
                         {
                             if (isPinshot)
                             {
+                                print("1");
                                 if (enemy != null)
                                 {
+                                    print("45");
                                     if (enemy.GetComponent<BaseEnemy>() != null)
                                     {
-                                        other.GetComponent<BaseEnemy>().TakeDamage(explosionDamage);
-                                    }
+                                        enemy.GetComponent<BaseEnemy>().TakeDamage(explosionDamage);
+                                        print("2");
+                                    }else
                                     if (enemy.GetComponent<BaseBoss>() != null)
                                     {
                                         enemy.GetComponent<BaseBoss>().TakeDamage(explosionDamage);
+                                        print("2b");
                                     }
                                 }
+                                print("3");
                                 Destroy(gameObject);
                             }
                             else
@@ -201,7 +206,7 @@ public class Attack : MonoBehaviour
                                 Destroy(this.gameObject);
                             }
                         }
-                        catch { }
+                        catch { print("6"); }
                     }
                 }
             }
