@@ -12,7 +12,9 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
-    [HideInInspector] Animator itemDesc;
+    GameObject itemDescObject;
+    TextMeshProUGUI powerUpDesc;
+    Animator itemDesc;
 
     ItemExtension ieScript;
     [HideInInspector] public int GreenMushrooms;
@@ -160,6 +162,8 @@ public class MainPlayer : MonoBehaviour
 
     void Awake()
     {
+        itemDescObject = GameObject.Find("*PickUpDesc");
+        powerUpDesc = itemDescObject.GetComponent<TextMeshProUGUI>();
         itemDesc = GameObject.Find("*PickUpDesc").GetComponent<Animator>();
 
         ieScript = GetComponent<ItemExtension>();
@@ -1053,6 +1057,9 @@ public class MainPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "StatBoost")
         {
+            //assign text
+            powerUpDesc.text = other.gameObject.GetComponent<PowerUps>().powerUpDesc;
+
             //power up description animation
             itemDesc.SetTrigger("pickUpTrigger");
 
