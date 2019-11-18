@@ -10,6 +10,8 @@ public class WormBody : MonoBehaviour
 
     public float distToHead;
 
+    public GameObject bodyBehind;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,10 @@ public class WormBody : MonoBehaviour
         if (Vector2.Distance(transform.position, wormHead.position) < distToHead)
         {
             transform.position = Vector2.MoveTowards(transform.position, wormHead.position, baseEnemy.speed * Time.deltaTime);
+        }
+
+        if (baseEnemy.health <= 0){
+            Destroy(bodyBehind);
         }
     }
 }
