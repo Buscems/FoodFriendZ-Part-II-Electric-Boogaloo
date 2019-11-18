@@ -10,13 +10,23 @@ public class DiscoverCharacter : MonoBehaviour
 
     public BasePlayer[] characters;
 
+    public bool spawnThis;
+    public int index;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
 
-        int randNum = (int)Random.Range(0, characters.Length);
-        currentChar = characters[randNum];
+        if (spawnThis)
+        {
+            currentChar = characters[index];
+        }
+        else
+        {
+            int randNum = (int)Random.Range(0, characters.Length);
+            currentChar = characters[randNum];
+        }
         AnimationHandler();
     }
 

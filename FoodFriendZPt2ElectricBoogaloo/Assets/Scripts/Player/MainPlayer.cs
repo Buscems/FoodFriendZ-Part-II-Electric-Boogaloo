@@ -272,6 +272,11 @@ public class MainPlayer : MonoBehaviour
     void Start()
     {
 
+        if (usingMouse)
+        {
+            pointer.SetActive(false);
+        }
+
         //poof timer
         currentPoofTimer = maxPoofTime;
 
