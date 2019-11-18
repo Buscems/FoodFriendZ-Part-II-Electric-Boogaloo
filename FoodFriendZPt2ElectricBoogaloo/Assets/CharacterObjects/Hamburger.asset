@@ -15,24 +15,25 @@ MonoBehaviour:
   hudIcon: {fileID: 731375368619335737, guid: a50946ca57f9c42ec899b790b68db37b, type: 3}
   characterName: burger
   attackType: 6
-  Mspeed: 4
+  Mspeed: 6
   baseDamage: 2
-  critChance: 0
-  critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
+  critChance: 0.14
+  critDamageMulitiplier: 2
+  dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 1
-  currentDodgeTime: -1410.6389
-  dodgeWaitTime: 1
-  currentDodgeWaitTime: -410.6132
+  dodgeLength: 0.13
+  currentDodgeTime: -1469.7277
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -469.698
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -50.84131, y: 63.981003, z: 0}
-  currentDirection: {x: 1, y: 1, z: 0}
+  currentPosition: {x: 0, y: 0, z: 0}
+  currentDirection: {x: 0.037400644, y: -0.49300852, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0
@@ -45,11 +46,12 @@ MonoBehaviour:
   bullet:
   - {fileID: 6395150998634022948, guid: 76da2d0d67f77f849a4c098de550d799, type: 3}
   firerate: 0.21
-  bulletSpeed: 5
+  bulletSpeed: 10
   timeTillDespawn: 86.31
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
+  isOrb: 0
   bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
@@ -57,12 +59,12 @@ MonoBehaviour:
   isPinshot: 0
   explosionDamage: 0
   timeBeforeExplosion: 0
-  timeBeforeReturning: 0.7
+  timeBeforeReturning: 0.6
   firing: 0
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -7.142262
+  currentFirerateTimer: -6.969418
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

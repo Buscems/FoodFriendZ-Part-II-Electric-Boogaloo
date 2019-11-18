@@ -27,6 +27,9 @@ public class BasicBullet : MonoBehaviour
 
     [HideInInspector]
     public bool stopMoving = false;
+
+    [HideInInspector]
+    public bool isOrb;
    
 
     // Start is called before the first frame update
@@ -83,7 +86,7 @@ public class BasicBullet : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
 
         }
-        else if(stopMoving == false)
+        else if(stopMoving == false && ! isOrb)
         {
             rb.MovePosition(transform.position + velocity * Time.deltaTime);
         }

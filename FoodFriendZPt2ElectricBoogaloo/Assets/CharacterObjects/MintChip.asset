@@ -15,27 +15,28 @@ MonoBehaviour:
   hudIcon: {fileID: 7465839642619102276, guid: 1026837ef1e7144aa8a98589e8f59a04, type: 3}
   characterName: cone
   attackType: 1
-  Mspeed: 1
-  baseDamage: 0.2
+  Mspeed: 5
+  baseDamage: 0.5
   critChance: 0.351
-  critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
+  critDamageMulitiplier: 2
+  dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 1
-  currentDodgeTime: -1071.0356
-  dodgeWaitTime: 1
-  currentDodgeWaitTime: -71.03915
+  dodgeLength: 0.12
+  currentDodgeTime: -1127.9849
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -127.990944
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 1
   pierceMultiplier: 1.74
   maxAmountOfEnemiesCanPassThrough: 100
   offset: 0.69
-  currentPosition: {x: -57.225525, y: 51.492367, z: 0}
-  currentDirection: {x: 0.06861087, y: -0.6319422, z: 0}
+  currentPosition: {x: 20.120886, y: -17.62448, z: 0}
+  currentDirection: {x: -0.0009635704, y: -0.0012987253, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
-  rotationalOffset: 0
+  rotationalOffset: -90
   isChargable: 0
   maxDamage: 0
   timeTillMaxDamage: 0
@@ -50,6 +51,7 @@ MonoBehaviour:
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
+  isOrb: 0
   bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
@@ -62,7 +64,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -1.5587394
+  currentFirerateTimer: -1.7752975
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

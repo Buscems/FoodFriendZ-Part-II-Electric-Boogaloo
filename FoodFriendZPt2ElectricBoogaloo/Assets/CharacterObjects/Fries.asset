@@ -16,24 +16,25 @@ MonoBehaviour:
     type: 3}
   characterName: fries
   attackType: 1
-  Mspeed: 2
+  Mspeed: 6
   baseDamage: 0.14
-  critChance: 0
-  critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
+  critChance: 0.079
+  critDamageMulitiplier: 2
+  dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 1
-  currentDodgeTime: -1307.0168
-  dodgeWaitTime: 1
-  currentDodgeWaitTime: -307.02322
+  dodgeLength: 0.16
+  currentDodgeTime: -1336.1904
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -336.19693
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -61.327793, y: 40.488613, z: 0}
-  currentDirection: {x: -1, y: 1, z: 0}
+  currentPosition: {x: 20.846338, y: -17.620737, z: 0}
+  currentDirection: {x: -0.27052847, y: -0.088277705, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0
@@ -46,11 +47,12 @@ MonoBehaviour:
   bullet:
   - {fileID: 6395150998634022948, guid: 28b8a2ff832c20d468aa221931d6275c, type: 3}
   firerate: 1
-  bulletSpeed: 5.29
+  bulletSpeed: 15
   timeTillDespawn: 10
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
+  isOrb: 0
   bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
@@ -63,7 +65,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -0.47965547
+  currentFirerateTimer: -2.6462545
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

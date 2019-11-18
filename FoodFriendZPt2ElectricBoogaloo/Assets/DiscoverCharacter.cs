@@ -13,6 +13,8 @@ public class DiscoverCharacter : MonoBehaviour
     public bool spawnThis;
     public int index;
 
+    public int[] excludeIndex;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,26 @@ public class DiscoverCharacter : MonoBehaviour
         else
         {
             int randNum = (int)Random.Range(0, characters.Length);
+            bool check = false;
+
+            do
+            {
+                check = false;
+
+                for (int i = 0; i < excludeIndex.Length; i++)
+                {
+                    if(randNum == excludeIndex[i])
+                    {
+                        check = true;
+                    }
+                }
+                if (check)
+                {
+                    randNum = (int)Random.Range(0, characters.Length);
+                }
+
+            } while (check == true);
+
             currentChar = characters[randNum];
         }
         AnimationHandler();

@@ -15,24 +15,25 @@ MonoBehaviour:
   hudIcon: {fileID: 2569236167131993415, guid: 6bf3721e2c0754bcfa836c60566e16bf, type: 3}
   characterName: donut
   attackType: 4
-  Mspeed: 3
-  baseDamage: 0.22
-  critChance: 0
-  critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
+  Mspeed: 5
+  baseDamage: 0.28
+  critChance: 0.16
+  critDamageMulitiplier: 2
+  dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 1
-  currentDodgeTime: -2334.1948
-  dodgeWaitTime: 1
-  currentDodgeWaitTime: -1333.7996
+  dodgeLength: 0.14
+  currentDodgeTime: -2353.5806
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -1353.1896
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -53.31895, y: 58.566235, z: 0}
-  currentDirection: {x: 0.30135077, y: 0.11636317, z: 0}
+  currentPosition: {x: 19.893555, y: -2.6510267, z: 0}
+  currentDirection: {x: -0.16032296, y: -0.0030519848, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0
@@ -47,11 +48,12 @@ MonoBehaviour:
   - {fileID: 6395150998634022948, guid: c48eedaea4efaca41916c8aab65d8fca, type: 3}
   - {fileID: 6395150998634022948, guid: b2f8fa80108ce6940a48098ca9f05b82, type: 3}
   firerate: 0.25
-  bulletSpeed: 5
+  bulletSpeed: 9
   timeTillDespawn: 10
   canBounce: 0
   radius: 360
   bulletsPerShot: 10
+  isOrb: 0
   bulletTypes: []
   bulletsPerBurst: 0
   timeBetweenBursts: 0
@@ -64,7 +66,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -2.8612828
+  currentFirerateTimer: -3.2533805
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

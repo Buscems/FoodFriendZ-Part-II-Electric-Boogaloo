@@ -16,24 +16,25 @@ MonoBehaviour:
     type: 3}
   characterName: takoyaki
   attackType: 7
-  Mspeed: 3
+  Mspeed: 6
   baseDamage: 10
-  critChance: 0
-  critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
+  critChance: 0.1
+  critDamageMulitiplier: 2
+  dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 1
-  currentDodgeTime: -199.30151
-  dodgeWaitTime: 1
-  currentDodgeWaitTime: -198.30157
+  dodgeLength: 0.14
+  currentDodgeTime: -11.008822
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -9.008817
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0.73
-  currentPosition: {x: -62.0455, y: 39.462112, z: 0}
-  currentDirection: {x: 1, y: -1, z: 0}
+  currentPosition: {x: 23.62621, y: -4.2245665, z: 0}
+  currentDirection: {x: 0.51162523, y: 0.04463844, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0

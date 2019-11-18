@@ -467,6 +467,8 @@ public class BasePlayer : ScriptableObject
                 GameObject _bullet1 = bullet[Random.Range(0, bullet.Length)];
                 GameObject attack1 = Instantiate(_bullet1, pos + (attackDirection.transform.right * offset), Quaternion.identity);
                 SetBulletVariables(attack1, parentTransform, false);
+                attack1.GetComponent<BasicBullet>().isOrb = true;
+                attack1.GetComponent<Attack>().isOrb = true;
                 attack1.transform.parent = parentTransform;
                 attack1.GetComponent<Attack>().damage = damage;
             }

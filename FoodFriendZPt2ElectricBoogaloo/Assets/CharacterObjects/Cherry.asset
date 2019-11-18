@@ -16,23 +16,24 @@ MonoBehaviour:
   characterName: cherry
   attackType: 7
   Mspeed: 5
-  baseDamage: 1
-  critChance: 0
-  critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
+  baseDamage: 2
+  critChance: 0.125
+  critDamageMulitiplier: 2
+  dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 5.68
-  currentDodgeTime: -274.42343
-  dodgeWaitTime: 0.26
-  currentDodgeWaitTime: -274.16354
+  dodgeLength: 0.11
+  currentDodgeTime: -294.90518
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -294.6453
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -57.49722, y: 59.6936, z: 0}
-  currentDirection: {x: -0.038488105, y: -0.023468357, z: 0}
+  currentPosition: {x: -32.659737, y: -6.3723636, z: 0}
+  currentDirection: {x: -0.082401976, y: -1, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0
@@ -42,13 +43,15 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 0}
+  bullet:
+  - {fileID: 0}
   firerate: 0.5
   bulletSpeed: 750
   timeTillDespawn: 1
   canBounce: 0
   radius: 90
   bulletsPerShot: 5
+  isOrb: 0
   bulletTypes: []
   bulletsPerBurst: 3
   timeBetweenBursts: 0.5
@@ -60,7 +63,7 @@ MonoBehaviour:
   firing: 0
   drop: {fileID: 1747628256198301912, guid: 6f2f641a7f16a402c82cf443779019ea, type: 3}
   dropRadius: 2
-  explosionForce: 2.74
+  explosionForce: 4
   currentFirerateTimer: 0.004910702
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1

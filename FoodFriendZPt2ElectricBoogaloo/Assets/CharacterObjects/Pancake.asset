@@ -16,23 +16,24 @@ MonoBehaviour:
   characterName: pancakes
   attackType: 1
   Mspeed: 6
-  baseDamage: 0
-  critChance: 0
-  critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
-  currentDodgeSpeedMultiplier: 0
-  dodgeLength: 1
-  currentDodgeTime: -1000
-  dodgeWaitTime: 1
-  currentDodgeWaitTime: 0
+  baseDamage: 1
+  critChance: 0.438
+  critDamageMulitiplier: 3
+  dodgeSpeedMultiplier: 3
+  currentDodgeSpeedMultiplier: 1
+  dodgeLength: 0.16
+  currentDodgeTime: -1034.3555
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -34.347687
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 1
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: 5
   offset: 0
-  currentPosition: {x: 0, y: 0, z: 0}
-  currentDirection: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 18.912638, y: -5.623234, z: 0}
+  currentDirection: {x: 0.47510144, y: -0.37508008, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0
@@ -43,7 +44,7 @@ MonoBehaviour:
   startCharging: 0
   isAttacking: 0
   bullet:
-  - {fileID: 0}
+  - {fileID: 6395150998634022948, guid: d4b37ec9cfd4699458f30190ae839522, type: 3}
   firerate: 1
   bulletSpeed: 0
   timeTillDespawn: 10
@@ -63,7 +64,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: 0
+  currentFirerateTimer: -3.7089078
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

@@ -24,6 +24,8 @@ public class Attack : MonoBehaviour
 
     bool isPinshot;
     bool isNeedler;
+    [HideInInspector]
+    public bool isOrb;
     bool canBounce;
     float timeBeforeExplosion;
     float explosionDamage;
@@ -179,34 +181,38 @@ public class Attack : MonoBehaviour
                 {
                     if (other.gameObject.tag == "TilesHere")
                     {
-                        try
+                        if (!isOrb)
                         {
-                            if (isPinshot)
+                            try
                             {
-                                print("1");
-                                if (enemy != null)
+                                if (isPinshot)
                                 {
-                                    print("45");
-                                    if (enemy.GetComponent<BaseEnemy>() != null)
+                                    print("1");
+                                    if (enemy != null)
                                     {
-                                        enemy.GetComponent<BaseEnemy>().TakeDamage(explosionDamage);
-                                        print("2");
-                                    }else
-                                    if (enemy.GetComponent<BaseBoss>() != null)
-                                    {
-                                        enemy.GetComponent<BaseBoss>().TakeDamage(explosionDamage);
-                                        print("2b");
+                                        print("45");
+                                        if (enemy.GetComponent<BaseEnemy>() != null)
+                                        {
+                                            enemy.GetComponent<BaseEnemy>().TakeDamage(explosionDamage);
+                                            print("2");
+                                        }
+                                        else
+                                        if (enemy.GetComponent<BaseBoss>() != null)
+                                        {
+                                            enemy.GetComponent<BaseBoss>().TakeDamage(explosionDamage);
+                                            print("2b");
+                                        }
                                     }
+                                    print("3");
+                                    Destroy(gameObject);
                                 }
-                                print("3");
-                                Destroy(gameObject);
+                                else
+                                {
+                                    Destroy(this.gameObject);
+                                }
                             }
-                            else
-                            {
-                                Destroy(this.gameObject);
-                            }
+                            catch { print("6"); }
                         }
-                        catch { print("6"); }
                     }
                 }
             }
@@ -312,6 +318,10 @@ public class Attack : MonoBehaviour
                 if (transform.parent.name.Contains("Holder"))
                 {
                     Destroy(transform.parent.gameObject);
+                }
+                else
+                {
+                    Destroy(gameObject);
                 }
             }
             catch { Destroy(gameObject); }

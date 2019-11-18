@@ -15,24 +15,25 @@ MonoBehaviour:
   hudIcon: {fileID: 1910741430806484629, guid: 674ef52b9c81b447e89e6973ff6479e0, type: 3}
   characterName: Napolean
   attackType: 5
-  Mspeed: 4
+  Mspeed: 5
   baseDamage: 1.98
-  critChance: 0
-  critDamageMulitiplier: 1
-  dodgeSpeedMultiplier: 1
+  critChance: 0.069
+  critDamageMulitiplier: 2
+  dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 1
-  currentDodgeTime: -2277.9282
-  dodgeWaitTime: 1
-  currentDodgeWaitTime: -1277.8635
+  dodgeLength: 0.13
+  currentDodgeTime: -2299.1135
+  dodgeWaitTime: 2
+  currentDodgeWaitTime: -1299.0453
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -53.967197, y: 61.87688, z: 0}
-  currentDirection: {x: -0.102426276, y: 0.061455768, z: 0}
+  currentPosition: {x: 20.937338, y: -2.8744268, z: 0}
+  currentDirection: {x: 0.8476564, y: -0.19561303, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0
@@ -42,13 +43,17 @@ MonoBehaviour:
   currentChargeTimer: 0
   startCharging: 0
   isAttacking: 0
-  bullet: {fileID: 6395150998634022948, guid: 483dab1e7010d1744b0394b14d328643, type: 3}
-  firerate: 0.16
-  bulletSpeed: 254.7
+  bullet:
+  - {fileID: 6395150998634022948, guid: 5a9dfdabe27526a4ea646bcaeb9323f0, type: 3}
+  - {fileID: 6395150998634022948, guid: f59d73b67b829464d98182f6c9660721, type: 3}
+  - {fileID: 6395150998634022948, guid: 8490d69988942904aad9f047332ff0cb, type: 3}
+  firerate: 0.07
+  bulletSpeed: 15
   timeTillDespawn: 2.34
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
+  isOrb: 0
   bulletTypes:
   - {fileID: 6395150998634022948, guid: 5a9dfdabe27526a4ea646bcaeb9323f0, type: 3}
   - {fileID: 6395150998634022948, guid: f59d73b67b829464d98182f6c9660721, type: 3}
@@ -64,10 +69,27 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -3.5567002
+  currentFirerateTimer: -2.0793123
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
   baseDamageMulitplier: 1
   maxDamageMultiplier: 1
+  critChanceMultiplier: 1
+  bleedChance: 0
+  bleedDamage: 0
+  bleedLength: 0
+  bleedTickRate: 0
+  burnChance: 0
+  burnDamage: 0
+  burnLength: 0
+  poisonChance: 0
+  poisonDamage: 0
+  poisonLength: 0
+  poisonSlowDownPercentage: 0
+  stunChance: 0
+  stunLength: 0
+  freezeChance: 0
+  freezeLength: 0
+  freezeSlowdownPercentage: 0
