@@ -9,12 +9,18 @@ public class SpikeMoveRight : MonoBehaviour
     [SerializeField] private int damage;
     private Vector3 velocity;
 
+    public float destroyTime;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         velocity = transform.right * -1 * speed;
     }
 
+    private void Update()
+    {
+        Destroy(gameObject, destroyTime);
+    }
 
     void FixedUpdate()
     {
