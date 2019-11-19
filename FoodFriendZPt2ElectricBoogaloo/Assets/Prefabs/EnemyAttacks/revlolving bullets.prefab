@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5813693186868726136}
   - component: {fileID: 5813693186868726135}
   - component: {fileID: 5813693186868726137}
+  - component: {fileID: -5180750335992118195}
+  - component: {fileID: 1747565259851682985}
   m_Layer: 16
   m_Name: revlolving bullets
   m_TagString: Enemy
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5813693186868726134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.34523, y: 3.1613045, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,6 +117,9 @@ MonoBehaviour:
   revolveAround: {fileID: 713600866824404203, guid: 9bcdccac02e169546a054245dfbda444,
     type: 3}
   speed: 5
+  velocity: {x: 1, y: 1, z: 0}
+  revolve: 1
+  shoot: 0
 --- !u!114 &5813693186868726137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 8
   maxHP: 0
   speed: 0
   walkIntoDamage: 1
@@ -139,3 +144,43 @@ MonoBehaviour:
   objectToDestroy: {fileID: 0}
   deathSound: {fileID: 0}
   deathClips: []
+--- !u!114 &-5180750335992118195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813693186868726134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggroRange: 10
+  aggroTimerMax: 0
+  aggro: 0
+  target:
+  - {fileID: 0}
+  currentTarget: {fileID: 0}
+  currentPos: {x: 0, y: 0, z: 0}
+--- !u!50 &1747565259851682985
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813693186868726134}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
