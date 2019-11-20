@@ -12,6 +12,9 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
+    [HideInInspector]
+    public bool canMove;
+
     GameObject itemDescObject;
     TextMeshProUGUI powerUpDesc;
     Animator itemDesc;
@@ -285,6 +288,8 @@ public class MainPlayer : MonoBehaviour
             pointer.SetActive(false);
         }
 
+        canMove = true;
+
         //poof timer
         currentPoofTimer = maxPoofTime;
 
@@ -404,12 +409,15 @@ public class MainPlayer : MonoBehaviour
     {
 
         //applied player movement
-        Vector3 currentPos = transform.position;
-        currentPos.z = 1;
-        rb.MovePosition(currentPos + (velocity * (speed)) * Time.deltaTime);
-
+        //Vector3 currentPos = transform.position;
+        //currentPos.z = 1;
+        //if we don't want the player to move
+        if (canMove)
+        {
+            rb.MovePosition(transform.position + (velocity * (speed)) * Time.deltaTime);
+        }
         //applies the transformation
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     //[LOGIC VOID METHODS]
@@ -999,7 +1007,15 @@ public class MainPlayer : MonoBehaviour
     {
         if (direction == new Vector3(0, 0))
         {
-            attackDirection.transform.right = velocity;
+            if (velocity.y != 0)
+            {
+                attackDirection.transform.right = velocity;
+            }
+
+            if(velocity.x != 0)
+            {
+                attackDirection.transform.right = velocity;
+            }
         }
         else
         {

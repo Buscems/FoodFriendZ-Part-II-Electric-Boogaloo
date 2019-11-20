@@ -24,7 +24,7 @@ public class AttackDirection : MonoBehaviour
         CheckController(myPlayer);
     }
 
-       void Update()
+    void Update()
     {
         direction.x = myPlayer.GetAxisRaw("DirectionHorizontal");
         direction.y = myPlayer.GetAxisRaw("DirectionVertical");
