@@ -433,7 +433,6 @@ public class MainPlayer : MonoBehaviour
                 {
                     currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                     currentChar.currentDodgeTime = currentChar.dodgeLength;
-                    Debug.Log("Dodge");
                     //dash effect
                     Instantiate(dashPoof, transform.position, Quaternion.identity);
                 }
