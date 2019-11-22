@@ -15,23 +15,27 @@ MonoBehaviour:
   hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
   characterName: onigiri
   attackType: 3
+  duration: 0
+  strength: 0
   Mspeed: 6
-  baseDamage: 1
+  baseDamage: 3
   critChance: 0.147
   critDamageMulitiplier: 2
   dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.13
-  currentDodgeTime: -12.119796
+  currentDodgeTime: -1.1626731
   dodgeWaitTime: 2
-  currentDodgeWaitTime: -10.119796
+  currentDodgeWaitTime: 0.8373271
+  muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
+    type: 3}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0.75
-  currentPosition: {x: 17.204268, y: -2.2225199, z: 0}
-  currentDirection: {x: 0.0095333755, y: -0.12393389, z: 0}
+  currentPosition: {x: -7.0305686, y: 55.67086, z: 0}
+  currentDirection: {x: 0.83700645, y: -0.68626595, z: 0}
   weapon: {fileID: 0}
   isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}

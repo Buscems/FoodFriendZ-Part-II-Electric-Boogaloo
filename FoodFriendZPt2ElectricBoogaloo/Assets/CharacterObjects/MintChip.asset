@@ -15,6 +15,8 @@ MonoBehaviour:
   hudIcon: {fileID: 7465839642619102276, guid: 1026837ef1e7144aa8a98589e8f59a04, type: 3}
   characterName: cone
   attackType: 1
+  duration: 0
+  strength: 0
   Mspeed: 5
   baseDamage: 0.5
   critChance: 0.351
@@ -25,6 +27,8 @@ MonoBehaviour:
   currentDodgeTime: -1127.9849
   dodgeWaitTime: 2
   currentDodgeWaitTime: -127.990944
+  muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
+    type: 3}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 1
   pierceMultiplier: 1.74

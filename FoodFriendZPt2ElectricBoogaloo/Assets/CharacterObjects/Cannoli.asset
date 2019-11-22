@@ -15,6 +15,8 @@ MonoBehaviour:
   hudIcon: {fileID: 6352959649030047781, guid: 75d407bd5b2e740f0b424fa6521d3896, type: 3}
   characterName: cannoli
   attackType: 1
+  duration: 0
+  strength: 0
   Mspeed: 5
   baseDamage: 0.1
   critChance: 0.095
@@ -25,6 +27,8 @@ MonoBehaviour:
   currentDodgeTime: -1481.4376
   dodgeWaitTime: 2
   currentDodgeWaitTime: -481.2814
+  muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
+    type: 3}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1

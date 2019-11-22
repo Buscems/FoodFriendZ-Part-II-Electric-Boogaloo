@@ -47,6 +47,8 @@ public class BasePlayer : ScriptableObject
     [HideInInspector]
     public float currentDodgeWaitTime = 0;
 
+    public GameObject muzzleFlash;
+
     //[ATTACK SIZE]
     [Tooltip("This is going to be the size of the weapon, z is always 1.")]
     public Vector3 attackSize;
@@ -430,6 +432,11 @@ public class BasePlayer : ScriptableObject
         GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform, false);
         attack.GetComponent<Attack>().damage = damage;
+        try
+        {
+            Instantiate(muzzleFlash, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+        }
+        catch { }
     }
 
     public void RangedBoomerang(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
@@ -451,6 +458,11 @@ public class BasePlayer : ScriptableObject
         GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform, true);
         attack.GetComponent<Attack>().damage = damage;
+        try
+        {
+            Instantiate(muzzleFlash, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+        }
+        catch { }
     }
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
@@ -489,6 +501,11 @@ public class BasePlayer : ScriptableObject
                 GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
                 SetBulletVariables(attack, parentTransform, false);
                 attack.GetComponent<Attack>().damage = damage;
+                try
+                {
+                    Instantiate(muzzleFlash, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+                }
+                catch { }
             }
         }
     }
@@ -539,7 +556,11 @@ public class BasePlayer : ScriptableObject
             }
             SetBulletVariables(attack, parentTransform, false);
             attack.GetComponent<Attack>().damage = damage;
-
+            try
+            {
+                Instantiate(muzzleFlash, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+            }
+            catch { }
             currentBulletnum--;
 
             if (currentBulletnum == 0)

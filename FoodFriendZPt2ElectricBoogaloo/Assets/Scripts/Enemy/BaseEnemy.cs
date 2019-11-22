@@ -288,7 +288,7 @@ public class BaseEnemy : MonoBehaviour
         try
         {
             GameObject g = Instantiate(splat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-            if (transform.parent.name.Contains("Turret"))
+            if (transform.parent.name.Contains("Turret") || transform.parent.name.Contains("SOUL"))
             {
                 g.transform.parent = transform.parent.parent;
             }

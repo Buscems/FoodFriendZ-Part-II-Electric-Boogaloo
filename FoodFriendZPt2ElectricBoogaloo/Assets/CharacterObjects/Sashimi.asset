@@ -15,6 +15,8 @@ MonoBehaviour:
   hudIcon: {fileID: 3922987957411462201, guid: 011be092f58594e5e9ca5fd0f849aeb4, type: 3}
   characterName: sashimi
   attackType: 1
+  duration: 0
+  strength: 0
   Mspeed: 7
   baseDamage: 1
   critChance: 0.09
@@ -22,16 +24,18 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.12
-  currentDodgeTime: -2277.838
+  currentDodgeTime: -13.259711
   dodgeWaitTime: 2
-  currentDodgeWaitTime: -1277.7675
+  currentDodgeWaitTime: -11.259704
+  muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
+    type: 3}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: 23.648794, y: -17.56235, z: 0}
-  currentDirection: {x: 0.008846224, y: 0.0361891, z: 0}
+  currentPosition: {x: -63.91512, y: 28.147064, z: 0}
+  currentDirection: {x: -1, y: -0.12960063, z: 0}
   weapon: {fileID: 0}
   isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
@@ -64,7 +68,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -3.216541
+  currentFirerateTimer: -0.77164185
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

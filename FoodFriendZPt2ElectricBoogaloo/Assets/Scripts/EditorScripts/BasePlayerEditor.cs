@@ -48,7 +48,8 @@ public class BasePlayerEditor : Editor
     SerializedProperty freezeSlowDownPercentage;
     SerializedProperty duration;
     SerializedProperty strength;
-        SerializedProperty impactEffect;
+    SerializedProperty impactEffect;
+    SerializedProperty muzzleFlash;
     #endregion
 
     //Melee Variables
@@ -161,6 +162,7 @@ public class BasePlayerEditor : Editor
         isFlamethrower = soTarget.FindProperty("isFlamethrower");
         duration = soTarget.FindProperty("duration");
         strength = soTarget.FindProperty("strength");
+        muzzleFlash = soTarget.FindProperty("muzzleFlash");
         #endregion
 
     }
@@ -223,6 +225,7 @@ public class BasePlayerEditor : Editor
             EditorGUILayout.PropertyField(bulletSpeed);
             EditorGUILayout.PropertyField(timeTillDespawn);
             EditorGUILayout.PropertyField(canBounce);
+            EditorGUILayout.PropertyField(muzzleFlash);
         }
         if (myTarget.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
         {
