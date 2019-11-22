@@ -51,8 +51,6 @@ public class BaseEnemy : MonoBehaviour
 
     private float slowDownPercentage = 1;
 
-    private float cantGetHitTimer = .5f;
-
     private SpriteRenderer sr;
 
     public AudioSource deathSound;
@@ -106,7 +104,6 @@ public class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        cantGetHitTimer -= Time.deltaTime;
         try
         {
             if (anim != null && aggroScript.aggro)
@@ -262,11 +259,9 @@ public class BaseEnemy : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        if (cantGetHitTimer < 0)
-        {
             health -= _damage;
             sr.color = new Color(1, .1f, .1f);
-        }
+
     }
 
     public void DestroyThisObject()
@@ -276,8 +271,7 @@ public class BaseEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (cantGetHitTimer < 0)
-        {
+
             if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
             {
                 //item extension script
@@ -289,7 +283,7 @@ public class BaseEnemy : MonoBehaviour
                     collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
                 }
             }
-        }
+        
     }
 
     private void OnDestroy()

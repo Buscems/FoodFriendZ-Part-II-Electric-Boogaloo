@@ -159,6 +159,8 @@ public class MainPlayer : MonoBehaviour
     private float freezeMultiplier = 1;
     private float stunMultiplier = 1;
 
+    private float cantGetHitTimer = .5f;
+
     //death sound bool
     bool playedDeathSound;
 
@@ -321,6 +323,8 @@ public class MainPlayer : MonoBehaviour
 
     void Update()
     {
+        cantGetHitTimer -= Time.deltaTime;
+
         //for powerups
         curPos = gameObject.transform.position;
 
@@ -379,7 +383,7 @@ public class MainPlayer : MonoBehaviour
         else if (GreenMushrooms > 0)
         {
             GreenMushrooms--;
-            health = 5;
+            health += 5;
         }
 
         //if player is dead
@@ -1199,39 +1203,41 @@ public class MainPlayer : MonoBehaviour
     //getting hit method
     public void GetHit(int damage)
     {
-
-        //[EVASIVENESS CHECK]
-        //guarenteed hurt
-        if (evasiveChance <= 0)
+        if (cantGetHitTimer < 0)
         {
-            if (currentChar.currentDodgeTime < 0)
-            {
-                health -= damage;
-                sr.color = new Color(1, .1f, .1f);
-                cam.StartShake();
-                audioSource.clip = clips[0];
-                audioSource.Play();
-            }
-        }
-        //is player has evasive chance
-        else
-        {
-
-            //gets odds from odds script 
-            if (getOddsScript.GetStunOdds(evasiveChance))
-            //[SUCCESS]
-            {
-                print("LUCKY!!");
-            }
-            else
-            //[FAILURE]
+            //[EVASIVENESS CHECK]
+            //guarenteed hurt
+            if (evasiveChance <= 0)
             {
                 if (currentChar.currentDodgeTime < 0)
                 {
                     health -= damage;
+                    sr.color = new Color(1, .1f, .1f);
                     cam.StartShake();
                     audioSource.clip = clips[0];
                     audioSource.Play();
+                }
+            }
+            //is player has evasive chance
+            else
+            {
+
+                //gets odds from odds script 
+                if (getOddsScript.GetStunOdds(evasiveChance))
+                //[SUCCESS]
+                {
+                    print("LUCKY!!");
+                }
+                else
+                //[FAILURE]
+                {
+                    if (currentChar.currentDodgeTime < 0)
+                    {
+                        health -= damage;
+                        cam.StartShake();
+                        audioSource.clip = clips[0];
+                        audioSource.Play();
+                    }
                 }
             }
         }
