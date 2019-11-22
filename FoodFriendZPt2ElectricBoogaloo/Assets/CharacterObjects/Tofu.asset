@@ -15,6 +15,8 @@ MonoBehaviour:
   hudIcon: {fileID: 1002645427171640083, guid: 6370625e5cfd74127b0c87c620cc99b6, type: 3}
   characterName: tofu
   attackType: 0
+  duration: 0
+  strength: 0
   Mspeed: 7
   baseDamage: 4
   critChance: 0.16
@@ -23,8 +25,9 @@ MonoBehaviour:
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.15
   currentDodgeTime: -32.94434
-  dodgeWaitTime: 2
+  dodgeWaitTime: 1
   currentDodgeWaitTime: -30.944353
+  muzzleFlash: {fileID: 0}
   attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
   canPierce: 0
   pierceMultiplier: 1

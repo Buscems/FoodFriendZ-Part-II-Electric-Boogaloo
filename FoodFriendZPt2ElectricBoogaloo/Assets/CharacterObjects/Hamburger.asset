@@ -17,7 +17,7 @@ MonoBehaviour:
   attackType: 6
   duration: 0
   strength: 0
-  Mspeed: 6
+  Mspeed: 9
   baseDamage: 2
   critChance: 0.14
   critDamageMulitiplier: 2
@@ -25,7 +25,7 @@ MonoBehaviour:
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.13
   currentDodgeTime: -1469.7277
-  dodgeWaitTime: 2
+  dodgeWaitTime: 1
   currentDodgeWaitTime: -469.698
   muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
     type: 3}
@@ -50,7 +50,7 @@ MonoBehaviour:
   bullet:
   - {fileID: 6395150998634022948, guid: 76da2d0d67f77f849a4c098de550d799, type: 3}
   firerate: 0.21
-  bulletSpeed: 10
+  bulletSpeed: 16
   timeTillDespawn: 86.31
   canBounce: 0
   radius: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   isPinshot: 0
   explosionDamage: 0
   timeBeforeExplosion: 0
-  timeBeforeReturning: 0.6
+  timeBeforeReturning: 0.4
   firing: 0
   drop: {fileID: 0}
   dropRadius: 0

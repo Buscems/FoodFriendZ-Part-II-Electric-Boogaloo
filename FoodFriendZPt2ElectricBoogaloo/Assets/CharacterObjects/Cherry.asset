@@ -15,23 +15,26 @@ MonoBehaviour:
   hudIcon: {fileID: 242840349670548076, guid: b314120d3722ba14597edcc3b1e5efb8, type: 3}
   characterName: cherry
   attackType: 7
+  duration: 0
+  strength: 0
   Mspeed: 5
-  baseDamage: 2
+  baseDamage: 5
   critChance: 0.125
   critDamageMulitiplier: 2
   dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.11
-  currentDodgeTime: -294.90518
-  dodgeWaitTime: 2
-  currentDodgeWaitTime: -294.6453
+  currentDodgeTime: -38.70203
+  dodgeWaitTime: 1
+  currentDodgeWaitTime: -36.702034
+  muzzleFlash: {fileID: 0}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -32.659737, y: -6.3723636, z: 0}
-  currentDirection: {x: -0.082401976, y: -1, z: 0}
+  currentPosition: {x: 32.98303, y: -2.3396854, z: 0}
+  currentDirection: {x: 0.08368771, y: -0.112264, z: 0}
   weapon: {fileID: 0}
   isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
@@ -62,7 +65,7 @@ MonoBehaviour:
   timeBeforeReturning: 0
   firing: 0
   drop: {fileID: 1747628256198301912, guid: 6f2f641a7f16a402c82cf443779019ea, type: 3}
-  dropRadius: 2
+  dropRadius: 3
   explosionForce: 4
   currentFirerateTimer: 0.004910702
   currentAttackSpeedTimer: 0

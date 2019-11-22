@@ -16,7 +16,7 @@ public class Aggro : MonoBehaviour
     public bool aggro;
 
     [Tooltip("This will be for how many players are in the game just in case we think about doing multiplayer")]
-    public Transform[] target;
+    public Transform[] target = new Transform[1];
     [HideInInspector]
     public Transform currentTarget;
 
@@ -25,15 +25,27 @@ public class Aggro : MonoBehaviour
 
     private void Awake()
     {
-        target[0] = GameObject.FindGameObjectWithTag("Player1").transform;
-        currentTarget = target[0];
+        try
+        {
+            target[0] = GameObject.FindGameObjectWithTag("Player1").transform;
+            currentTarget = target[0];
+        }
+        catch
+        {
+            currentTarget = GameObject.FindGameObjectWithTag("Player1").transform;
+        }
         aggro = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        target[0] = GameObject.FindGameObjectWithTag("Player1").transform;
+        try
+        {
+            target[0] = GameObject.FindGameObjectWithTag("Player1").transform;
+            currentTarget = target[0];
+        }
+        catch { }
         aggro = false;
     }
 

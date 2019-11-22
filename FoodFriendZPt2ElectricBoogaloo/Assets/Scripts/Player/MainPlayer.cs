@@ -362,7 +362,7 @@ public class MainPlayer : MonoBehaviour
                 AttackLogic();
                 SwapLogic();
                 DodgeLogic();
-                sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime); ;
+                sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime); ;
 
                 //[INTERACTIONS WITH OBJECTS]
                 //this is for interacting with a chest
@@ -1207,7 +1207,7 @@ public class MainPlayer : MonoBehaviour
             if (currentChar.currentDodgeTime < 0)
             {
                 health -= damage;
-                sr.color = new Color(1, .35f, .35f);
+                sr.color = new Color(1, .1f, .1f);
                 cam.StartShake();
                 audioSource.clip = clips[0];
                 audioSource.Play();

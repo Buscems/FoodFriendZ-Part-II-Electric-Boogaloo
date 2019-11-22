@@ -16,6 +16,8 @@ MonoBehaviour:
     type: 3}
   characterName: takoyaki
   attackType: 7
+  duration: 0
+  strength: 0
   Mspeed: 6
   baseDamage: 10
   critChance: 0.1
@@ -24,8 +26,9 @@ MonoBehaviour:
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.14
   currentDodgeTime: -11.008822
-  dodgeWaitTime: 2
+  dodgeWaitTime: 1
   currentDodgeWaitTime: -9.008817
+  muzzleFlash: {fileID: 0}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1

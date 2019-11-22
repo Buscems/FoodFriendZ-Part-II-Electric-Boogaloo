@@ -15,6 +15,8 @@ MonoBehaviour:
   hudIcon: {fileID: 9021183664811052644, guid: 2b8dee80c982e461d9670ded940be094, type: 3}
   characterName: pancakes
   attackType: 1
+  duration: 0
+  strength: 0
   Mspeed: 6
   baseDamage: 1
   critChance: 0.438
@@ -23,8 +25,9 @@ MonoBehaviour:
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.16
   currentDodgeTime: -1034.3555
-  dodgeWaitTime: 2
+  dodgeWaitTime: 1
   currentDodgeWaitTime: -34.347687
+  muzzleFlash: {fileID: 0}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 1
   pierceMultiplier: 1

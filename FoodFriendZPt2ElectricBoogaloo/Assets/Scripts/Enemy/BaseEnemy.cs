@@ -113,7 +113,7 @@ public class BaseEnemy : MonoBehaviour
         }
         catch { }
 
-        sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime);
+        sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime);
         speed = origSpeed * slowDownPercentage;
         StatusEffectTimers();
         StatusEffects();
@@ -260,7 +260,7 @@ public class BaseEnemy : MonoBehaviour
     public void TakeDamage(float _damage)
     {
         health -= _damage;
-        sr.color = new Color(1, .35f, .35f);
+        sr.color = new Color(1, .1f, .1f);
     }
 
     public void DestroyThisObject()
