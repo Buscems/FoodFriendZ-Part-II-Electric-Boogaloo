@@ -244,7 +244,6 @@ public class Attack : MonoBehaviour
                 if (other.GetComponent<BaseEnemy>() != null)
                 {
                     other.GetComponent<BaseEnemy>().TakeDamage(damage);
-                    Vector3 vel = GetComponent<BasicBullet>().velocity;
                     try
                     {
                         GameObject b = Instantiate(hitEnemyBloodSpray, other.transform.position, Quaternion.identity);
@@ -301,33 +300,6 @@ public class Attack : MonoBehaviour
                     enemy = other.gameObject;
                 }
             }
-        }
-    }
-
-    private float GetHitAngle(Vector3 vel)
-    {
-        if (vel.x >= 0 && vel.y >= 0)
-        {
-            return Mathf.Atan(vel.y / vel.x);
-        }
-        else
-        if (vel.x < 0 && vel.y >= 0)
-        {
-            return 90 - Mathf.Atan(vel.y / vel.x);
-        }
-        else
-        if (vel.x < 0 && vel.y < 0)
-        {
-            return 90 + Mathf.Atan(vel.y / vel.x);
-        }
-        else
-        if (vel.x >= 0 && vel.y < 0)
-        {
-            return 360 - Mathf.Atan(vel.y / vel.x);
-        }
-        else
-        {
-            return 0;
         }
     }
 
