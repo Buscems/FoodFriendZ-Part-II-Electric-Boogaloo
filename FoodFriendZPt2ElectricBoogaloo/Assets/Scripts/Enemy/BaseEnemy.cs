@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     ItemExtension ieScript;
+    public GameObject splat;
 
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
@@ -280,6 +281,23 @@ public class BaseEnemy : MonoBehaviour
                 collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        try
+        {
+            GameObject g = Instantiate(splat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            if (transform.parent.name.Contains("Turret"))
+            {
+                g.transform.parent = transform.parent.parent;
+            }
+            else
+            {
+                g.transform.parent = transform.parent;
+            }
+        }
+        catch { }
     }
 
 }

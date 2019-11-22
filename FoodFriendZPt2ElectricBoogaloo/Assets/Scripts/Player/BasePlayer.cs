@@ -14,8 +14,15 @@ public class BasePlayer : ScriptableObject
     [Tooltip("This is the name of the character. Make it all lower case")]
     public string characterName;
 
+
     public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Napolean, Boomerang, Builder };
     public AttackType attackType;
+
+    [Header("Screen Shake")]
+    [Range(0.0f, 0.15f)]
+    public float duration;
+    [Range(0.0f, 0.3f)]
+    public float strength;
 
     [Header("Player Stats")]
     public float Mspeed;
@@ -354,6 +361,7 @@ public class BasePlayer : ScriptableObject
             damage *= critDamageMulitiplier;
         }
 
+
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
         if (isFlamethrower)
         {
@@ -418,6 +426,7 @@ public class BasePlayer : ScriptableObject
         }
         currentFirerateTimer = firerate * firerateMultiplier;
         GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+        parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
         GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform, false);
         attack.GetComponent<Attack>().damage = damage;
@@ -438,6 +447,7 @@ public class BasePlayer : ScriptableObject
         }
         currentFirerateTimer = firerate * firerateMultiplier;
         GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+        parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
         GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform, true);
         attack.GetComponent<Attack>().damage = damage;
@@ -475,6 +485,7 @@ public class BasePlayer : ScriptableObject
             else
             {
                 GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+                parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
                 GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
                 SetBulletVariables(attack, parentTransform, false);
                 attack.GetComponent<Attack>().damage = damage;
@@ -516,7 +527,7 @@ public class BasePlayer : ScriptableObject
             currentFirerateTimer = firerate * firerateMultiplier;
 
             GameObject attack = null;
-
+            parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
             if (attackType == AttackType.Ranged_Burst_Fire)
             {
                 GameObject _bullet = bullet[Random.Range(0, bullet.Length)];

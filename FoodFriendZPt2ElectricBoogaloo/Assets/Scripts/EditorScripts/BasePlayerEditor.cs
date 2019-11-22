@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-/*
+
 [CustomEditor(typeof(BasePlayer))]
 public class BasePlayerEditor : Editor
 
@@ -46,6 +46,9 @@ public class BasePlayerEditor : Editor
     SerializedProperty freezeChance;
     SerializedProperty freezeLength;
     SerializedProperty freezeSlowDownPercentage;
+    SerializedProperty duration;
+    SerializedProperty strength;
+        SerializedProperty impactEffect;
     #endregion
 
     //Melee Variables
@@ -156,6 +159,8 @@ public class BasePlayerEditor : Editor
         freezeLength = soTarget.FindProperty("freezeLength");
         freezeSlowDownPercentage = soTarget.FindProperty("freezeSlowdownPercentage");
         isFlamethrower = soTarget.FindProperty("isFlamethrower");
+        duration = soTarget.FindProperty("duration");
+        strength = soTarget.FindProperty("strength");
         #endregion
 
     }
@@ -169,6 +174,8 @@ public class BasePlayerEditor : Editor
 
         EditorGUILayout.PropertyField(hudIcon);
         EditorGUILayout.PropertyField(characterName);
+        EditorGUILayout.PropertyField(duration);
+        EditorGUILayout.PropertyField(strength);
         EditorGUILayout.PropertyField(attackType);
         EditorGUILayout.PropertyField(Mspeed);
         EditorGUILayout.PropertyField(baseDamage);
@@ -300,4 +307,3 @@ public class BasePlayerEditor : Editor
     
 
 }
-*/

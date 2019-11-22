@@ -115,7 +115,7 @@ public class BasicBullet : MonoBehaviour
     {
         try
         {
-            Instantiate(instantiateOnDestroy, transform.position, Quaternion.identity);
+            Instantiate(instantiateOnDestroy, transform.position, Quaternion.Euler(0, 0, Random.Range(0,360)));
         }
         catch { }
     }

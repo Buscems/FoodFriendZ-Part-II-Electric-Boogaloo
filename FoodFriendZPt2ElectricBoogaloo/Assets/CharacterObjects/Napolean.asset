@@ -15,23 +15,25 @@ MonoBehaviour:
   hudIcon: {fileID: 1910741430806484629, guid: 674ef52b9c81b447e89e6973ff6479e0, type: 3}
   characterName: napoleon
   attackType: 5
+  duration: 0.0305
+  strength: 0.0867
   Mspeed: 5
   baseDamage: 1.98
   critChance: 0.069
   critDamageMulitiplier: 2
   dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
-  dodgeLength: 0.13
-  currentDodgeTime: -2382.862
+  dodgeLength: 0.16
+  currentDodgeTime: -288.08292
   dodgeWaitTime: 2
-  currentDodgeWaitTime: -1382.8326
+  currentDodgeWaitTime: -286.08298
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -0.336646, y: -2.601076, z: 0}
-  currentDirection: {x: -0.018320777, y: 0.042143233, z: 0}
+  currentPosition: {x: -89.11905, y: -63.691284, z: 0}
+  currentDirection: {x: 0.015668439, y: 0.012819632, z: 0}
   weapon: {fileID: 0}
   isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
@@ -69,7 +71,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -69.914825
+  currentFirerateTimer: -45.00683
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

@@ -63,7 +63,8 @@ public class MainPlayer : MonoBehaviour
     public GetOddsScript getOddsScript;
 
     //private scripts
-    private CameraShake cam;
+    [HideInInspector]
+    public CameraShake cam;
 
     [Header("Animator")]
     public Animator anim;
