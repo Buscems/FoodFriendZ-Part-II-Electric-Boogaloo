@@ -116,10 +116,11 @@ MonoBehaviour:
   proj: {fileID: 5813693186868726134}
   revolveAround: {fileID: 713600866824404203, guid: 9bcdccac02e169546a054245dfbda444,
     type: 3}
-  speed: 5
+  speed: 3
   velocity: {x: 1, y: 1, z: 0}
   revolve: 1
   shoot: 0
+  iSeeYou: 3
 --- !u!114 &5813693186868726137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aggroRange: 10
-  aggroTimerMax: 0
+  aggroTimerMax: 1
   aggro: 0
   target:
   - {fileID: 0}
