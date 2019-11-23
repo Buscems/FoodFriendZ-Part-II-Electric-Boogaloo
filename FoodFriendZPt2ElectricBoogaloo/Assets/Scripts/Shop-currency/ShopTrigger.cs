@@ -18,6 +18,8 @@ public class ShopTrigger : MonoBehaviour
     void Start()
     {
         priceText.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
+        curMan = GameObject.FindGameObjectWithTag("Player1").GetComponent<CurrencyManager>();
     }
 
     // Update is called once per frame
