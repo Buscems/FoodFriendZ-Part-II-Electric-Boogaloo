@@ -685,7 +685,7 @@ public class MainPlayer : MonoBehaviour
                     currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
                 }
             }
-            if (currentChar.attackType == BasePlayer.AttackType.Builder)
+            if (currentChar.attackType == BasePlayer.AttackType.Builder && currentChar.currentFirerateTimer < 0)
             {
                 currentChar.Builder(transform.position, attackDirection, transform);
             }

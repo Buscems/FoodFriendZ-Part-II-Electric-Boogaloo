@@ -286,7 +286,7 @@ public class BasePlayer : ScriptableObject
             currentDodgeWaitTime -= Time.deltaTime;
             currentDodgeTime -= Time.deltaTime;
 
-            if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire || attackType == AttackType.Boomerang || attackType == AttackType.Napolean)
+            if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire || attackType == AttackType.Boomerang || attackType == AttackType.Napolean || attackType == AttackType.Builder)
             {
                 currentFirerateTimer -= Time.deltaTime;
                 timeBetweenBurstsTimer -= Time.deltaTime;
@@ -294,6 +294,10 @@ public class BasePlayer : ScriptableObject
             if (attackType == AttackType.Melee)
             {
                 currentAttackSpeedTimer -= Time.deltaTime;
+            }
+            if (attackType == AttackType.Builder)
+            {
+                currentFirerateTimer -= Time.deltaTime;
             }
         }
     }
@@ -400,8 +404,8 @@ public class BasePlayer : ScriptableObject
         {
             damage *= critDamageMulitiplier;
         }
-
-        GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+        currentFirerateTimer = firerate * firerateMultiplier;
+        GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.identity);
         attack.GetComponentInChildren<Attack>().damage = damage;
         
         if (this.characterName == "cherry")

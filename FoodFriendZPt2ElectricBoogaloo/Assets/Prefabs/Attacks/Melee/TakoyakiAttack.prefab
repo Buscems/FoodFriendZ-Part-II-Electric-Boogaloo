@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 202563047144049900}
   - component: {fileID: 6314766308498225334}
   - component: {fileID: 6819651603555987732}
+  - component: {fileID: 4212825837852213615}
   m_Layer: 0
   m_Name: TakoyakiAttack
   m_TagString: Takoyaki
@@ -106,6 +107,8 @@ MonoBehaviour:
   explosionParticles: {fileID: 0}
   soundToInstantiate: {fileID: 0}
   soundClip: {fileID: 0}
+  hitEnemyBloodSpray: {fileID: 0}
+  isOrb: 0
 --- !u!58 &202563047144049900
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,3 +159,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 1791375524048153698, guid: 6e2330fdaf7a4cc42989e3ce6298011f, type: 3}
+--- !u!114 &4212825837852213615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142511387616787554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1716c33d100014c4e8df98400aabcfab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToWait: 10

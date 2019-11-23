@@ -265,6 +265,8 @@ public class BasePlayerEditor : Editor
             EditorGUILayout.PropertyField(drop);
             EditorGUILayout.PropertyField(dropRadius);
             EditorGUILayout.PropertyField(explosionForce);
+            EditorGUILayout.PropertyField(firerate);
+            EditorGUILayout.PropertyField(timeTillDespawn);
         }
         EditorGUILayout.PropertyField(bleedChance);
         if (myTarget.bleedChance > 0)
