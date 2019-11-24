@@ -15,6 +15,7 @@ public class revolvingBullet : MonoBehaviour
     public float speed;
     public Vector3 velocity;
     BaseEnemy baseEnemy;
+    EnemyBullet bullet;
 
     Rigidbody2D rb;
 
@@ -30,11 +31,11 @@ public class revolvingBullet : MonoBehaviour
     void Start()
     {
         baseEnemy = GetComponent<BaseEnemy>();
+        bullet = GetComponent<EnemyBullet>();
         rb = GetComponent<Rigidbody2D>();
         revolve = true;
         shootTime = Random.Range(3f, 9f);
-        target = GameObject.FindGameObjectWithTag("Player1").transform;
-        location = new Vector2(target.position.x, target.position.y);
+        
     }
 
     // Update is called once per frame
@@ -50,8 +51,14 @@ public class revolvingBullet : MonoBehaviour
         }
 
         if (shoot == true)
-        {      
+        {
+           
+            //bullet.enabled = true;
             transform.position = Vector2.MoveTowards(transform.position, location, speed * Time.deltaTime);
+
+            if (transform.position.x == location.x && transform.position.y == location.y){
+                Destroy(gameObject);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,5 +78,7 @@ public class revolvingBullet : MonoBehaviour
         yield return new WaitForSeconds(shootTime);
         revolve = false;
         shoot = true;
+        target = GameObject.FindGameObjectWithTag("Player1").transform;
+        location = new Vector2(target.position.x, target.position.y);
     }
 }
