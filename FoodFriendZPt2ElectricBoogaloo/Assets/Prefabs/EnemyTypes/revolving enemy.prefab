@@ -85,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 2766408606741763261, guid: 3991776be48424c7f8e365a138a363dd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -136,9 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splat: {fileID: 393177829891165686, guid: 5196e6c34fdc44547875c4a57f2d62a6, type: 3}
   health: 30
   maxHP: 0
-  speed: 3
+  speed: 0.2
   walkIntoDamage: 1
   anim: {fileID: 0}
   aggroScript: {fileID: 713600866824404204}
@@ -411,9 +412,24 @@ PrefabInstance:
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -502,9 +518,24 @@ PrefabInstance:
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -587,9 +618,24 @@ PrefabInstance:
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -678,9 +724,24 @@ PrefabInstance:
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -769,9 +830,24 @@ PrefabInstance:
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -860,9 +936,24 @@ PrefabInstance:
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -940,20 +1031,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 6445923857796694718, guid: 3991776be48424c7f8e365a138a363dd,
-        type: 3}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1036,9 +1136,24 @@ PrefabInstance:
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1127,9 +1242,24 @@ PrefabInstance:
       propertyPath: revolveAround
       value: 
       objectReference: {fileID: 713600866824404203}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: iSeeYou
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroTimerMax
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

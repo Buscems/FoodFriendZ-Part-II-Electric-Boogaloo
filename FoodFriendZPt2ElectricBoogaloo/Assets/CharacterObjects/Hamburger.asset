@@ -15,7 +15,9 @@ MonoBehaviour:
   hudIcon: {fileID: 731375368619335737, guid: a50946ca57f9c42ec899b790b68db37b, type: 3}
   characterName: burger
   attackType: 6
-  Mspeed: 6
+  duration: 0
+  strength: 0
+  Mspeed: 9
   baseDamage: 2
   critChance: 0.14
   critDamageMulitiplier: 2
@@ -23,8 +25,10 @@ MonoBehaviour:
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.13
   currentDodgeTime: -1469.7277
-  dodgeWaitTime: 2
+  dodgeWaitTime: 1
   currentDodgeWaitTime: -469.698
+  muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
+    type: 3}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
@@ -46,7 +50,7 @@ MonoBehaviour:
   bullet:
   - {fileID: 6395150998634022948, guid: 76da2d0d67f77f849a4c098de550d799, type: 3}
   firerate: 0.21
-  bulletSpeed: 10
+  bulletSpeed: 16
   timeTillDespawn: 86.31
   canBounce: 0
   radius: 0
@@ -59,7 +63,7 @@ MonoBehaviour:
   isPinshot: 0
   explosionDamage: 0
   timeBeforeExplosion: 0
-  timeBeforeReturning: 0.6
+  timeBeforeReturning: 0.4
   firing: 0
   drop: {fileID: 0}
   dropRadius: 0

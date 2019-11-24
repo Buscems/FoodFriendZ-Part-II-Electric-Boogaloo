@@ -16,23 +16,26 @@ MonoBehaviour:
     type: 3}
   characterName: hotdog
   attackType: 0
-  Mspeed: 6
-  baseDamage: 0.53
+  duration: 0
+  strength: 0
+  Mspeed: 8
+  baseDamage: 1.62
   critChance: 0
   critDamageMulitiplier: 1
   dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.16
-  currentDodgeTime: -7.2474475
-  dodgeWaitTime: 2
-  currentDodgeWaitTime: -5.247448
+  currentDodgeTime: -15.599635
+  dodgeWaitTime: 1
+  currentDodgeWaitTime: -13.599637
+  muzzleFlash: {fileID: 0}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: 42
-  offset: 1.15
-  currentPosition: {x: 23.440462, y: -1.6808909, z: 0}
-  currentDirection: {x: 0.13231789, y: 0.0651088, z: 0}
+  offset: 1.45
+  currentPosition: {x: 50.82314, y: 34.922092, z: 0}
+  currentDirection: {x: 0.4888205, y: -0.2848522, z: 0}
   weapon: {fileID: 8565507827733616493, guid: 997882740430d0d4ea9cc25bd75a5880, type: 3}
   isFlamethrower: 1
   awayPos: {x: 0, y: 0, z: 0}
@@ -65,7 +68,7 @@ MonoBehaviour:
   dropRadius: 0
   explosionForce: 0
   currentFirerateTimer: -2.5685406
-  currentAttackSpeedTimer: -6.5906415
+  currentAttackSpeedTimer: -2.965336
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
   firerateMultiplier: 1
@@ -76,9 +79,9 @@ MonoBehaviour:
   bleedDamage: 0
   bleedLength: 0
   bleedTickRate: 0
-  burnChance: 0
-  burnDamage: 0
-  burnLength: 0
+  burnChance: 1
+  burnDamage: 0.69
+  burnLength: 0.45
   poisonChance: 0
   poisonDamage: 0
   poisonLength: 0

@@ -46,7 +46,7 @@ public class BaseBoss : MonoBehaviour
     [Header("Current Aggro Script")]
     public Aggro aggroScript;
 
-    public enum BossStage { stage1, stage2, stage3 }
+    public enum BossStage { stage1, stage2, stage3, death }
     //[HideInInspector]
     public BossStage stage;
 
@@ -218,6 +218,7 @@ public class BaseBoss : MonoBehaviour
     public IEnumerator EnterRoomCamera()
     {
         var follow = cam.GetComponent<FollowPlayer>();
+        follow.player.transform.parent.transform.parent.GetComponent<MainPlayer>().canMove = false;
         follow.player = this.gameObject.transform;
         follow.bossCamera = true;
         while (Mathf.Abs(follow.distance) >= follow.radius)
@@ -232,11 +233,22 @@ public class BaseBoss : MonoBehaviour
     }
     public void StartFightCamera()
     {
+        StartCoroutine(FightCam());
+    }
+
+    private IEnumerator FightCam()
+    {
         var follow = cam.GetComponent<FollowPlayer>();
         follow.player = GameObject.Find("CamTrackPos").gameObject.transform;
         follow.bossCamera = false;
+        while (Mathf.Abs(follow.distance) >= follow.radius)
+        {
+            yield return null;
+        }
+        follow.player.transform.parent.transform.parent.GetComponent<MainPlayer>().canMove = true;
         aggroScript.aggro = true;
     }
+
 
     private IEnumerator HealthFadeIn()
     {
@@ -261,14 +273,6 @@ public class BaseBoss : MonoBehaviour
     }
     private IEnumerator HealthFadeOut()
     {
-        //health bar
-        healthImage.GetComponent<Image>().color = new Color(healthImage.GetComponent<Image>().color.r, healthImage.GetComponent<Image>().color.g, healthImage.GetComponent<Image>().color.b, 1);
-        //health bar background
-        healthBackground.GetComponent<Image>().color = new Color(healthBackground.GetComponent<Image>().color.r, healthBackground.GetComponent<Image>().color.g, healthBackground.GetComponent<Image>().color.b, 1);
-        //boss name
-        bossName.GetComponent<TextMeshProUGUI>().text = this.gameObject.name;
-        bossName.GetComponent<TextMeshProUGUI>().color = new Color(bossName.GetComponent<TextMeshProUGUI>().color.r, bossName.GetComponent<TextMeshProUGUI>().color.g, bossName.GetComponent<TextMeshProUGUI>().color.b, 1);
-
         while (healthImage.GetComponent<Image>().color.a > 0 && healthBackground.GetComponent<Image>().color.a > 0 && bossName.GetComponent<TextMeshProUGUI>().color.a > 0)
         {
             healthImage.GetComponent<Image>().color -= new Color(0, 0, 0, fadeInTime * Time.deltaTime);
@@ -276,6 +280,9 @@ public class BaseBoss : MonoBehaviour
             bossName.GetComponent<TextMeshProUGUI>().color -= new Color(0, 0, 0, fadeInTime * Time.deltaTime);
             yield return null;
         }
+        healthImage.GetComponent<Image>().enabled = false;
+        healthBackground.GetComponent<Image>().enabled = false;
+        bossName.GetComponent<TextMeshProUGUI>().enabled = false;
     }
     public void StartFadeIn()
     {
@@ -300,6 +307,7 @@ public class BaseBoss : MonoBehaviour
 
     IEnumerator Death()
     {
+        stage = BossStage.death;
         if (anim != null)
         {
             anim.SetTrigger("death");

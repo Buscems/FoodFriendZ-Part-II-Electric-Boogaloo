@@ -15,6 +15,8 @@ MonoBehaviour:
   hudIcon: {fileID: 6338356545781371509, guid: ae7f3ca6c8456402c85e4fdd7257d6ee, type: 3}
   characterName: tunaCan
   attackType: 0
+  duration: 0
+  strength: 0
   Mspeed: 7
   baseDamage: 4
   critChance: 0.16
@@ -23,8 +25,9 @@ MonoBehaviour:
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.15
   currentDodgeTime: -8.451702
-  dodgeWaitTime: 2
+  dodgeWaitTime: 1
   currentDodgeWaitTime: -6.4517035
+  muzzleFlash: {fileID: 0}
   attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
   canPierce: 0
   pierceMultiplier: 1

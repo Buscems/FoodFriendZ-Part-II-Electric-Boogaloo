@@ -10,13 +10,20 @@ public class SpikeMove : MonoBehaviour
     [SerializeField] private int damage;
     private Vector3 velocity;
 
+    public float destroyTime;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         velocity = transform.right * speed;
     }
 
-    
+
+    private void Update()
+    {
+        Destroy(gameObject, destroyTime);
+    }
+
     void FixedUpdate()
     {
          rb.MovePosition(transform.position + velocity * Time.deltaTime);

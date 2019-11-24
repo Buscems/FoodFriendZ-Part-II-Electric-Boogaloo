@@ -22,9 +22,13 @@ public class MilkGoneBad : MonoBehaviour
     public float tackleSpeed;
     public bool tackle;
     public float chargeTime;
-    Transform tackleTarget;
+    Vector3 tackleTarget;
     float tackleCooldown;
     public float tackleCooldownMax;
+    bool hitWall;
+    public float stunTime;
+    [SerializeField]
+    bool stun;
 
 
     // Start is called before the first frame update
@@ -59,7 +63,7 @@ public class MilkGoneBad : MonoBehaviour
                 Stage1Movement();
                 if (!startStage2)
                 {
-                    baseBoss.speed *= 1.5f;
+                    baseBoss.speed *= 4f;
                     startStage2 = true;
                 }
                 tackleCooldown -= Time.deltaTime;
@@ -80,22 +84,26 @@ public class MilkGoneBad : MonoBehaviour
 
     void Stage1Movement()
     {
-        if (!tackle)
+        if (!stun)
         {
-            velocity = (baseBoss.aggroScript.currentTarget.transform.position - transform.position).normalized;
+            if (!tackle)
+            {
+                velocity = (baseBoss.aggroScript.currentTarget.transform.position - transform.position).normalized;
+                rb.MovePosition(rb.position + velocity * baseBoss.speed * Time.deltaTime);
+            }
+            else
+            {
+                rb.MovePosition(rb.position + velocity * tackleSpeed * Time.deltaTime);
+            }
         }
-        rb.MovePosition(rb.position + velocity * baseBoss.speed * Time.deltaTime);
     }
 
     void Stage2()
     {
-        baseBoss.walkIntoDamage = 1;
-        if (!tackle && (this.transform.position - baseBoss.aggroScript.currentTarget.position).magnitude < tackleDistance && tackleCooldown <= 0)
+        if (!stun && !tackle && (this.transform.position - baseBoss.aggroScript.currentTarget.position).magnitude < tackleDistance && tackleCooldown <= 0)
         {
             StartCoroutine(StartTackle());
-            print("Yer");
         }
-
     }
 
     IEnumerator StartTackle()
@@ -103,15 +111,17 @@ public class MilkGoneBad : MonoBehaviour
         tackle = true;
         velocity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(chargeTime);
-        tackleTarget = baseBoss.aggroScript.currentTarget;
+        tackleTarget = baseBoss.aggroScript.currentTarget.position;
         StartCoroutine(Tackle());
     }
 
     IEnumerator Tackle()
     {
-        while(transform.position != tackleTarget.position)
+        Vector3 startPos = transform.position;
+        Vector3 attackDir = (tackleTarget - transform.position).normalized;
+        while ((startPos - transform.position).magnitude < tackleDistance || !hitWall)
         {
-            velocity = (tackleTarget.position - transform.position).normalized;
+            velocity = attackDir;
             yield return null;
         }
         tackleCooldown = tackleCooldownMax;
@@ -120,6 +130,31 @@ public class MilkGoneBad : MonoBehaviour
 
     void Stage3()
     {
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "TilesHere" && tackle)
+        {
+            hitWall = true;
+            StartCoroutine(Stun());
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "TilesHere" && tackle)
+        {
+            hitWall = false;
+        }
+    }
+
+    IEnumerator Stun()
+    {
+
+        stun = true;
+        yield return new WaitForSeconds(stunTime);
+        stun = false;
 
     }
 

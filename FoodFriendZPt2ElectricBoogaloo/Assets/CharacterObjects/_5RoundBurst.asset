@@ -15,6 +15,8 @@ MonoBehaviour:
   hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
   characterName: 5RoundBurst
   attackType: 2
+  duration: 0
+  strength: 0
   Mspeed: 7
   baseDamage: 1
   critChance: 0.654
@@ -25,6 +27,8 @@ MonoBehaviour:
   currentDodgeTime: -1019.1103
   dodgeWaitTime: 1
   currentDodgeWaitTime: -19.10735
+  muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
+    type: 3}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
@@ -33,6 +37,7 @@ MonoBehaviour:
   currentPosition: {x: -62.602978, y: 59.25301, z: 0}
   currentDirection: {x: -1, y: -1, z: 0}
   weapon: {fileID: 0}
+  isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
   attackSpeed: 0
   rotationalOffset: 0
@@ -50,6 +55,7 @@ MonoBehaviour:
   canBounce: 0
   radius: 0
   bulletsPerShot: 0
+  isOrb: 0
   bulletTypes: []
   bulletsPerBurst: 5
   timeBetweenBursts: 0.42

@@ -16,6 +16,8 @@ MonoBehaviour:
     type: 3}
   characterName: samosa
   attackType: 0
+  duration: 0
+  strength: 0
   Mspeed: 7
   baseDamage: 5
   critChance: 0.16
@@ -24,8 +26,9 @@ MonoBehaviour:
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.13
   currentDodgeTime: -9.654265
-  dodgeWaitTime: 2
+  dodgeWaitTime: 1
   currentDodgeWaitTime: -7.654259
+  muzzleFlash: {fileID: 0}
   attackSize: {x: 0.64800006, y: 2.16, z: 2.16}
   canPierce: 0
   pierceMultiplier: 1

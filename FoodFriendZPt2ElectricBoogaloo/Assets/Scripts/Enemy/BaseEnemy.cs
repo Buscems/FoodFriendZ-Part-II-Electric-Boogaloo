@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
     ItemExtension ieScript;
+    public GameObject splat;
 
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
@@ -112,7 +113,7 @@ public class BaseEnemy : MonoBehaviour
         }
         catch { }
 
-        sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime);
+        sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime);
         speed = origSpeed * slowDownPercentage;
         StatusEffectTimers();
         StatusEffects();
@@ -258,8 +259,9 @@ public class BaseEnemy : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        health -= _damage;
-        sr.color = new Color(1, .35f, .35f);
+            health -= _damage;
+            sr.color = new Color(1, .1f, .1f);
+
     }
 
     public void DestroyThisObject()
@@ -269,17 +271,39 @@ public class BaseEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
-        {
-            //item extension script
-            ieScript.bEScript_mAtkPlayer = this;
-            ieScript.hasEnemyHitPlayer = true;
 
-            if (walkIntoDamage == 1)
+            if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
             {
-                collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
+                //item extension script
+                ieScript.bEScript_mAtkPlayer = this;
+                ieScript.hasEnemyHitPlayer = true;
+
+                if (walkIntoDamage == 1)
+                {
+                    collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
+                }
+            }
+        
+    }
+
+    private void OnDestroy()
+    {
+        try
+        {
+            if (health <= 0)
+            {
+                GameObject g = Instantiate(splat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                if (transform.parent.name.Contains("Turret") || transform.parent.name.Contains("SOUL"))
+                {
+                    g.transform.parent = transform.parent.parent.parent;
+                }
+                else
+                {
+                    g.transform.parent = transform.parent;
+                }
             }
         }
+        catch { }
     }
 
 }

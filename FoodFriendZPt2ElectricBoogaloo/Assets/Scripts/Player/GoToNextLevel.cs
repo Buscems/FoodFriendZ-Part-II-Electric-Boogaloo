@@ -58,7 +58,7 @@ public class GoToNextLevel : MonoBehaviour
             currentScene = Instantiate(levels[newNumber], levels[newNumber].transform.position, Quaternion.identity);
             Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
             //print(spawnPoint);
-            player.transform.position = spawnPoint;
+            //player.transform.position = spawnPoint;
             mainCamera.transform.position = spawnPoint;
             if (!hasChangedLevel)
             {

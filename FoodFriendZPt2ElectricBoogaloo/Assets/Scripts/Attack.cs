@@ -22,6 +22,8 @@ public class Attack : MonoBehaviour
 
     private GameObject enemy = null;
 
+    public GameObject hitEnemyBloodSpray;
+
     bool isPinshot;
     bool isNeedler;
     [HideInInspector]
@@ -176,9 +178,11 @@ public class Attack : MonoBehaviour
         //checking if it is a chest
         if (other.gameObject.tag == "Chest")
         {
+            
             if (!other.GetComponent<ChestScript>().hasOpened)
             {
                 other.gameObject.GetComponent<ChestScript>().hits++;
+                other.gameObject.GetComponent<ChestScript>().StartShake();
             }
         }
         if (gameObject.tag != "Takoyaki")
@@ -240,6 +244,12 @@ public class Attack : MonoBehaviour
                 if (other.GetComponent<BaseEnemy>() != null)
                 {
                     other.GetComponent<BaseEnemy>().TakeDamage(damage);
+                    try
+                    {
+                        GameObject b = Instantiate(hitEnemyBloodSpray, other.transform.position, Quaternion.identity);
+                        b.transform.right = -(transform.position - other.transform.position).normalized;
+                    }
+                    catch { }
                     SetStatusEffectsToEnemy(other.gameObject);
                 }
 

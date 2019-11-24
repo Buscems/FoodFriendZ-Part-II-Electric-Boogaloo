@@ -160,9 +160,11 @@ MonoBehaviour:
   isBoomerang: 0
   timeBeforeReturning: 0
   velocity: {x: 0, y: 0, z: 0}
-  instantiateOnDestroy: {fileID: 0}
+  instantiateOnDestroy: {fileID: 4090806889753253576, guid: 8a7930f2e83b57b44ad287cab8ce2b05,
+    type: 3}
   player: {fileID: 0}
   stopMoving: 0
+  isOrb: 0
 --- !u!50 &6395150998634023896
 Rigidbody2D:
   serializedVersion: 4
@@ -206,7 +208,10 @@ MonoBehaviour:
   explosionParticles: {fileID: 0}
   soundToInstantiate: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
     type: 3}
-  soundClip: {fileID: 8300000, guid: 996246a8366d949c4b7841ff15c908a2, type: 3}
+  soundClip: {fileID: 8300000, guid: 6b201d83714cf6445bed2c32ce208c9d, type: 3}
+  hitEnemyBloodSpray: {fileID: 4705604565385395839, guid: 4ae949c2913301e4f9042ea50aa33458,
+    type: 3}
+  isOrb: 0
 --- !u!61 &8933029905500123094
 BoxCollider2D:
   m_ObjectHideFlags: 0

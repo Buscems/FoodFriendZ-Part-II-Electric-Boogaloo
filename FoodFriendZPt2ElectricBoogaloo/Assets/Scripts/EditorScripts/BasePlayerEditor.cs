@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-/*
+
 [CustomEditor(typeof(BasePlayer))]
 public class BasePlayerEditor : Editor
 
@@ -46,6 +46,10 @@ public class BasePlayerEditor : Editor
     SerializedProperty freezeChance;
     SerializedProperty freezeLength;
     SerializedProperty freezeSlowDownPercentage;
+    SerializedProperty duration;
+    SerializedProperty strength;
+    SerializedProperty impactEffect;
+    SerializedProperty muzzleFlash;
     #endregion
 
     //Melee Variables
@@ -156,6 +160,9 @@ public class BasePlayerEditor : Editor
         freezeLength = soTarget.FindProperty("freezeLength");
         freezeSlowDownPercentage = soTarget.FindProperty("freezeSlowdownPercentage");
         isFlamethrower = soTarget.FindProperty("isFlamethrower");
+        duration = soTarget.FindProperty("duration");
+        strength = soTarget.FindProperty("strength");
+        muzzleFlash = soTarget.FindProperty("muzzleFlash");
         #endregion
 
     }
@@ -169,6 +176,8 @@ public class BasePlayerEditor : Editor
 
         EditorGUILayout.PropertyField(hudIcon);
         EditorGUILayout.PropertyField(characterName);
+        EditorGUILayout.PropertyField(duration);
+        EditorGUILayout.PropertyField(strength);
         EditorGUILayout.PropertyField(attackType);
         EditorGUILayout.PropertyField(Mspeed);
         EditorGUILayout.PropertyField(baseDamage);
@@ -216,6 +225,7 @@ public class BasePlayerEditor : Editor
             EditorGUILayout.PropertyField(bulletSpeed);
             EditorGUILayout.PropertyField(timeTillDespawn);
             EditorGUILayout.PropertyField(canBounce);
+            EditorGUILayout.PropertyField(muzzleFlash);
         }
         if (myTarget.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
         {
@@ -255,6 +265,8 @@ public class BasePlayerEditor : Editor
             EditorGUILayout.PropertyField(drop);
             EditorGUILayout.PropertyField(dropRadius);
             EditorGUILayout.PropertyField(explosionForce);
+            EditorGUILayout.PropertyField(firerate);
+            EditorGUILayout.PropertyField(timeTillDespawn);
         }
         EditorGUILayout.PropertyField(bleedChance);
         if (myTarget.bleedChance > 0)
@@ -300,4 +312,3 @@ public class BasePlayerEditor : Editor
     
 
 }
-*/

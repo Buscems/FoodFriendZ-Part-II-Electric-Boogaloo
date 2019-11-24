@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2836930846818460470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931362972437340621}
+  m_Layer: 0
+  m_Name: Chest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931362972437340621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836930846818460470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3117695947573847469}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2963448406462343636
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +220,7 @@ Transform:
   m_Children:
   - {fileID: 3117695948339502286}
   - {fileID: 4251003073434318663}
+  - {fileID: 1931362972437340621}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,6 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4483c4b4ef957854d8496631fd6f7c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   items:
   - {fileID: 5807681612802446385, guid: 8846708f8f9c0944a9f5465af51d9e8a, type: 3}
   - {fileID: 1188008098122328144, guid: dd93acb6d278b674dbeb1c8d12605d02, type: 3}
@@ -264,6 +296,8 @@ MonoBehaviour:
   maxHits: 2
   hits: 0
   hasOpened: 0
+  shakeTime: 0
+  shakeBuffer: 0
 --- !u!212 &3117695947573847471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -348,7 +382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3117695948339502286
 Transform:
   m_ObjectHideFlags: 0

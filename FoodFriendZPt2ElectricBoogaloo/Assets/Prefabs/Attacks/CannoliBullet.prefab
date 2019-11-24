@@ -38,7 +38,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5251151065386908809}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 6395150998634022948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.953, y: 1.966, z: 10}
-  m_LocalScale: {x: 0.313, y: 0.313, z: 0.313}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 1799284974483987224}
   m_Father: {fileID: 0}
@@ -165,6 +165,7 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 0}
   stopMoving: 0
+  isOrb: 0
 --- !u!50 &6395150998634023896
 Rigidbody2D:
   serializedVersion: 4
@@ -208,7 +209,10 @@ MonoBehaviour:
   explosionParticles: {fileID: 0}
   soundToInstantiate: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
     type: 3}
-  soundClip: {fileID: 8300000, guid: 996246a8366d949c4b7841ff15c908a2, type: 3}
+  soundClip: {fileID: 8300000, guid: 6b201d83714cf6445bed2c32ce208c9d, type: 3}
+  hitEnemyBloodSpray: {fileID: 4705604565385395839, guid: 4ae949c2913301e4f9042ea50aa33458,
+    type: 3}
+  isOrb: 0
 --- !u!95 &7578642382690505313
 Animator:
   serializedVersion: 3

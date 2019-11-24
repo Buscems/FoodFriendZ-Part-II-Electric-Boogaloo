@@ -5,6 +5,9 @@ using UnityEngine;
 public class ChestScript : MonoBehaviour
 {
 
+    [HideInInspector]
+    public MainPlayer player;
+
     public GameObject[] items;
 
     [Header("Different Rarities")]
@@ -14,11 +17,11 @@ public class ChestScript : MonoBehaviour
     public float rareChance;
 
     [Header("Different Costs for Rarity")]
-    public float baseCost;
-    public float wellDoneCost;
-    public float mediumWellCost;
-    public float mediumRareCost;
-    public float rareCost;
+    public int baseCost;
+    public int wellDoneCost;
+    public int mediumWellCost;
+    public int mediumRareCost;
+    public int rareCost;
 
     Queue<GameObject> wellDone = new Queue<GameObject>();
     Queue<GameObject> mediumWell = new Queue<GameObject>();
@@ -43,10 +46,22 @@ public class ChestScript : MonoBehaviour
     [HideInInspector]
     public int hits;
     public bool hasOpened;
+    bool resetHits;
+
+    [Header("Shake Variables")]
+    Vector3 basePos;
+    bool shake;
+    public float shakeTime;
+    public float shakeBuffer;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        basePos = transform.position;
+
+        player = GameObject.Find("Player").GetComponent<MainPlayer>();
+
         for(int i = 0; i < items.Length; i++)
         {
             if(items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.wellDone)
@@ -125,11 +140,50 @@ public class ChestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hits >= maxHits && !hasOpened)
+        if(hits >= maxHits && !hasOpened && player.currency > baseCost)
         {
+            player.currency -= baseCost;
             OpenChest();
             hasOpened = true;
         }
+
+        if(hits > 0 && !resetHits)
+        {
+            StartCoroutine(ResetHits());
+        }
+
+        if (shake)
+        {
+            this.transform.position = new Vector3(Random.Range(basePos.x - shakeBuffer, basePos.x + shakeBuffer), Random.Range(basePos.y - shakeBuffer, basePos.y + shakeBuffer));
+        }
+        else
+        {
+            this.transform.position = basePos;
+        }
+
+    }
+
+    IEnumerator ResetHits()
+    {
+        resetHits = true;
+        yield return new WaitForSeconds(1.5f);
+        hits = 0;
+        resetHits = false;
+    }
+
+    public void StartShake()
+    {
+        if (!shake)
+        {
+            StartCoroutine(Shake());
+        }
+    }
+
+    IEnumerator Shake()
+    {
+        shake = true;
+        yield return new WaitForSeconds(shakeTime);
+        shake = false;
     }
 
     public void OpenChest()

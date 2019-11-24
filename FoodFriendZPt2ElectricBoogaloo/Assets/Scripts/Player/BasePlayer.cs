@@ -14,8 +14,15 @@ public class BasePlayer : ScriptableObject
     [Tooltip("This is the name of the character. Make it all lower case")]
     public string characterName;
 
+
     public enum AttackType { Melee, Ranged_Basic, Ranged_Burst_Fire, Ranged_Semi_Auto, Ranged_Split_Fire, Napolean, Boomerang, Builder };
     public AttackType attackType;
+
+    [Header("Screen Shake")]
+    [Range(0.0f, 0.15f)]
+    public float duration;
+    [Range(0.0f, 0.3f)]
+    public float strength;
 
     [Header("Player Stats")]
     public float Mspeed;
@@ -39,6 +46,8 @@ public class BasePlayer : ScriptableObject
 
     [HideInInspector]
     public float currentDodgeWaitTime = 0;
+
+    public GameObject muzzleFlash;
 
     //[ATTACK SIZE]
     [Tooltip("This is going to be the size of the weapon, z is always 1.")]
@@ -277,7 +286,7 @@ public class BasePlayer : ScriptableObject
             currentDodgeWaitTime -= Time.deltaTime;
             currentDodgeTime -= Time.deltaTime;
 
-            if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire || attackType == AttackType.Boomerang || attackType == AttackType.Napolean)
+            if (attackType == AttackType.Ranged_Basic || attackType == AttackType.Ranged_Split_Fire || attackType == AttackType.Ranged_Burst_Fire || attackType == AttackType.Boomerang || attackType == AttackType.Napolean || attackType == AttackType.Builder)
             {
                 currentFirerateTimer -= Time.deltaTime;
                 timeBetweenBurstsTimer -= Time.deltaTime;
@@ -285,6 +294,10 @@ public class BasePlayer : ScriptableObject
             if (attackType == AttackType.Melee)
             {
                 currentAttackSpeedTimer -= Time.deltaTime;
+            }
+            if (attackType == AttackType.Builder)
+            {
+                currentFirerateTimer -= Time.deltaTime;
             }
         }
     }
@@ -354,6 +367,7 @@ public class BasePlayer : ScriptableObject
             damage *= critDamageMulitiplier;
         }
 
+
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
         if (isFlamethrower)
         {
@@ -390,8 +404,8 @@ public class BasePlayer : ScriptableObject
         {
             damage *= critDamageMulitiplier;
         }
-
-        GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+        currentFirerateTimer = firerate * firerateMultiplier;
+        GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.identity);
         attack.GetComponentInChildren<Attack>().damage = damage;
         
         if (this.characterName == "cherry")
@@ -418,9 +432,15 @@ public class BasePlayer : ScriptableObject
         }
         currentFirerateTimer = firerate * firerateMultiplier;
         GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+        parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
         GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform, false);
         attack.GetComponent<Attack>().damage = damage;
+        try
+        {
+            Instantiate(muzzleFlash, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+        }
+        catch { }
     }
 
     public void RangedBoomerang(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
@@ -438,9 +458,15 @@ public class BasePlayer : ScriptableObject
         }
         currentFirerateTimer = firerate * firerateMultiplier;
         GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+        parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
         GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
         SetBulletVariables(attack, parentTransform, true);
         attack.GetComponent<Attack>().damage = damage;
+        try
+        {
+            Instantiate(muzzleFlash, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+        }
+        catch { }
     }
 
     public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
@@ -475,9 +501,15 @@ public class BasePlayer : ScriptableObject
             else
             {
                 GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
+                parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
                 GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
                 SetBulletVariables(attack, parentTransform, false);
                 attack.GetComponent<Attack>().damage = damage;
+                try
+                {
+                    Instantiate(muzzleFlash, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+                }
+                catch { }
             }
         }
     }
@@ -516,7 +548,7 @@ public class BasePlayer : ScriptableObject
             currentFirerateTimer = firerate * firerateMultiplier;
 
             GameObject attack = null;
-
+            parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
             if (attackType == AttackType.Ranged_Burst_Fire)
             {
                 GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
@@ -528,7 +560,11 @@ public class BasePlayer : ScriptableObject
             }
             SetBulletVariables(attack, parentTransform, false);
             attack.GetComponent<Attack>().damage = damage;
-
+            try
+            {
+                Instantiate(muzzleFlash, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+            }
+            catch { }
             currentBulletnum--;
 
             if (currentBulletnum == 0)

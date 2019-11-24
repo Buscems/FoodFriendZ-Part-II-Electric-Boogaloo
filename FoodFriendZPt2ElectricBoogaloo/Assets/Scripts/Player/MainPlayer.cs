@@ -12,6 +12,9 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
+    [HideInInspector]
+    public bool canMove;
+
     GameObject itemDescObject;
     TextMeshProUGUI powerUpDesc;
     Animator itemDesc;
@@ -60,7 +63,8 @@ public class MainPlayer : MonoBehaviour
     public GetOddsScript getOddsScript;
 
     //private scripts
-    private CameraShake cam;
+    [HideInInspector]
+    public CameraShake cam;
 
     [Header("Animator")]
     public Animator anim;
@@ -155,6 +159,8 @@ public class MainPlayer : MonoBehaviour
     private float freezeMultiplier = 1;
     private float stunMultiplier = 1;
 
+    private float cantGetHitTimer = .5f;
+
     //death sound bool
     bool playedDeathSound;
 
@@ -163,7 +169,7 @@ public class MainPlayer : MonoBehaviour
     void Awake()
     {
         itemDescObject = GameObject.Find("*PickUpDesc");
-        powerUpDesc = itemDescObject.GetComponent<TextMeshProUGUI>();
+        powerUpDesc = GameObject.Find("pickUpText").GetComponent<TextMeshProUGUI>();
         itemDesc = GameObject.Find("*PickUpDesc").GetComponent<Animator>();
 
         ieScript = GetComponent<ItemExtension>();
@@ -285,6 +291,8 @@ public class MainPlayer : MonoBehaviour
             pointer.SetActive(false);
         }
 
+        canMove = true;
+
         //poof timer
         currentPoofTimer = maxPoofTime;
 
@@ -315,6 +323,8 @@ public class MainPlayer : MonoBehaviour
 
     void Update()
     {
+        cantGetHitTimer -= Time.deltaTime;
+
         //for powerups
         curPos = gameObject.transform.position;
 
@@ -356,7 +366,7 @@ public class MainPlayer : MonoBehaviour
                 AttackLogic();
                 SwapLogic();
                 DodgeLogic();
-                sr.color = new Color(1, sr.color.g + 5f * Time.deltaTime, sr.color.b + 5f * Time.deltaTime); ;
+                sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime); ;
 
                 //[INTERACTIONS WITH OBJECTS]
                 //this is for interacting with a chest
@@ -373,7 +383,7 @@ public class MainPlayer : MonoBehaviour
         else if (GreenMushrooms > 0)
         {
             GreenMushrooms--;
-            health = 5;
+            health += 5;
         }
 
         //if player is dead
@@ -404,12 +414,15 @@ public class MainPlayer : MonoBehaviour
     {
 
         //applied player movement
-        Vector3 currentPos = transform.position;
-        currentPos.z = 1;
-        rb.MovePosition(currentPos + (velocity * (speed)) * Time.deltaTime);
-
+        //Vector3 currentPos = transform.position;
+        //currentPos.z = 1;
+        //if we don't want the player to move
+        if (canMove)
+        {
+            rb.MovePosition(transform.position + (velocity * (speed)) * Time.deltaTime);
+        }
         //applies the transformation
-        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     //[LOGIC VOID METHODS]
@@ -425,7 +438,6 @@ public class MainPlayer : MonoBehaviour
                 {
                     currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                     currentChar.currentDodgeTime = currentChar.dodgeLength;
-                    Debug.Log("Dodge");
                     //dash effect
                     Instantiate(dashPoof, transform.position, Quaternion.identity);
                 }
@@ -673,7 +685,7 @@ public class MainPlayer : MonoBehaviour
                     currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
                 }
             }
-            if (currentChar.attackType == BasePlayer.AttackType.Builder)
+            if (currentChar.attackType == BasePlayer.AttackType.Builder && currentChar.currentFirerateTimer < 0)
             {
                 currentChar.Builder(transform.position, attackDirection, transform);
             }
@@ -999,7 +1011,15 @@ public class MainPlayer : MonoBehaviour
     {
         if (direction == new Vector3(0, 0))
         {
-            attackDirection.transform.right = velocity;
+            if (velocity.y != 0)
+            {
+                attackDirection.transform.right = velocity;
+            }
+
+            if(velocity.x != 0)
+            {
+                attackDirection.transform.right = velocity;
+            }
         }
         else
         {
@@ -1057,14 +1077,17 @@ public class MainPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "StatBoost")
         {
+            //applies all public variables on equipment to multipliers
+            PowerUps temp = other.GetComponent<PowerUps>();
+
             //assign text
-            powerUpDesc.text = other.gameObject.GetComponent<PowerUps>().powerUpDesc;
+            Debug.Log(temp);
+            Debug.Log(temp.powerUpDesc);
+
+            powerUpDesc.SetText(temp.powerUpDesc);
 
             //power up description animation
             itemDesc.SetTrigger("pickUpTrigger");
-
-            //applies all public variables on equipment to multipliers
-            PowerUps temp = other.gameObject.GetComponent<PowerUps>();
 
             //if equipment has a bonus effect OR does more than just boost multipliers, it'll be implmented here
             StartCoroutine(temp.Pickup());
@@ -1180,39 +1203,41 @@ public class MainPlayer : MonoBehaviour
     //getting hit method
     public void GetHit(int damage)
     {
-
-        //[EVASIVENESS CHECK]
-        //guarenteed hurt
-        if (evasiveChance <= 0)
+        if (cantGetHitTimer < 0)
         {
-            if (currentChar.currentDodgeTime < 0)
-            {
-                health -= damage;
-                sr.color = new Color(1, .35f, .35f);
-                cam.StartShake();
-                audioSource.clip = clips[0];
-                audioSource.Play();
-            }
-        }
-        //is player has evasive chance
-        else
-        {
-
-            //gets odds from odds script 
-            if (getOddsScript.GetStunOdds(evasiveChance))
-            //[SUCCESS]
-            {
-                print("LUCKY!!");
-            }
-            else
-            //[FAILURE]
+            //[EVASIVENESS CHECK]
+            //guarenteed hurt
+            if (evasiveChance <= 0)
             {
                 if (currentChar.currentDodgeTime < 0)
                 {
                     health -= damage;
+                    sr.color = new Color(1, .1f, .1f);
                     cam.StartShake();
                     audioSource.clip = clips[0];
                     audioSource.Play();
+                }
+            }
+            //is player has evasive chance
+            else
+            {
+
+                //gets odds from odds script 
+                if (getOddsScript.GetStunOdds(evasiveChance))
+                //[SUCCESS]
+                {
+                    print("LUCKY!!");
+                }
+                else
+                //[FAILURE]
+                {
+                    if (currentChar.currentDodgeTime < 0)
+                    {
+                        health -= damage;
+                        cam.StartShake();
+                        audioSource.clip = clips[0];
+                        audioSource.Play();
+                    }
                 }
             }
         }

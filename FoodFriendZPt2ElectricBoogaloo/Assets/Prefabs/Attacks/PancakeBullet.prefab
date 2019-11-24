@@ -130,7 +130,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: b54aabd3887e042e1b789501145ae1d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   instantiateOnDestroy: {fileID: 0}
   player: {fileID: 0}
   stopMoving: 0
+  isOrb: 0
 --- !u!50 &6395150998634023896
 Rigidbody2D:
   serializedVersion: 4
@@ -208,6 +209,7 @@ MonoBehaviour:
   soundToInstantiate: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
     type: 3}
   soundClip: {fileID: 8300000, guid: 996246a8366d949c4b7841ff15c908a2, type: 3}
+  isOrb: 0
 --- !u!95 &7578642382690505313
 Animator:
   serializedVersion: 3
