@@ -7,6 +7,8 @@ public class MoleEnemy : MonoBehaviour
     private Vector3 playerPos;
 
     public BoxCollider2D underground;
+    public BoxCollider2D sideFlames;
+    public BoxCollider2D aboveFlames;
 
     public float attackRange;
 
@@ -29,6 +31,18 @@ public class MoleEnemy : MonoBehaviour
     float originalScaleX = 1f;
     float originalScaleY = 1f;
 
+    //scales for the side flames
+    float sideScaleX = 4f;
+    float sideScaleY = 0.1f;
+
+    float originalSideScaleX = 0.1f;
+
+    //scales for the up flames
+    float upScaleX = 0.1f;
+    float upScaleY = 4f;
+
+    float originalUpScaleY = 0.1f;
+
     public PathfindingAI path;
 
 
@@ -37,6 +51,8 @@ public class MoleEnemy : MonoBehaviour
     {
         baseEnemy = GetComponent<BaseEnemy>();
         underground.enabled = false;
+        sideFlames.enabled = false;
+        aboveFlames.enabled = false;
         path = GetComponent<PathfindingAI>();
     }
 
@@ -89,6 +105,8 @@ public class MoleEnemy : MonoBehaviour
 
         if(confused == true){
             path.enabled = false;
+            aboveFlames.enabled = true;
+            sideFlames.enabled = true;
             baseEnemy.walkIntoDamage = 0;
         }
 
@@ -125,9 +143,13 @@ public class MoleEnemy : MonoBehaviour
         confused = true;
         jump = false;
         path.enabled = false;
+        sideFlames.size = new Vector2(sideScaleX, sideScaleY);
+        aboveFlames.size = new Vector2(upScaleX, upScaleY);
         baseEnemy.aggroScript.enabled = false;
         yield return new WaitForSeconds(confusedTime);
         confused = false;
         canFollow = true;
+        sideFlames.size = new Vector2(originalSideScaleX, sideScaleY);
+        aboveFlames.size = new Vector2(upScaleX, originalUpScaleY);
     }
 }
