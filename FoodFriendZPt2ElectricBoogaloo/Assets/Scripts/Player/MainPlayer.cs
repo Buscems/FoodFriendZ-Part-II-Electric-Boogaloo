@@ -12,6 +12,8 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
+    public AudioSource dashSound;
+
     [HideInInspector]
     public bool canMove;
 
@@ -436,6 +438,8 @@ public class MainPlayer : MonoBehaviour
                 //dodge timer check
                 if (currentChar.currentDodgeWaitTime < 0)
                 {
+                    dashSound.Play();
+                    //put sound
                     currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                     currentChar.currentDodgeTime = currentChar.dodgeLength;
                     //dash effect
@@ -1072,6 +1076,14 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
+    public void ControllerShake(float rumbleAmount, float duration)
+    {
+        // Set vibration in all Joysticks assigned to the Player
+        int motorIndex = 0; // the first motor
+
+        myPlayer.SetVibration(motorIndex, rumbleAmount, duration);
+    }
+
     //[COLLIDER METHODS]
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -1212,6 +1224,7 @@ public class MainPlayer : MonoBehaviour
                 if (currentChar.currentDodgeTime < 0)
                 {
                     health -= damage;
+                    cam.FlashScreen();
                     sr.color = new Color(1, .1f, .1f);
                     cam.StartShake();
                     audioSource.clip = clips[0];
@@ -1236,6 +1249,7 @@ public class MainPlayer : MonoBehaviour
                     {
                         health -= damage;
                         cam.StartShake();
+                        cam.FlashScreen();
                         audioSource.clip = clips[0];
                         audioSource.Play();
                         EndGameDataDisplay.damageTaken += damage;

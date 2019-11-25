@@ -574,4 +574,5 @@ public class BasePlayer : ScriptableObject
             }
         }
     }
+
 }

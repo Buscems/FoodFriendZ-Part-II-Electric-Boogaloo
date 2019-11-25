@@ -9,6 +9,14 @@ public class CameraShake : MonoBehaviour
     public float intensity = 0.7f;
     public float decreaseFactor = 1.0f;
 
+    public GameObject screenFlash;
+    public float screenFlashOpacity;
+    private float currentFlashTime = 0;
+
+    [Header("ControllerShake")]
+    public float contShakeIntensity;
+    public float contShakeDuration;
+
     [HideInInspector]
     public float maxShakeTime2;
     [HideInInspector]
@@ -20,6 +28,15 @@ public class CameraShake : MonoBehaviour
 
     Vector3 originalPos;
 
+    public MainPlayer player;
+
+    public void Start()
+    {
+        Color c = screenFlash.GetComponent<SpriteRenderer>().color;
+        c.a = 0;
+        screenFlash.GetComponent<SpriteRenderer>().color = c;
+    }
+
     void Awake()
     {
         originalPos = transform.localPosition;
@@ -28,6 +45,15 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
+        currentFlashTime -= Time.deltaTime*1.5f;
+
+        if(currentFlashTime > 0)
+        {
+            Color c = screenFlash.GetComponent<SpriteRenderer>().color;
+            c.a = currentFlashTime;
+            screenFlash.GetComponent<SpriteRenderer>().color = c;
+        }
+
         originalPos = transform.localPosition;
 
         if (shakeDuration > 0)
@@ -55,6 +81,18 @@ public class CameraShake : MonoBehaviour
     {
         originalPos = transform.localPosition;
         shakeDuration = maxShakeTime;
+
+        try
+        {
+            player.ControllerShake(contShakeIntensity, contShakeDuration);
+        }
+        catch { }
+
+    }
+
+    public void FlashScreen()
+    {
+        currentFlashTime = screenFlashOpacity;
     }
 
 }

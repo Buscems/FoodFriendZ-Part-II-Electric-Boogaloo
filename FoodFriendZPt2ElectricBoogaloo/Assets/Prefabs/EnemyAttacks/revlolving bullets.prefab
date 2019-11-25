@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 99
   m_Sprite: {fileID: 6445923857796694718, guid: 3991776be48424c7f8e365a138a363dd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -166,6 +166,7 @@ MonoBehaviour:
   - {fileID: 0}
   currentTarget: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
+  doorEnemy: 0
 --- !u!50 &1747565259851682985
 Rigidbody2D:
   serializedVersion: 4
