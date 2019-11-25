@@ -60,7 +60,7 @@ public class ChestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        chestPrice.enabled = false;
+        //chestPrice.enabled = false;
         basePos = transform.position;
 
         player = GameObject.Find("Player").GetComponent<MainPlayer>();
