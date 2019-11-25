@@ -24,7 +24,8 @@ public class BaseBoss : MonoBehaviour
 
     bool dead;
 
-    Animator anim;
+    [HideInInspector]
+    public Animator anim;
     public Animator backAnim;
 
     [Tooltip("How much money the boss will drop when killed")]

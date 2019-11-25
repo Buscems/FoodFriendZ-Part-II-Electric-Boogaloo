@@ -30,6 +30,9 @@ public class MilkGoneBad : MonoBehaviour
     [SerializeField]
     bool stun;
 
+    [Header("Ball of Milk")]
+    public float rollForce;
+
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +74,14 @@ public class MilkGoneBad : MonoBehaviour
             //stage3
             if (baseBoss.stage == BaseBoss.BossStage.stage3)
             {
-                Stage1Movement();
+                if (!startStage3)
+                {
+                    baseBoss.anim.SetTrigger("Ball");
+                    baseBoss.walkIntoDamage = 1;
+                    startStage3 = true;
+                }
+                Stage3Movement();
+                
             }
         }
 
@@ -95,7 +105,44 @@ public class MilkGoneBad : MonoBehaviour
             {
                 rb.MovePosition(rb.position + velocity * tackleSpeed * Time.deltaTime);
             }
+            //this will switch the animation of the boss
+            if (direction == new Vector3(0, 0))
+            {
+                if (velocity.x > 0 && velocity.y < 0)
+                {
+                    baseBoss.anim.SetFloat("Blend", 0);
+                }
+                else if (velocity.x < 0 && velocity.y < 0)
+                {
+                    baseBoss.anim.SetFloat("Blend", 1);
+                }
+                else if (velocity.x > 0 && velocity.y > 0)
+                {
+                    baseBoss.anim.SetFloat("Blend", 2);
+                }
+                else if (velocity.x < 0 && velocity.y > 0)
+                {
+                    baseBoss.anim.SetFloat("Blend", 3);
+                }
+                else if(velocity.y < 0)
+                {
+                    baseBoss.anim.SetFloat("Blend", 4);
+                }
+            }
         }
+    }
+
+    void Stage3Movement()
+    {
+        velocity = (baseBoss.aggroScript.currentTarget.transform.position - transform.position).normalized;
+        rb.AddForce(velocity * rollForce);
+
+        transform.up = -velocity;
+        if (this.GetComponent<ShootingEnemy>().enabled)
+        {
+            this.GetComponent<ShootingEnemy>().enabled = false;
+        }
+
     }
 
     void Stage2()
@@ -128,11 +175,6 @@ public class MilkGoneBad : MonoBehaviour
         tackle = false;
     }
 
-    void Stage3()
-    {
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "TilesHere" && tackle)
@@ -153,7 +195,12 @@ public class MilkGoneBad : MonoBehaviour
     {
 
         stun = true;
+        if (this.GetComponent<ShootingEnemy>().enabled)
+        {
+            this.GetComponent<ShootingEnemy>().enabled = false;
+        }
         yield return new WaitForSeconds(stunTime);
+        this.GetComponent<ShootingEnemy>().enabled = true;
         stun = false;
 
     }
