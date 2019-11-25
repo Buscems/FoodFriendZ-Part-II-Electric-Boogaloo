@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;  //NEED to access other scenes
 using UnityEngine.EventSystems;     //NEED to use for Buttons
 using UnityEngine.UI;               //NEEDS to use UI
 using TMPro;                        //NEEDS to use TextMeshPro
-
+using Rewired;
+using Rewired.ControllerExtensions;
 
 public class StartMainMenuScript : MonoBehaviour
 {
@@ -16,6 +17,16 @@ public class StartMainMenuScript : MonoBehaviour
     [SerializeField] Animator myAnimationController;
 
     static float t = 0.0f; //starting value for lerp
+
+    public GameObject ControllerMessage;
+    bool controllerConnected;
+
+    //the following is in order to use rewired
+    [Tooltip("Reference for using rewired")]
+    private Player myPlayer;
+    [Header("Rewired")]
+    [Tooltip("Number identifier for each player, must be above 0")]
+    public int playerNum;
 
     [Header("Lerping Colors")]
     public Color TitleInstruction_StartColor;
@@ -77,6 +88,14 @@ public class StartMainMenuScript : MonoBehaviour
         currentHighlightSprite = allCharacterSprites[randNum];
         characterHighlight.sprite = currentHighlightSprite;
 
+        if (controllerConnected)
+        {
+            ControllerMessage.SetActive(true);
+        }
+        else
+        {
+            ControllerMessage.SetActive(false);
+        }
     }
 
     void Update()
@@ -221,4 +240,10 @@ public class StartMainMenuScript : MonoBehaviour
         Debug.Log("Quitting Game");
     }
     #endregion
+
+    void OnControllerConnected(ControllerStatusChangedEventArgs arg)
+    {
+        controllerConnected = true;
+    }
+
 }
