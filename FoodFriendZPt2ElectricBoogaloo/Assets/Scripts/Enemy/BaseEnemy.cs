@@ -223,6 +223,7 @@ public class BaseEnemy : MonoBehaviour
         {
             Death();
             aggroScript.target[0].GetComponent<MainPlayer>().currency += money;
+            EndGameDataDisplay.moneyGenerated += money;
         }
     }
 
@@ -266,6 +267,7 @@ public class BaseEnemy : MonoBehaviour
 
     public void DestroyThisObject()
     {
+        EndGameDataDisplay.enemiesKilled += 1;
         Destroy(objectToDestroy);
     }
 
@@ -281,6 +283,7 @@ public class BaseEnemy : MonoBehaviour
                 if (walkIntoDamage == 1)
                 {
                     collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
+                    EndGameDataDisplay.damageDealt += walkIntoDamage;
                 }
             }
         

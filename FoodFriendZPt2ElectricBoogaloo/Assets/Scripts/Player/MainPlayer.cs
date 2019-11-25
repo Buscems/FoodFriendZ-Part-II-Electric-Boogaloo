@@ -1216,6 +1216,7 @@ public class MainPlayer : MonoBehaviour
                     cam.StartShake();
                     audioSource.clip = clips[0];
                     audioSource.Play();
+                    EndGameDataDisplay.damageTaken += damage;
                 }
             }
             //is player has evasive chance
@@ -1237,6 +1238,7 @@ public class MainPlayer : MonoBehaviour
                         cam.StartShake();
                         audioSource.clip = clips[0];
                         audioSource.Play();
+                        EndGameDataDisplay.damageTaken += damage;
                     }
                 }
             }
