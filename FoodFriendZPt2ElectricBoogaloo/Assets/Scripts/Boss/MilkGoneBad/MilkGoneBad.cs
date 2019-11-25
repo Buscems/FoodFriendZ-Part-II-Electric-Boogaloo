@@ -106,27 +106,48 @@ public class MilkGoneBad : MonoBehaviour
                 rb.MovePosition(rb.position + velocity * tackleSpeed * Time.deltaTime);
             }
             //this will switch the animation of the boss
-            if (direction == new Vector3(0, 0))
+            if (!stun)
             {
-                if (velocity.x > 0 && velocity.y < 0)
+                if (direction == new Vector3(0, 0))
                 {
-                    baseBoss.anim.SetFloat("Blend", 0);
+                    if (velocity.x > 0 && velocity.y < 0)
+                    {
+                        baseBoss.anim.SetFloat("Blend", 0);
+                    }
+                    else if (velocity.x < 0 && velocity.y < 0)
+                    {
+                        baseBoss.anim.SetFloat("Blend", 1);
+                    }
+                    else if (velocity.x > 0 && velocity.y > 0)
+                    {
+                        baseBoss.anim.SetFloat("Blend", 2);
+                    }
+                    else if (velocity.x < 0 && velocity.y > 0)
+                    {
+                        baseBoss.anim.SetFloat("Blend", 3);
+                    }
                 }
-                else if (velocity.x < 0 && velocity.y < 0)
+            }
+            else
+            {
+                if (direction == new Vector3(0, 0))
                 {
-                    baseBoss.anim.SetFloat("Blend", 1);
-                }
-                else if (velocity.x > 0 && velocity.y > 0)
-                {
-                    baseBoss.anim.SetFloat("Blend", 2);
-                }
-                else if (velocity.x < 0 && velocity.y > 0)
-                {
-                    baseBoss.anim.SetFloat("Blend", 3);
-                }
-                else if(velocity.y < 0)
-                {
-                    baseBoss.anim.SetFloat("Blend", 4);
+                    if (velocity.x > 0 && velocity.y < 0)
+                    {
+                        baseBoss.anim.SetFloat("Blend", 4);
+                    }
+                    else if (velocity.x < 0 && velocity.y < 0)
+                    {
+                        baseBoss.anim.SetFloat("Blend", 5);
+                    }
+                    else if (velocity.x > 0 && velocity.y > 0)
+                    {
+                        baseBoss.anim.SetFloat("Blend", 6);
+                    }
+                    else if (velocity.x < 0 && velocity.y > 0)
+                    {
+                        baseBoss.anim.SetFloat("Blend", 7);
+                    }
                 }
             }
         }

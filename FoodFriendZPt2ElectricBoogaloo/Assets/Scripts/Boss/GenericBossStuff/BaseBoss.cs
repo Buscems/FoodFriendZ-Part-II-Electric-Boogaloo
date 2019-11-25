@@ -328,8 +328,11 @@ public class BaseBoss : MonoBehaviour
         {
             anim.SetTrigger("death");
         }
-        //testing now
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0);
+    }
+
+    void KillThis()
+    {
         Destroy(this.gameObject);
     }
 

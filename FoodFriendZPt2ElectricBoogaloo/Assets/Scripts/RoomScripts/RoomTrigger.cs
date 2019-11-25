@@ -80,6 +80,15 @@ public class RoomTrigger : MonoBehaviour
                 }
             }
             catch { }
+
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (enemies[i].GetComponent<BaseEnemy>().aggroScript.aggro == true)
+                {
+
+                }
+            }
+
         }
     }
 
