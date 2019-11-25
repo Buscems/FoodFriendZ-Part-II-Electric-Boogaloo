@@ -1224,6 +1224,7 @@ public class MainPlayer : MonoBehaviour
                 if (currentChar.currentDodgeTime < 0)
                 {
                     health -= damage;
+                    cam.FlashScreen();
                     sr.color = new Color(1, .1f, .1f);
                     cam.StartShake();
                     audioSource.clip = clips[0];
@@ -1247,6 +1248,7 @@ public class MainPlayer : MonoBehaviour
                     {
                         health -= damage;
                         cam.StartShake();
+                        cam.FlashScreen();
                         audioSource.clip = clips[0];
                         audioSource.Play();
                     }
