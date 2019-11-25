@@ -275,6 +275,7 @@ MonoBehaviour:
   - {fileID: 4543157069601003370, guid: ec19f75c4f97f4b4eb349867ba1e2e34, type: 3}
   - {fileID: 7281940281577464585, guid: 0f5757bc2f80b6e41bd0ef7a18b1a5ef, type: 3}
   - {fileID: 6031768757373064001, guid: cd07df8db0de3274994b8ec80df44b94, type: 3}
+  chestPrice: {fileID: 6542614523553763951}
   wellDoneChance: 40
   mediumWellChance: 70
   mediumRareChance: 90
@@ -296,8 +297,8 @@ MonoBehaviour:
   maxHits: 2
   hits: 0
   hasOpened: 0
-  shakeTime: 0
-  shakeBuffer: 0
+  shakeTime: 0.1
+  shakeBuffer: 0.25
 --- !u!212 &3117695947573847471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -382,7 +383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3117695948339502286
 Transform:
   m_ObjectHideFlags: 0

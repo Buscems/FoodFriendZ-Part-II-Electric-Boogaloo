@@ -60,7 +60,6 @@ public class ChestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //chestPrice.enabled = false;
         basePos = transform.position;
 
         player = GameObject.Find("Player").GetComponent<MainPlayer>();
@@ -131,6 +130,8 @@ public class ChestScript : MonoBehaviour
             currentSparkle = Instantiate(sparkles, transform.position, Quaternion.identity);
             rur = true;
         }
+        chestPrice.text = "$" + baseCost;
+        chestPrice.enabled = false;
         /*
         else
         {
@@ -164,6 +165,24 @@ public class ChestScript : MonoBehaviour
             this.transform.position = basePos;
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Yert");
+        if (collision.gameObject.tag == "Player1")
+        {
+            
+            chestPrice.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player1")
+        {
+            chestPrice.enabled = false;
+        }
     }
 
     IEnumerator ResetHits()

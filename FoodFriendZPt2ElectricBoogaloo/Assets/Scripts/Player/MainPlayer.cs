@@ -1072,6 +1072,14 @@ public class MainPlayer : MonoBehaviour
         }
     }
 
+    public void ControllerShake(float rumbleAmount, float duration)
+    {
+        // Set vibration in all Joysticks assigned to the Player
+        int motorIndex = 0; // the first motor
+
+        myPlayer.SetVibration(motorIndex, rumbleAmount, duration);
+    }
+
     //[COLLIDER METHODS]
     void OnTriggerEnter2D(Collider2D other)
     {

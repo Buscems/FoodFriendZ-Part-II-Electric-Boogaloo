@@ -9,6 +9,10 @@ public class CameraShake : MonoBehaviour
     public float intensity = 0.7f;
     public float decreaseFactor = 1.0f;
 
+    [Header("ControllerShake")]
+    public float contShakeIntensity;
+    public float contShakeDuration;
+
     [HideInInspector]
     public float maxShakeTime2;
     [HideInInspector]
@@ -19,6 +23,8 @@ public class CameraShake : MonoBehaviour
     public float decreaseFactor2 = 1.0f;
 
     Vector3 originalPos;
+
+    public MainPlayer player;
 
     void Awake()
     {
@@ -55,6 +61,13 @@ public class CameraShake : MonoBehaviour
     {
         originalPos = transform.localPosition;
         shakeDuration = maxShakeTime;
+
+        try
+        {
+            player.ControllerShake(contShakeIntensity, contShakeDuration);
+        }
+        catch { }
+
     }
 
 }
