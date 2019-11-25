@@ -12,6 +12,8 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
+    public AudioSource dashSound;
+
     [HideInInspector]
     public bool canMove;
 
@@ -436,6 +438,8 @@ public class MainPlayer : MonoBehaviour
                 //dodge timer check
                 if (currentChar.currentDodgeWaitTime < 0)
                 {
+                    dashSound.Play();
+                    //put sound
                     currentChar.currentDodgeWaitTime = currentChar.dodgeWaitTime + currentChar.dodgeLength;
                     currentChar.currentDodgeTime = currentChar.dodgeLength;
                     //dash effect
