@@ -9,7 +9,6 @@ public class ShopTrigger : MonoBehaviour
     public int price;
     public GameObject powerUp;
     public GameObject priceText;
-    public CurrencyManager curMan;
     public bool looking;
     public PowerUps power;
     public MainPlayer player;
@@ -19,13 +18,12 @@ public class ShopTrigger : MonoBehaviour
     {
         priceText.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
-        curMan = GameObject.FindGameObjectWithTag("Player1").GetComponent<CurrencyManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (curMan.totalMoney >= price && Input.GetKeyDown(KeyCode.E) && looking == true)
+        if (player.currency >= price && Input.GetKeyDown(KeyCode.E) && looking == true)
         {
             Debug.Log("woot");
             player.speedMultiplier += power.movementSpeed;
@@ -37,7 +35,7 @@ public class ShopTrigger : MonoBehaviour
             player.health += power.healAmount;
 
             player.currentChar.SetMultipliers(player.attackSizeMultiplier, player.attackSpeedMultiplier, player.firerateMultiplier, player.baseDamageMulitplier, player.maxDamageMultiplier, player.critChanceMultiplier);
-            curMan.totalMoney -= price;
+            player.currency -= price;
             Destroy(gameObject);
             Destroy(powerUp);
         }
