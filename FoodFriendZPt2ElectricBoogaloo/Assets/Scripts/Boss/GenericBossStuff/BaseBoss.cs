@@ -185,6 +185,17 @@ public class BaseBoss : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player1")
+        {
+            if (walkIntoDamage == 1)
+            {
+                collision.GetComponent<MainPlayer>().GetHit(walkIntoDamage);
+            }
+        }
+    }
+
     public void SetBleed(float[] _bleedVariables)
     {
         bleedDamage = _bleedVariables[0];

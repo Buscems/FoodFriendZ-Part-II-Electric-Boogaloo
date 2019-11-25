@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ChestScript : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ChestScript : MonoBehaviour
     public MainPlayer player;
 
     public GameObject[] items;
+
+    public TextMeshProUGUI chestPrice;
 
     [Header("Different Rarities")]
     public float wellDoneChance;
@@ -57,7 +60,7 @@ public class ChestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        chestPrice.enabled = false;
         basePos = transform.position;
 
         player = GameObject.Find("Player").GetComponent<MainPlayer>();
