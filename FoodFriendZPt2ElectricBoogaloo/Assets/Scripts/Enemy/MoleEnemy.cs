@@ -50,7 +50,7 @@ public class MoleEnemy : MonoBehaviour
     void Start()
     {
         baseEnemy = GetComponent<BaseEnemy>();
-        underground.enabled = false;
+        underground.enabled = true;
         sideFlames.enabled = false;
         aboveFlames.enabled = false;
         path = GetComponent<PathfindingAI>();
@@ -59,6 +59,8 @@ public class MoleEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+
         if (baseEnemy.aggroScript.aggro == true && !aboutToJump && !jump && !confused)
         {
             under = true;
@@ -67,7 +69,7 @@ public class MoleEnemy : MonoBehaviour
             baseEnemy.anim.SetBool("isBuried", true);
             confused = false;
             underground.enabled = false;
-            playerPos = baseEnemy.aggroScript.currentTarget.transform.position;
+
             path.enabled = true;
         }
 

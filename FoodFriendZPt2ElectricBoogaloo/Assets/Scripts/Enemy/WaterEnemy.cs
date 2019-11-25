@@ -70,6 +70,13 @@ public class WaterEnemy : MonoBehaviour
 
             rb.velocity = dir * movementPerSecond;
         }
+
+        if (collision.gameObject.tag == "Water"){
+            Vector2 inNormal = collision.contacts[0].normal;
+            dir = Vector2.Reflect(rb.velocity, inNormal);
+
+            rb.velocity = dir * movementPerSecond;
+        }
     }
 
     IEnumerator spawnWater(){

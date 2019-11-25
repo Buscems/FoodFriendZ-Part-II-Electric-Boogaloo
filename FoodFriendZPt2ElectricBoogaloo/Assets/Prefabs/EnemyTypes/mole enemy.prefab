@@ -234,6 +234,7 @@ MonoBehaviour:
   - {fileID: 0}
   currentTarget: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
+  doorEnemy: 0
 --- !u!50 &3771510891360171279
 Rigidbody2D:
   serializedVersion: 4
@@ -330,7 +331,7 @@ MonoBehaviour:
   underground: {fileID: 3771510891360171272}
   sideFlames: {fileID: 2135157031}
   aboveFlames: {fileID: 2135157030}
-  attackRange: 1
+  attackRange: 2
   under: 0
   aboutToJump: 0
   jump: 0
