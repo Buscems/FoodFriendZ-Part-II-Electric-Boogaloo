@@ -22,6 +22,15 @@ public class RoomTrigger : MonoBehaviour
         for (int i = 0; i < enemyTrue.Length; i++)
         {
             enemyTrue[i] = true;
+            try
+            {
+                enemies[i].GetComponent<Aggro>().doorEnemy = true;
+                    
+            }
+            catch
+            {
+
+            }
         }
     }
 
@@ -83,12 +92,18 @@ public class RoomTrigger : MonoBehaviour
 
             for (int i = 0; i < enemies.Length; i++)
             {
-                if (enemies[i].GetComponent<BaseEnemy>().aggroScript.aggro == true)
+                try
+                {
+                    if (enemies[i].GetComponent<BaseEnemy>() != null)
+                    {
+                        enemies[i].GetComponent<BaseEnemy>().aggroScript.aggro = true;
+                    }
+                }
+                catch
                 {
 
                 }
             }
-
         }
     }
 

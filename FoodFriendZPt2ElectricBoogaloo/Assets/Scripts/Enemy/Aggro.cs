@@ -23,6 +23,8 @@ public class Aggro : MonoBehaviour
     [HideInInspector]
     public Vector3 currentPos;
 
+    public bool doorEnemy;
+
     private void Awake()
     {
         try
@@ -52,7 +54,10 @@ public class Aggro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AggroHandler();
+        if (!doorEnemy)
+        {
+            AggroHandler();
+        }
 
         //currentPos = this.transform.position;
         currentPos = this.transform.position;
