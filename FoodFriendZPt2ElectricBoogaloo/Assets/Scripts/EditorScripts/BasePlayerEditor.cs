@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-
+/*
 [CustomEditor(typeof(BasePlayer))]
 public class BasePlayerEditor : Editor
 
@@ -311,4 +311,4 @@ public class BasePlayerEditor : Editor
 
     
 
-}
+}*/

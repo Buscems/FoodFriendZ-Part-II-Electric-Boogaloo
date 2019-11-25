@@ -23,6 +23,7 @@ public class BuyButton : MonoBehaviour
     public void powerUpButton(){
         if (curMoney.totalMoney >= price){
             curMoney.totalMoney -= price;
+            EndGameDataDisplay.moneySpent += price;
         }
     }
 }
