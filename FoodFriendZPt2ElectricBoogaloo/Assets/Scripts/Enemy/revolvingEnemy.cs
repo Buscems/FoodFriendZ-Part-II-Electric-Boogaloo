@@ -16,6 +16,8 @@ public class revolvingEnemy : MonoBehaviour
 
     public bool plezSpawn;
 
+    public float moveTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,12 @@ public class revolvingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(MoveFaster());
+    }
 
+    IEnumerator MoveFaster(){
+        yield return new WaitForSeconds(moveTime);
+        baseEnemy.speed = 5f;
     }
 }
 
