@@ -6,7 +6,8 @@ public class DiscoverCharacter : MonoBehaviour
 {
 
     private Animator anim;
-    private BasePlayer currentChar;
+    [HideInInspector]
+    public BasePlayer currentChar;
 
     public BasePlayer[] characters;
 
@@ -15,9 +16,12 @@ public class DiscoverCharacter : MonoBehaviour
 
     public int[] excludeIndex;
 
+    private MainPlayer player;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
         anim = GetComponent<Animator>();
 
         if (spawnThis)
@@ -33,13 +37,44 @@ public class DiscoverCharacter : MonoBehaviour
             {
                 check = false;
 
+                //dont spawn one i want to exclude
                 for (int i = 0; i < excludeIndex.Length; i++)
                 {
-                    if(randNum == excludeIndex[i])
+                    if (randNum == excludeIndex[i])
                     {
                         check = true;
                     }
                 }
+
+                //make sure doesnt spawn one character has
+                if (characters[randNum] == player.cross)
+                {
+                    check = true;
+                }
+                if (characters[randNum] == player.triangle)
+                {
+                    check = true;
+                }
+                if (characters[randNum] == player.circle)
+                {
+                    check = true;
+                }
+                if (characters[randNum] == player.square)
+                {
+                    check = true;
+                }
+
+                //make sure two dont spawn the same
+                GameObject[] characterDiscover;
+                characterDiscover = GameObject.FindGameObjectsWithTag("CharacterDiscover");
+                foreach (GameObject c in characterDiscover)
+                {
+                    if(c.GetComponent<DiscoverCharacter>().currentChar == characters[randNum])
+                    {
+                        check = true;
+                    }
+                }
+
                 if (check)
                 {
                     randNum = (int)Random.Range(0, characters.Length);
@@ -55,7 +90,7 @@ public class DiscoverCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //[MOVEMENT AND ANIMATION METHODS]
@@ -127,7 +162,7 @@ public class DiscoverCharacter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player1")
+        if (other.gameObject.tag == "Player1")
         {
             MainPlayer player = other.gameObject.GetComponent<MainPlayer>();
             if (player.square != currentChar && player.triangle != currentChar && player.circle != currentChar && player.cross != currentChar)
