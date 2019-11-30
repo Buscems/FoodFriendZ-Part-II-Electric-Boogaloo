@@ -31,6 +31,9 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector] public Vector3 curPos;
     [HideInInspector] public Vector3 _curPos;
 
+    public GameObject playerGetHitSplat;
+    private GameObject ui;
+
     public int health;
     [HideInInspector] public int currency;
 
@@ -290,6 +293,7 @@ public class MainPlayer : MonoBehaviour
 
     void Start()
     {
+        ui = GameObject.Find("InGameUI");
         currentInvinsibilityTime = 0;
         if (usingMouse)
         {
@@ -1223,6 +1227,9 @@ public class MainPlayer : MonoBehaviour
         {
             if (currentInvinsibilityTime < 0)
             {
+                GameObject splat = Instantiate(playerGetHitSplat, transform.position, Quaternion.Euler(0,0, Random.Range(0,360)));
+                splat.transform.parent = ui.transform;
+
                 currentInvinsibilityTime = invincibilityTime;
                 //[EVASIVENESS CHECK]
                 //guarenteed hurt

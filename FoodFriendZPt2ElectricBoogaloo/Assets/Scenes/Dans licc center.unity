@@ -4181,6 +4181,21 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 822394764366944432}
+    - target: {fileID: 3098082239512880430, guid: 0b51ff908a2bd9845a0dae857bac6202,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064171367228413350, guid: 0b51ff908a2bd9845a0dae857bac6202,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1128947543
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064171367228413350, guid: 0b51ff908a2bd9845a0dae857bac6202,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -6001314520164109770, guid: 0b51ff908a2bd9845a0dae857bac6202, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b51ff908a2bd9845a0dae857bac6202, type: 3}
@@ -4706,6 +4721,17 @@ PrefabInstance:
       propertyPath: es
       value: 
       objectReference: {fileID: 1738196455}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: invincibilityTime
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: playerGetHitSplat
+      value: 
+      objectReference: {fileID: 3253290694032064482, guid: f07535ee7ab496a4093fb69494ceab4c,
+        type: 3}
     - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
       propertyPath: m_Layer
       value: 8
