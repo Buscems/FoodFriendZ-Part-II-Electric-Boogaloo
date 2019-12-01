@@ -113,6 +113,7 @@ MonoBehaviour:
   target: []
   currentTarget: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
+  doorEnemy: 0
 --- !u!114 &6936989604429419520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +137,10 @@ MonoBehaviour:
   dropRate: 0
   money: 1
   objectToDestroy: {fileID: 0}
-  deathSound: {fileID: 0}
-  deathClips: []
+  deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
+    type: 3}
+  deathClips:
+  - {fileID: 8300000, guid: cbd4de7e5be284e088a84f7005a59236, type: 3}
 --- !u!58 &1617325329032379504
 CircleCollider2D:
   m_ObjectHideFlags: 0

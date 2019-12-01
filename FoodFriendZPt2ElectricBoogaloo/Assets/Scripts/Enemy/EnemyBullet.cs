@@ -6,6 +6,9 @@ public class EnemyBullet : MonoBehaviour
 {
     ItemExtension ieScript;
 
+    public AudioSource soundToInstantiate;
+    public AudioClip soundClip;
+
     [HideInInspector] public float speed;
     [HideInInspector] public Vector3 velocity;
     [HideInInspector] public int damage;

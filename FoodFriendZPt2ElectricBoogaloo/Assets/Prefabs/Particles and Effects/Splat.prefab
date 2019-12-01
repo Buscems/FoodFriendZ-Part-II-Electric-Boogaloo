@@ -54,6 +54,11 @@ MonoBehaviour:
   - {r: 0.6981132, g: 0, b: 0, a: 1}
   - {r: 0.5283019, g: 0, b: 0, a: 1}
   - {r: 0.3207547, g: 0, b: 0, a: 1}
+  isUI: 0
+  sizeMin: 0
+  sizeMax: 0
+  waitTime: 0
+  disappearSpeed: 0
 --- !u!212 &4256095344034381621
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +95,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 6520339583072558400, guid: 52e332e94ee9940148fa5c6303dd1b35,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

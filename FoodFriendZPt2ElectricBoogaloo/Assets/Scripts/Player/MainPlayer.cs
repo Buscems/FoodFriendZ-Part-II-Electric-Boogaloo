@@ -12,6 +12,9 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
+    public float invincibilityTime;
+    private float currentInvinsibilityTime; 
+
     public AudioSource dashSound;
 
     [HideInInspector]
@@ -27,6 +30,9 @@ public class MainPlayer : MonoBehaviour
     [HideInInspector] public bool isPlayerCurrentlyMoving;
     [HideInInspector] public Vector3 curPos;
     [HideInInspector] public Vector3 _curPos;
+
+    public GameObject playerGetHitSplat;
+    private GameObject ui;
 
     public int health;
     [HideInInspector] public int currency;
@@ -287,7 +293,8 @@ public class MainPlayer : MonoBehaviour
 
     void Start()
     {
-
+        ui = GameObject.Find("InGameUI");
+        currentInvinsibilityTime = 0;
         if (usingMouse)
         {
             pointer.SetActive(false);
@@ -326,6 +333,7 @@ public class MainPlayer : MonoBehaviour
     void Update()
     {
         cantGetHitTimer -= Time.deltaTime;
+        currentInvinsibilityTime -=Time.deltaTime;
 
         //for powerups
         curPos = gameObject.transform.position;
@@ -1217,42 +1225,50 @@ public class MainPlayer : MonoBehaviour
     {
         if (cantGetHitTimer < 0)
         {
-            //[EVASIVENESS CHECK]
-            //guarenteed hurt
-            if (evasiveChance <= 0)
+            if (currentInvinsibilityTime < 0)
             {
-                if (currentChar.currentDodgeTime < 0)
-                {
-                    health -= damage;
-                    cam.FlashScreen();
-                    sr.color = new Color(1, .1f, .1f);
-                    cam.StartShake();
-                    audioSource.clip = clips[0];
-                    audioSource.Play();
-                    EndGameDataDisplay.damageTaken += damage;
-                }
-            }
-            //is player has evasive chance
-            else
-            {
+                GameObject splat = Instantiate(playerGetHitSplat, transform.position, Quaternion.Euler(0,0, Random.Range(0,360)));
+                splat.transform.parent = ui.transform;
 
-                //gets odds from odds script 
-                if (getOddsScript.GetStunOdds(evasiveChance))
-                //[SUCCESS]
-                {
-                    print("LUCKY!!");
-                }
-                else
-                //[FAILURE]
+                currentInvinsibilityTime = invincibilityTime;
+                //[EVASIVENESS CHECK]
+                //guarenteed hurt
+                if (evasiveChance <= 0)
                 {
                     if (currentChar.currentDodgeTime < 0)
                     {
                         health -= damage;
-                        cam.StartShake();
                         cam.FlashScreen();
+                        sr.color = new Color(1, .1f, .1f);
+                        cam.StartShake();
                         audioSource.clip = clips[0];
                         audioSource.Play();
                         EndGameDataDisplay.damageTaken += damage;
+                    }
+                }
+                //is player has evasive chance
+                else
+                {
+
+                    //gets odds from odds script 
+                    if (getOddsScript.GetStunOdds(evasiveChance))
+                    //[SUCCESS]
+                    {
+                        print("LUCKY!!");
+                    }
+                    else
+                    //[FAILURE]
+                    {
+                        if (currentChar.currentDodgeTime < 0)
+                        {
+                            health -= damage;
+                            cam.StartShake();
+                            sr.color = new Color(1, .1f, .1f);
+                            cam.FlashScreen();
+                            audioSource.clip = clips[0];
+                            audioSource.Play();
+                            EndGameDataDisplay.damageTaken += damage;
+                        }
                     }
                 }
             }

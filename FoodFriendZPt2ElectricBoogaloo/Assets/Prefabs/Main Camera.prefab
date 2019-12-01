@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3920095544228585203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.82, y: -25.39, z: 0}
+  m_LocalPosition: {x: 42.82, y: -25.39, z: 10}
   m_LocalScale: {x: 208.7805, y: 131.66252, z: 1}
   m_Children: []
   m_Father: {fileID: 4903966373799120294}
@@ -65,11 +65,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1128947543
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9176bb912ce30eb4aa6fdc3a783f7d0a, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4716981, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  radius: 0.25
+  radius: 0.45
   distance: 0
   cameraSpeed: 0.6
   bossCameraSpeed: 0
@@ -197,11 +197,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxShakeTime: 0.07
-  intensity: 0.125
+  intensity: 0.2
   decreaseFactor: 0.5
   screenFlash: {fileID: 3920095544228585203}
   screenFlashOpacity: 0.8
-  currentFlashTime: 0
   contShakeIntensity: 0
   contShakeDuration: 0
   maxShakeTime2: 0
