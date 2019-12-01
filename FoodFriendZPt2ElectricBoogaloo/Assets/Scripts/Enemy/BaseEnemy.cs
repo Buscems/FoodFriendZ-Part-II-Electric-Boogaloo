@@ -7,6 +7,8 @@ public class BaseEnemy : MonoBehaviour
     ItemExtension ieScript;
     public GameObject splat;
 
+    public AudioSource hitSound;
+
     [Header("Generic Enemy Values")]
     [Tooltip("How much health the enemy will have(This will be a high number for now so that the player can have high damage numbers")]
     public float health;
@@ -55,6 +57,7 @@ public class BaseEnemy : MonoBehaviour
 
     public AudioSource deathSound;
     public AudioClip[] deathClips;
+    public GameObject deathSound2;
 
     private void Awake()
     {
@@ -262,7 +265,7 @@ public class BaseEnemy : MonoBehaviour
     {
             health -= _damage;
             sr.color = new Color(1, .1f, .1f);
-
+            hitSound.Play();
     }
 
     public void DestroyThisObject()
@@ -307,6 +310,8 @@ public class BaseEnemy : MonoBehaviour
             }
         }
         catch { }
+
+        Instantiate(deathSound2, transform.position, Quaternion.identity);
     }
 
 }
