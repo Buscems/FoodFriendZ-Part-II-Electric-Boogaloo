@@ -179,7 +179,7 @@ public class MainPlayer : MonoBehaviour
 
     #endregion
 
-    private void Flash()
+    void Flash()
     {
         Debug.Log("Alpha: " + alpha);
         if (flashGoDown)
