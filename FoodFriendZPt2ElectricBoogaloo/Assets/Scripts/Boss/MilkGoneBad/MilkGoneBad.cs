@@ -220,10 +220,11 @@ public class MilkGoneBad : MonoBehaviour
         {
             this.GetComponent<ShootingEnemy>().enabled = false;
         }
+        baseBoss.anim.SetBool("Stun", true);
         yield return new WaitForSeconds(stunTime);
         this.GetComponent<ShootingEnemy>().enabled = true;
         stun = false;
-
+        baseBoss.anim.SetBool("Stun", false);
     }
 
 }

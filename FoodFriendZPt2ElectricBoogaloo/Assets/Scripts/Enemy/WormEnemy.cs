@@ -64,7 +64,6 @@ public class WormEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "TilesHere")
         {
-            Debug.Log("CHANGE");
             movementPerSecond = -movementPerSecond;
             movementDirection = -movementDirection;
         }

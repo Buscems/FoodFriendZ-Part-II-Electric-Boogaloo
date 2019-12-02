@@ -15,10 +15,31 @@ public class GoToNextLevel : MonoBehaviour
     public AstarPath path;
     bool hasScanned;
 
+    private GameObject[] otherArray;
+    private GameObject[] patArray;
+
     bool hasChangedLevel;
 
     void Start()
     {
+        List<GameObject> patList = new List<GameObject>();
+        List<GameObject> otherList = new List<GameObject>();
+
+        for(int i = 0; i < levels.Length; i++)
+        {
+            if (levels[i].gameObject.name.Contains("Pat"))
+            {
+                patList.Add(levels[i]);
+            }
+            else
+            {
+                otherList.Add(levels[i]);
+            }
+        }
+
+        otherArray = otherList.ToArray();
+        patArray = patList.ToArray();
+
         player = GameObject.Find("Player");
         mainCamera = GameObject.Find("Main Camera");
         NextLevel();
@@ -41,13 +62,30 @@ public class GoToNextLevel : MonoBehaviour
 
     public void NextLevel()
     {
-        int newNumber = Random.Range(0, levels.Length);
+        int chooseArray = Random.Range(0, 100);
+        int newNumber;
+
+        if (chooseArray > 20)
+        {
+            newNumber = Random.Range(0, patArray.Length);
+        }
+        else
+        {
+            newNumber = Random.Range(0, otherArray.Length);
+        }
 
         if (levels.Length > 1)
         {
             while (newNumber == currentLevelNum)
             {
-                newNumber = Random.Range(0, levels.Length);
+                if (chooseArray > 20)
+                {
+                    newNumber = Random.Range(0, patArray.Length);
+                }
+                else
+                {
+                    newNumber = Random.Range(0, otherArray.Length);
+                }
             }
         }
         try
@@ -55,7 +93,14 @@ public class GoToNextLevel : MonoBehaviour
             currentLevelNum = newNumber;
             hasScanned = false;
             Destroy(currentScene);
-            currentScene = Instantiate(levels[newNumber], levels[newNumber].transform.position, Quaternion.identity);
+            if (chooseArray > 20)
+            {
+                currentScene = Instantiate(patArray[newNumber], patArray[newNumber].transform.position, Quaternion.identity);
+            }
+            else
+            {
+                currentScene = Instantiate(otherArray[newNumber], otherArray[newNumber].transform.position, Quaternion.identity);
+            }                
             Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
             //print(spawnPoint);
             //player.transform.position = spawnPoint;
