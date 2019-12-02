@@ -22,6 +22,7 @@ public class MainPlayer : MonoBehaviour
 
     GameObject itemDescObject;
     TextMeshProUGUI powerUpDesc;
+    TextMeshProUGUI powerUpName;
     Animator itemDesc;
 
     ItemExtension ieScript;
@@ -205,7 +206,10 @@ public class MainPlayer : MonoBehaviour
     void Awake()
     {
         itemDescObject = GameObject.Find("*PickUpDesc");
+
         powerUpDesc = GameObject.Find("pickUpText").GetComponent<TextMeshProUGUI>();
+        powerUpName = GameObject.Find("pickUpName").GetComponent<TextMeshProUGUI>();
+
         itemDesc = GameObject.Find("*PickUpDesc").GetComponent<Animator>();
 
         ieScript = GetComponent<ItemExtension>();
@@ -1145,6 +1149,7 @@ public class MainPlayer : MonoBehaviour
             Debug.Log(temp.powerUpDesc);
 
             powerUpDesc.SetText(temp.powerUpDesc);
+            powerUpName.SetText(temp.powerUpName);
 
             //power up description animation
             itemDesc.SetTrigger("pickUpTrigger");
