@@ -98,12 +98,12 @@ MonoBehaviour:
   baseStats: {fileID: 0}
   effectIsActive: 1
   powerUpName: Garlic Powder
-  powerUpDesc: 
+  powerUpDesc: dmg + Crit % up
   movementSpeed: 0
   attackSize: 0
   attackSpeed: 0
-  attackDamage: 0
-  critChance: 0
+  attackDamage: 0.5
+  critChance: 0.5
   bleedChance: 1
   burnChance: 1
   poisonChance: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
   rarity: 2
   effectDuration: 0
   maxCoolDownDuration: 0
-  currentPowerUp: 27
+  currentPowerUp: 0
 --- !u!61 &3600195266610670273
 BoxCollider2D:
   m_ObjectHideFlags: 0
