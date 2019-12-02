@@ -360,6 +360,7 @@ public class BasePlayer : ScriptableObject
         poison = _poison;
         freeze = _freeze;
         stun = _stun;
+        EndGameDataDisplay.meleeAttacks++;
 
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)
@@ -424,6 +425,7 @@ public class BasePlayer : ScriptableObject
         poison = _poison;
         freeze = _freeze;
         stun = _stun;
+        EndGameDataDisplay.rangedAttacks++;
 
         float randNum = Random.Range(0, 1);
         if (randNum < critChance)

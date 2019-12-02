@@ -212,6 +212,7 @@ public class ChestScript : MonoBehaviour
     {
         if(anim != null)
         {
+            EndGameDataDisplay.chestsOpened++;
             anim.SetBool("Open", true);
             GetComponent<BoxCollider2D>().enabled = false;
         }
