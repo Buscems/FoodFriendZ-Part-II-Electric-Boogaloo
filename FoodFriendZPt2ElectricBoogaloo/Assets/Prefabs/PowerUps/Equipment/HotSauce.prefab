@@ -98,11 +98,11 @@ MonoBehaviour:
   baseStats: {fileID: 0}
   effectIsActive: 1
   powerUpName: Hot Sauce
-  powerUpDesc: 
+  powerUpDesc: attack up
   movementSpeed: 0
   attackSize: 0
   attackSpeed: 0
-  attackDamage: 0
+  attackDamage: 0.2
   critChance: 0
   bleedChance: 1
   burnChance: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
   rarity: 1
   effectDuration: 0
   maxCoolDownDuration: 0
-  currentPowerUp: 10
+  currentPowerUp: 0
 --- !u!61 &4110729913815450965
 BoxCollider2D:
   m_ObjectHideFlags: 0
