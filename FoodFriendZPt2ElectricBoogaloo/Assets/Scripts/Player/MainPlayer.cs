@@ -181,7 +181,6 @@ public class MainPlayer : MonoBehaviour
 
     private void Flash()
     {
-        Debug.Log("Alpha: " + alpha);
         if (flashGoDown)
         {
             alpha -= Time.deltaTime * flashSpeed;
@@ -421,10 +420,10 @@ public class MainPlayer : MonoBehaviour
 
                 //[INTERACTIONS WITH OBJECTS]
                 //this is for interacting with a chest
-                if (touchingChest && myPlayer.GetButtonDown("Cross"))
+                if (touchingChest && myPlayer.GetButtonDown("Attack"))
                 {
                     touchingChest = false;
-                    //currentChest.OpenChest();
+                    currentChest.OpenChest();
                 }
             }
 
