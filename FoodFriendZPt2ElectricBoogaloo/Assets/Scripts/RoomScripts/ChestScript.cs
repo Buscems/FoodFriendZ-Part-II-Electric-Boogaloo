@@ -64,9 +64,9 @@ public class ChestScript : MonoBehaviour
 
         player = GameObject.Find("Player").GetComponent<MainPlayer>();
 
-        for(int i = 0; i < items.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
-            if(items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.wellDone)
+            if (items[i].GetComponent<PowerUps>().rarity == PowerUps.Rarity.wellDone)
             {
                 wellDone.Enqueue(items[i]);
             }
@@ -90,11 +90,11 @@ public class ChestScript : MonoBehaviour
         var r = rare.ToArray();
 
         var rarityChance = Random.Range(0, 100);
-        if(rarityChance <= wellDoneChance)
+        if (rarityChance <= wellDoneChance)
         {
             currentPowerup = wd[Random.Range(0, wd.Length)];
             baseCost = wellDoneCost;
-            if(currentSparkle != null)
+            if (currentSparkle != null)
             {
                 Destroy(currentSparkle);
             }
@@ -153,7 +153,7 @@ public class ChestScript : MonoBehaviour
         }
         */
 
-        if(hits > 0 && !resetHits)
+        if (hits > 0 && !resetHits)
         {
             StartCoroutine(ResetHits());
         }
@@ -169,12 +169,11 @@ public class ChestScript : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Yert");
+        Debug.Log("In price range");
         if (collision.gameObject.tag == "Player1")
         {
-            
             chestPrice.enabled = true;
         }
     }
@@ -212,7 +211,7 @@ public class ChestScript : MonoBehaviour
 
     public void OpenChest()
     {
-        if(anim != null)
+        if (anim != null)
         {
             EndGameDataDisplay.chestsOpened++;
             anim.SetBool("Open", true);

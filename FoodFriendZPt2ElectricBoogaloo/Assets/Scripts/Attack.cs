@@ -173,7 +173,7 @@ public class Attack : MonoBehaviour
         catch { }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         //checking if it is a chest
         if (other.gameObject.tag == "Chest")
@@ -184,6 +184,8 @@ public class Attack : MonoBehaviour
                 other.gameObject.GetComponent<ChestScript>().StartShake();
             }
         }
+
+
         if (gameObject.tag != "Takoyaki")
         {
             if (!canBounce)
