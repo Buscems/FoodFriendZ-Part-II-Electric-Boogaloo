@@ -5,11 +5,12 @@ using UnityEngine;
 public class BreakableObjects : MonoBehaviour
 {
     public Animator obj;
+    public BoxCollider2D collid;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        collid.enabled = true;
     }
 
     // Update is called once per frame
@@ -21,7 +22,19 @@ public class BreakableObjects : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player1"){
-            Debug.Log("break");
+            obj.SetTrigger("Break");
+            collid.enabled = false;
+        }
+
+        if (collision.gameObject.tag == "Projectile"){
+            Destroy(collision.gameObject);
+            obj.SetTrigger("Break");
+            collid.enabled = false;
+        }
+
+        if (collision.gameObject.tag == "Slash"){
+            obj.SetTrigger("Break");
+            collid.enabled = false;
         }
     }
 }
