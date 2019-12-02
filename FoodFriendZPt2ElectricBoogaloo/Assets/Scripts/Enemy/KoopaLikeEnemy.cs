@@ -21,6 +21,8 @@ public class KoopaLikeEnemy : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public Animator ani;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,14 +84,18 @@ public class KoopaLikeEnemy : MonoBehaviour
     IEnumerator dizzyTime() {
         awake = false;
         dizzy = true;
+        ani.SetTrigger("shell");
         yield return new WaitForSeconds(timeForDizzy);
         dizzy = false;
         awake = true;
+        ani.SetTrigger("walk");
     }
 
     IEnumerator spinningTime(){
+        ani.SetTrigger("spinning");
         yield return new WaitForSeconds(timeForSpinning);
         spinning = false;
         awake = true;
+        ani.SetTrigger("walk");
     }
 }

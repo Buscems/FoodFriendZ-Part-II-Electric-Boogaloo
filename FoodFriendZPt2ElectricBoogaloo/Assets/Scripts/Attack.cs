@@ -183,6 +183,10 @@ public class Attack : MonoBehaviour
                 other.gameObject.GetComponent<ChestScript>().hits++;
                 other.gameObject.GetComponent<ChestScript>().StartShake();
             }
+            else
+            {
+                Debug.Log("chest error");
+            }
         }
 
 
