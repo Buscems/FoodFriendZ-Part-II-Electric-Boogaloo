@@ -88,14 +88,18 @@ public class StartMainMenuScript : MonoBehaviour
         currentHighlightSprite = allCharacterSprites[randNum];
         characterHighlight.sprite = currentHighlightSprite;
 
-        if (controllerConnected)
+        try
         {
-            ControllerMessage.SetActive(true);
+            if (controllerConnected)
+            {
+                ControllerMessage.SetActive(true);
+            }
+            else
+            {
+                ControllerMessage.SetActive(false);
+            }
         }
-        else
-        {
-            ControllerMessage.SetActive(false);
-        }
+        catch { }
     }
 
     void Update()
