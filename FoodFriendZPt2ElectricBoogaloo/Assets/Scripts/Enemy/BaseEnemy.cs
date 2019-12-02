@@ -311,7 +311,7 @@ public class BaseEnemy : MonoBehaviour
         }
         catch { }
 
-        //Instantiate(deathSound2, transform.position, Quaternion.identity);
+        Instantiate(deathSound2, transform.position, Quaternion.identity);
     }
 
 }
