@@ -41,6 +41,12 @@ public class GoToNextLevel : MonoBehaviour
         otherArray = otherList.ToArray();
         patArray = patList.ToArray();
 
+        if (levels.Length == 1)
+        {
+            patArray = new GameObject[] { levels[0] };
+            otherArray = new GameObject[] { levels[0] };
+        }
+
         player = GameObject.Find("Player");
         mainCamera = GameObject.Find("Main Camera");
         NextLevel();
@@ -68,6 +74,7 @@ public class GoToNextLevel : MonoBehaviour
         {
             chooseArray = 99;
         }
+
 
         if (chooseArray > 20)
         {

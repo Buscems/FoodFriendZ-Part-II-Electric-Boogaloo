@@ -176,7 +176,7 @@ public class Attack : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //checking if it is a chest
-        if (other.gameObject.tag == "Chest")
+        if (other.gameObject.tag == "Chest" && other.GetComponent<ChestScript>())
         {
             if (!other.gameObject.GetComponent<ChestScript>().hasOpened)
             {
