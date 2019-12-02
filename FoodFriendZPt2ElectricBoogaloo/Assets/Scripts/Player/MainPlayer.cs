@@ -337,7 +337,7 @@ public class MainPlayer : MonoBehaviour
 
         //for powerups
         curPos = gameObject.transform.position;
-
+        /*
         if (myPlayer.GetButtonDown("Pause"))
         {
             if (Time.timeScale == 0)
@@ -349,7 +349,7 @@ public class MainPlayer : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
-
+        */
         //if player is alive
         if (health > 0)
         {
