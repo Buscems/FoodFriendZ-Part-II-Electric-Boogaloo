@@ -18,11 +18,11 @@ public class BetterTank : MonoBehaviour
     public float coolDownTime;
 
     public BoxCollider2D attackRadius;
-    float attackScaleX = 4;
-    float attackScaleY = 4;
+    //float attackScaleX = 4;
+    //float attackScaleY = 4;
 
-    float originalScaleX = 1.51f;
-    float originalScaleY = 1.27f;
+    //float originalScaleX = 1.51f;
+    //float originalScaleY = 1.27f;
 
     BaseEnemy baseEnemy;
 
@@ -37,7 +37,7 @@ public class BetterTank : MonoBehaviour
         baseEnemy = GetComponent<BaseEnemy>();
         path = GetComponent<PathfindingAI>();
         anim = GetComponent<Animator>();
-        attackRadius.size = new Vector2(originalScaleX, originalScaleY);
+        //attackRadius.size = new Vector2(originalScaleX, originalScaleY);
         attackReady = true;
     }
 
@@ -67,7 +67,7 @@ public class BetterTank : MonoBehaviour
     {
         windUp = false;
         attack = true;
-        attackRadius.size = new Vector2(attackScaleX, attackScaleY);
+       // attackRadius.size = new Vector2(attackScaleX, attackScaleY);
         anim.SetTrigger("Attack");
         yield return new WaitForSeconds(attackTime);
         StartCoroutine(coolDown());
@@ -78,7 +78,7 @@ public class BetterTank : MonoBehaviour
         attack = false;
         coolDownAttack = true;
         path.enabled = true;
-        attackRadius.size = new Vector2(originalScaleX, originalScaleY);
+        //attackRadius.size = new Vector2(originalScaleX, originalScaleY);
         yield return new WaitForSeconds(coolDownTime);
         coolDownAttack = false;
         attackReady = true;
