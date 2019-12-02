@@ -17,6 +17,7 @@ public class GoToNextLevel : MonoBehaviour
 
     private GameObject[] otherArray;
     private GameObject[] patArray;
+    public bool isTutorial;
 
     bool hasChangedLevel;
 
@@ -64,6 +65,9 @@ public class GoToNextLevel : MonoBehaviour
     {
         int chooseArray = Random.Range(0, 100);
         int newNumber;
+        {
+            chooseArray = 99;
+        }
 
         if (chooseArray > 20)
         {
@@ -73,6 +77,9 @@ public class GoToNextLevel : MonoBehaviour
         {
             newNumber = Random.Range(0, otherArray.Length);
         }
+
+        if (isTutorial)
+
 
         if (levels.Length > 1)
         {
@@ -96,10 +103,12 @@ public class GoToNextLevel : MonoBehaviour
             if (chooseArray > 20)
             {
                 currentScene = Instantiate(patArray[newNumber], patArray[newNumber].transform.position, Quaternion.identity);
+                Debug.Log(patArray[newNumber].name);
             }
             else
             {
                 currentScene = Instantiate(otherArray[newNumber], otherArray[newNumber].transform.position, Quaternion.identity);
+                Debug.Log(otherArray[newNumber].name);
             }                
             Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
             //print(spawnPoint);

@@ -79,7 +79,9 @@ public class PathfindingAI : MonoBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        //float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+        float distance = (transform.position - path.vectorPath[currentWaypoint]).magnitude;
 
         if(distance < nextWaypointDistance)
         {

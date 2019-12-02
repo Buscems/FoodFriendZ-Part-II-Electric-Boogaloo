@@ -74974,7 +74974,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -7.7356625, y: -2.23639}
+  m_Offset: {x: -7.8486557, y: -2.236391}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -74985,7 +74985,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.254475, y: 6.9492283}
+  m_Size: {x: 15.480461, y: 7.762779}
   m_EdgeRadius: 0
 --- !u!1 &8084112444170614967
 GameObject:
@@ -75354,7 +75354,7 @@ PrefabInstance:
     - target: {fileID: 4728474277593573588, guid: b91fdbffcd24a2641afba4a5a43bf87c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -34.906185
+      value: -39.34
       objectReference: {fileID: 0}
     - target: {fileID: 4728474277593573588, guid: b91fdbffcd24a2641afba4a5a43bf87c,
         type: 3}
@@ -75400,6 +75400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728474277593573589, guid: b91fdbffcd24a2641afba4a5a43bf87c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91fdbffcd24a2641afba4a5a43bf87c, type: 3}
@@ -76111,6 +76116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SPAWNPOINT
       objectReference: {fileID: 0}
+    - target: {fileID: 7114344336533261611, guid: 24f840c931232354d999a81618a06d46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4224355838953325152, guid: 24f840c931232354d999a81618a06d46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -76164,6 +76174,11 @@ PrefabInstance:
     - target: {fileID: 4224355838953325152, guid: 24f840c931232354d999a81618a06d46,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249859608979166061, guid: 24f840c931232354d999a81618a06d46,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -76325,6 +76340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135189467072888064, guid: 197ff7da289088b47847ed3536ff3bb2,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 197ff7da289088b47847ed3536ff3bb2, type: 3}

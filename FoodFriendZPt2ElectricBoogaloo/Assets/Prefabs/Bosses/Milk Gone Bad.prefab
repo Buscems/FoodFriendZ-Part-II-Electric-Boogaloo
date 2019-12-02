@@ -87,6 +87,7 @@ MonoBehaviour:
   - {fileID: 0}
   currentTarget: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
+  doorEnemy: 0
 --- !u!114 &1574758698585415278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +105,7 @@ MonoBehaviour:
   beamObject: {fileID: 0}
   Clip: 0
   coroutineTime: 1
-  Projectile: {fileID: 8984868245040993441, guid: 45e8db3e3fdd8734a8d0c509bf2b0978,
+  Projectile: {fileID: 8984868245040993441, guid: f5219d9131a45ae4ea029b44908bb211,
     type: 3}
   bulletDamage: 1
   projectileSpeed: 12

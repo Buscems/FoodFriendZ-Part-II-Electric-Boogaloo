@@ -59,7 +59,6 @@ public class SplatChooser : MonoBehaviour
             waitTime -= Time.deltaTime;
             if (waitTime < 0)
             {
-                Debug.Log(alpha);
                 alpha -= Time.deltaTime * disappearSpeed / 2;
                 img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
 
