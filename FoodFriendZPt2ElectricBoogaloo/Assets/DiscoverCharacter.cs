@@ -17,6 +17,7 @@ public class DiscoverCharacter : MonoBehaviour
     public int[] excludeIndex;
 
     private MainPlayer player;
+    public GameObject pickUpSound;
 
     // Start is called before the first frame update
     void Start()
@@ -164,6 +165,7 @@ public class DiscoverCharacter : MonoBehaviour
     {
         if (other.gameObject.tag == "Player1")
         {
+            Instantiate(pickUpSound, transform.position, Quaternion.identity);
             MainPlayer player = other.gameObject.GetComponent<MainPlayer>();
             if (player.square != currentChar && player.triangle != currentChar && player.circle != currentChar && player.cross != currentChar)
             {

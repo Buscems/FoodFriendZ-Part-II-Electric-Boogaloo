@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce15a32bef5300649adb1da811375f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentChar: {fileID: 0}
   characters:
   - {fileID: 11400000, guid: 6e4cf096efef81948b537d8f311a1898, type: 2}
   - {fileID: 11400000, guid: bc9fc83b771305c4081b98d34321a9c0, type: 2}
@@ -218,6 +219,7 @@ MonoBehaviour:
   spawnThis: 0
   index: 0
   excludeIndex: 00000000010000000800000013000000
+  pickUpSound: {fileID: 0}
 --- !u!58 &8571981227419551533
 CircleCollider2D:
   m_ObjectHideFlags: 0
