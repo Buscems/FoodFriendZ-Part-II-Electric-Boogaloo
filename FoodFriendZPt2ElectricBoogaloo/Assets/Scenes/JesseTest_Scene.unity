@@ -2469,6 +2469,11 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2392885752878152770, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2392885754005624388, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2483,11 +2488,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2392885752878152770, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392885754646395829, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
@@ -4268,6 +4268,11 @@ PrefabInstance:
       propertyPath: bossCameraSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3098082239512880430, guid: 0b51ff908a2bd9845a0dae857bac6202,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4903966373799120295, guid: 0b51ff908a2bd9845a0dae857bac6202,
         type: 3}
       propertyPath: contShakeIntensity
@@ -4283,11 +4288,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 822394764366944432}
-    - target: {fileID: 3098082239512880430, guid: 0b51ff908a2bd9845a0dae857bac6202,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2064171367228413350, guid: 0b51ff908a2bd9845a0dae857bac6202,
         type: 3}
       propertyPath: m_SortingLayerID
