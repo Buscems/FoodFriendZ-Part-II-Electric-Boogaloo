@@ -13,6 +13,8 @@ public class ChestScript : MonoBehaviour
 
     public TextMeshProUGUI chestPrice;
 
+    public AudioSource openSound;
+
     [Header("Different Rarities")]
     public float wellDoneChance;
     public float mediumWellChance;
@@ -216,6 +218,7 @@ public class ChestScript : MonoBehaviour
         {
             EndGameDataDisplay.chestsOpened++;
             anim.SetBool("Open", true);
+            openSound.Play();
             GetComponent<BoxCollider2D>().enabled = false;
         }
     }
