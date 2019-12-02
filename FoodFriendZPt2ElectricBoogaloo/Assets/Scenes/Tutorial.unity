@@ -2519,6 +2519,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2392885753133613719, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392885752999680875, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703639660965851909, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703639660965851909, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703639660965851909, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703639660965851909, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703639660965851909, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0712b6790ff1d948ad1b3ccbdf45b9d, type: 3}
 --- !u!1 &966333414 stripped
@@ -4191,6 +4226,11 @@ PrefabInstance:
       propertyPath: bossCameraSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2064171367228413350, guid: 0b51ff908a2bd9845a0dae857bac6202,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -6001314520164109770, guid: 0b51ff908a2bd9845a0dae857bac6202, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b51ff908a2bd9845a0dae857bac6202, type: 3}
@@ -4716,6 +4756,27 @@ PrefabInstance:
       propertyPath: es
       value: 
       objectReference: {fileID: 1738196455}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: flashSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: flashIndex
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: playerGetHitSplat
+      value: 
+      objectReference: {fileID: 3253290694032064482, guid: f07535ee7ab496a4093fb69494ceab4c,
+        type: 3}
+    - target: {fileID: 822394764877458806, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: invincibilityTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 698901464, guid: 84bc0511b46d0ed41a52cefe75499541, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -4795,6 +4856,11 @@ PrefabInstance:
       propertyPath: path
       value: 
       objectReference: {fileID: 2146578956}
+    - target: {fileID: 2812613003649850060, guid: 84bc0511b46d0ed41a52cefe75499541,
+        type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2068965905430751085, guid: 84bc0511b46d0ed41a52cefe75499541,
         type: 3}
       propertyPath: m_Enabled

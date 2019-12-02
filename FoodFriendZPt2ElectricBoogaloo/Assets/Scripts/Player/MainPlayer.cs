@@ -13,7 +13,7 @@ public class MainPlayer : MonoBehaviour
     #region All Variables
 
     public float invincibilityTime;
-    private float currentInvinsibilityTime; 
+    private float currentInvinsibilityTime;
 
     public AudioSource dashSound;
 
@@ -169,10 +169,39 @@ public class MainPlayer : MonoBehaviour
 
     private float cantGetHitTimer = .5f;
 
+    private bool flashGoDown = true;
+    public float flashSpeed;
+    public float flashIndex;
+    private float alpha = 1;
+
     //death sound bool
     bool playedDeathSound;
 
     #endregion
+
+    private void Flash()
+    {
+        Debug.Log("Alpha: " + alpha);
+        if (flashGoDown)
+        {
+            alpha -= Time.deltaTime * flashSpeed;
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
+        }
+        else
+        {
+            alpha += Time.deltaTime * flashSpeed;
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
+        }
+
+        if (alpha > 1)
+        {
+            flashGoDown = true;
+        }
+        if (alpha < flashIndex)
+        {
+            flashGoDown = false;
+        }
+    }
 
     void Awake()
     {
@@ -333,7 +362,19 @@ public class MainPlayer : MonoBehaviour
     void Update()
     {
         cantGetHitTimer -= Time.deltaTime;
-        currentInvinsibilityTime -=Time.deltaTime;
+        currentInvinsibilityTime -= Time.deltaTime;
+
+        if (currentInvinsibilityTime > 0)
+        {
+            Flash();
+        }
+
+        else if (currentInvinsibilityTime < 0 && currentInvinsibilityTime > -.1f)
+        {
+            Debug.Log("Reset");
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+            alpha = 1;
+        }
 
         //for powerups
         curPos = gameObject.transform.position;
@@ -376,14 +417,14 @@ public class MainPlayer : MonoBehaviour
                 AttackLogic();
                 SwapLogic();
                 DodgeLogic();
-                sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime); ;
+                sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime, alpha);
 
                 //[INTERACTIONS WITH OBJECTS]
                 //this is for interacting with a chest
-                if (touchingChest && myPlayer.GetButtonDown("Attack"))
+                if (touchingChest && myPlayer.GetButtonDown("Cross"))
                 {
                     touchingChest = false;
-                    currentChest.OpenChest();
+                    //currentChest.OpenChest();
                 }
             }
 
@@ -1028,7 +1069,7 @@ public class MainPlayer : MonoBehaviour
                 attackDirection.transform.right = velocity;
             }
 
-            if(velocity.x != 0)
+            if (velocity.x != 0)
             {
                 attackDirection.transform.right = velocity;
             }
@@ -1227,7 +1268,7 @@ public class MainPlayer : MonoBehaviour
         {
             if (currentInvinsibilityTime < 0)
             {
-                GameObject splat = Instantiate(playerGetHitSplat, transform.position, Quaternion.Euler(0,0, Random.Range(0,360)));
+                GameObject splat = Instantiate(playerGetHitSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
                 splat.transform.parent = ui.transform;
 
                 currentInvinsibilityTime = invincibilityTime;
@@ -1239,7 +1280,8 @@ public class MainPlayer : MonoBehaviour
                     {
                         health -= damage;
                         cam.FlashScreen();
-                        sr.color = new Color(1, .1f, .1f);
+                        alpha = 1;
+                        sr.color = new Color(1, .1f, .1f, alpha);
                         cam.StartShake();
                         audioSource.clip = clips[0];
                         audioSource.Play();
@@ -1263,7 +1305,8 @@ public class MainPlayer : MonoBehaviour
                         {
                             health -= damage;
                             cam.StartShake();
-                            sr.color = new Color(1, .1f, .1f);
+                            alpha = 1;
+                            sr.color = new Color(1, .1f, .1f, alpha);
                             cam.FlashScreen();
                             audioSource.clip = clips[0];
                             audioSource.Play();
