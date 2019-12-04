@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterEnemy : MonoBehaviour
+public class SlowWater : MonoBehaviour
 {
     //code from https://answers.unity.com/questions/1359733/moving-an-enemy-randomly.html
 
@@ -52,7 +52,7 @@ public class WaterEnemy : MonoBehaviour
         transform.position.y + (movementPerSecond.y * Time.deltaTime));
 
 
-        BulletPool.Instance.SpawnFromPool("Stuck", transform.position, Quaternion.identity);
+        BulletPool.Instance.SpawnFromPool("Slow", transform.position, Quaternion.identity);
 
     }
 
@@ -72,15 +72,17 @@ public class WaterEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "TilesHere"){
-            Debug.Log ("yeet");
+        if (collision.gameObject.tag == "TilesHere")
+        {
+            Debug.Log("yeet");
             Vector2 inNormal = collision.contacts[0].normal;
-           dir = Vector2.Reflect(rb.velocity, inNormal);
+            dir = Vector2.Reflect(rb.velocity, inNormal);
 
             rb.velocity = dir * movementPerSecond;
         }
 
-        if (collision.gameObject.tag == "Water"){
+        if (collision.gameObject.tag == "Water")
+        {
             Vector2 inNormal = collision.contacts[0].normal;
             dir = Vector2.Reflect(rb.velocity, inNormal);
 
@@ -88,5 +90,5 @@ public class WaterEnemy : MonoBehaviour
         }
     }
 
-    
+
 }

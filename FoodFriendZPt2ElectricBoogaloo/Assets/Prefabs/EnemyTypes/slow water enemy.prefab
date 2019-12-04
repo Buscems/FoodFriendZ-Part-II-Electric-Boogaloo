@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5518669389878143067}
   - component: {fileID: 5518669389878143070}
   - component: {fileID: 7122164694329212138}
-  - component: {fileID: 5518669389878143063}
   - component: {fileID: -4408686591609375130}
+  - component: {fileID: 277578683383174006}
   m_Layer: 10
   m_Name: slow water enemy
   m_TagString: Enemy
@@ -213,22 +213,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5518669389878143063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5518669389878143071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba2ffd3fd3f48d4396bb44975d2a0e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 5518669389878143070}
-  alert: {fileID: 146256924593006751, guid: c44173f58c08770448feb0b0c9b88ebc, type: 3}
-  water: {fileID: 8265863469878066957, guid: d91fc62c8db55aa41b2aeddfcb0096ae, type: 3}
-  spawnTime: 0.01
 --- !u!82 &-4408686591609375130
 AudioSource:
   m_ObjectHideFlags: 0
@@ -325,6 +309,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &277578683383174006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518669389878143071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b3a3a5aff6a7d4f9931e5fa7641cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5518669389878143070}
+  alert: {fileID: 0}
+  spawnTime: 0
 --- !u!1 &8133854959010844670
 GameObject:
   m_ObjectHideFlags: 0

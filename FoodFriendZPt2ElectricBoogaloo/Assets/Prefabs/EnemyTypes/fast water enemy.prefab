@@ -72,8 +72,8 @@ GameObject:
   - component: {fileID: 7768958034001362198}
   - component: {fileID: 7768958034001362195}
   - component: {fileID: 5012965655884949927}
-  - component: {fileID: 7768958034001362202}
   - component: {fileID: -2901576039985406728}
+  - component: {fileID: 4582180194822824932}
   m_Layer: 10
   m_Name: fast water enemy
   m_TagString: Enemy
@@ -270,22 +270,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7768958034001362202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7768958034001362194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba2ffd3fd3f48d4396bb44975d2a0e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 7768958034001362195}
-  alert: {fileID: 146256924593006751, guid: c44173f58c08770448feb0b0c9b88ebc, type: 3}
-  water: {fileID: 9189439800228336921, guid: e4813b41939ae3940868bb871adc1e6c, type: 3}
-  spawnTime: 0.01
 --- !u!82 &-2901576039985406728
 AudioSource:
   m_ObjectHideFlags: 0
@@ -382,3 +366,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4582180194822824932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768958034001362194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb23f5d985f351a43b012fa7df855f2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 7768958034001362195}
+  alert: {fileID: 0}
+  spawnTime: 0

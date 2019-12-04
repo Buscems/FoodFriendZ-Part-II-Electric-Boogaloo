@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class water : MonoBehaviour
+public class water : MonoBehaviour, IPooledObject
 {
     public GameObject waterObj;
-    public float destroyTime;
+    //public float destroyTime;
 
     // Start is called before the first frame update
-    void Start()
+    public void OnObjectSpawn()
     {
         
     }
@@ -16,7 +16,7 @@ public class water : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, destroyTime);
+        //Destroy(gameObject, destroyTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
