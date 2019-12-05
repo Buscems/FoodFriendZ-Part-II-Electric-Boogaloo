@@ -8,6 +8,7 @@ public class ScreenTransition : MonoBehaviour
     [Header("Fade")]
     public Image fadeObject;
     public float fadeLength;
+    private GameObject playerChar;
 
     private GoToNextLevel player;
 
@@ -28,6 +29,7 @@ public class ScreenTransition : MonoBehaviour
         fadeObject.GetComponent<Image>().color = newColor;
         FadeIn();
         player = GetComponent<GoToNextLevel>();
+        playerChar = GameObject.FindGameObjectWithTag("Player1");
         currentLoadTimer = loadingTimer * 2;
         Time.timeScale = 0;
     }
@@ -69,6 +71,8 @@ public class ScreenTransition : MonoBehaviour
         if (isLoading)
         {
             Time.timeScale = 0;
+            fadeObject.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            playerChar.GetComponent<MainPlayer>().cantGetHitTimer = 1;
             currentLoadTimer -= Time.unscaledDeltaTime;
             if(currentLoadTimer < 0)
             {

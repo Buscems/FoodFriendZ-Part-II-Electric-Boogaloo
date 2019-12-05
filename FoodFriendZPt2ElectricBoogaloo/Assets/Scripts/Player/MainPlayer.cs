@@ -168,7 +168,8 @@ public class MainPlayer : MonoBehaviour
     private float freezeMultiplier = 1;
     private float stunMultiplier = 1;
 
-    private float cantGetHitTimer = .5f;
+    [HideInInspector]
+    public float cantGetHitTimer = .5f;
 
     private bool flashGoDown = true;
     public float flashSpeed;

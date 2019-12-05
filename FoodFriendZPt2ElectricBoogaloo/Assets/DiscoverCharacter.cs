@@ -165,7 +165,11 @@ public class DiscoverCharacter : MonoBehaviour
     {
         if (other.gameObject.tag == "Player1")
         {
-            Instantiate(pickUpSound, transform.position, Quaternion.identity);
+            try
+            {
+                Instantiate(pickUpSound, transform.position, Quaternion.identity);
+            }
+            catch { }
             MainPlayer player = other.gameObject.GetComponent<MainPlayer>();
             if (player.square != currentChar && player.triangle != currentChar && player.circle != currentChar && player.cross != currentChar)
             {
