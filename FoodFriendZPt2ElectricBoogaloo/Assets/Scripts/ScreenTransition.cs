@@ -7,6 +7,8 @@ public class ScreenTransition : MonoBehaviour
 {
     [Header("Fade")]
     public Image fadeObject;
+    public Image loadingImage;
+    public float loadingRotSpeed;
     public float fadeLength;
     private GameObject playerChar;
 
@@ -21,6 +23,8 @@ public class ScreenTransition : MonoBehaviour
     private float currentLoadTimer;
     private bool isLoading = true;
 
+    private float rotAngle = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,7 @@ public class ScreenTransition : MonoBehaviour
         playerChar = GameObject.FindGameObjectWithTag("Player1");
         currentLoadTimer = loadingTimer * 2;
         Time.timeScale = 0;
+        loadingImage.enabled = true;
     }
 
     // Update is called once per frame
@@ -70,14 +75,18 @@ public class ScreenTransition : MonoBehaviour
 
         if (isLoading)
         {
+            loadingImage.enabled = true;
             Time.timeScale = 0;
             fadeObject.GetComponent<Image>().color = new Color(0, 0, 0, 1);
             playerChar.GetComponent<MainPlayer>().cantGetHitTimer = 1;
             currentLoadTimer -= Time.unscaledDeltaTime;
+            rotAngle += Time.unscaledDeltaTime * loadingRotSpeed;
+            loadingImage.rectTransform.rotation = Quaternion.Euler(0, 0, rotAngle);
             if(currentLoadTimer < 0)
             {
                 isLoading = false;
                 Time.timeScale = 1;
+                loadingImage.enabled = false;
             }
         }
 
