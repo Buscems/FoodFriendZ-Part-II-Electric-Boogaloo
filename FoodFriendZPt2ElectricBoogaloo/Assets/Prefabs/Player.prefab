@@ -173,7 +173,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 8072250368288326826, guid: 20e13519dda565a4580b94c26c01d5e9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -367,6 +367,7 @@ MonoBehaviour:
   restart: {fileID: 0}
   es: {fileID: 0}
   orb: {fileID: 2843550921742430319}
+  cantGetHitTimer: 0.5
   flashSpeed: 8
   flashIndex: 0.3
 --- !u!82 &2110259292106485824
