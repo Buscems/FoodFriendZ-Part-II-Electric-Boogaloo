@@ -1159,8 +1159,8 @@ public class MainPlayer : MonoBehaviour
 
             speedMultiplier += temp.movementSpeed;
             attackSizeMultiplier += temp.attackSize;
-            attackSpeedMultiplier += temp.attackSpeed;
-            firerateMultiplier += temp.attackSpeed;
+            attackSpeedMultiplier *= temp.attackSpeed;
+            firerateMultiplier *= temp.attackSpeed;
             baseDamageMulitplier += temp.attackDamage;
             maxDamageMultiplier += temp.attackDamage;
             bleedMultiplier *= temp.bleedChance;
