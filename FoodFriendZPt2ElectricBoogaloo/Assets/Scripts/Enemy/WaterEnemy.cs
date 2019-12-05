@@ -51,8 +51,11 @@ public class WaterEnemy : MonoBehaviour
         transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime),
         transform.position.y + (movementPerSecond.y * Time.deltaTime));
 
-
-        //BulletPool.Instance.SpawnFromPool("Stuck", transform.position, Quaternion.identity);
+        try
+        {
+            BulletPool.Instance.SpawnFromPool("Stuck", transform.position, Quaternion.identity);
+        }
+        catch { }
 
     }
 

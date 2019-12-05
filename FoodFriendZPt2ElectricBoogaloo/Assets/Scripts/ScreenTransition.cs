@@ -16,6 +16,10 @@ public class ScreenTransition : MonoBehaviour
     bool alphaUp = false;
     bool doFade = true;
 
+    public float loadingTimer;
+    private float currentLoadTimer;
+    private bool isLoading = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,8 @@ public class ScreenTransition : MonoBehaviour
         fadeObject.GetComponent<Image>().color = newColor;
         FadeIn();
         player = GetComponent<GoToNextLevel>();
+        currentLoadTimer = loadingTimer * 2;
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -50,11 +56,25 @@ public class ScreenTransition : MonoBehaviour
             alphaUp = false;
             alpha = 1;
             player.NextLevel();
+            isLoading = true;
+            Time.timeScale = 0;
+            currentLoadTimer = loadingTimer;
         }
         if (!alphaUp && alpha < -0.1f)
         {
             doFade = false;
             alpha = 0;
+        }
+
+        if (isLoading)
+        {
+            Time.timeScale = 0;
+            currentLoadTimer -= Time.unscaledDeltaTime;
+            if(currentLoadTimer < 0)
+            {
+                isLoading = false;
+                Time.timeScale = 1;
+            }
         }
 
     }
@@ -72,6 +92,9 @@ public class ScreenTransition : MonoBehaviour
         doFade = true;
         alphaUp = false;
         alpha = 1;
+        isLoading = true;
+        Time.timeScale = 0;
+        currentLoadTimer = loadingTimer;
         // StartCoroutine(C_FadeIn());
     }
 

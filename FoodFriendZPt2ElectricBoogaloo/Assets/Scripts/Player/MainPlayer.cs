@@ -1172,7 +1172,7 @@ public class MainPlayer : MonoBehaviour
 
             health += temp.healAmount;
 
-            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            //currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
 
             audioSource.clip = clips[Random.Range(2, 3)];
             audioSource.Play();
