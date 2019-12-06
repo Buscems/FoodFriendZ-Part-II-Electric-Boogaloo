@@ -25,6 +25,9 @@ public class ScreenTransition : MonoBehaviour
 
     private float rotAngle = 1;
 
+    public Text levelNumText;
+    private int currentLevel = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,9 @@ public class ScreenTransition : MonoBehaviour
         currentLoadTimer = loadingTimer * 2;
         Time.timeScale = 0;
         loadingImage.enabled = true;
+
+        levelNumText.enabled = true;
+        levelNumText.text = "Now Loading\n\nLevel " + currentLevel;
     }
 
     // Update is called once per frame
@@ -49,7 +55,7 @@ public class ScreenTransition : MonoBehaviour
             fadeObject.GetComponent<Image>().color = newColor;
             if (alphaUp)
             {
-                alpha += fadeSpeed * Time.deltaTime;
+                alpha += fadeSpeed * Time.unscaledDeltaTime;
             }
             else if (!alphaUp)
             {
@@ -75,6 +81,8 @@ public class ScreenTransition : MonoBehaviour
 
         if (isLoading)
         {
+            levelNumText.enabled = true;
+            levelNumText.text = "Now Loading\n\nLevel " + currentLevel;
             loadingImage.enabled = true;
             Time.timeScale = 0;
             fadeObject.GetComponent<Image>().color = new Color(0, 0, 0, 1);
@@ -87,6 +95,7 @@ public class ScreenTransition : MonoBehaviour
                 isLoading = false;
                 Time.timeScale = 1;
                 loadingImage.enabled = false;
+                levelNumText.enabled = false;
             }
         }
 
@@ -97,6 +106,8 @@ public class ScreenTransition : MonoBehaviour
         doFade = true;
         alphaUp = true;
         alpha = 0;
+        Time.timeScale = 0;
+        currentLevel++;
         //StartCoroutine(C_FadeOut());
     }
 

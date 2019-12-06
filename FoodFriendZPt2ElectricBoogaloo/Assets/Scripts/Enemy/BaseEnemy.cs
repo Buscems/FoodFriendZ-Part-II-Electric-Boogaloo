@@ -265,7 +265,14 @@ public class BaseEnemy : MonoBehaviour
     {
             health -= _damage;
             sr.color = new Color(1, .1f, .1f);
+        try
+        {
             hitSound.Play();
+        }
+        catch
+        {
+
+        }
     }
 
     public void DestroyThisObject()
