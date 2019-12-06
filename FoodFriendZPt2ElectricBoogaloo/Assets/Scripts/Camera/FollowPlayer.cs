@@ -17,6 +17,9 @@ public class FollowPlayer : MonoBehaviour
 
     public float bossCameraSpeed;
 
+    [HideInInspector]
+    public bool playerFalling = false;
+
     private Vector2 velocity = Vector2.zero;
 
     [HideInInspector]
@@ -36,23 +39,26 @@ public class FollowPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 playerPos = player.position;
-        distance = Vector2.Distance(playerPos, Camera.main.transform.position);
-
-        if (Mathf.Abs(distance) >= radius)
+        if (!playerFalling)
         {
-            
-            playerPos.z = -10;
-            Vector3 currentPos = transform.position;
-            currentPos.z = -10;
-            if (!bossCamera)
+            Vector3 playerPos = player.position;
+            distance = Vector2.Distance(playerPos, Camera.main.transform.position);
+
+            if (Mathf.Abs(distance) >= radius)
             {
-                transform.position = Vector3.Slerp(currentPos, playerPos, player.transform.parent.transform.parent.GetComponent<MainPlayer>().speed * cameraSpeed * Time.deltaTime);
-            }
-            else
-            {
-                //transform.position = Vector3.MoveTowards(currentPos, playerPos, bossCameraSpeed * Time.fixedDeltaTime);
-                transform.position = Vector3.Lerp(currentPos, playerPos, bossCameraSpeed * Time.fixedDeltaTime);
+
+                playerPos.z = -10;
+                Vector3 currentPos = transform.position;
+                currentPos.z = -10;
+                if (!bossCamera)
+                {
+                    transform.position = Vector3.Slerp(currentPos, playerPos, player.transform.parent.transform.parent.GetComponent<MainPlayer>().speed * cameraSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    //transform.position = Vector3.MoveTowards(currentPos, playerPos, bossCameraSpeed * Time.fixedDeltaTime);
+                    transform.position = Vector3.Lerp(currentPos, playerPos, bossCameraSpeed * Time.fixedDeltaTime);
+                }
             }
         }
     }

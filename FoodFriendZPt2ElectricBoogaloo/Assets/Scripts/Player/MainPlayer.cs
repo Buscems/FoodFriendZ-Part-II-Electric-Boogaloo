@@ -176,6 +176,13 @@ public class MainPlayer : MonoBehaviour
     public float flashIndex;
     private float alpha = 1;
 
+    [HideInInspector]
+    public Vector3 fallToPos;
+    [HideInInspector]
+    public bool startFalling = false;
+    [HideInInspector]
+    private BoxCollider2D childCollider;
+
     //death sound bool
     bool playedDeathSound;
 
@@ -326,6 +333,8 @@ public class MainPlayer : MonoBehaviour
 
     void Start()
     {
+        childCollider = transform.Find("Collider").GetComponent<BoxCollider2D>();
+        fallToPos = transform.position;
         ui = GameObject.Find("InGameUI");
         currentInvinsibilityTime = 0;
         if (usingMouse)
@@ -365,23 +374,24 @@ public class MainPlayer : MonoBehaviour
 
     void Update()
     {
-        cantGetHitTimer -= Time.deltaTime;
-        currentInvinsibilityTime -= Time.deltaTime;
+      
+            cantGetHitTimer -= Time.deltaTime;
+            currentInvinsibilityTime -= Time.deltaTime;
 
-        if (currentInvinsibilityTime > 0)
-        {
-            Flash();
-        }
+            if (currentInvinsibilityTime > 0)
+            {
+                Flash();
+            }
 
-        else if (currentInvinsibilityTime < 0 && currentInvinsibilityTime > -.1f)
-        {
-            Debug.Log("Reset");
-            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
-            alpha = 1;
-        }
+            else if (currentInvinsibilityTime < 0 && currentInvinsibilityTime > -.1f)
+            {
+                Debug.Log("Reset");
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+                alpha = 1;
+            }
 
-        //for powerups
-        curPos = gameObject.transform.position;
+            //for powerups
+            curPos = gameObject.transform.position;
         /*
         if (myPlayer.GetButtonDown("Pause"))
         {
@@ -395,89 +405,118 @@ public class MainPlayer : MonoBehaviour
             }
         }
         */
-        //if player is alive
-        if (health > 0)
+        AnimationHandler();
+
+        if (startFalling == false)
         {
-            //if game is not paused
-            if (Time.timeScale != 0)
+            //if player is alive
+            if (health > 0)
             {
-                //not stunned
-                if (stunTimer <= 0)
+                //if game is not paused
+                if (Time.timeScale != 0)
                 {
-                    PlayerMovement();
+                    //not stunned
+                    if (stunTimer <= 0)
+                    {
+                        PlayerMovement();
+                    }
+
+                    //IF STUNNED, then reduce timer down
+                    else
+                    {
+                        stunTimer -= Time.deltaTime;
+                    }
+
+                    //calls all ANIMATION/MOVEMENT METHODS
+                    LookDirection();
+
+                    //calls all LOGIC METHODS
+                    AttackLogic();
+                    SwapLogic();
+                    DodgeLogic();
+                    sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime, alpha);
+
+                    //[INTERACTIONS WITH OBJECTS]
+                    //this is for interacting with a chest
+                    if (touchingChest && myPlayer.GetButtonDown("Attack"))
+                    {
+                        touchingChest = false;
+                        currentChest.OpenChest();
+                    }
                 }
 
-                //IF STUNNED, then reduce timer down
-                else
-                {
-                    stunTimer -= Time.deltaTime;
-                }
 
-                //calls all ANIMATION/MOVEMENT METHODS
-                LookDirection();
-                AnimationHandler();
-
-                //calls all LOGIC METHODS
-                AttackLogic();
-                SwapLogic();
-                DodgeLogic();
-                sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime, alpha);
-
-                //[INTERACTIONS WITH OBJECTS]
-                //this is for interacting with a chest
-                if (touchingChest && myPlayer.GetButtonDown("Attack"))
-                {
-                    touchingChest = false;
-                    currentChest.OpenChest();
-                }
             }
 
+            else if (GreenMushrooms > 0)
+            {
+                GreenMushrooms--;
+                health += 5;
+            }
 
+            //if player is dead
+            else
+            {
+                //freeze time
+                Time.timeScale = 0;
+                //**temporary
+                GetComponent<ScreenTransition>().fadeObject.color = new Color(0, 0, 0, 1);
+                deathScreen.gameObject.SetActive(true);
+                es.SetSelectedGameObject(restart.gameObject);
+                if (!playedDeathSound)
+                {
+                    audioSource.clip = clips[4];
+                    audioSource.Play();
+                    playedDeathSound = true;
+                }
+                //**temporary - Load Dans Scene
+                if (myPlayer.GetButtonDown("Cross"))
+                {
+                    Time.timeScale = 1;
+                    SceneManager.LoadScene("Dans licc center");
+                }
+            }
         }
-
-        else if (GreenMushrooms > 0)
-        {
-            GreenMushrooms--;
-            health += 5;
-        }
-
-        //if player is dead
         else
         {
-            //freeze time
-            Time.timeScale = 0;
-            //**temporary
-            GetComponent<ScreenTransition>().fadeObject.color = new Color(0, 0, 0, 1);
-            deathScreen.gameObject.SetActive(true);
-            es.SetSelectedGameObject(restart.gameObject);
-            if (!playedDeathSound)
+            //if falling
+            //turn colliders off
+            if(transform.position.y > fallToPos.y)
             {
-                audioSource.clip = clips[4];
-                audioSource.Play();
-                playedDeathSound = true;
+                transform.position = new Vector3(transform.position.x, transform.position.y - 10 * Time.unscaledDeltaTime, transform.position.z);
+                GetComponent<CircleCollider2D>().enabled = false;
+                childCollider.enabled = false;
+                pointer.SetActive(false);
+                transform.Rotate(new Vector3(0, 0, 360 * Time.unscaledDeltaTime));            
             }
-            //**temporary - Load Dans Scene
-            if (myPlayer.GetButtonDown("Cross"))
+            else
             {
-                Time.timeScale = 1;
-                SceneManager.LoadScene("Dans licc center");
+                startFalling = false;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                cam.gameObject.GetComponent<FollowPlayer>().playerFalling = false;
+                GetComponent<CircleCollider2D>().enabled = true;
+                childCollider.enabled = true;
+                pointer.SetActive(true);
+                cam.StartShake(2, 15);
             }
         }
     }
 
     void FixedUpdate()
     {
-
-        //applied player movement
-        //Vector3 currentPos = transform.position;
-        //currentPos.z = 1;
-        //if we don't want the player to move
-        if (canMove)
+        if (!startFalling)
         {
-            rb.MovePosition(transform.position + (velocity * (speed)) * Time.deltaTime);
+            //applied player movement
+            //Vector3 currentPos = transform.position;
+            //currentPos.z = 1;
+            //if we don't want the player to move
+            if (canMove)
+            {
+                rb.MovePosition(transform.position + (velocity * (speed)) * Time.deltaTime);
+            }
+            //applies the transformation
+            //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         }
-        //applies the transformation
-        //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     //[LOGIC VOID METHODS]

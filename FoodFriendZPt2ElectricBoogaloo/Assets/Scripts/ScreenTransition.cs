@@ -12,6 +12,7 @@ public class ScreenTransition : MonoBehaviour
     public float fadeLength;
     private GameObject playerChar;
     private GameObject hole;
+    private FollowPlayer cam;
     private Vector3 origScale;
 
     private GoToNextLevel player;
@@ -45,6 +46,7 @@ public class ScreenTransition : MonoBehaviour
         Time.timeScale = 0;
         loadingImage.enabled = true;
         origScale = playerChar.transform.localScale;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowPlayer>();
 
         levelNumText.enabled = true;
         levelNumText.text = "Now Loading\n\nLevel " + currentLevel;
@@ -143,6 +145,10 @@ public class ScreenTransition : MonoBehaviour
                 Time.timeScale = 1;
                 loadingImage.enabled = false;
                 levelNumText.enabled = false;
+                cam.playerFalling = true;
+                playerChar.GetComponent<MainPlayer>().fallToPos = player.transform.position;
+                playerChar.GetComponent<MainPlayer>().startFalling = true;
+                playerChar.transform.position = new Vector3(playerChar.transform.position.x, playerChar.transform.position.y + 15, playerChar.transform.position.z);
             }
         }
 

@@ -75,6 +75,11 @@ public class CameraShake : MonoBehaviour
     {
         originalPos = transform.localPosition;
         shakeDuration = maxShakeTime;
+        try
+        {
+            player.ControllerShake(contShakeIntensity, contShakeDuration);
+        }
+        catch { }
     }
 
     public void StartShake(float _maxShakeTime,  float intensity)

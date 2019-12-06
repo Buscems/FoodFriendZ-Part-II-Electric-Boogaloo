@@ -71,10 +71,12 @@ public class GoToNextLevel : MonoBehaviour
     {
         int chooseArray = Random.Range(0, 100);
         int newNumber;
+
+
+        if (isTutorial)
         {
             chooseArray = 99;
         }
-
 
         if (chooseArray > 30)
         {
@@ -85,7 +87,6 @@ public class GoToNextLevel : MonoBehaviour
             newNumber = Random.Range(0, otherArray.Length);
         }
 
-        if (isTutorial)
 
 
         if (levels.Length > 1)
