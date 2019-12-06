@@ -54,7 +54,10 @@ public class Attack : MonoBehaviour
         try
         {
             soundToInstantiate.clip = soundClip;
-            Instantiate(soundToInstantiate.gameObject, transform.position, Quaternion.identity);
+            if (!gameObject.name.Contains("Cherry"))
+            {
+                Instantiate(soundToInstantiate.gameObject, transform.position, Quaternion.identity);
+            }
         }
         catch
         {

@@ -4835,6 +4835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3472152927714121830}
   - component: {fileID: 8011668987771272647}
+  - component: {fileID: -5679275302680147940}
   m_Layer: 0
   m_Name: Explosion Particles
   m_TagString: Untagged
@@ -4954,6 +4955,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5679275302680147940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005083030566172368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1716c33d100014c4e8df98400aabcfab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToWait: 2
 --- !u!1 &7972979405083365492
 GameObject:
   m_ObjectHideFlags: 0

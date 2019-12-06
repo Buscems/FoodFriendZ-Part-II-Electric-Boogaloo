@@ -76,7 +76,7 @@ public class GoToNextLevel : MonoBehaviour
         }
 
 
-        if (chooseArray > 20)
+        if (chooseArray > 30)
         {
             newNumber = Random.Range(0, patArray.Length);
         }
@@ -92,7 +92,7 @@ public class GoToNextLevel : MonoBehaviour
         {
             while (newNumber == currentLevelNum)
             {
-                if (chooseArray > 20)
+                if (chooseArray > 30)
                 {
                     newNumber = Random.Range(0, patArray.Length);
                 }
@@ -107,7 +107,7 @@ public class GoToNextLevel : MonoBehaviour
             currentLevelNum = newNumber;
             hasScanned = false;
             Destroy(currentScene);
-            if (chooseArray > 20)
+            if (chooseArray > 30)
             {
                 currentScene = Instantiate(patArray[newNumber], patArray[newNumber].transform.position, Quaternion.identity);
                 Debug.Log(patArray[newNumber].name);
