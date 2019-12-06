@@ -45,29 +45,32 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
-        currentFlashTime -= Time.deltaTime*1.5f;
-
-        if(currentFlashTime > 0)
+        if (player.health > 0)
         {
-            Color c = screenFlash.GetComponent<SpriteRenderer>().color;
-            c.a = currentFlashTime;
-            screenFlash.GetComponent<SpriteRenderer>().color = c;
-        }
+            currentFlashTime -= Time.deltaTime * 1.5f;
 
-        originalPos = transform.localPosition;
+            if (currentFlashTime > 0)
+            {
+                Color c = screenFlash.GetComponent<SpriteRenderer>().color;
+                c.a = currentFlashTime;
+                screenFlash.GetComponent<SpriteRenderer>().color = c;
+            }
 
-        if (shakeDuration > 0)
-        {
-            transform.localPosition = originalPos + Random.insideUnitSphere * intensity;
+            originalPos = transform.localPosition;
 
-            shakeDuration -= Time.deltaTime * decreaseFactor;
-        }
+            if (shakeDuration > 0)
+            {
+                transform.localPosition = originalPos + Random.insideUnitSphere * intensity;
 
-        if (shakeDuration2 > 0)
-        {
-            transform.localPosition = originalPos + Random.insideUnitSphere * intensity2;
+                shakeDuration -= Time.deltaTime * decreaseFactor;
+            }
 
-            shakeDuration2 -= Time.deltaTime * decreaseFactor;
+            if (shakeDuration2 > 0)
+            {
+                transform.localPosition = originalPos + Random.insideUnitSphere * intensity2;
+
+                shakeDuration2 -= Time.deltaTime * decreaseFactor;
+            }
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     
-    [HideInInspector]
+
     public Transform player;
 
     public float radius;

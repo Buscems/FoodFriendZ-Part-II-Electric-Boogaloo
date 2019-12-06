@@ -185,6 +185,12 @@ public class MainPlayer : MonoBehaviour
 
     //death sound bool
     bool playedDeathSound;
+    private float shakeTimer = 0;
+    private bool goRight = true;
+    private Vector3 newPos = Vector3.zero;
+
+    public GameObject splat;
+    private float endWaitTime = 1;
 
     #endregion
 
@@ -457,23 +463,70 @@ public class MainPlayer : MonoBehaviour
             //if player is dead
             else
             {
+                cam.gameObject.GetComponent<FollowPlayer>().player = transform;
                 //freeze time
                 Time.timeScale = 0;
                 //**temporary
-                GetComponent<ScreenTransition>().fadeObject.color = new Color(0, 0, 0, 1);
-                deathScreen.gameObject.SetActive(true);
-                es.SetSelectedGameObject(restart.gameObject);
+               
                 if (!playedDeathSound)
                 {
                     audioSource.clip = clips[4];
                     audioSource.Play();
                     playedDeathSound = true;
                 }
-                //**temporary - Load Dans Scene
-                if (myPlayer.GetButtonDown("Cross"))
+
+                if (cam.gameObject.GetComponent<Camera>().orthographicSize > 3)
                 {
-                    Time.timeScale = 1;
-                    SceneManager.LoadScene("Dans licc center");
+                    if(newPos == Vector3.zero)
+                    {
+                        newPos = transform.position;
+                    }
+                    //cam.transform.Rotate(0, 0, 90 * Time.unscaledDeltaTime);
+                    
+                    if (goRight)
+                    {
+                        shakeTimer += 5 * Time.unscaledDeltaTime;
+                        if(shakeTimer > .05f)
+                        {
+                            goRight = false;
+                        }
+                    }
+                    else
+                    {
+                        shakeTimer -= 5 * Time.unscaledDeltaTime;
+                        if (shakeTimer < -.05f)
+                        {
+                            goRight = true;
+                        }
+                    }
+                    transform.position = newPos + new Vector3(shakeTimer, 0, 0);
+                    
+                    cam.screenFlash.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+                    sr.color = new Color(1, 1, 1);
+                    cam.gameObject.GetComponent<Camera>().orthographicSize -= Time.unscaledDeltaTime;
+                    cam.transform.position = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z);
+                }
+                else
+                {
+                    if(endWaitTime == 1)
+                    {
+                        Instantiate(splat, transform.position, Quaternion.identity);
+                        sr.enabled = false;
+                        pointer.SetActive(false);
+                    }
+                    endWaitTime -= Time.unscaledDeltaTime;
+                    if(endWaitTime < 0)
+                    {
+                        GetComponent<ScreenTransition>().fadeObject.color = new Color(0, 0, 0, 1);
+                        deathScreen.gameObject.SetActive(true);
+                        es.SetSelectedGameObject(restart.gameObject);
+                        //**temporary - Load Dans Scene
+                        if (myPlayer.GetButtonDown("Cross"))
+                        {
+                            Time.timeScale = 1;
+                            SceneManager.LoadScene("Dans licc center");
+                        }
+                    }
                 }
             }
         }
