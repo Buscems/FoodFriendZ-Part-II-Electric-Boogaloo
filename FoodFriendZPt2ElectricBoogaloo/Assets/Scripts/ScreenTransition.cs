@@ -11,6 +11,8 @@ public class ScreenTransition : MonoBehaviour
     public float loadingRotSpeed;
     public float fadeLength;
     private GameObject playerChar;
+    private GameObject hole;
+    private Vector3 origScale;
 
     private GoToNextLevel player;
 
@@ -27,6 +29,8 @@ public class ScreenTransition : MonoBehaviour
 
     public Text levelNumText;
     private int currentLevel = 1;
+    private float endOfLevelTimer = -1;
+    float scaleTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +44,7 @@ public class ScreenTransition : MonoBehaviour
         currentLoadTimer = loadingTimer * 2;
         Time.timeScale = 0;
         loadingImage.enabled = true;
+        origScale = playerChar.transform.localScale;
 
         levelNumText.enabled = true;
         levelNumText.text = "Now Loading\n\nLevel " + currentLevel;
@@ -48,6 +53,48 @@ public class ScreenTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        endOfLevelTimer -= Time.unscaledDeltaTime;
+        scaleTimer -= Time.unscaledDeltaTime;
+        if(endOfLevelTimer > -1 && endOfLevelTimer < 0)
+        {
+            endOfLevelTimer = -1;
+            playerChar.transform.rotation = Quaternion.Euler(0, 0, 0);
+            FadeOut();
+        }
+        if(scaleTimer < 0)
+        {
+            playerChar.transform.localScale = origScale;
+        }
+
+        if(endOfLevelTimer > 0)
+        {
+            Vector3 vel = Vector3.zero;
+            if (playerChar.transform.position.x < hole.transform.position.x)
+            {
+                vel.x += 1 * Time.unscaledDeltaTime;
+            }
+            else
+            {
+                vel.x -= 1 * Time.unscaledDeltaTime;
+            }
+            
+            if (playerChar.transform.position.y < hole.transform.position.y)
+            {
+                vel.y += 1 * Time.unscaledDeltaTime;
+            }
+            else
+            {
+                vel.y -= 1 * Time.unscaledDeltaTime;
+            }
+            
+            playerChar.transform.position += vel;
+            playerChar.transform.localScale -= new Vector3(.2f * Time.unscaledDeltaTime, .2f * Time.unscaledDeltaTime, .2f * Time.unscaledDeltaTime);
+            if(playerChar.transform.localScale.x < .1f)
+            {
+                playerChar.transform.localScale = new Vector3(.1f,.1f,.1f);
+            }
+            playerChar.transform.Rotate(new Vector3(0, 0, 360 * Time.unscaledDeltaTime));
+        }
        
         if (doFade)
         {
@@ -126,7 +173,11 @@ public class ScreenTransition : MonoBehaviour
     {
         if(other.gameObject.tag == "Exit")
         {
-            FadeOut();
+            hole = other.gameObject;
+            hole.GetComponent<BoxCollider2D>().enabled = false;
+            Time.timeScale = 0;
+            endOfLevelTimer = 1;
+            scaleTimer = 5;
         }
     }
 }
