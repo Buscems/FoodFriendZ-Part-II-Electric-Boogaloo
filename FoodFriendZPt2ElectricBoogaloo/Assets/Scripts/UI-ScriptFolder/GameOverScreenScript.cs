@@ -12,6 +12,8 @@ public class GameOverScreenScript : MonoBehaviour
      *
      */
 
+    
+
     [Header("Buttons")]
     public Button RestartButton;
     public Button ExitButton;
