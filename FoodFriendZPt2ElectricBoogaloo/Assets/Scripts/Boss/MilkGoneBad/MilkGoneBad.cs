@@ -27,11 +27,14 @@ public class MilkGoneBad : MonoBehaviour
     public float tackleCooldownMax;
     bool hitWall;
     public float stunTime;
+    public AudioSource tackleSound;
+    public AudioSource stunSound;
     [SerializeField]
     bool stun;
 
     [Header("Ball of Milk")]
     public float rollForce;
+    public AudioSource rollingSound;
 
 
     // Start is called before the first frame update
@@ -181,6 +184,7 @@ public class MilkGoneBad : MonoBehaviour
         yield return new WaitForSeconds(chargeTime);
         tackleTarget = baseBoss.aggroScript.currentTarget.position;
         StartCoroutine(Tackle());
+        tackleSound.Play();
     }
 
     IEnumerator Tackle()
@@ -193,6 +197,7 @@ public class MilkGoneBad : MonoBehaviour
             yield return null;
         }
         tackleCooldown = tackleCooldownMax;
+        tackleSound.Play();
         tackle = false;
     }
 
@@ -202,6 +207,7 @@ public class MilkGoneBad : MonoBehaviour
         {
             hitWall = true;
             StartCoroutine(Stun());
+            stunSound.Play();
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
