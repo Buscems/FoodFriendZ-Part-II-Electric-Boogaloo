@@ -52,7 +52,7 @@ public class SlowWater : MonoBehaviour
         transform.position.y + (movementPerSecond.y * Time.deltaTime));
 
 
-        //BulletPool.Instance.SpawnFromPool("Slow", transform.position, Quaternion.identity);
+        BulletPool.Instance.SpawnFromPool("Slow", transform.position, Quaternion.identity);
 
     }
 
