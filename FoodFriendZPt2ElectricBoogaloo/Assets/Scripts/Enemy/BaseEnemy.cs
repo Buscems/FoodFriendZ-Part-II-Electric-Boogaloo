@@ -51,6 +51,15 @@ public class BaseEnemy : MonoBehaviour
     private float freezeTimer = 0;
     private float stunTimer = 0;
 
+    float bufferScaleX = 0.1f;
+    float bufferScaleY = 0.1f;
+
+    float originalScaleX = 1f;
+    float originalScaleY = 1f;
+
+    public float changeTime;
+    public BoxCollider2D hit;
+
     private float slowDownPercentage = 1;
 
     private SpriteRenderer sr;
@@ -257,6 +266,7 @@ public class BaseEnemy : MonoBehaviour
             Instantiate(deathSound.gameObject, transform.position, Quaternion.identity);
         }
         catch { }
+        EndGameDataDisplay.enemiesKilled += 1;
         Destroy(objectToDestroy);
 
     }
@@ -277,7 +287,7 @@ public class BaseEnemy : MonoBehaviour
 
     public void DestroyThisObject()
     {
-        EndGameDataDisplay.enemiesKilled += 1;
+        
         Destroy(objectToDestroy);
     }
 
@@ -286,6 +296,8 @@ public class BaseEnemy : MonoBehaviour
 
             if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
             {
+
+            StartCoroutine(bufferTime());
                 //item extension script
                 ieScript.bEScript_mAtkPlayer = this;
                 ieScript.hasEnemyHitPlayer = true;
@@ -297,6 +309,12 @@ public class BaseEnemy : MonoBehaviour
                 }
             }
         
+    }
+
+    IEnumerator bufferTime(){
+        hit.size = new Vector2(bufferScaleX, bufferScaleY);
+        yield return new WaitForSeconds(changeTime);
+        hit.size = new Vector2(originalScaleX, originalScaleY);
     }
 
     private void OnDestroy()

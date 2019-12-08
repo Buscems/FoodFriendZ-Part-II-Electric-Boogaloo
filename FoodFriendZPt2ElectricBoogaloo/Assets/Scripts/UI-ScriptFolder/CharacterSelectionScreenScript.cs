@@ -16,6 +16,8 @@ using System.IO;
 public class CharacterSelectionScreenScript : MonoBehaviour
 {
 
+    public Button startCharacter;
+
     //saving stuff
     private SaveGame saveManager;
     private GameData gameData;
@@ -23,6 +25,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     AudioSource audioSource;
 
     bool canPlay;
+    bool turnOn;
 
     [Header("Highlighted Character")]
     public Image HighlightedCharacterIMG;
@@ -94,7 +97,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
                 characterButtons[i].color = Color.black;
             }
         }
-
+        events.SetSelectedGameObject(startCharacter.gameObject);
         HighlightedCharacterIMG.sprite = characterSprites[0];
         HighlightedCharacterNameDisplay.text = "Tofu";
         string[] descText = descriptionSections[0].Split(';');
@@ -107,6 +110,8 @@ public class CharacterSelectionScreenScript : MonoBehaviour
                 characterSets[i].SetActive(false);
             }
         }
+
+        
     }
 
     private void Update()
@@ -209,6 +214,30 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         }
         */
 
+    }
+
+    public void SwapOut(int Num)
+    {
+
+        if (gameData.CharacterList[Num])
+        {
+            damage.fillAmount = stats[Num].x;
+            movementSpeed.fillAmount = stats[Num].y;
+            attackSpeed.fillAmount = stats[Num].z;
+            HighlightedCharacterIMG.sprite = characterSprites[Num];
+            HighlightedCharacterNameDisplay.text = gameData.CharacterListNames[Num];
+            string[] descText = descriptionSections[Num].Split(';');
+            try
+            {
+                descriptionHeader.text = descText[Num];
+                descriptionBody.text = descText[Num];
+            } catch { }
+            turnOn = true; 
+        }
+        else
+        {
+            turnOn = false;
+        }
     }
 
     public void BackToTitleScreenFunction()

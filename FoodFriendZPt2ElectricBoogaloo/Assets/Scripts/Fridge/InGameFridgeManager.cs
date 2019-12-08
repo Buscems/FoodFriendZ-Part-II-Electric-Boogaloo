@@ -10,6 +10,7 @@ public class InGameFridgeManager : MonoBehaviour
     public GameObject[] fridgeCharacterPlaceHolders;
     public GameObject[] selectCharUI;
     public GameObject[] inUseUI;
+    public GameObject Fridge;
 
     private BasePlayer[] selectableCharacters = new BasePlayer[] { null, null, null, null };
     /*
@@ -61,6 +62,9 @@ public class InGameFridgeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Fridge = GameObject.Find("Fridge");
+        Fridge.SetActive(false);
+
         for (int i = 0; i < fridgeCharacterPlaceHolders.Length; i++)
         {
             fridgeCharacterPlaceHolders[i].SetActive(false);
@@ -83,10 +87,14 @@ public class InGameFridgeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerWithinRange)
+        if (playerWithinRange && myPlayer.GetButtonDown("Interact"))
         {
+            Fridge.SetActive(true);
+
+            Time.timeScale = 0;
+
             //scroll to the right
-            if (Input.GetKeyDown(KeyCode.T) || myPlayer.GetButtonDown("RightDPad"))
+            /*if (Input.GetKeyDown(KeyCode.T) || myPlayer.GetButtonDown("RightDPad"))
             {
                 if (currentScrollNum + 4 < allPlayableCharacters.Length)
                 {
@@ -209,7 +217,13 @@ public class InGameFridgeManager : MonoBehaviour
 
 
 
+    */
+        }
 
+        if (myPlayer.GetButtonDown("Circle"))
+        {
+            Fridge.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 

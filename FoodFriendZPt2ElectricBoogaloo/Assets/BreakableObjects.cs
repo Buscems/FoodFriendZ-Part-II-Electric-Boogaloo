@@ -36,6 +36,7 @@ public class BreakableObjects : MonoBehaviour
         if (collision.gameObject.tag == "Projectile"){
             Destroy(collision.gameObject);
             //obj.SetTrigger("Break");
+            Destroy(gameObject);
             collid.enabled = false;
             Instantiate(debris1, transform.position, Quaternion.identity);
             
@@ -43,6 +44,7 @@ public class BreakableObjects : MonoBehaviour
 
         if (collision.gameObject.tag == "Slash"){
             //obj.SetTrigger("Break");
+            Destroy(gameObject);
             collid.enabled = false;
             Instantiate(debris1, transform.position, Quaternion.identity);
             

@@ -12,7 +12,24 @@ public class GameOverScreenScript : MonoBehaviour
      *
      */
 
-    
+    public GameObject GameOverFull;
+
+    [HideInInspector] public bool open;
+
+    private void Start()
+    {
+        GameOverFull.SetActive(false);
+        open = false;
+    }
+
+    private void Update()
+    {
+        if (open)
+        {
+            GameOverFull.SetActive(true);
+        }
+    }
+
 
     [Header("Buttons")]
     public Button RestartButton;

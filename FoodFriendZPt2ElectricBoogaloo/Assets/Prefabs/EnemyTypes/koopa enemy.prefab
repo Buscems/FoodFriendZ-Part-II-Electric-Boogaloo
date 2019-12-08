@@ -182,6 +182,8 @@ MonoBehaviour:
   dropRate: 0.05
   money: 3
   objectToDestroy: {fileID: 0}
+  changeTime: 2
+  hit: {fileID: 544498696}
   deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
     type: 3}
   deathClips: []
@@ -307,6 +309,7 @@ MonoBehaviour:
   timeForSpinning: 3
   path: {fileID: 7350863681422512628}
   rb: {fileID: 8864166343848695217}
+  ani: {fileID: 0}
 --- !u!61 &544498696
 BoxCollider2D:
   m_ObjectHideFlags: 0
