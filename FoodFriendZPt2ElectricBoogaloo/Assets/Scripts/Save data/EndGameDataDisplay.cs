@@ -42,14 +42,17 @@ public class EndGameDataDisplay : MonoBehaviour
     
     void Update()
     {
-        damageDealtText.text = "Damage Dealt: " + damageDealt;
-        enemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
-        damageTakenText.text = "Damage Taken: " + damageTaken;
-        healthRecoveredText.text = "Health Restored: " + healthRecovered;
-        moneySpentText.text = "Money Spent: " + moneySpent;
-        moneyGeneratedText.text = "Money Generated: " + moneyGenerated;
-        chestsOpenedText.text = "Chests Opened: " + chestsOpened;
-        meleeAttacksText.text = "Melee Attacks Used: " + meleeAttacks;
-        rangedAttacksText.text = "Ranged Attacks Used: " + rangedAttacks;
+        try
+        {
+            damageDealtText.text = "Damage Dealt: " + damageDealt;
+            enemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
+            damageTakenText.text = "Damage Taken: " + damageTaken;
+            healthRecoveredText.text = "Health Restored: " + healthRecovered;
+            moneySpentText.text = "Money Spent: " + moneySpent;
+            moneyGeneratedText.text = "Money Generated: " + moneyGenerated;
+            chestsOpenedText.text = "Chests Opened: " + chestsOpened;
+            meleeAttacksText.text = "Melee Attacks Used: " + meleeAttacks;
+            rangedAttacksText.text = "Ranged Attacks Used: " + rangedAttacks;
+        } catch { }
     }
 }

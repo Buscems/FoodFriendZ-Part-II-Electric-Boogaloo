@@ -12,6 +12,7 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
+
     public float invincibilityTime;
     private float currentInvinsibilityTime;
 
@@ -219,6 +220,7 @@ public class MainPlayer : MonoBehaviour
 
     void Awake()
     {
+
         itemDescObject = GameObject.Find("*PickUpDesc");
 
         powerUpDesc = GameObject.Find("pickUpText").GetComponent<TextMeshProUGUI>();
@@ -339,6 +341,7 @@ public class MainPlayer : MonoBehaviour
 
     void Start()
     {
+
         childCollider = transform.Find("Collider").GetComponent<BoxCollider2D>();
         fallToPos = transform.position;
         ui = GameObject.Find("InGameUI");
@@ -1232,6 +1235,15 @@ public class MainPlayer : MonoBehaviour
     //[COLLIDER METHODS]
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        if(other.gameObject.tag == "Fridge")
+        {
+            if (myPlayer.GetButtonDown("Interact"))
+            {
+
+            }
+        }
+
         if (other.gameObject.tag == "StatBoost")
         {
             //applies all public variables on equipment to multipliers

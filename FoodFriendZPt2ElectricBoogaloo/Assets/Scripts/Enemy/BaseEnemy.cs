@@ -257,6 +257,7 @@ public class BaseEnemy : MonoBehaviour
             Instantiate(deathSound.gameObject, transform.position, Quaternion.identity);
         }
         catch { }
+        EndGameDataDisplay.enemiesKilled += 1;
         Destroy(objectToDestroy);
 
     }
@@ -277,7 +278,7 @@ public class BaseEnemy : MonoBehaviour
 
     public void DestroyThisObject()
     {
-        EndGameDataDisplay.enemiesKilled += 1;
+        
         Destroy(objectToDestroy);
     }
 
