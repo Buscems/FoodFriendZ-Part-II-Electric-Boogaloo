@@ -16,6 +16,7 @@ public class TripWire : MonoBehaviour
     {
         exposed = false;
         baseEnemy = GetComponent<BaseEnemy>();
+        
     }
 
     // Update is called once per frame

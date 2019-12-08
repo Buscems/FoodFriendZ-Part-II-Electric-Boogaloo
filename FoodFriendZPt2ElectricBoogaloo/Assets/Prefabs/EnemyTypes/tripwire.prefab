@@ -132,7 +132,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 99
   m_Sprite: {fileID: 6401342904520932062, guid: f3ee00f590a674dc59aa9dcfd3a17e21,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aggroRange: 3
-  aggroTimerMax: 0
+  aggroTimerMax: 0.1
   aggro: 0
   target:
   - {fileID: 0}
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exposed: 0
-  baseEnemy: {fileID: 0}
+  baseEnemy: {fileID: 8714663361164895462}
   anim: {fileID: 6247046529103196246}
 --- !u!82 &-2167471719363663242
 AudioSource:

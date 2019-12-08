@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5563511594456006075}
   - component: {fileID: -2388619720827926154}
+  - component: {fileID: -3412097635083092607}
   m_Layer: 0
   m_Name: crate2 debris
   m_TagString: Untagged
@@ -83,6 +84,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3412097635083092607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563511594456006074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9a3dd3c9815c04484fe3ed99e5156b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5563511594982615626
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,5 +32,9 @@ public class Unkillable : MonoBehaviour
         {
             collision.gameObject.GetComponent<MainPlayer>().health -= damage;
         }
+
+        if (collision.gameObject.tag == "Projectile"){
+            Destroy(collision.gameObject);
+        } 
     }
 }
