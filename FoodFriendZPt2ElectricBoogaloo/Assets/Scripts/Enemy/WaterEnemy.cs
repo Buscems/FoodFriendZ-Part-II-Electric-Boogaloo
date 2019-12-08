@@ -67,6 +67,13 @@ public class WaterEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "TilesHere")
         {
+            
+            movementPerSecond = -movementPerSecond;
+            movementDirection = -movementDirection;
+        }
+
+        if (collision.gameObject.tag == "Water")
+        {
             Debug.Log("CHANGE");
             movementPerSecond = -movementPerSecond;
             movementDirection = -movementDirection;
