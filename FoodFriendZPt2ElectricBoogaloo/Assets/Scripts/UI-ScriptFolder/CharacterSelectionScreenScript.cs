@@ -227,8 +227,11 @@ public class CharacterSelectionScreenScript : MonoBehaviour
             HighlightedCharacterIMG.sprite = characterSprites[Num];
             HighlightedCharacterNameDisplay.text = gameData.CharacterListNames[Num];
             string[] descText = descriptionSections[Num].Split(';');
-            descriptionHeader.text = descText[Num];
-            descriptionBody.text = descText[Num];
+            try
+            {
+                descriptionHeader.text = descText[Num];
+                descriptionBody.text = descText[Num];
+            } catch { }
             turnOn = true; 
         }
         else
