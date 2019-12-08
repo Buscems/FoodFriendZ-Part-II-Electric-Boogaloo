@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splat: {fileID: 393177829891165686, guid: 5196e6c34fdc44547875c4a57f2d62a6, type: 3}
+  hitSound: {fileID: 0}
   health: 15
   maxHP: 0
   speed: 5
@@ -129,13 +130,16 @@ MonoBehaviour:
   anim: {fileID: 0}
   aggroScript: {fileID: 493399596654181578}
   items: []
-  dropRate: 0
+  dropRate: 0.017
   money: 3
   objectToDestroy: {fileID: 0}
+  changeTime: 2
+  hit: {fileID: 7858918609360133542}
   deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
     type: 3}
   deathClips:
   - {fileID: 8300000, guid: cbd4de7e5be284e088a84f7005a59236, type: 3}
+  deathSound2: {fileID: 0}
 --- !u!114 &1030070882179376109
 MonoBehaviour:
   m_ObjectHideFlags: 0
