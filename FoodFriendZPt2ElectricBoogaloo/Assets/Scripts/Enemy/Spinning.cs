@@ -32,6 +32,8 @@ public class Spinning : MonoBehaviour
     SpinMelee SpinMelee;
     bool isShooting;
 
+    BulletPool bulletPooler;
+
     public Sprite[] bulletSprite;
     void Start()
     {
@@ -46,6 +48,8 @@ public class Spinning : MonoBehaviour
         {
             meleeObject.SetActive(false);
         }
+
+        bulletPooler = BulletPool.Instance;
 
     }
 
@@ -83,7 +87,8 @@ public class Spinning : MonoBehaviour
     {
         while (baseEnemy.aggroScript.aggro)
         {
-            var temp = Instantiate(bullet, transform.position, Quaternion.identity);
+            //var temp = Instantiate(bullet, transform.position, Quaternion.identity);
+            var temp = BulletPool.Instance.SpawnFromPool("Projectile", transform.position, Quaternion.identity);
             var randNum = Random.Range(0, bulletSprite.Length);
             temp.GetComponent<SpriteRenderer>().sprite = bulletSprite[randNum];
             temp.GetComponent<EnemyBullet>().velocity = this.transform.up;
