@@ -227,6 +227,28 @@ public class InGameFridgeManager : MonoBehaviour
         }
     }
 
+    public void SwapCharacter(int Num)
+    {
+
+            if (selectableCharacters[Num] != null)
+            {
+                switchCharacterPhase = true;
+                storedIndex = currentScrollNum;
+            }
+
+            else
+            {
+                //actually do the swap and destroy itself afterward
+                if (player.square != null)
+                {
+                    player.GetComponent<MainPlayer>().CharacterSwap(allPlayableCharacters[storedIndex], "Square");
+                    Destroy(gameObject);
+
+                }
+            }
+        
+    }
+
     private void Scroll()
     {
 

@@ -16,6 +16,9 @@ using System.IO;
 public class CharacterSelectionScreenScript : MonoBehaviour
 {
 
+    public InGameFridgeManager fridgeManager;
+    [HideInInspector] public int savedNum;
+
     public Button startCharacter;
 
     //saving stuff
@@ -116,6 +119,11 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     private void Update()
     {
+
+        if (turnOn)
+        {
+            TurningOn();
+        }
         
         //this is handling all of the scrolling code
         if (Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) >= joystickThreshold)
@@ -227,16 +235,31 @@ public class CharacterSelectionScreenScript : MonoBehaviour
             HighlightedCharacterIMG.sprite = characterSprites[Num];
             HighlightedCharacterNameDisplay.text = gameData.CharacterListNames[Num];
             string[] descText = descriptionSections[Num].Split(';');
+            savedNum = Num;
+            turnOn = true;
             try
             {
                 descriptionHeader.text = descText[Num];
                 descriptionBody.text = descText[Num];
             } catch { }
-            turnOn = true; 
+           
         }
         else
         {
             turnOn = false;
+        }
+    }
+
+    public void TurningOn()
+    {
+        if (turnOn)
+        {
+            Debug.Log("swapping");
+            if (myPlayer.GetButtonDown("Cross"))
+            {
+                fridgeManager.SwapCharacter(savedNum);
+                turnOn = false;
+            }
         }
     }
 

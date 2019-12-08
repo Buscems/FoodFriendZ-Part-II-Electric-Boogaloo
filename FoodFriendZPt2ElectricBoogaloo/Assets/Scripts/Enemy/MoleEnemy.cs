@@ -31,7 +31,7 @@ public class MoleEnemy : MonoBehaviour
     float originalScaleX = 1f;
     float originalScaleY = 1f;
 
-    //scales for the side flames
+    /*scales for the side flames
     float sideScaleX = 4f;
     float sideScaleY = 0.1f;
 
@@ -41,7 +41,12 @@ public class MoleEnemy : MonoBehaviour
     float upScaleX = 0.1f;
     float upScaleY = 4f;
 
-    float originalUpScaleY = 0.1f;
+    float originalUpScaleY = 0.1f;*/
+
+    public GameObject flame1;
+    public GameObject flame2;
+    public GameObject flame3;
+    public GameObject flame4;
 
     public PathfindingAI path;
 
@@ -54,6 +59,10 @@ public class MoleEnemy : MonoBehaviour
         sideFlames.enabled = false;
         aboveFlames.enabled = false;
         path = GetComponent<PathfindingAI>();
+        flame1.SetActive(false);
+        flame2.SetActive(false);
+        flame3.SetActive(false);
+        flame4.SetActive(false);
     }
 
     // Update is called once per frame
@@ -144,14 +153,22 @@ public class MoleEnemy : MonoBehaviour
         under = false;
         confused = true;
         jump = false;
+        flame1.SetActive(true);
+        flame2.SetActive(true);
+        flame3.SetActive(true);
+        flame4.SetActive(true);
         path.enabled = false;
-        sideFlames.size = new Vector2(sideScaleX, sideScaleY);
-        aboveFlames.size = new Vector2(upScaleX, upScaleY);
+        //sideFlames.size = new Vector2(sideScaleX, sideScaleY);
+        //aboveFlames.size = new Vector2(upScaleX, upScaleY);
         baseEnemy.aggroScript.enabled = false;
         yield return new WaitForSeconds(confusedTime);
         confused = false;
         canFollow = true;
-        sideFlames.size = new Vector2(originalSideScaleX, sideScaleY);
-        aboveFlames.size = new Vector2(upScaleX, originalUpScaleY);
+        flame1.SetActive(false);
+        flame2.SetActive(false);
+        flame3.SetActive(false);
+        flame4.SetActive(false);
+        //sideFlames.size = new Vector2(originalSideScaleX, sideScaleY);
+        //aboveFlames.size = new Vector2(upScaleX, originalUpScaleY);
     }
 }
