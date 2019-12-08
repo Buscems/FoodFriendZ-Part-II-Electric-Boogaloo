@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aggroRange: 3
-  aggroTimerMax: 0.1
+  aggroTimerMax: 0
   aggro: 0
   target:
   - {fileID: 0}
@@ -261,7 +261,7 @@ Animator:
   m_GameObject: {fileID: 8714663361164895459}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c926cd4ae87fdfb48b88b414376b959c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exposed: 0
   baseEnemy: {fileID: 0}
+  anim: {fileID: 6247046529103196246}
 --- !u!82 &-2167471719363663242
 AudioSource:
   m_ObjectHideFlags: 0

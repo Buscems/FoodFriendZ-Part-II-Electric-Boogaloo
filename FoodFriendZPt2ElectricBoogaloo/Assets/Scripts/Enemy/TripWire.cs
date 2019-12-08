@@ -9,6 +9,8 @@ public class TripWire : MonoBehaviour
 
     public BaseEnemy baseEnemy;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +23,10 @@ public class TripWire : MonoBehaviour
     {
         if (baseEnemy.aggroScript.aggro == true){
             exposed = true;
+            anim.SetTrigger("Up");
         } else {
             exposed = false;
+            anim.SetTrigger("Down");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
