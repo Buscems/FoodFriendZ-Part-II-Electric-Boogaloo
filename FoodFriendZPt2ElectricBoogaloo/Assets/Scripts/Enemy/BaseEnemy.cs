@@ -321,8 +321,8 @@ public class BaseEnemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        try
-        {
+        //try
+        //{
             if (health <= 0)
             {
                 GameObject g = Instantiate(splat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
@@ -335,8 +335,8 @@ public class BaseEnemy : MonoBehaviour
                     g.transform.parent = transform.parent;
                 }
             }
-        }
-        catch { }
+        //}
+        //catch { }
         try
         {
             Instantiate(deathSound2, transform.position, Quaternion.identity);
