@@ -14,7 +14,7 @@ public class revolvingBullet : MonoBehaviour
     public Transform revolveAround;
     public float speed;
     public Vector3 velocity;
-    BaseEnemy baseEnemy;
+    public BaseEnemy baseEnemy;
     EnemyBullet bullet;
 
     Rigidbody2D rb;

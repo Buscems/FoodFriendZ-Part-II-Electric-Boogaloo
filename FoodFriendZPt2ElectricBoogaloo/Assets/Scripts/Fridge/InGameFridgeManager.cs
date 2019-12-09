@@ -23,6 +23,8 @@ public class InGameFridgeManager : MonoBehaviour
      * 
      * */
 
+    public CharacterSelectionScreenScript charSelect;
+
     public GameObject leftArrow;
     public GameObject rightArrow;
 
@@ -62,6 +64,9 @@ public class InGameFridgeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        charSelect = GameObject.Find("***CharacterSelectionMenu").GetComponent<CharacterSelectionScreenScript>();
+        charSelect.fridgeManager = this.GetComponent<InGameFridgeManager>();
+
         Fridge = GameObject.Find("Fridge");
         Fridge.SetActive(false);
 
@@ -303,7 +308,6 @@ public class InGameFridgeManager : MonoBehaviour
                 selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
             }
         }
-
     }
 
     private int FindCharacterIndex(int curIndex)
