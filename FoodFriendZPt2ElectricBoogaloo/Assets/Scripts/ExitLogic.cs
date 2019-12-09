@@ -11,6 +11,8 @@ public class ExitLogic : MonoBehaviour
     private string sceneToGoTo;
     private int randomSceneToGoTo;
 
+    public AudioSource exitSound;
+
     void Start()
     {
         sceneToGoTo = "TitleScreen";
@@ -23,6 +25,7 @@ public class ExitLogic : MonoBehaviour
 
         if (pickRandomScene)
         {
+            exitSound.Play();
             st.FadeOut();
             yield return new WaitForSeconds(st.fadeLength);
             int randomSceneToGoTo = Random.Range(0, SceneManager.sceneCountInBuildSettings);

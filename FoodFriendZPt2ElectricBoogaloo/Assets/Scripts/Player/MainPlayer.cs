@@ -196,6 +196,8 @@ public class MainPlayer : MonoBehaviour
 
     #endregion
 
+    public AudioSource enterLevelSound;
+
     void Flash()
     {
         if (flashGoDown)
@@ -563,6 +565,7 @@ public class MainPlayer : MonoBehaviour
     {
         if (!startFalling)
         {
+            enterLevelSound.Play();
             //applied player movement
             //Vector3 currentPos = transform.position;
             //currentPos.z = 1;

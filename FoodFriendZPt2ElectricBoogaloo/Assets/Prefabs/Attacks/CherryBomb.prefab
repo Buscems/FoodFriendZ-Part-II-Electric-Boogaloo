@@ -107,9 +107,10 @@ MonoBehaviour:
   explosionParticles: {fileID: 5005083030566172368, guid: 63e7cb134a48c4589a17dbd5a091f2c3,
     type: 3}
   soundToInstantiate: {fileID: 8969379555809621875}
-  soundClip: {fileID: 8300000, guid: 8a9a39c085207904d93c3f6a30ff78cb, type: 3}
+  soundClip: {fileID: 0}
   hitEnemyBloodSpray: {fileID: 0}
   isOrb: 0
+  explosionSound: {fileID: 8969379555809621875}
 --- !u!58 &4473644114682443014
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,8 +156,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 547c1a84543a64a91871a611a0b29a87, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 18cb1ae556e46421a9f430860700fe0f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

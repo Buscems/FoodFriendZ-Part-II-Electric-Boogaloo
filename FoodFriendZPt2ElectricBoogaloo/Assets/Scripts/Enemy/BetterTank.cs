@@ -17,6 +17,9 @@ public class BetterTank : MonoBehaviour
     public float attackTime;
     public float coolDownTime;
 
+    public AudioSource windupSound;
+    public AudioSource attackSound;
+
     public BoxCollider2D attackRadius;
     //float attackScaleX = 4;
     //float attackScaleY = 4;
@@ -60,6 +63,7 @@ public class BetterTank : MonoBehaviour
         windUp = true;
         attackReady = false;
         yield return new WaitForSeconds(windUpTime);
+        windupSound.Play();
         StartCoroutine(attacking());
     }
 
@@ -67,6 +71,7 @@ public class BetterTank : MonoBehaviour
     {
         windUp = false;
         attack = true;
+        attackSound.Play();
        // attackRadius.size = new Vector2(attackScaleX, attackScaleY);
         anim.SetTrigger("Attack");
         yield return new WaitForSeconds(attackTime);

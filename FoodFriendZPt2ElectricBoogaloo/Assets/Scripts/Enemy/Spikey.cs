@@ -19,6 +19,8 @@ public class Spikey : MonoBehaviour
     [SerializeField] private bool reload;
     private float savedSpeed;
 
+    public AudioSource attackSound;
+
     public Animator anim;
 
     void Start()
@@ -41,6 +43,7 @@ public class Spikey : MonoBehaviour
 
         if(baseEnemy.aggroScript.aggro && reload == false)
         {
+            attackSound.Play();
             Instantiate(spike, frontLeft.transform.position, Quaternion.Euler(0, 0, 120));
             Instantiate(spike, midLeft.transform.position, Quaternion.Euler(0, 0, 180));
             Instantiate(spike, backLeft.transform.position, Quaternion.Euler(0, 0, 225));

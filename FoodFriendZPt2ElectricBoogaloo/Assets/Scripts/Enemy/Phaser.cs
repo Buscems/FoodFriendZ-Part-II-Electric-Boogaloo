@@ -15,6 +15,8 @@ public class Phaser : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public AudioSource phaseSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,7 @@ public class Phaser : MonoBehaviour
         {
             midPhase = true;
             phase.enabled = false;
+            phaseSound.Play();
             Debug.Log("entered");
         }
     }

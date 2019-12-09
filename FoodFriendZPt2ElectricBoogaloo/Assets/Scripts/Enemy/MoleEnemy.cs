@@ -23,6 +23,9 @@ public class MoleEnemy : MonoBehaviour
     public float jumpTime;
     public float confusedTime;
 
+    public AudioSource undergroundSound;
+    public AudioSource confusedSound;
+
     BaseEnemy baseEnemy;
 
     float aboutToJumpScaleX = 0.00001f;
@@ -43,6 +46,7 @@ public class MoleEnemy : MonoBehaviour
 
     float originalUpScaleY = 0.1f;*/
 
+    public AudioSource flameSound;
     public GameObject flame1;
     public GameObject flame2;
     public GameObject flame3;
@@ -135,6 +139,7 @@ public class MoleEnemy : MonoBehaviour
         underground.size = new Vector2(aboutToJumpScaleX, aboutToJumpScaleY);
         yield return new WaitForSeconds(aboutToJumpTime);
         underground.size = new Vector2(originalScaleX, originalScaleY);
+        undergroundSound.Play();
         StartCoroutine(jumping());
     }
 
@@ -153,6 +158,8 @@ public class MoleEnemy : MonoBehaviour
         under = false;
         confused = true;
         jump = false;
+        confusedSound.Play();
+        flameSound.Play();
         flame1.SetActive(true);
         flame2.SetActive(true);
         flame3.SetActive(true);

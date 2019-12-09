@@ -19,6 +19,6 @@ public class DestroyDebris : MonoBehaviour
 
     void playASound()
     {
-        //breakableSound.Play();
+        breakableSound.Play();
     }
 }

@@ -139,6 +139,10 @@ MonoBehaviour:
   dropRate: 0
   money: 1
   objectToDestroy: {fileID: 0}
+  originalScaleX: 1
+  originalScaleY: 1
+  changeTime: 0
+  hit: {fileID: 0}
   deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
     type: 3}
   deathClips:
@@ -172,7 +176,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c5532cba72b9ef444a2368a93d34c9ae, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
