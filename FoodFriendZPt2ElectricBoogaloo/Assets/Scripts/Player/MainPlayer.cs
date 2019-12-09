@@ -621,7 +621,7 @@ public class MainPlayer : MonoBehaviour
             rightHighlight.enabled = false;
             //down true
             downHighlight.enabled = true;
-            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            //currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
             Instantiate(swapPuff, transform.position, Quaternion.identity);
             audioSource.clip = clips[1];
             audioSource.Play();
@@ -634,7 +634,7 @@ public class MainPlayer : MonoBehaviour
             leftHighlight.enabled = true;
             rightHighlight.enabled = false;
             downHighlight.enabled = false;
-            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            //currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
             Instantiate(swapPuff, transform.position, Quaternion.identity);
             audioSource.clip = clips[1];
             audioSource.Play();
@@ -647,7 +647,7 @@ public class MainPlayer : MonoBehaviour
             leftHighlight.enabled = false;
             rightHighlight.enabled = false;
             downHighlight.enabled = false;
-            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            //currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
             Instantiate(swapPuff, transform.position, Quaternion.identity);
             audioSource.clip = clips[1];
             audioSource.Play();
@@ -660,7 +660,7 @@ public class MainPlayer : MonoBehaviour
             //right true
             rightHighlight.enabled = true;
             downHighlight.enabled = false;
-            currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+            //currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
             Instantiate(swapPuff, transform.position, Quaternion.identity);
             audioSource.clip = clips[1];
             audioSource.Play();
@@ -718,7 +718,7 @@ public class MainPlayer : MonoBehaviour
             circle = _character;
             rightCharacter.sprite = circle.hudIcon;
         }
-        currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+        //currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
     }
 
     public void AddCharacter(BasePlayer _character, string _faceDirection)
@@ -753,7 +753,7 @@ public class MainPlayer : MonoBehaviour
             circle = _character;
             rightCharacter.sprite = circle.hudIcon;
         }
-        currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
+        //currentChar.SetMultipliers(attackSizeMultiplier, attackSpeedMultiplier, firerateMultiplier, baseDamageMulitplier, maxDamageMultiplier, critChanceMultiplier);
     }
 
     private void AttackLogic()

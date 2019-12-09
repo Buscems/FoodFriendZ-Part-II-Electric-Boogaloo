@@ -18,15 +18,15 @@ MonoBehaviour:
   duration: 0
   strength: 0
   Mspeed: 8
-  baseDamage: 1.02
-  critChance: 0.16
+  baseDamage: 2
+  critChance: 0.499
   critDamageMulitiplier: 2
   dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.14
-  currentDodgeTime: -2383.4485
+  currentDodgeTime: -16.803535
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -1383.0549
+  currentDodgeWaitTime: -15.803535
   muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
     type: 3}
   attackSize: {x: 0, y: 0, z: 0}
@@ -34,8 +34,8 @@ MonoBehaviour:
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 0
-  currentPosition: {x: -91.43229, y: -48.73897, z: 0}
-  currentDirection: {x: 0.1927661, y: -1, z: 0}
+  currentPosition: {x: -10.593898, y: 4.9569936, z: 0}
+  currentDirection: {x: -0.73994714, y: -0.76368874, z: 0}
   weapon: {fileID: 0}
   isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -1.6482079
+  currentFirerateTimer: 0.25
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
