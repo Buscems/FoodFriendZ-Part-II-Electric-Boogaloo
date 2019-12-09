@@ -148,6 +148,7 @@ public class ScreenTransition : MonoBehaviour
                 cam.playerFalling = true;
                 playerChar.GetComponent<MainPlayer>().fallToPos = player.transform.position;
                 playerChar.GetComponent<MainPlayer>().startFalling = true;
+                playerChar.GetComponent<MainPlayer>().health += 3;
                 playerChar.transform.position = new Vector3(playerChar.transform.position.x, playerChar.transform.position.y + 15, playerChar.transform.position.z);
             }
         }

@@ -537,7 +537,7 @@ public class MainPlayer : MonoBehaviour
         {
             //if falling
             //turn colliders off
-            if(transform.position.y > fallToPos.y)
+            if(transform.position.y > fallToPos.y && startFalling == true)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y - 10 * Time.unscaledDeltaTime, transform.position.z);
                 GetComponent<CircleCollider2D>().enabled = false;
