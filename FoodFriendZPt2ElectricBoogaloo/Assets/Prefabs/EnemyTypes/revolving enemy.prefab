@@ -168,6 +168,7 @@ MonoBehaviour:
   deathClips: []
   deathSound2: {fileID: 4834533482456540045, guid: db04faa4708b80e49a7d972b3b6e6b09,
     type: 3}
+  cantBreakObj: 0
 --- !u!114 &713600866824404204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +515,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 2621482886604538418}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -529,6 +535,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 5536407087888420614}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -547,12 +558,36 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
+--- !u!114 &2621482886604538418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2052277827253831295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &828909491900077791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
     type: 3}
   m_PrefabInstance: {fileID: 2052277827253831295}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5536407087888420614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2052277827253831295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2061353022455337681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -625,6 +660,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 2630421743739901596}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -640,6 +680,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 5491302474726480808}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -664,6 +709,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2061353022455337681}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5491302474726480808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2061353022455337681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2630421743739901596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2061353022455337681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2320979580152749131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -736,6 +805,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 1742754127102138374}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -751,6 +825,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 8114261153843762482}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -763,6 +842,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
+--- !u!114 &8114261153843762482 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2320979580152749131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1742754127102138374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2320979580152749131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4021153323116121323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
@@ -841,6 +944,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 1573333711502062503}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -856,6 +964,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 9034711847368212115}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -880,6 +993,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3301100765813045226}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1573333711502062503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3301100765813045226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9034711847368212115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3301100765813045226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3832099191212643282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -952,6 +1089,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 951419427046217631}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -967,6 +1109,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 7313910457866246827}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -991,6 +1138,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3832099191212643282}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7313910457866246827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3832099191212643282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &951419427046217631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3832099191212643282}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5980843742026894188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1063,6 +1234,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 7717620234379972385}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1078,6 +1254,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 265249022863393301}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1102,6 +1283,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5980843742026894188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &265249022863393301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5980843742026894188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7717620234379972385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5980843742026894188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7173944202977420810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1174,6 +1379,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 6599109614024090183}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1189,6 +1399,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 3684115026405912435}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1207,6 +1422,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7173944202977420810}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3684115026405912435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7173944202977420810}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6599109614024090183 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7173944202977420810}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8403446723345215573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1279,6 +1518,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 5513898261038838808}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1294,6 +1538,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 2607981534044633388}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1312,6 +1561,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8403446723345215573}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2607981534044633388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8403446723345215573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5513898261038838808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8403446723345215573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8481037107582843791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1384,6 +1657,11 @@ PrefabInstance:
       propertyPath: health
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 5595992279028727746}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1399,6 +1677,11 @@ PrefabInstance:
       propertyPath: iSeeYou
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: baseEnemy
+      value: 
+      objectReference: {fileID: 2674242584159384310}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1423,3 +1706,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8481037107582843791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2674242584159384310 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8481037107582843791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198eef2c6a5c6954c915f45fa6f86b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5595992279028727746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8481037107582843791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af24047954aa1b4da201a8e9909379f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
