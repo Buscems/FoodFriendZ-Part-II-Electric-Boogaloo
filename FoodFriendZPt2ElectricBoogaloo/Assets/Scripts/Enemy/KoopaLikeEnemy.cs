@@ -50,7 +50,7 @@ public class KoopaLikeEnemy : MonoBehaviour
             dizzy = false;
         }
 
-        if (baseEnemy.health <= 2) {
+        if (baseEnemy.health <= 6) {
             StartCoroutine(dizzyTime());
         }
 
