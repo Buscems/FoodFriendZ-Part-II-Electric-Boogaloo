@@ -13,16 +13,18 @@ public class ExitLogic : MonoBehaviour
 
     void Start()
     {
+        sceneToGoTo = "TitleScreen";
         st = GameObject.Find("Player").GetComponent<ScreenTransition>();
         //print("num scenes: " + SceneManager.sceneCountInBuildSettings);
     }
 
     IEnumerator StartTransition()
     {
-        st.FadeOut();
-        yield return new WaitForSeconds(st.fadeLength);
+
         if (pickRandomScene)
         {
+            st.FadeOut();
+            yield return new WaitForSeconds(st.fadeLength);
             int randomSceneToGoTo = Random.Range(0, SceneManager.sceneCountInBuildSettings);
             SceneManager.LoadScene(randomSceneToGoTo);
         }

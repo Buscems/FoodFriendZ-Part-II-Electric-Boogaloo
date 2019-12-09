@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScreenTransition : MonoBehaviour
@@ -32,6 +33,7 @@ public class ScreenTransition : MonoBehaviour
     private int currentLevel = 1;
     private float endOfLevelTimer = -1;
     float scaleTimer = 0;
+    public bool isTutorial;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +61,10 @@ public class ScreenTransition : MonoBehaviour
         scaleTimer -= Time.unscaledDeltaTime;
         if(endOfLevelTimer > -1 && endOfLevelTimer < 0)
         {
+            if(currentLevel == 1 && isTutorial)
+            {
+                SceneManager.LoadScene("TitleScreen");
+            }
             endOfLevelTimer = -1;
             playerChar.transform.rotation = Quaternion.Euler(0, 0, 0);
             FadeOut();
@@ -128,6 +134,7 @@ public class ScreenTransition : MonoBehaviour
             alpha = 0;
         }
 
+        
         if (isLoading)
         {
             levelNumText.enabled = true;
@@ -185,6 +192,7 @@ public class ScreenTransition : MonoBehaviour
             Time.timeScale = 0;
             endOfLevelTimer = 1;
             scaleTimer = 5;
+          
         }
     }
 }
