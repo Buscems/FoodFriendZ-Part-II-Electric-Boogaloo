@@ -48,7 +48,7 @@ public class StartMainMenuScript : MonoBehaviour
     public Button StartButton;
     public Button OptionsButton;
     public Button CreditsButton;
-    public Button LogButton;
+    //public Button LogButton;
     public Button QuitButton;
     public Button optionsBack;
     public Button creditsBack;
@@ -74,6 +74,7 @@ public class StartMainMenuScript : MonoBehaviour
 
     void Awake()
     {
+        LogBookParent.SetActive(false);
         Cursor.visible = false;
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         //Default Title Screen elements
@@ -157,10 +158,10 @@ public class StartMainMenuScript : MonoBehaviour
                 {
                     characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, CreditsButton.transform.position.y + offset);
                 }
-                if (es.currentSelectedGameObject == LogButton.gameObject)
+                /*if (es.currentSelectedGameObject == LogButton.gameObject)
                 {
                     characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, LogButton.transform.position.y + offset);
-                }
+                }*/
                 if (es.currentSelectedGameObject == QuitButton.gameObject)
                 {
                     characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, QuitButton.transform.position.y + offset);
