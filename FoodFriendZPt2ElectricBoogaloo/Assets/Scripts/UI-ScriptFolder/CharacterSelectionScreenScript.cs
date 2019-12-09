@@ -100,7 +100,11 @@ public class CharacterSelectionScreenScript : MonoBehaviour
                 characterButtons[i].color = Color.black;
             }
         }
-        events.SetSelectedGameObject(startCharacter.gameObject);
+        try
+        {
+            events.SetSelectedGameObject(startCharacter.gameObject);
+        }
+        catch { }
         HighlightedCharacterIMG.sprite = characterSprites[0];
         HighlightedCharacterNameDisplay.text = "Tofu";
         string[] descText = descriptionSections[0].Split(';');
@@ -151,6 +155,11 @@ public class CharacterSelectionScreenScript : MonoBehaviour
                             events.SetSelectedGameObject(switchCharacter[i - 1]);
                             audioSource.Play();
                             hasScrolled = true;
+                        }
+                        //if nothing is clicked
+                        if(events.currentSelectedGameObject == null)
+                        {
+                            events.SetSelectedGameObject(switchCharacter[i]);
                         }
                     }
                 }
