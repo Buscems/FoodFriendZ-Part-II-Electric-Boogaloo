@@ -41,6 +41,8 @@ public class Spinning : MonoBehaviour
 
         baseEnemy = GetComponent<BaseEnemy>();
         SpinMelee = GetComponent<SpinMelee>();
+        baseEnemy.aggroScript.aggro = false;
+        StopCoroutine(Fire());
 
         spinSpeed = rotateSpeed;
 

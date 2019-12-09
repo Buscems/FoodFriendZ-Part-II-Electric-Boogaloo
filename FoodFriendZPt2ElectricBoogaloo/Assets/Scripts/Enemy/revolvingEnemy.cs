@@ -28,7 +28,11 @@ public class revolvingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(MoveFaster());
+
+        if (baseEnemy.aggroScript.aggro == true)
+        {
+            StartCoroutine(MoveFaster());
+        }
     }
 
     IEnumerator MoveFaster(){

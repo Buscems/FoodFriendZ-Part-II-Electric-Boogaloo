@@ -89,6 +89,8 @@ public class BaseEnemy : MonoBehaviour
 
         aggroScript = GetComponent<Aggro>();
 
+        aggroScript.aggro = false;
+
         if (GetComponent<Animator>() != null)
         {
             anim = GetComponent<Animator>();

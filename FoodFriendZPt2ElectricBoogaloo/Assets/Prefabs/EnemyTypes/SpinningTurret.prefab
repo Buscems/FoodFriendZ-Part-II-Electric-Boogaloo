@@ -52,7 +52,7 @@ MonoBehaviour:
   health: 5
   maxHP: 0
   speed: 0
-  walkIntoDamage: 0
+  walkIntoDamage: 1
   anim: {fileID: 0}
   aggroScript: {fileID: 1771624388262519801}
   items:
@@ -69,6 +69,8 @@ MonoBehaviour:
   dropRate: 0
   money: 0
   objectToDestroy: {fileID: 5019032375997857798}
+  changeTime: 0
+  hit: {fileID: 0}
   deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
     type: 3}
   deathClips: []
@@ -87,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aggroRange: 5
-  aggroTimerMax: 5
+  aggroTimerMax: 1
   aggro: 0
   target:
   - {fileID: 0}
