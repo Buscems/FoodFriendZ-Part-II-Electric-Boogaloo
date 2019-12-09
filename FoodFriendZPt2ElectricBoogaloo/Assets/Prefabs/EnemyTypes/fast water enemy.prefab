@@ -205,6 +205,10 @@ MonoBehaviour:
   dropRate: 0.01
   money: 2
   objectToDestroy: {fileID: 0}
+  originalScaleX: 1
+  originalScaleY: 1
+  changeTime: 0
+  hit: {fileID: 0}
   deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
     type: 3}
   deathClips: []
@@ -261,7 +265,7 @@ Animator:
   m_GameObject: {fileID: 7768958034001362194}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07482bcf177c89346a9eaaeca48e4f25, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -380,4 +384,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7768958034001362195}
   alert: {fileID: 0}
+  anim: {fileID: 5012965655884949927}
   spawnTime: 0

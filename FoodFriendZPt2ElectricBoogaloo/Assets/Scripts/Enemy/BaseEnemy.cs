@@ -54,8 +54,8 @@ public class BaseEnemy : MonoBehaviour
     float bufferScaleX = 0.1f;
     float bufferScaleY = 0.1f;
 
-    float originalScaleX = 1f;
-    float originalScaleY = 1f;
+    public float originalScaleX = 1f;
+    public float originalScaleY = 1f;
 
     public float changeTime;
     public BoxCollider2D hit;
