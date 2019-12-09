@@ -834,23 +834,23 @@ public class MainPlayer : MonoBehaviour
             {
                 if (currentChar.attackType == BasePlayer.AttackType.Melee && currentChar.currentAttackSpeedTimer < 0)
                 {
-                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                    currentChar.MeleeAttack(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
                 }
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
-                    currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                    currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
                 }
             }
             if (currentChar.attackType == BasePlayer.AttackType.Builder && currentChar.currentFirerateTimer < 0)
             {
-                currentChar.Builder(transform.position, attackDirection, transform);
+                currentChar.Builder(transform.position, attackDirection, transform, attackSizeMultiplier);
             }
         }
         if (currentChar.attackType == BasePlayer.AttackType.Ranged_Burst_Fire || currentChar.attackType == BasePlayer.AttackType.Napolean)
         {
             if (currentChar.firing)
             {
-                currentChar.BurstFire(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                currentChar.BurstFire(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
             }
         }
 
@@ -860,18 +860,18 @@ public class MainPlayer : MonoBehaviour
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Basic)
             {
-                currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                currentChar.RangedBasic(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
             }
 
             if (currentChar.attackType == BasePlayer.AttackType.Ranged_Split_Fire)
             {
                 if (currentChar.isOrb && orb.transform.childCount == 0)
                 {
-                    currentChar.RangedSplit(transform.position, attackDirection, orb.transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                    currentChar.RangedSplit(transform.position, attackDirection, orb.transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
                 }
                 else if (!currentChar.isOrb)
                 {
-                    currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                    currentChar.RangedSplit(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
 
                 }
             }
@@ -881,7 +881,7 @@ public class MainPlayer : MonoBehaviour
             }
             if (currentChar.attackType == BasePlayer.AttackType.Boomerang)
             {
-                currentChar.RangedBoomerang(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                currentChar.RangedBoomerang(transform.position, attackDirection, transform, currentChar.baseDamage * baseDamageMulitplier, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
             }
         }
 
@@ -902,13 +902,13 @@ public class MainPlayer : MonoBehaviour
                     //(Melee Attacks)
                     if (currentChar.attackType == BasePlayer.AttackType.Melee && currentChar.currentAttackSpeedTimer < 0)
                     {
-                        currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                        currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
                     }
 
                     //(Semi-Auto Attacks)
                     if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                     {
-                        currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier));
+                        currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(currentChar.bleedChance * bleedMultiplier), getOdds.GetStunOdds(currentChar.burnChance * burnMultiplier), getOdds.GetStunOdds(currentChar.poisonChance * poisonMultiplier), getOdds.GetStunOdds(currentChar.freezeChance * freezeMultiplier), getOdds.GetStunOdds(currentChar.stunChance * stunMultiplier), attackSizeMultiplier);
                     }
 
                     //reset charge timer
@@ -942,13 +942,13 @@ public class MainPlayer : MonoBehaviour
                 //(Melee Attacks)
                 if (currentChar.attackType == BasePlayer.AttackType.Melee)
                 {
-                    currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(currentChar.bleedChance), getOdds.GetStunOdds(currentChar.burnChance), getOdds.GetStunOdds(currentChar.poisonChance), getOdds.GetStunOdds(currentChar.freezeChance), getOdds.GetStunOdds(currentChar.stunChance));
+                    currentChar.MeleeAttack(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(currentChar.bleedChance), getOdds.GetStunOdds(currentChar.burnChance), getOdds.GetStunOdds(currentChar.poisonChance), getOdds.GetStunOdds(currentChar.freezeChance), getOdds.GetStunOdds(currentChar.stunChance), attackSizeMultiplier);
                 }
 
                 //(Semi-Auto Attacks)
                 if (currentChar.attackType == BasePlayer.AttackType.Ranged_Semi_Auto)
                 {
-                    currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(currentChar.bleedChance), getOdds.GetStunOdds(currentChar.burnChance), getOdds.GetStunOdds(currentChar.poisonChance), getOdds.GetStunOdds(currentChar.freezeChance), getOdds.GetStunOdds(currentChar.stunChance));
+                    currentChar.RangedBasic(transform.position, attackDirection, transform, tempDamage, getOdds.GetStunOdds(currentChar.bleedChance), getOdds.GetStunOdds(currentChar.burnChance), getOdds.GetStunOdds(currentChar.poisonChance), getOdds.GetStunOdds(currentChar.freezeChance), getOdds.GetStunOdds(currentChar.stunChance), attackSizeMultiplier);
                 }
 
                 //reset timer
