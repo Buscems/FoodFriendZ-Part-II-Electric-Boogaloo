@@ -192,6 +192,7 @@ public class MainPlayer : MonoBehaviour
     private Vector3 newPos = Vector3.zero;
 
     public GameObject splat;
+    public GameObject splat1;
     private float endWaitTime = 1;
 
     #endregion
@@ -517,6 +518,7 @@ public class MainPlayer : MonoBehaviour
                     if(endWaitTime == 1)
                     {
                         Instantiate(splat, transform.position, Quaternion.identity);
+                        Instantiate(splat1, transform.position, Quaternion.identity);
                         sr.enabled = false;
                         pointer.SetActive(false);
                     }
