@@ -12,33 +12,21 @@ public class GameOverScreenScript : MonoBehaviour
      *
      */
 
-    public GameObject GameOverFull;
-
     [HideInInspector] public bool open;
 
     private void Start()
     {
-        GameOverFull.SetActive(false);
-        open = false;
+       
     }
 
     private void Update()
     {
-        if (open)
-        {
-            GameOverFull.SetActive(true);
-        }
+       
     }
-
-
-    [Header("Buttons")]
-    public Button RestartButton;
-    public Button ExitButton;
 
     public void RestartButtonFunction()
     {
-        Debug.Log("Restarting Game");
-        SceneManager.LoadScene("GameplayScreen");
+        SceneManager.LoadScene("Dans licc center");
     }
 
     public void ExitButtonFunction()
