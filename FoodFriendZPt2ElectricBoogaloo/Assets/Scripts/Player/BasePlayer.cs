@@ -352,7 +352,7 @@ public class BasePlayer : ScriptableObject
         }
     }
 
-    public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
+    public void MeleeAttack(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun, float scaleMultiplier)
     {
         blood = _blood;
         fire = _fire;
@@ -369,6 +369,7 @@ public class BasePlayer : ScriptableObject
 
 
         GameObject attack = Instantiate(weapon, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + rotationalOffset));
+        attack.transform.localScale *= scaleMultiplier;
         if (isFlamethrower)
         {
            SetMeleeVariables(attack, attackDirection);
@@ -396,7 +397,7 @@ public class BasePlayer : ScriptableObject
         }
     }
 
-    public void Builder(Vector3 pos, Transform attackDirection, Transform parentTransform)
+    public void Builder(Vector3 pos, Transform attackDirection, Transform parentTransform, float scaleMultiplier)
     {
         float damage = baseDamage * baseDamageMulitplier;
         float randNum = Random.Range(0, 1);
@@ -406,6 +407,7 @@ public class BasePlayer : ScriptableObject
         }
         currentFirerateTimer = firerate * firerateMultiplier;
         GameObject attack = Instantiate(drop, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+        attack.transform.localScale *= scaleMultiplier;
         attack.GetComponentInChildren<Attack>().damage = damage;
         
         if (this.characterName == "cherry")
@@ -417,7 +419,7 @@ public class BasePlayer : ScriptableObject
         }
     }
 
-    public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
+    public void RangedBasic(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun, float scaleMultiplier)
     {
         blood = _blood;
         fire = _fire;
@@ -435,6 +437,7 @@ public class BasePlayer : ScriptableObject
         GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
         parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
         GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+        attack.transform.localScale *= scaleMultiplier;
         SetBulletVariables(attack, parentTransform, false);
         attack.GetComponent<Attack>().damage = damage;
         try
@@ -444,7 +447,7 @@ public class BasePlayer : ScriptableObject
         catch { }
     }
 
-    public void RangedBoomerang(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
+    public void RangedBoomerang(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun, float scaleMultiplier)
     {
         blood = _blood;
         fire = _fire;
@@ -461,6 +464,7 @@ public class BasePlayer : ScriptableObject
         GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
         parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
         GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+        attack.transform.localScale *= scaleMultiplier;
         SetBulletVariables(attack, parentTransform, true);
         attack.GetComponent<Attack>().damage = damage;
         try
@@ -470,7 +474,7 @@ public class BasePlayer : ScriptableObject
         catch { }
     }
 
-    public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
+    public void RangedSplit(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun, float scaleMultiplier)
     {
         blood = _blood;
         fire = _fire;
@@ -493,6 +497,7 @@ public class BasePlayer : ScriptableObject
                 attackDirection.eulerAngles += new Vector3(0, 0, angleInterval);
                 GameObject _bullet1 = bullet[Random.Range(0, bullet.Length)];
                 GameObject attack1 = Instantiate(_bullet1, pos + (attackDirection.transform.right * offset), Quaternion.identity);
+                attack1.transform.localScale *= scaleMultiplier;
                 SetBulletVariables(attack1, parentTransform, false);
                 attack1.GetComponent<BasicBullet>().isOrb = true;
                 attack1.GetComponent<Attack>().isOrb = true;
@@ -504,6 +509,7 @@ public class BasePlayer : ScriptableObject
                 GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
                 parentTransform.GetComponent<MainPlayer>().cam.StartShake(duration, strength);
                 GameObject attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z + /*attackRotationalOffset*/ ((radius / 2) - (i * angleInterval))));
+                attack.transform.localScale *= scaleMultiplier;
                 SetBulletVariables(attack, parentTransform, false);
                 attack.GetComponent<Attack>().damage = damage;
                 try
@@ -531,7 +537,7 @@ public class BasePlayer : ScriptableObject
         }
     }
 
-    public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun)
+    public void BurstFire(Vector3 pos, Transform attackDirection, Transform parentTransform, float damage, bool _blood, bool _fire, bool _poison, bool _freeze, bool _stun, float scaleMultiplier)
     {
         blood = _blood;
         fire = _fire;
@@ -554,6 +560,7 @@ public class BasePlayer : ScriptableObject
             {
                 GameObject _bullet = bullet[Random.Range(0, bullet.Length)];
                 attack = Instantiate(_bullet, pos + (attackDirection.transform.right * offset), Quaternion.Euler(attackDirection.transform.eulerAngles.x, attackDirection.transform.eulerAngles.y, attackDirection.transform.eulerAngles.z));
+                attack.transform.localScale *= scaleMultiplier;
             }
             else if (attackType == AttackType.Napolean)
             {

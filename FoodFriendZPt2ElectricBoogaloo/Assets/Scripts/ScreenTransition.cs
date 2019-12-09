@@ -188,7 +188,10 @@ public class ScreenTransition : MonoBehaviour
         if(other.gameObject.tag == "Exit")
         {
             hole = other.gameObject;
+            GetComponent<CircleCollider2D>().enabled = false;
+
             hole.GetComponent<BoxCollider2D>().enabled = false;
+            GameObject.Find("Collider").GetComponent<BoxCollider2D>().enabled = false;
             Time.timeScale = 0;
             endOfLevelTimer = 1;
             scaleTimer = 5;

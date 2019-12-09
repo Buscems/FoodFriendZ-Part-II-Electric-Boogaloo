@@ -233,6 +233,15 @@ public class DiscoverCharacter : MonoBehaviour
             case "tunaCan":
                 anim.SetInteger("characterID", 17);
                 break;
+            case "Orb":
+                anim.SetInteger("characterID", 15);
+                break;
+            case "5RoundBurst":
+                anim.SetInteger("characterID", 13);
+                break;
+            case "pancakes":
+                anim.SetInteger("characterID", 18);
+                break;
         }
     }
 

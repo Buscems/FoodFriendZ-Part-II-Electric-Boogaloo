@@ -326,9 +326,9 @@ public class GameData
          /* 9  */ false,  /* [Sashimi] */
          /* 10 */ false,  /* [Takoyaki] */
          /* 11 */ false,  /* [Tofu] */
-         /* 12 */ true,  /* [5RoundBurst] */
+         /* 12 */ false,  /* [5RoundBurst] */
          /* 13 */ false,  /* [Blueberry Muffin] */
-         /* 14 */ true,  /* [Lobster Tail] */
+         /* 14 */ false,  /* [Lobster Tail] */
          /* 15 */ false,  /* [Samosa] */
          /* 16 */ false,  /* [Taco] */
          /* 17 */ false,  /* [Tuna Can] */

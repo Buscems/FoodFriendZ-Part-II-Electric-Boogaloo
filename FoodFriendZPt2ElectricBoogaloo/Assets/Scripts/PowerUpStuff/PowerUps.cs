@@ -195,9 +195,7 @@ public class PowerUps : MonoBehaviour
                 print("Using Cooking appron");
 
                 //[STAT BOOST]
-                stats.evasiveChance = .25f;
-
-                print(stats.evasiveChance);
+                stats.evasiveChance = .1f;
 
                 yield return null;
                 break;
@@ -441,16 +439,14 @@ public class PowerUps : MonoBehaviour
             #region Heal
             //case6
             case PowerUpTypes.Heal:
-
+                stats.health++;
                 break;
             #endregion
 
             #region Full Heal
             case PowerUpTypes.FullHeal:
 
-                stats.health = 10;      //note: not real full health, need to adjust in future
-                Debug.Log("Garnish" + stats.baseDamageMulitplier);
-
+                stats.health = 10;
                 break;
             #endregion
 
