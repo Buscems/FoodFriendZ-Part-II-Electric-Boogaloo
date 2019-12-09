@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splat: {fileID: 393177829891165686, guid: 5196e6c34fdc44547875c4a57f2d62a6, type: 3}
   hitSound: {fileID: 6038876124816355431}
-  health: 2
+  health: 1
   maxHP: 0
   speed: 2
   walkIntoDamage: 1
@@ -149,6 +149,8 @@ MonoBehaviour:
   dropRate: 0.0001
   money: 1
   objectToDestroy: {fileID: 0}
+  originalScaleX: 1
+  originalScaleY: 1
   changeTime: 2
   hit: {fileID: 1853570947623047931}
   deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
