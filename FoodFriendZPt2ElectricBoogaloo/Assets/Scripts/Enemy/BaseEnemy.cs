@@ -68,11 +68,13 @@ public class BaseEnemy : MonoBehaviour
     public AudioClip[] deathClips;
     public GameObject deathSound2;
 
+    public bool cantBreakObj;
+
     private void Awake()
     {
         //assign script
         ieScript = GameObject.Find("Player").GetComponent<ItemExtension>();
-
+        
         maxHP = health;
     }
 

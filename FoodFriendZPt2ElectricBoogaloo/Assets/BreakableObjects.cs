@@ -50,7 +50,7 @@ public class BreakableObjects : MonoBehaviour
             g.transform.parent = transform.parent;
         }
 
-        if (collision.gameObject.tag == "Enemy"){
+        if (collision.gameObject.tag == "Enemy" && collision.gameObject.GetComponent<BaseEnemy>().cantBreakObj == false){
             Destroy(gameObject);
             collid.enabled = false;
             GameObject g = Instantiate(debris1, transform.position, Quaternion.identity);
