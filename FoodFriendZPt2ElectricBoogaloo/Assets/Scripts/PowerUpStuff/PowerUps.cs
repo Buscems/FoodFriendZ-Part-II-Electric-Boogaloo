@@ -195,9 +195,7 @@ public class PowerUps : MonoBehaviour
                 print("Using Cooking appron");
 
                 //[STAT BOOST]
-                stats.evasiveChance = .25f;
-
-                print(stats.evasiveChance);
+                stats.evasiveChance = .1f;
 
                 yield return null;
                 break;
