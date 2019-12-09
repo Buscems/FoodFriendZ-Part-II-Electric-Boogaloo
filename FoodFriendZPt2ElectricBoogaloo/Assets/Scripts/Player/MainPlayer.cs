@@ -1012,13 +1012,13 @@ public class MainPlayer : MonoBehaviour
             case "napoleon":
                 anim.SetInteger("characterID", 12);
                 break;
-            case "blueberryMuffin":
+            case "5RoundBurst":
                 anim.SetInteger("characterID", 13);
                 break;
             case "cone":
                 anim.SetInteger("characterID", 14);
                 break;
-            case "lobsterTail":
+            case "Orb":
                 anim.SetInteger("characterID", 15);
                 break;
             case "samosa":

@@ -578,7 +578,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
             movementSpeed.fillAmount = stats[14].y;
             attackSpeed.fillAmount = stats[14].z;
             HighlightedCharacterIMG.sprite = characterSprites[14];
-            HighlightedCharacterNameDisplay.text = "Lobster \nTail";
+            HighlightedCharacterNameDisplay.text = "Bubble \nTea";
             PlayerPrefs.SetInt("startCharacter", 15);
             string[] descText = descriptionSections[14].Split(';');
             descriptionHeader.text = descText[0];
