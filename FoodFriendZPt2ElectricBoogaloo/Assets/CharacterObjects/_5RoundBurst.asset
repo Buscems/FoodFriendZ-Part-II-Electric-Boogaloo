@@ -12,30 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
   m_Name: _5RoundBurst
   m_EditorClassIdentifier: 
-  hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
+  hudIcon: {fileID: -4460872821418865276, guid: 91ad15317c9014a179dfb229f640bf6f,
+    type: 3}
   characterName: 5RoundBurst
   attackType: 2
   duration: 0
   strength: 0
   Mspeed: 7
-  baseDamage: 3
+  baseDamage: 5
   critChance: 0.654
   critDamageMulitiplier: 1.17
   dodgeSpeedMultiplier: 1
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 1
-  currentDodgeTime: -1019.1103
+  currentDodgeTime: -17.914856
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -19.10735
+  currentDodgeWaitTime: -16.91485
   muzzleFlash: {fileID: 1624045886628407662, guid: 05e854724c5c088428b6a84d230c87fe,
     type: 3}
   attackSize: {x: 0, y: 0, z: 0}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
-  offset: 0
-  currentPosition: {x: -62.602978, y: 59.25301, z: 0}
-  currentDirection: {x: -1, y: -1, z: 0}
+  offset: 0.75
+  currentPosition: {x: -24.200533, y: 29.291496, z: 0}
+  currentDirection: {x: 0.032221206, y: -0.0035801341, z: 0}
   weapon: {fileID: 0}
   isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
@@ -48,8 +49,8 @@ MonoBehaviour:
   startCharging: 0
   isAttacking: 0
   bullet:
-  - {fileID: 6395150998634022948, guid: 764722ef3d241ac4083b9240f08a6730, type: 3}
-  firerate: 0.05
+  - {fileID: 6395150998634022948, guid: 56ddd1c3e543b404aaeb84890a0f928b, type: 3}
+  firerate: 0.08
   bulletSpeed: 14
   timeTillDespawn: 1
   canBounce: 0
@@ -68,7 +69,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -2.0775306
+  currentFirerateTimer: -2.4202304
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1

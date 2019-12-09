@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad12d1d63dc9a904b99511010694cf30, type: 3}
   m_Name: _Orb
   m_EditorClassIdentifier: 
-  hudIcon: {fileID: 6308056605659830489, guid: 576e1ef052aee4abb8480761185313df, type: 3}
+  hudIcon: {fileID: -6664576027056497138, guid: 85ddffa4adb39455ea4f7bb24e3322a1,
+    type: 3}
   characterName: Orb
   attackType: 4
   duration: 0
@@ -24,17 +25,17 @@ MonoBehaviour:
   dodgeSpeedMultiplier: 3
   currentDodgeSpeedMultiplier: 1
   dodgeLength: 0.16
-  currentDodgeTime: -1624.1478
+  currentDodgeTime: -1644.1052
   dodgeWaitTime: 1
-  currentDodgeWaitTime: -624.2015
+  currentDodgeWaitTime: -644.16986
   muzzleFlash: {fileID: 0}
   attackSize: {x: 2, y: 2, z: 2}
   canPierce: 0
   pierceMultiplier: 1
   maxAmountOfEnemiesCanPassThrough: -1
   offset: 1.16
-  currentPosition: {x: 20.134424, y: -29.28283, z: 0}
-  currentDirection: {x: -0.03188915, y: 0.045084666, z: 0}
+  currentPosition: {x: 4.4947968, y: 29.41076, z: 0}
+  currentDirection: {x: -0.1453634, y: 1, z: 0}
   weapon: {fileID: 0}
   isFlamethrower: 0
   awayPos: {x: 0, y: 0, z: 0}
@@ -47,7 +48,7 @@ MonoBehaviour:
   startCharging: 0
   isAttacking: 0
   bullet:
-  - {fileID: 6395150998634022948, guid: 56ddd1c3e543b404aaeb84890a0f928b, type: 3}
+  - {fileID: 6395150998634022948, guid: f23de422d16399b409ddd2b8976c5f77, type: 3}
   firerate: 1
   bulletSpeed: 0
   timeTillDespawn: 10
@@ -67,7 +68,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropRadius: 0
   explosionForce: 0
-  currentFirerateTimer: -4.1910067
+  currentFirerateTimer: 0.40513745
   currentAttackSpeedTimer: 0
   attackSizeMultiplier: 1
   attackSpeedMultiplier: 1
