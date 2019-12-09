@@ -527,11 +527,6 @@ public class MainPlayer : MonoBehaviour
                         deathScreen.gameObject.SetActive(true);
                         es.SetSelectedGameObject(restart.gameObject);
                         //**temporary - Load Dans Scene
-                        if (myPlayer.GetButtonDown("Cross"))
-                        {
-                            Time.timeScale = 1;
-                            SceneManager.LoadScene("Dans licc center");
-                        }
                     }
                 }
             }
