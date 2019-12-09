@@ -49,5 +49,21 @@ public class BreakableObjects : MonoBehaviour
             GameObject g = Instantiate(debris1, transform.position, Quaternion.identity);
             g.transform.parent = transform.parent;
         }
+
+        if (collision.gameObject.tag == "Enemy"){
+            Destroy(gameObject);
+            collid.enabled = false;
+            GameObject g = Instantiate(debris1, transform.position, Quaternion.identity);
+            g.transform.parent = transform.parent;
+        }
+
+        if (collision.gameObject.tag == "Takoyaki"){
+            Destroy(collision.gameObject);
+            //obj.SetTrigger("Break");
+            Destroy(gameObject);
+            collid.enabled = false;
+            GameObject g = Instantiate(debris1, transform.position, Quaternion.identity);
+            g.transform.parent = transform.parent;
+        }
     }
 }
