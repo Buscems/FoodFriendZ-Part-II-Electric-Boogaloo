@@ -35,20 +35,20 @@ public class ItemExtension : MonoBehaviour
     [HideInInspector] public bool hasPeacefulTea;
 
     [HideInInspector] public bool hasKissTheCookApron;
-    float kissTheCookChance = 1f;
+    float kissTheCookChance = .1f;
 
     [HideInInspector] public bool hasJunkFood;
     float junkFoodChance = .25f;
     float junkFoodModifer = .8f;
 
     [HideInInspector] public bool hasPopcorn;
-    float popCornChance = 1f;
+    float popCornChance = .1f;
 
     [HideInInspector] public bool hasPineAppleSlice;
     float pineAppleSliceChance = .5f;
 
     [HideInInspector] public bool hasLunchTray;
-    float lunchTrayChance = 1f;
+    float lunchTrayChance = .1f;
 
     [HideInInspector] public bool hasRocketPopsicle;
     float rocketPopsicleChance = .1f;
