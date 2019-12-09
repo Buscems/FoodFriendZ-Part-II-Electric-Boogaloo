@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -8914384516736786046}
   - component: {fileID: -2958437833990986740}
   - component: {fileID: 2519047230396981701}
+  - component: {fileID: 3497942727833074883}
   m_Layer: 10
   m_Name: MoldyFood
   m_TagString: Enemy
@@ -451,6 +452,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3497942727833074883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853570947623047933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a9c9fcc94e69d4a9f69f9b903b40c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 77448285}
 --- !u!1 &6247405284105714983
 GameObject:
   m_ObjectHideFlags: 0
