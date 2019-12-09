@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1612978145576304006
+--- !u!1 &967735755652803181
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,116 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7233293571486944347}
-  - component: {fileID: 5315796021990349935}
-  - component: {fileID: 1122273977999560268}
-  m_Layer: 0
-  m_Name: GameObject (7)
-  m_TagString: ShopItem
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7233293571486944347
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612978145576304006}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2669773, y: 2.6784308, z: -11.098785}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3050551118209348644}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5315796021990349935
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612978145576304006}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &1122273977999560268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612978145576304006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f17fa6429dcbe974198fb907fb6b55a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 55
-  powerUp: {fileID: 0}
-  priceText: {fileID: 8238446695958350354}
-  looking: 0
-  power: {fileID: 8890458605119183428}
-  player: {fileID: 0}
---- !u!1 &5423150057814585650
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3050551118209348644}
-  - component: {fileID: 4345672383994762623}
-  - component: {fileID: 8890458605119183428}
-  - component: {fileID: 1831878700883993825}
+  - component: {fileID: 5755707917022839858}
+  - component: {fileID: 8737407964596002506}
+  - component: {fileID: 729965059917758709}
+  - component: {fileID: 5662252282930341736}
   m_Layer: 13
-  m_Name: SwissArmyCheese
+  m_Name: IceCubes
   m_TagString: StatBoost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3050551118209348644
+--- !u!4 &5755707917022839858
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423150057814585650}
+  m_GameObject: {fileID: 967735755652803181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1569767, y: -2.7711127, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7233293571486944347}
-  - {fileID: 5386596539376723956}
+  - {fileID: 8834254870441291400}
+  - {fileID: 3265059773637563174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4345672383994762623
+--- !u!212 &8737407964596002506
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423150057814585650}
+  m_GameObject: {fileID: 967735755652803181}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -148,25 +72,25 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: -7884142278247044404, guid: f06b5372286038e43b6395f609100250,
+  m_Sprite: {fileID: -3604121008169193456, guid: 9df695b69306a435383b7f214c1dc016,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.35, y: 0.575}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8890458605119183428
+--- !u!114 &729965059917758709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423150057814585650}
+  m_GameObject: {fileID: 967735755652803181}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12edf85a889318f40883efcacba11b34, type: 3}
@@ -175,33 +99,33 @@ MonoBehaviour:
   stats: {fileID: 0}
   baseStats: {fileID: 0}
   effectIsActive: 1
-  powerUpName: Swiss Army Cheese
-  powerUpDesc: 
-  movementSpeed: 0.5
-  attackSize: 0.5
-  attackSpeed: 0.5
-  attackDamage: 0.5
+  powerUpName: Ice Cube
+  powerUpDesc: freeze chance up
+  movementSpeed: 0
+  attackSize: 0
+  attackSpeed: 0
+  attackDamage: 0
   critChance: 0
   bleedChance: 1
   burnChance: 1
   poisonChance: 1
-  freezeChance: 1
+  freezeChance: 2
   stunChance: 1
   healAmount: 0
   vampHeal: 0
   stunTimer: 0
   maxStunTimer: 0
-  rarity: 3
+  rarity: 0
   effectDuration: 0
   maxCoolDownDuration: 0
-  currentPowerUp: 0
---- !u!61 &1831878700883993825
+  currentPowerUp: 5
+--- !u!61 &5662252282930341736
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423150057814585650}
+  m_GameObject: {fileID: 967735755652803181}
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
@@ -212,16 +136,16 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.35, y: 0.575}
-    newSize: {x: 0.35, y: 0.575}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
---- !u!1 &8238446695958350354
+--- !u!1 &1793207173410021728
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,37 +153,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5386596539376723956}
-  - component: {fileID: 4141941188697605434}
-  - component: {fileID: 146579560327410474}
+  - component: {fileID: 3265059773637563174}
+  - component: {fileID: 2664661656261390390}
+  - component: {fileID: 6888511227208850432}
   m_Layer: 0
-  m_Name: price (7)
+  m_Name: price (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5386596539376723956
+--- !u!4 &3265059773637563174
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8238446695958350354}
+  m_GameObject: {fileID: 1793207173410021728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4669762, y: 3.5736372, z: -5.22}
+  m_LocalPosition: {x: -0.13, y: 0.85, z: -5.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3050551118209348644}
+  m_Father: {fileID: 5755707917022839858}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &4141941188697605434
+--- !u!23 &2664661656261390390
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8238446695958350354}
+  m_GameObject: {fileID: 1793207173410021728}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -290,15 +214,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!102 &146579560327410474
+--- !u!102 &6888511227208850432
 TextMesh:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8238446695958350354}
-  m_Text: 55$
+  m_GameObject: {fileID: 1793207173410021728}
+  m_Text: 45$
   m_OffsetZ: 0
   m_CharacterSize: 0.04
   m_LineSpacing: 1
@@ -312,3 +236,79 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!1 &6354629521886291178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8834254870441291400}
+  - component: {fileID: 8533337992315003618}
+  - component: {fileID: 8284239564740077958}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: ShopItem
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8834254870441291400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354629521886291178}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07000069, y: -0.045206547, z: -11.098785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5755707917022839858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8533337992315003618
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354629521886291178}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8284239564740077958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354629521886291178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17fa6429dcbe974198fb907fb6b55a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 45
+  powerUp: {fileID: 967735755652803181}
+  priceText: {fileID: 1793207173410021728}
+  looking: 0
+  power: {fileID: 729965059917758709}
+  player: {fileID: 0}

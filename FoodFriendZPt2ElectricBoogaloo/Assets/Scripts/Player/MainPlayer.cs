@@ -1302,6 +1302,11 @@ public class MainPlayer : MonoBehaviour
             StartCoroutine(Stuck(3));
         }
 
+        if (other.gameObject.tag == "ShopItem"){
+            //other.gameObject.GetComponent<ShopTrigger>().price;
+            
+        }
+
         if (other.gameObject.tag == "Chest")
         {
             touchingChest = true;

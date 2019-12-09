@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 690475616173746921}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: ShopItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,6 @@ MonoBehaviour:
   price: 72
   powerUp: {fileID: 4160093958654010881}
   priceText: {fileID: 6544376395657847337}
-  curMan: {fileID: 0}
   looking: 0
   power: {fileID: 1227129150971502941}
   player: {fileID: 0}
@@ -271,7 +270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c18630bdbf68f4d4992b8d2bc8fc369e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,7 +308,7 @@ TextMesh:
   m_FontSize: 75
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: c18630bdbf68f4d4992b8d2bc8fc369e, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295

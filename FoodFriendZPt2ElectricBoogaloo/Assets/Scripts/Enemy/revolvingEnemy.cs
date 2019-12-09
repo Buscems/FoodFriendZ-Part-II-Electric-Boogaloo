@@ -25,6 +25,7 @@ public class revolvingEnemy : MonoBehaviour
     {
         baseEnemy = GetComponent<BaseEnemy>();
         plezSpawn = true;
+        baseEnemy.aggroScript.aggro = false;
     }
 
     // Update is called once per frame

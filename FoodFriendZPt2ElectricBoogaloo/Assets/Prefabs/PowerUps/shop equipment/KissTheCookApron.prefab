@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1612978145576304006
+--- !u!1 &871508233258717688
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7233293571486944347}
-  - component: {fileID: 5315796021990349935}
-  - component: {fileID: 1122273977999560268}
+  - component: {fileID: 1968104278766328129}
+  - component: {fileID: 5574903894719834316}
+  - component: {fileID: 441164044200985807}
   m_Layer: 0
-  m_Name: GameObject (7)
+  m_Name: GameObject (1)
   m_TagString: ShopItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7233293571486944347
+--- !u!4 &1968104278766328129
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612978145576304006}
+  m_GameObject: {fileID: 871508233258717688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2669773, y: 2.6784308, z: -11.098785}
+  m_LocalPosition: {x: 0.07000069, y: -0.045206547, z: -11.098785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3050551118209348644}
+  m_Father: {fileID: 1236941636742742824}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5315796021990349935
+--- !u!61 &5574903894719834316
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612978145576304006}
+  m_GameObject: {fileID: 871508233258717688}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -58,25 +58,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1122273977999560268
+--- !u!114 &441164044200985807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612978145576304006}
+  m_GameObject: {fileID: 871508233258717688}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f17fa6429dcbe974198fb907fb6b55a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 55
-  powerUp: {fileID: 0}
-  priceText: {fileID: 8238446695958350354}
+  price: 45
+  powerUp: {fileID: 3640244095648413591}
+  priceText: {fileID: 7199326093675331977}
   looking: 0
-  power: {fileID: 8890458605119183428}
+  power: {fileID: 6823717135212311326}
   player: {fileID: 0}
---- !u!1 &5423150057814585650
+--- !u!1 &3640244095648413591
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,40 +84,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3050551118209348644}
-  - component: {fileID: 4345672383994762623}
-  - component: {fileID: 8890458605119183428}
-  - component: {fileID: 1831878700883993825}
+  - component: {fileID: 1236941636742742824}
+  - component: {fileID: 2074622108670433894}
+  - component: {fileID: 6823717135212311326}
+  - component: {fileID: 432938418884243081}
   m_Layer: 13
-  m_Name: SwissArmyCheese
+  m_Name: KissTheCookApron
   m_TagString: StatBoost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3050551118209348644
+--- !u!4 &1236941636742742824
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423150057814585650}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1569767, y: -2.7711127, z: 0}
+  m_GameObject: {fileID: 3640244095648413591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7233293571486944347}
-  - {fileID: 5386596539376723956}
+  - {fileID: 1968104278766328129}
+  - {fileID: 4609715791635761946}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4345672383994762623
+--- !u!212 &2074622108670433894
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423150057814585650}
+  m_GameObject: {fileID: 3640244095648413591}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -148,25 +148,25 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: -7884142278247044404, guid: f06b5372286038e43b6395f609100250,
+  m_Sprite: {fileID: -7309129972154217471, guid: 9df695b69306a435383b7f214c1dc016,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.35, y: 0.575}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8890458605119183428
+--- !u!114 &6823717135212311326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423150057814585650}
+  m_GameObject: {fileID: 3640244095648413591}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12edf85a889318f40883efcacba11b34, type: 3}
@@ -175,12 +175,12 @@ MonoBehaviour:
   stats: {fileID: 0}
   baseStats: {fileID: 0}
   effectIsActive: 1
-  powerUpName: Swiss Army Cheese
-  powerUpDesc: 
-  movementSpeed: 0.5
-  attackSize: 0.5
-  attackSpeed: 0.5
-  attackDamage: 0.5
+  powerUpName: KissTheCookApron
+  powerUpDesc: attacks heal
+  movementSpeed: 0
+  attackSize: 0
+  attackSpeed: 0
+  attackDamage: 0
   critChance: 0
   bleedChance: 1
   burnChance: 1
@@ -191,17 +191,17 @@ MonoBehaviour:
   vampHeal: 0
   stunTimer: 0
   maxStunTimer: 0
-  rarity: 3
+  rarity: 0
   effectDuration: 0
   maxCoolDownDuration: 0
-  currentPowerUp: 0
---- !u!61 &1831878700883993825
+  currentPowerUp: 15
+--- !u!61 &432938418884243081
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5423150057814585650}
+  m_GameObject: {fileID: 3640244095648413591}
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
@@ -212,16 +212,16 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.35, y: 0.575}
-    newSize: {x: 0.35, y: 0.575}
+    oldSize: {x: 0.8, y: 0.8}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
---- !u!1 &8238446695958350354
+--- !u!1 &7199326093675331977
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,37 +229,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5386596539376723956}
-  - component: {fileID: 4141941188697605434}
-  - component: {fileID: 146579560327410474}
+  - component: {fileID: 4609715791635761946}
+  - component: {fileID: 8759847831762028994}
+  - component: {fileID: 948182754178938900}
   m_Layer: 0
-  m_Name: price (7)
+  m_Name: price (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5386596539376723956
+--- !u!4 &4609715791635761946
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8238446695958350354}
+  m_GameObject: {fileID: 7199326093675331977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4669762, y: 3.5736372, z: -5.22}
+  m_LocalPosition: {x: -0.13, y: 0.85, z: -5.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3050551118209348644}
+  m_Father: {fileID: 1236941636742742824}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &4141941188697605434
+--- !u!23 &8759847831762028994
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8238446695958350354}
+  m_GameObject: {fileID: 7199326093675331977}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -290,15 +290,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!102 &146579560327410474
+--- !u!102 &948182754178938900
 TextMesh:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8238446695958350354}
-  m_Text: 55$
+  m_GameObject: {fileID: 7199326093675331977}
+  m_Text: 45$
   m_OffsetZ: 0
   m_CharacterSize: 0.04
   m_LineSpacing: 1

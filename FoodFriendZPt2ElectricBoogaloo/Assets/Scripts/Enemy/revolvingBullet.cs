@@ -34,7 +34,8 @@ public class revolvingBullet : MonoBehaviour
         bullet = GetComponent<EnemyBullet>();
         rb = GetComponent<Rigidbody2D>();
         revolve = true;
-        shootTime = Random.Range(3f, 9f);
+        shootTime = Random.Range(5f, 9f);
+        baseEnemy.aggroScript.aggro = false;
         
     }
 
@@ -80,5 +81,6 @@ public class revolvingBullet : MonoBehaviour
         shoot = true;
         target = GameObject.FindGameObjectWithTag("Player1").transform;
         location = new Vector2(target.position.x, target.position.y);
+        speed = 4;
     }
 }
