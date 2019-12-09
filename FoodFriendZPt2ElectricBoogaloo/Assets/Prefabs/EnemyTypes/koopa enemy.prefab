@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.62, y: 1.42}
+  m_Size: {x: 1.37, y: 1.41}
   m_EdgeRadius: 0
 --- !u!1 &8864166343848695216
 GameObject:
@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 1797817886666881354}
   - component: {fileID: 3148362177175378965}
   - component: {fileID: 544498696}
-  - component: {fileID: 6908281607012930956}
   - component: {fileID: 6565675330520658501}
   - component: {fileID: 6753219656706369694}
   m_Layer: 10
@@ -204,7 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 10
   aggroTimerMax: 5
-  mobSound: {fileID: 6753219656706369694}
   aggro: 0
   target:
   - {fileID: 0}
@@ -242,7 +240,7 @@ Animator:
   m_GameObject: {fileID: 8864166343848695216}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42c013b0f70446449a590023f4a73f0c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -311,7 +309,7 @@ MonoBehaviour:
   timeForSpinning: 3
   path: {fileID: 7350863681422512628}
   rb: {fileID: 8864166343848695217}
-  ani: {fileID: 0}
+  ani: {fileID: 4223587134125187034}
 --- !u!61 &544498696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -325,7 +323,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.48, y: 0.006296575}
+  m_Offset: {x: 0.49, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -336,24 +334,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.75, y: 1.4}
+  m_Size: {x: 1.37, y: 1.41}
   m_EdgeRadius: 0
---- !u!58 &6908281607012930956
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8864166343848695216}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.46, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.95
 --- !u!82 &6565675330520658501
 AudioSource:
   m_ObjectHideFlags: 0
