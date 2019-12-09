@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splat: {fileID: 393177829891165686, guid: 5196e6c34fdc44547875c4a57f2d62a6, type: 3}
   hitSound: {fileID: 6565675330520658501}
-  health: 5
+  health: 15
   maxHP: 0
   speed: 1
   walkIntoDamage: 1
@@ -182,6 +182,8 @@ MonoBehaviour:
   dropRate: 0.05
   money: 3
   objectToDestroy: {fileID: 0}
+  originalScaleX: 1.37
+  originalScaleY: 1.41
   changeTime: 2
   hit: {fileID: 544498696}
   deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
@@ -320,7 +322,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.49, y: 0}

@@ -59,6 +59,10 @@ public class KoopaLikeEnemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
 
+        if (other.gameObject.tag == "Player1"){
+            
+        }
+
         if (other.gameObject.CompareTag("Player1") && dizzy == true) {
             StopAllCoroutines();
             baseEnemy.health += 4;

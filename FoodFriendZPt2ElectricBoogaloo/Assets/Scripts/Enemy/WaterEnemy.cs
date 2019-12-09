@@ -16,6 +16,7 @@ public class WaterEnemy : MonoBehaviour
 
     public CircleCollider2D alert;
 
+    public Animator anim;
 
     public float spawnTime;
 

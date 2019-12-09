@@ -18,6 +18,8 @@ public class revolvingEnemy : MonoBehaviour
 
     public float moveTime;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
