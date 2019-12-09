@@ -29,8 +29,8 @@ public class BreakableObjects : MonoBehaviour
             //obj.SetTrigger("Break");
             Destroy(gameObject);
             collid.enabled = false;
-            Instantiate(debris1, transform.position, Quaternion.identity);
-            
+            GameObject g = Instantiate(debris1, transform.position, Quaternion.identity);
+            g.transform.parent = transform.parent;
         }
 
         if (collision.gameObject.tag == "Projectile"){
@@ -38,16 +38,16 @@ public class BreakableObjects : MonoBehaviour
             //obj.SetTrigger("Break");
             Destroy(gameObject);
             collid.enabled = false;
-            Instantiate(debris1, transform.position, Quaternion.identity);
-            
+            GameObject g = Instantiate(debris1, transform.position, Quaternion.identity);
+            g.transform.parent = transform.parent;
         }
 
         if (collision.gameObject.tag == "Slash"){
             //obj.SetTrigger("Break");
             Destroy(gameObject);
             collid.enabled = false;
-            Instantiate(debris1, transform.position, Quaternion.identity);
-            
+            GameObject g = Instantiate(debris1, transform.position, Quaternion.identity);
+            g.transform.parent = transform.parent;
         }
     }
 }

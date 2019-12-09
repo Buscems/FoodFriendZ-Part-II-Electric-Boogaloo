@@ -14,11 +14,11 @@ public class DestroyDebris : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 3);
+        //Destroy(gameObject, 3);
     }
 
     void playASound()
     {
-        breakableSound.Play();
+        //breakableSound.Play();
     }
 }
