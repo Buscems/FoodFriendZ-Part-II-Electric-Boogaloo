@@ -74,6 +74,7 @@ public class StartMainMenuScript : MonoBehaviour
 
     void Awake()
     {
+        Cursor.visible = false;
         ReInput.ControllerConnectedEvent += OnControllerConnected;
         //Default Title Screen elements
         TitleCard.enabled = true;
