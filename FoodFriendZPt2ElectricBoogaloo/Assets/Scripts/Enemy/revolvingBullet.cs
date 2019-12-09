@@ -27,6 +27,8 @@ public class revolvingBullet : MonoBehaviour
     public float iSeeYou;
     float shootTime;
 
+    public SpriteRenderer rend;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,9 +36,9 @@ public class revolvingBullet : MonoBehaviour
         bullet = GetComponent<EnemyBullet>();
         rb = GetComponent<Rigidbody2D>();
         revolve = true;
-        shootTime = Random.Range(5f, 9f);
+        shootTime = Random.Range(4f, 7f);
         baseEnemy.aggroScript.aggro = false;
-        
+        rend.enabled = true;
     }
 
     // Update is called once per frame
@@ -49,6 +51,10 @@ public class revolvingBullet : MonoBehaviour
 
         if (baseEnemy.aggroScript.aggro == true){
             StartCoroutine(See());
+        }
+
+        if (baseEnemy.health <= 0){
+            rend.enabled = false;
         }
 
         if (shoot == true)
@@ -67,6 +73,7 @@ public class revolvingBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
             Destroy(proj);
+            rend.enabled = false;
         }
     }
 
