@@ -370,6 +370,10 @@ MonoBehaviour:
   cantGetHitTimer: 0.5
   flashSpeed: 8
   flashIndex: 0.3
+  fallToPos: {x: 0, y: 0, z: 0}
+  startFalling: 0
+  splat: {fileID: 393177829891165686, guid: 283c92eeaaf3f3f4a975f87a3f05050a, type: 3}
+  enterLevelSound: {fileID: 0}
 --- !u!82 &2110259292106485824
 AudioSource:
   m_ObjectHideFlags: 0
