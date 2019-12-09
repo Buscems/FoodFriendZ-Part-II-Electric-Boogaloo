@@ -94,6 +94,7 @@ public class InGameFridgeManager : MonoBehaviour
     {
         if (playerWithinRange && myPlayer.GetButtonDown("Interact"))
         {
+            Debug.Log("Yer");
             Fridge.SetActive(true);
 
             Time.timeScale = 0;
