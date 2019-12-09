@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4820223070704456862}
   - component: {fileID: 3139289314532021113}
   - component: {fileID: 3307590786652720853}
+  - component: {fileID: 3522791132700340638}
   m_Layer: 0
   m_Name: Unkillable
   m_TagString: Untagged
@@ -180,6 +181,8 @@ MonoBehaviour:
   dropRate: 0
   money: 0
   objectToDestroy: {fileID: 0}
+  originalScaleX: 1
+  originalScaleY: 1
   changeTime: 2
   hit: {fileID: 4123095169603449466}
   deathSound: {fileID: 2109474220939513841, guid: d9d24ada14b49a24fa51c73e8524bb4b,
@@ -240,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b2eba63afae844f8f2fcb0b769800d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 3522791132700340638}
   damage: 0
 --- !u!82 &3307590786652720853
 AudioSource:
@@ -337,6 +341,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &3522791132700340638
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804551949798244605}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1be3b96d2a4cdc469240f19563c2e51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7303770098474040513
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class Unkillable : MonoBehaviour
 {
     BaseEnemy baseEnemy;
 
+    public Animator anim;
+
     private float starthealth;
     [SerializeField] int damage;
 

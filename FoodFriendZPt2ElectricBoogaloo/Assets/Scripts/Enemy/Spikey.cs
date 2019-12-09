@@ -19,6 +19,7 @@ public class Spikey : MonoBehaviour
     [SerializeField] private bool reload;
     private float savedSpeed;
 
+    public Animator anim;
 
     void Start()
     {
