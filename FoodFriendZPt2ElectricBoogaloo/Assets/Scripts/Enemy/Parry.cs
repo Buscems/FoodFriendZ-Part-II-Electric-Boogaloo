@@ -16,6 +16,8 @@ public class Parry : MonoBehaviour
     [Tooltip("Amount of Time the PARRY is up and the enemy is vulnerable")]
     public float ParryUpTime;
 
+    public Animator anim;
+
     void Start()
     {
         baseEnemy = GetComponent<BaseEnemy>();
