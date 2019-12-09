@@ -51,7 +51,8 @@ public class MainPlayer : MonoBehaviour
 
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
-    private Player myPlayer;
+    [HideInInspector]
+    public Player myPlayer;
     [Header("Rewired")]
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DiscoverCharacter : MonoBehaviour
 {
@@ -19,9 +21,31 @@ public class DiscoverCharacter : MonoBehaviour
     private MainPlayer player;
     public GameObject pickUpSound;
 
+    public bool chooseSwap;
+
+    private Image upCharacter;
+
+    private Image downCharacter;
+
+    private Image leftCharacter;
+
+    private Image rightCharacter;
+    private Text choose;
+
     // Start is called before the first frame update
     void Start()
     {
+        upCharacter = GameObject.Find("CD_Top").GetComponent<Image>();
+        downCharacter = GameObject.Find("CD_Bottom").GetComponent<Image>();
+        leftCharacter = GameObject.Find("CD_Left").GetComponent<Image>();
+        rightCharacter = GameObject.Find("CD_Right").GetComponent<Image>();
+        choose = GameObject.Find("Choose").GetComponent<Text>();
+        upCharacter.enabled = false;
+        downCharacter.enabled = false;
+        leftCharacter.enabled = false;
+        rightCharacter.enabled = false;
+        choose.enabled = false;
+
         player = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
         anim = GetComponent<Animator>();
 
@@ -70,7 +94,7 @@ public class DiscoverCharacter : MonoBehaviour
                 characterDiscover = GameObject.FindGameObjectsWithTag("CharacterDiscover");
                 foreach (GameObject c in characterDiscover)
                 {
-                    if(c.GetComponent<DiscoverCharacter>().currentChar == characters[randNum])
+                    if (c.GetComponent<DiscoverCharacter>().currentChar == characters[randNum])
                     {
                         check = true;
                     }
@@ -91,7 +115,58 @@ public class DiscoverCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (chooseSwap)
+        {
 
+            if (player.myPlayer.GetButtonDown("Square"))
+            {
+                player.CharacterSwap(currentChar, "Square");
+                player.AddCharacterToSaveFile(currentChar.characterName);
+                //player.square = currentChar;
+                upCharacter.enabled = false;
+                downCharacter.enabled = false;
+                leftCharacter.enabled = false;
+                rightCharacter.enabled = false;
+                choose.enabled = false;
+                Destroy(gameObject);
+            }
+            else if (player.myPlayer.GetButtonDown("Triangle"))
+            {
+                player.CharacterSwap(currentChar, "Triangle");
+                player.AddCharacterToSaveFile(currentChar.characterName);
+                //player.triangle = currentChar;
+                upCharacter.enabled = false;
+                downCharacter.enabled = false;
+                leftCharacter.enabled = false;
+                rightCharacter.enabled = false;
+                choose.enabled = false;
+                Destroy(gameObject);
+            }
+            else if (player.myPlayer.GetButtonDown("Circle"))
+            {
+                player.CharacterSwap(currentChar, "Circle");
+                player.AddCharacterToSaveFile(currentChar.characterName);
+                //player.circle = currentChar;
+                upCharacter.enabled = false;
+                downCharacter.enabled = false;
+                leftCharacter.enabled = false;
+                rightCharacter.enabled = false;
+                choose.enabled = false;
+                Destroy(gameObject);
+            }
+            else if (player.myPlayer.GetButtonDown("Cross"))
+            {
+                player.CharacterSwap(currentChar, "Cross");
+                player.AddCharacterToSaveFile(currentChar.characterName);
+                //player.circle = currentChar;
+                upCharacter.enabled = false;
+                downCharacter.enabled = false;
+                leftCharacter.enabled = false;
+                rightCharacter.enabled = false;
+                choose.enabled = false;
+                Destroy(gameObject);
+            }
+        }
     }
 
     //[MOVEMENT AND ANIMATION METHODS]
@@ -161,6 +236,19 @@ public class DiscoverCharacter : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player1")
+        {
+            chooseSwap = false;
+            upCharacter.enabled = false;
+            downCharacter.enabled = false;
+            leftCharacter.enabled = false;
+            rightCharacter.enabled = false;
+            choose.enabled = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player1")
@@ -171,6 +259,20 @@ public class DiscoverCharacter : MonoBehaviour
             }
             catch { }
             MainPlayer player = other.gameObject.GetComponent<MainPlayer>();
+            if (player.cross != null && player.triangle != null && player.circle != null && player.square != null)
+            {
+                chooseSwap = true;
+                upCharacter.sprite = player.triangle.hudIcon;
+                downCharacter.sprite = player.cross.hudIcon;
+                leftCharacter.sprite = player.square.hudIcon;
+                rightCharacter.sprite = player.circle.hudIcon;
+                upCharacter.enabled = true;
+                downCharacter.enabled = true;
+                leftCharacter.enabled = true;
+                rightCharacter.enabled = true;
+                choose.enabled = true;
+            }
+            else
             if (player.square != currentChar && player.triangle != currentChar && player.circle != currentChar && player.cross != currentChar)
             {
                 if (player.square == null)
