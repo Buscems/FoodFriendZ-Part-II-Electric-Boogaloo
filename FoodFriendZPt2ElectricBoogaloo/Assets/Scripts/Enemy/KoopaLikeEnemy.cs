@@ -88,14 +88,14 @@ public class KoopaLikeEnemy : MonoBehaviour
         yield return new WaitForSeconds(timeForDizzy);
         dizzy = false;
         awake = true;
-        ani.SetTrigger("walk");
+        
     }
 
     IEnumerator spinningTime(){
-        ani.SetTrigger("spinning");
+        
         yield return new WaitForSeconds(timeForSpinning);
         spinning = false;
         awake = true;
-        ani.SetTrigger("walk");
+        
     }
 }
