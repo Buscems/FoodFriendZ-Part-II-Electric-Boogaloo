@@ -16,21 +16,21 @@ public class GoToNextLevel : MonoBehaviour
     bool hasScanned;
 
     private GameObject[] otherArray;
-    private GameObject[] patArray;
+    private GameObject[] bArray;
     public bool isTutorial;
 
     bool hasChangedLevel;
 
     void Start()
     {
-        List<GameObject> patList = new List<GameObject>();
+        List<GameObject> bList = new List<GameObject>();
         List<GameObject> otherList = new List<GameObject>();
 
         for(int i = 0; i < levels.Length; i++)
         {
-            if (levels[i].gameObject.name.Contains("Pat"))
+            if (levels[i].gameObject.name.Contains("atLe"))
             {
-                patList.Add(levels[i]);
+                bList.Add(levels[i]);
             }
             else
             {
@@ -39,11 +39,11 @@ public class GoToNextLevel : MonoBehaviour
         }
 
         otherArray = otherList.ToArray();
-        patArray = patList.ToArray();
+        bArray = bList.ToArray();
 
         if (levels.Length == 1)
         {
-            patArray = new GameObject[] { levels[0] };
+            bArray = new GameObject[] { levels[0] };
             otherArray = new GameObject[] { levels[0] };
         }
 
@@ -78,9 +78,9 @@ public class GoToNextLevel : MonoBehaviour
             chooseArray = 99;
         }
 
-        if (chooseArray > 30)
+        if (chooseArray > 70)
         {
-            newNumber = Random.Range(0, patArray.Length);
+            newNumber = Random.Range(0, bArray.Length);
         }
         else
         {
@@ -93,9 +93,9 @@ public class GoToNextLevel : MonoBehaviour
         {
             while (newNumber == currentLevelNum)
             {
-                if (chooseArray > 30)
+                if (chooseArray > 70)
                 {
-                    newNumber = Random.Range(0, patArray.Length);
+                    newNumber = Random.Range(0, bArray.Length);
                 }
                 else
                 {
@@ -107,11 +107,12 @@ public class GoToNextLevel : MonoBehaviour
         {
             currentLevelNum = newNumber;
             hasScanned = false;
+            Debug.Log(chooseArray);
             Destroy(currentScene);
-            if (chooseArray > 30)
+            if (chooseArray > 70)
             {
-                currentScene = Instantiate(patArray[newNumber], patArray[newNumber].transform.position, Quaternion.identity);
-                Debug.Log(patArray[newNumber].name);
+                currentScene = Instantiate(bArray[newNumber], bArray[newNumber].transform.position, Quaternion.identity);
+                Debug.Log(bArray[newNumber].name);
             }
             else
             {
