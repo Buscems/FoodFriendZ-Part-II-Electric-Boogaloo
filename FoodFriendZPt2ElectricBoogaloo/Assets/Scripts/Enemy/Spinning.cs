@@ -34,6 +34,8 @@ public class Spinning : MonoBehaviour
 
     BulletPool bulletPooler;
 
+    float timer = 5;
+
     public Sprite[] bulletSprite;
     void Start()
     {
@@ -58,31 +60,36 @@ public class Spinning : MonoBehaviour
 
     void Update()
     {
-        transform.position = currentPos;
-        currentPos.x = startPos.x;
-        currentPos.y = startPos.y;
+        timer -= Time.deltaTime;
 
-        if (baseEnemy.aggroScript.aggro)
+        if (timer < 0)
         {
-            transform.Rotate(0, 0, rotateSpeed);
-            if (!isShooting && ranged && melee == false)
+            transform.position = currentPos;
+            currentPos.x = startPos.x;
+            currentPos.y = startPos.y;
+
+            if (baseEnemy.aggroScript.aggro)
             {
-                StartCoroutine(Fire());
-                isShooting = true;
-                //BulletPool.Instance.SpawnFromPool("Projectile", transform.position, Quaternion.identity);
-            }
+                transform.Rotate(0, 0, rotateSpeed);
+                if (!isShooting && ranged && melee == false)
+                {
+                    StartCoroutine(Fire());
+                    isShooting = true;
+                    //BulletPool.Instance.SpawnFromPool("Projectile", transform.position, Quaternion.identity);
+                }
 
-            if (melee && ranged == false)
+                if (melee && ranged == false)
+                {
+                    // Debug.Log("start spin");
+                    StartCoroutine(MeleeAttack());
+
+
+                }
+            }
+            else
             {
-                // Debug.Log("start spin");
-                StartCoroutine(MeleeAttack());
-
-
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -91,6 +98,7 @@ public class Spinning : MonoBehaviour
         while (baseEnemy.aggroScript.aggro)
         {
             var temp = Instantiate(bullet, transform.position, Quaternion.identity);
+            temp.transform.parent = transform.parent;
             //var temp = BulletPool.Instance.SpawnFromPool("Projectile", transform.position, Quaternion.identity);
             var randNum = Random.Range(0, bulletSprite.Length);
             temp.GetComponent<SpriteRenderer>().sprite = bulletSprite[randNum];
