@@ -201,12 +201,14 @@ public class ItemManager : MonoBehaviour
                 //swapping items
                 GameObject prevItem = item;
 
-                //places item in game world
-                prevItem.transform.position = this.gameObject.transform.position + new Vector3(2, 0, 0);
-                prevItem.GetComponent<SpriteRenderer>().enabled = true;
-                prevItem.GetComponent<BoxCollider2D>().enabled = true;
-
                 AssignItem(other.gameObject);
+
+                //places item in game world
+                /* 
+                 * prevItem.transform.position = this.gameObject.transform.position + new Vector3(2, 0, 0);
+                   prevItem.GetComponent<SpriteRenderer>().enabled = true;
+                   prevItem.GetComponent<BoxCollider2D>().enabled = true;
+                */
 
                 //for debugging
             }
