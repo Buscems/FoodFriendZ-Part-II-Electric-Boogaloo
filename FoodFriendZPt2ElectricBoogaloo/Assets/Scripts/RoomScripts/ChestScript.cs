@@ -144,12 +144,14 @@ public class ChestScript : MonoBehaviour
 
     void Update()
     {
+        /*
         if (hits >= maxHits && !hasOpened && player.currency > baseCost)
         {
             //player.currency -= baseCost;
             OpenChest();
             hasOpened = true;
         }
+        */
 
         if (hits > 0 && !resetHits)
         {

@@ -74,7 +74,7 @@ public class StartMainMenuScript : MonoBehaviour
 
     void Awake()
     {
-
+        ReInput.ControllerConnectedEvent += OnControllerConnected;
         //Default Title Screen elements
         TitleCard.enabled = true;
         TitleInscruction.enabled = true;
@@ -90,7 +90,7 @@ public class StartMainMenuScript : MonoBehaviour
 
         try
         {
-            if (controllerConnected)
+            if (!controllerConnected)
             {
                 ControllerMessage.SetActive(true);
             }
@@ -104,56 +104,72 @@ public class StartMainMenuScript : MonoBehaviour
 
     void Update()
     {
-        //bool logic
-        if (IsOnTitleScreen)
+        Debug.Log(controllerConnected);
+        try
         {
-            didPlayerPressAnyKey = false;
-        }
-        else
-        {
-            didPlayerPressAnyKey = true;
-        }
-
-        //animations
-        myAnimationController.SetBool("playerPressedAnyKey", didPlayerPressAnyKey);  //sets bool in the animator
-
-        //Game Juice (TitleInstruction)
-        TitleInscruction.color = Color.Lerp(TitleInstruction_StartColor, TitleInstruction_EndColor, Mathf.Sin(Time.time));       //color
-
-        if (Input.anyKey && IsOnTitleScreen)
-        {
-            TitleInscruction.enabled = false;
-            IsOnTitleScreen = false;
-            es.SetSelectedGameObject(StartButton.gameObject);
-        }
-
-        if (!mouse)
-        {
-            if (es.currentSelectedGameObject == StartButton.gameObject)
+            if (!controllerConnected)
             {
-                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, StartButton.transform.position.y + offset);
+                ControllerMessage.SetActive(true);
             }
-            if (es.currentSelectedGameObject == OptionsButton.gameObject)
+            else
             {
-                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, OptionsButton.transform.position.y + offset);
-            }
-            if (es.currentSelectedGameObject == CreditsButton.gameObject)
-            {
-                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, CreditsButton.transform.position.y + offset);
-            }
-            if (es.currentSelectedGameObject == LogButton.gameObject)
-            {
-                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, LogButton.transform.position.y + offset);
-            }
-            if (es.currentSelectedGameObject == QuitButton.gameObject)
-            {
-                characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, QuitButton.transform.position.y + offset);
+                ControllerMessage.SetActive(false);
             }
         }
-
-        if (MainMenuParent.activeInHierarchy && !spawnConfetti)
+        catch { }
+        if (controllerConnected)
         {
-            StartCoroutine(SpawnConfetti());
+            //bool logic
+            if (IsOnTitleScreen)
+            {
+                didPlayerPressAnyKey = false;
+            }
+            else
+            {
+                didPlayerPressAnyKey = true;
+            }
+
+            //animations
+            myAnimationController.SetBool("playerPressedAnyKey", didPlayerPressAnyKey);  //sets bool in the animator
+
+            //Game Juice (TitleInstruction)
+            TitleInscruction.color = Color.Lerp(TitleInstruction_StartColor, TitleInstruction_EndColor, Mathf.Sin(Time.time));       //color
+
+            if (Input.anyKey && IsOnTitleScreen)
+            {
+                TitleInscruction.enabled = false;
+                IsOnTitleScreen = false;
+                es.SetSelectedGameObject(StartButton.gameObject);
+            }
+
+            if (!mouse)
+            {
+                if (es.currentSelectedGameObject == StartButton.gameObject)
+                {
+                    characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, StartButton.transform.position.y + offset);
+                }
+                if (es.currentSelectedGameObject == OptionsButton.gameObject)
+                {
+                    characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, OptionsButton.transform.position.y + offset);
+                }
+                if (es.currentSelectedGameObject == CreditsButton.gameObject)
+                {
+                    characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, CreditsButton.transform.position.y + offset);
+                }
+                if (es.currentSelectedGameObject == LogButton.gameObject)
+                {
+                    characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, LogButton.transform.position.y + offset);
+                }
+                if (es.currentSelectedGameObject == QuitButton.gameObject)
+                {
+                    characterHighlight.gameObject.transform.position = new Vector3(characterHighlight.rectTransform.position.x, QuitButton.transform.position.y + offset);
+                }
+            }
+
+            if (MainMenuParent.activeInHierarchy && !spawnConfetti)
+            {
+                StartCoroutine(SpawnConfetti());
+            }
         }
     }
 
@@ -247,7 +263,7 @@ public class StartMainMenuScript : MonoBehaviour
 
     void OnControllerConnected(ControllerStatusChangedEventArgs arg)
     {
-        controllerConnected = true;
+       controllerConnected = true;
     }
 
 }

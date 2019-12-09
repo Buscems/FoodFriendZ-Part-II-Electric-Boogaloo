@@ -1067,8 +1067,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.085632, y: 65.16998}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 15.085632, y: 5}
+  m_SizeDelta: {x: 1700, y: 1071.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322762990
 MonoBehaviour:
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimationController: {fileID: 350234130}
-  ControllerMessage: {fileID: 0}
+  ControllerMessage: {fileID: 322762988}
   playerNum: 0
   TitleInstruction_StartColor: {r: 0.9333334, g: 0.2627451, b: 0.5882353, a: 1}
   TitleInstruction_EndColor: {r: 0.9333334, g: 0.2627451, b: 0.5882353, a: 0}
@@ -1985,7 +1985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 137}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566895943
