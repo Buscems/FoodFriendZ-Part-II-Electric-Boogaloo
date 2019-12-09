@@ -21,7 +21,7 @@ public class DiscoverCharacter : MonoBehaviour
     private MainPlayer player;
     public GameObject pickUpSound;
 
-    public bool chooseSwap;
+    public bool chooseSwap = false;
 
     private Image upCharacter;
 

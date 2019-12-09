@@ -2588,6 +2588,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7487112671379864166, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029305064405570458, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029305064405570458, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029305064405570458, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.78124094
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0712b6790ff1d948ad1b3ccbdf45b9d, type: 3}
 --- !u!1 &966333414 stripped
@@ -4136,6 +4156,7 @@ MonoBehaviour:
   fadeSpeed: 1
   loadingTimer: 0
   levelNumText: {fileID: 735667359}
+  isTutorial: 1
 --- !u!1 &1945049411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2843550921742430319, guid: 84bc0511b46d0ed41a52cefe75499541,
