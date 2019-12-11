@@ -129,7 +129,11 @@ public class BaseEnemy : MonoBehaviour
         }
         catch { }
 
-        sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime);
+        try
+        {
+            sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime);
+        }
+        catch { }
         speed = origSpeed * slowDownPercentage;
         StatusEffectTimers();
         StatusEffects();

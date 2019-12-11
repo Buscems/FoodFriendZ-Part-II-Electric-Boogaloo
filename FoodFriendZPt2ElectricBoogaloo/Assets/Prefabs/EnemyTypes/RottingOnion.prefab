@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splat: {fileID: 393177829891165686, guid: 5196e6c34fdc44547875c4a57f2d62a6, type: 3}
   hitSound: {fileID: -5403128402317336257}
-  health: 45
+  health: 12
   maxHP: 0
   speed: 2
   walkIntoDamage: 1
@@ -296,6 +296,7 @@ MonoBehaviour:
   deathClips: []
   deathSound2: {fileID: 4834533482456540045, guid: db04faa4708b80e49a7d972b3b6e6b09,
     type: 3}
+  cantBreakObj: 0
 --- !u!114 &4728474277593573587
 MonoBehaviour:
   m_ObjectHideFlags: 0
