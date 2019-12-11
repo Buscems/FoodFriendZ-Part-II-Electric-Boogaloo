@@ -81,7 +81,7 @@ public class Attack : MonoBehaviour
                 if (rb != null)
                 {
                     rb.AddExplosionForce2D(force, transform.position, radius);
-                    explosionSound.Play();
+                    //explosionSound.Play();
                 }
             }
 

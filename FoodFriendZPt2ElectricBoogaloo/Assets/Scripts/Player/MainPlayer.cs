@@ -562,7 +562,11 @@ public class MainPlayer : MonoBehaviour
     {
         if (!startFalling)
         {
-            enterLevelSound.Play();
+            try
+            {
+                enterLevelSound.Play();
+            }
+            catch { }
             //applied player movement
             //Vector3 currentPos = transform.position;
             //currentPos.z = 1;
