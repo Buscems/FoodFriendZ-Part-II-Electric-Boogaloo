@@ -78,6 +78,7 @@ MonoBehaviour:
   deathClips: []
   deathSound2: {fileID: 4834533482456540045, guid: db04faa4708b80e49a7d972b3b6e6b09,
     type: 3}
+  cantBreakObj: 0
 --- !u!114 &1771624388262519801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ MonoBehaviour:
   meleeDelete: 0
   MeleePause: 0
   meleeObject: {fileID: 0}
-  DownTime: 0
+  DownTime: 0.1
   rotateSpeed: 3
   bullet: {fileID: 8389044837174670204, guid: 59a6a1285c4784553a0ad169cebaafa3, type: 3}
   timeInBetweenBullets: 0.1
