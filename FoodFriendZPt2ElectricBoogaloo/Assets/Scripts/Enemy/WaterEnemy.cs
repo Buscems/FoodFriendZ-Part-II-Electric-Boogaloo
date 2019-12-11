@@ -8,7 +8,7 @@ public class WaterEnemy : MonoBehaviour
 
     private float latestDirectionChangeTime;
     private readonly float directionChangeTime = 3f;
-    private float characterVelocity = 3f;
+    public float characterVelocity;
     private Vector2 movementDirection;
     private Vector2 movementPerSecond;
 
