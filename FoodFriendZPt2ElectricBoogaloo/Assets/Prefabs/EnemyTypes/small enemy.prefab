@@ -133,7 +133,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 15
   m_Sprite: {fileID: 3733884840967755707, guid: e63e26d3c5be645caa6ff17195addb00,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -215,6 +215,7 @@ MonoBehaviour:
   deathClips: []
   deathSound2: {fileID: 4834533482456540045, guid: db04faa4708b80e49a7d972b3b6e6b09,
     type: 3}
+  cantBreakObj: 0
 --- !u!114 &1190379580725686524
 MonoBehaviour:
   m_ObjectHideFlags: 0

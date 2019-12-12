@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 99
+  m_SortingOrder: 20
   m_Sprite: {fileID: 6445923857796694718, guid: 3991776be48424c7f8e365a138a363dd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,9 +119,11 @@ MonoBehaviour:
     type: 3}
   speed: 3
   velocity: {x: 1, y: 1, z: 0}
+  baseEnemy: {fileID: 0}
   revolve: 1
   shoot: 0
   iSeeYou: 3
+  rend: {fileID: 0}
 --- !u!114 &5813693186868726137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splat: {fileID: 0}
+  hitSound: {fileID: 0}
   health: 8
   maxHP: 0
   speed: 0
@@ -145,8 +148,14 @@ MonoBehaviour:
   dropRate: 0
   money: 0
   objectToDestroy: {fileID: 0}
+  originalScaleX: 1
+  originalScaleY: 1
+  changeTime: 0
+  hit: {fileID: 0}
   deathSound: {fileID: 0}
   deathClips: []
+  deathSound2: {fileID: 0}
+  cantBreakObj: 0
 --- !u!114 &-5180750335992118195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f189349f936c16842b3a64f636429200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundToInstantiate: {fileID: 0}
+  soundClip: {fileID: 0}
   speed: 0
   velocity: {x: 0, y: 0, z: 0}
   damage: 0

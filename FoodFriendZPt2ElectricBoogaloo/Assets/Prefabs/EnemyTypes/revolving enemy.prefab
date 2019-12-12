@@ -86,7 +86,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 15
   m_Sprite: {fileID: 2766408606741763261, guid: 3991776be48424c7f8e365a138a363dd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -450,6 +450,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -505,21 +510,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2621482886604538418}
+      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -545,6 +541,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 4731186243381849943}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 2621482886604538418}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -555,12 +561,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!114 &2621482886604538418 stripped
@@ -606,6 +606,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -661,21 +666,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2630421743739901596}
+      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -701,6 +697,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 4704237109974514681}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 2630421743739901596}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -711,12 +717,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!114 &2630421743739901596 stripped
@@ -762,6 +762,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -817,21 +822,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
-      value: 
-      objectReference: {fileID: 1742754127102138374}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -857,6 +847,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 9072059156808988003}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 1742754127102138374}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -912,6 +912,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -967,21 +972,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1573333711502062503}
+      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1007,6 +1003,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 8078462351911886530}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 1573333711502062503}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1017,12 +1023,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!114 &1573333711502062503 stripped
@@ -1068,6 +1068,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1123,21 +1128,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 951419427046217631}
+      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1163,6 +1159,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 7565470079095667450}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 951419427046217631}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1173,12 +1179,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &2510087107034071922 stripped
@@ -1224,6 +1224,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1279,21 +1284,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7717620234379972385}
+      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1319,6 +1315,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 1068358818003214916}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 7717620234379972385}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1329,12 +1335,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3186913757307872604, guid: 3991776be48424c7f8e365a138a363dd,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &4970846679741160396 stripped
@@ -1380,6 +1380,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1435,21 +1440,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
-      value: 
-      objectReference: {fileID: 6599109614024090183}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1475,6 +1465,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 4493839414651014946}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 6599109614024090183}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1530,6 +1530,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1585,21 +1590,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
-      value: 
-      objectReference: {fileID: 5513898261038838808}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1625,6 +1615,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 2975930856116590973}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 5513898261038838808}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1680,6 +1680,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 713600866824404203}
     m_Modifications:
+    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: m_Name
+      value: revlolving bullets (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 1728193710581567648, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1735,21 +1740,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726134, guid: 07fb6d640cfb0304abae1d955d8a700e,
+    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
-      propertyPath: m_Name
-      value: revlolving bullets (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: aggroScript
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5595992279028727746}
+      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
+        type: 3}
     - target: {fileID: 5813693186868726135, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: revolveAround
@@ -1775,6 +1771,16 @@ PrefabInstance:
       propertyPath: rend
       value: 
       objectReference: {fileID: 2909634655705420455}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813693186868726137, guid: 07fb6d640cfb0304abae1d955d8a700e,
+        type: 3}
+      propertyPath: aggroScript
+      value: 
+      objectReference: {fileID: 5595992279028727746}
     - target: {fileID: -5180750335992118195, guid: 07fb6d640cfb0304abae1d955d8a700e,
         type: 3}
       propertyPath: aggroTimerMax
@@ -1785,12 +1791,6 @@ PrefabInstance:
       propertyPath: aggroRange
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 6760935607513213224, guid: 07fb6d640cfb0304abae1d955d8a700e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 4488010781350517681, guid: 3991776be48424c7f8e365a138a363dd,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fb6d640cfb0304abae1d955d8a700e, type: 3}
 --- !u!4 &7082320898596203311 stripped
