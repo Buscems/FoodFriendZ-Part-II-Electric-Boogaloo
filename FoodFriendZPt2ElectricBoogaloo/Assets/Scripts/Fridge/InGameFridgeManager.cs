@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using Rewired.ControllerExtensions;
+using UnityEngine.EventSystems;
 
 public class InGameFridgeManager : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class InGameFridgeManager : MonoBehaviour
      * */
 
     public CharacterSelectionScreenScript charSelect;
+
+    public GameObject tofu;
+
+    public EventSystem events;
 
     public GameObject leftArrow;
     public GameObject rightArrow;
@@ -67,7 +72,9 @@ public class InGameFridgeManager : MonoBehaviour
         charSelect = GameObject.Find("***CharacterSelectionMenu").GetComponent<CharacterSelectionScreenScript>();
         charSelect.fridgeManager = this.GetComponent<InGameFridgeManager>();
 
-        Fridge = GameObject.Find("Fridge");
+        events = charSelect.events;
+
+        Fridge = charSelect.transform.GetChild(0).gameObject;
         Fridge.SetActive(false);
 
         for (int i = 0; i < fridgeCharacterPlaceHolders.Length; i++)
@@ -96,6 +103,8 @@ public class InGameFridgeManager : MonoBehaviour
         {
             Debug.Log("Yer");
             Fridge.SetActive(true);
+
+            events.SetSelectedGameObject(charSelect.startCharacter.gameObject);
 
             Time.timeScale = 0;
 
