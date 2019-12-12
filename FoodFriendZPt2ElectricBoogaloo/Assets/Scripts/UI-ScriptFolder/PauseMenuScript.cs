@@ -11,6 +11,7 @@ using Rewired.ControllerExtensions;
 public class PauseMenuScript : MonoBehaviour
 {
     public GameObject PauseMenuUI;  //i use this so that i may have the overlay off in the scene window when i work
+    
 
     public static bool IsGamePaused = false;   //used to tell other scripts
 
@@ -49,16 +50,18 @@ public class PauseMenuScript : MonoBehaviour
     void Update()
     {
         //Pause toggle input
-        if (Input.GetKeyDown(KeyCode.Escape) || myPlayer.GetButtonDown("Pause"))
+        if (myPlayer.GetButtonDown("Circle") || myPlayer.GetButtonDown("Pause"))
         //Input
         {
             //Pause check
             if (IsGamePaused)
             {
                 ResumeGameButtonFunction();
+                PauseMenuUI.SetActive(false);
             }
             else
             {
+                PauseMenuUI.SetActive(true);
                 Pause();
             }
         }

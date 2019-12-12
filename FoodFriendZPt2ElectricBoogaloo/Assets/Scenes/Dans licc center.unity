@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1705535370}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1690,12 +1690,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1460172864}
+        m_MethodName: ReturnToTitle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3199,7 +3199,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 652417074}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5761,7 +5761,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2049206415}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6583,10 +6583,20 @@ PrefabInstance:
       propertyPath: es
       value: 
       objectReference: {fileID: 1738196455}
+    - target: {fileID: 2392885754500457277, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: pausemenu
+      value: 
+      objectReference: {fileID: 1513456377}
     - target: {fileID: 2392885752888696333, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -250
+      value: -122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392885752888696333, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392885754630769584, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
@@ -6601,7 +6611,12 @@ PrefabInstance:
     - target: {fileID: 2392885754630769584, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -150
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392885754630769584, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392885754541580012, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
@@ -7887,6 +7902,11 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1706590084374079201, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392885754855478190, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -11735,6 +11755,7 @@ GameObject:
   - component: {fileID: 1460172861}
   - component: {fileID: 1460172863}
   - component: {fileID: 1460172862}
+  - component: {fileID: 1460172864}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -11802,6 +11823,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460172860}
   m_CullTransparentMesh: 0
+--- !u!114 &1460172864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460172860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eec7cce07b4a824dbb03c2a8d75983a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 1
 --- !u!1 &1465624498
 GameObject:
   m_ObjectHideFlags: 0
@@ -12330,6 +12364,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509617271}
   m_CullTransparentMesh: 0
+--- !u!1 &1513456377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2392885754500457267, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 966333413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1514212442
 GameObject:
   m_ObjectHideFlags: 0
