@@ -14,6 +14,8 @@ public class RoomTrigger : MonoBehaviour
     public bool[] enemyTrue;
     bool close;
 
+    public GameObject poof;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,8 @@ public class RoomTrigger : MonoBehaviour
             enemyTrue[i] = true;
             try
             {
-                enemies[i].GetComponent<Aggro>().doorEnemy = true;    
+                enemies[i].GetComponent<Aggro>().doorEnemy = true;
+                enemies[i].SetActive(false);
             }
             catch
             {
@@ -90,17 +93,19 @@ public class RoomTrigger : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < enemies.Length; i++)
-                {
-                    if (enemies[i].GetComponent<BaseEnemy>() != null)
-                    {
-                        enemies[i].GetComponent<BaseEnemy>().aggroScript.aggro = true;
-                    }
-                }
+                StartCoroutine(SpawnEnemies());
             }
         }
     }
 
-    
+    IEnumerator SpawnEnemies()
+    {
+        for(int i = 0; i < enemies.Length; i++)
+        {
+            yield return new WaitForSeconds(.1f);
+            enemies[i].SetActive(true);
+            Instantiate(poof, enemies[i].transform.position, Quaternion.identity);
+        }
+    }
 
 }

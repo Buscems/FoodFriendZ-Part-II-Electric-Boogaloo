@@ -306,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
         type: 3}
       propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
         type: 3}
@@ -332,6 +332,26 @@ PrefabInstance:
         type: 3}
       propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[10]._keyboardKeyCode
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[11]._actionId
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[11]._elementType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[11]._elementIdentifierId
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521582520803343938, guid: b60e88b968cc08742bc9e00db1882491,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[11]._keyboardKeyCode
+      value: 101
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60e88b968cc08742bc9e00db1882491, type: 3}
@@ -1557,7 +1577,7 @@ PrefabInstance:
     - target: {fileID: 6768029928870453535, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6768029928870453535, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
@@ -1567,7 +1587,7 @@ PrefabInstance:
     - target: {fileID: 2108029673986643557, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2108029673986643557, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
@@ -1577,7 +1597,7 @@ PrefabInstance:
     - target: {fileID: 5863532616410333965, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5863532616410333965, guid: c0712b6790ff1d948ad1b3ccbdf45b9d,
         type: 3}
