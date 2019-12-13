@@ -177,6 +177,7 @@ MonoBehaviour:
   aggroScript: {fileID: 1170927021004534174}
   stage: 0
   bossGetHit: {fileID: -7426357824076586726}
+  bossDeathSoundClip: {fileID: 8300000, guid: fc6815724c29547e6b74f1606992c6e8, type: 3}
   bossDeathSound: {fileID: 2102569088904975286}
 --- !u!114 &1170927021004534174
 MonoBehaviour:
@@ -695,16 +696,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5215870085308166777}
     m_Modifications:
-    - target: {fileID: 6324566385274173060, guid: d1e8f223ce5004ecbaf95cdc6009b42c,
-        type: 3}
-      propertyPath: m_Name
-      value: Bee Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 6324566385274173060, guid: d1e8f223ce5004ecbaf95cdc6009b42c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6325671452076112514, guid: d1e8f223ce5004ecbaf95cdc6009b42c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -759,6 +750,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324566385274173060, guid: d1e8f223ce5004ecbaf95cdc6009b42c,
+        type: 3}
+      propertyPath: m_Name
+      value: Bee Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324566385274173060, guid: d1e8f223ce5004ecbaf95cdc6009b42c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1e8f223ce5004ecbaf95cdc6009b42c, type: 3}

@@ -72,6 +72,7 @@ public class BaseBoss : MonoBehaviour
     private SpriteRenderer sr;
 
     public AudioSource bossGetHit;
+    public AudioClip bossDeathSoundClip;
     public AudioSource bossDeathSound;
 
     private void Awake()
@@ -357,7 +358,7 @@ public class BaseBoss : MonoBehaviour
         stage = BossStage.death;
         if (anim != null)
         {
-            bossDeathSound.Play();
+            bossDeathSound.PlayOneShot(bossDeathSoundClip, 0.7f);
             anim.SetTrigger("death");
         }
         if (backAnim != null)
