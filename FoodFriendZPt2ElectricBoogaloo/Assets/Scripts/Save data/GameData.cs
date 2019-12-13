@@ -317,23 +317,23 @@ public class GameData
          /* 0  */ true,   /* [Cannoli] */
          /* 1  */ true,   /* [Cherry] */
          /* 2  */ true,  /* [Cone] */
-         /* 3  */ false,  /* [Donut] */
-         /* 4  */ false,  /* [Fries] */
-         /* 5  */ false,  /* [Burger] */
-         /* 6  */ false,  /* [Hotdog] */
-         /* 7  */ false,  /* [Napolean] */
-         /* 8  */ false,  /* [Onigiri] */
-         /* 9  */ false,  /* [Sashimi] */
-         /* 10 */ false,  /* [Takoyaki] */
-         /* 11 */ false,  /* [Tofu] */
-         /* 12 */ false,  /* [5RoundBurst] */
-         /* 13 */ false,  /* [Blueberry Muffin] */
-         /* 14 */ false,  /* [Lobster Tail] */
-         /* 15 */ false,  /* [Samosa] */
-         /* 16 */ false,  /* [Taco] */
-         /* 17 */ false,  /* [Tuna Can] */
-         /* 18 */ false,  /* [Orb] */
-         /* 19 */ false,  /* [Pancakes] */
+         /* 3  */ true,  /* [Donut] */
+         /* 4  */ true,  /* [Fries] */
+         /* 5  */ true,  /* [Burger] */
+         /* 6  */ true,  /* [Hotdog] */
+         /* 7  */ true,  /* [Napolean] */
+         /* 8  */ true,  /* [Onigiri] */
+         /* 9  */ true,  /* [Sashimi] */
+         /* 10 */ true,  /* [Takoyaki] */
+         /* 11 */ true,  /* [Tofu] */
+         /* 12 */ true,  /* [5RoundBurst] */
+         /* 13 */ true,  /* [Blueberry Muffin] */
+         /* 14 */ true,  /* [Lobster Tail] */
+         /* 15 */ true,  /* [Samosa] */
+         /* 16 */ true,  /* [Taco] */
+         /* 17 */ true,  /* [Tuna Can] */
+         /* 18 */ true,  /* [Orb] */
+         /* 19 */ true,  /* [Pancakes] */
     };
     
 

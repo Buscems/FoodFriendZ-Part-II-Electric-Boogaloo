@@ -57,7 +57,6 @@ public class SaveGame : MonoBehaviour
         //IF YOU WANT TO RESET YOUR DATA
         gameData = new GameData();
         SaveToFile();
-        Debug.Log("Yer?");
 
     }
 
