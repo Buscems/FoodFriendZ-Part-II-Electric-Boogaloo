@@ -27,7 +27,10 @@ public class RoomTrigger : MonoBehaviour
             try
             {
                 enemies[i].GetComponent<Aggro>().doorEnemy = true;
-                enemies[i].SetActive(false);
+                if (!enemies[i].GetComponent<BaseBoss>())
+                {
+                    enemies[i].SetActive(false);
+                }
             }
             catch
             {
@@ -107,6 +110,10 @@ public class RoomTrigger : MonoBehaviour
             Instantiate(poof, enemies[i].transform.position, Quaternion.identity);
         }
         yield return new WaitForSeconds(.5f);
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].GetComponent<BaseEnemy>().aggroScript.aggro = true;
+        }
     }
 
 }
