@@ -16,6 +16,8 @@ using System.IO;
 public class CharacterSelectionScreenScript : MonoBehaviour
 {
 
+    public bool charSelectScene;
+
     public InGameFridgeManager fridgeManager;
     [HideInInspector] public int savedNum;
 
@@ -34,6 +36,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     [Header("Highlighted Character")]
     public Image HighlightedCharacterIMG;
+    public Image HighlightedCharacterIMGBlack;
     public TextMeshProUGUI HighlightedCharacterNameDisplay;
 
     [Space]
@@ -127,7 +130,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     private void Update()
     {
-        if (myPlayer.GetButtonDown("Circle"))
+        if (myPlayer.GetButtonDown("Circle") && !charSelectScene)
         {
             transform.GetChild(0).gameObject.SetActive(false);
             dc.fridgeSwap = false;
@@ -250,10 +253,16 @@ public class CharacterSelectionScreenScript : MonoBehaviour
             damage.fillAmount = stats[Num].x;
             movementSpeed.fillAmount = stats[Num].y;
             attackSpeed.fillAmount = stats[Num].z;
+            HighlightedCharacterIMG.enabled = true;
+            HighlightedCharacterIMGBlack.enabled = false;
             HighlightedCharacterIMG.sprite = characterSprites[Num];
             HighlightedCharacterNameDisplay.text = gameData.CharacterListNames[Num];
             string[] descText = descriptionSections[Num].Split(';');
             savedNum = Num;
+            if (charSelectScene)
+            {
+                PlayerPrefs.SetInt("startCharacter", Num + 1);
+            }
             try
             {
                 dc.currentChar = player.allCharacters[Num];
@@ -262,6 +271,17 @@ public class CharacterSelectionScreenScript : MonoBehaviour
             catch { }
             descriptionHeader.text = descText[0];
             descriptionBody.text = descText[1];
+            canPlay = true;
+        }
+        else
+        {
+            canPlay = false;
+            HighlightedCharacterNameDisplay.text = "???";
+            descriptionHeader.text = "???";
+            descriptionBody.text = "???";
+            HighlightedCharacterIMGBlack.enabled = true;
+            HighlightedCharacterIMG.enabled = false;
+            HighlightedCharacterIMGBlack.sprite = characterSprites[Num];
         }
     }
 
