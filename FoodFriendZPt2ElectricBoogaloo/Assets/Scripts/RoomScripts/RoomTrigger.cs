@@ -106,6 +106,7 @@ public class RoomTrigger : MonoBehaviour
             enemies[i].SetActive(true);
             Instantiate(poof, enemies[i].transform.position, Quaternion.identity);
         }
+        yield return new WaitForSeconds(.5f);
     }
 
 }
