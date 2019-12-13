@@ -38,6 +38,8 @@ public class PauseMenuScript : MonoBehaviour
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
 
+    public CharacterSelectionScreenScript charSelect;
+
     private void Awake()
     {
         PauseMenuUI.SetActive(false); //makes sure the pause screen is off upon loading
@@ -50,7 +52,7 @@ public class PauseMenuScript : MonoBehaviour
     void Update()
     {
         //Pause toggle input
-        if (myPlayer.GetButtonDown("Pause"))
+        if (myPlayer.GetButtonDown("Pause") && !charSelect.fridge.activeInHierarchy)
         //Input
         {
             //Pause check
@@ -80,7 +82,6 @@ public class PauseMenuScript : MonoBehaviour
     void Pause()
     {
         PauseMenuUI.SetActive(true);
-        Debug.Log("Yeah");
         es.SetSelectedGameObject(ResumeGameButton.gameObject);
 
         Time.timeScale = 0f;    //freezes time

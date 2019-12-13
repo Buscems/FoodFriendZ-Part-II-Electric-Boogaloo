@@ -127,6 +127,12 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     private void Update()
     {
+        if (myPlayer.GetButtonDown("Circle"))
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+            dc.fridgeSwap = false;
+            dc.chooseSwap = false;
+        }
 
         if (turnOn)
         {
@@ -239,7 +245,6 @@ public class CharacterSelectionScreenScript : MonoBehaviour
 
     public void SwapOut(int Num)
     {
-
         if (gameData.CharacterList[Num])
         {
             damage.fillAmount = stats[Num].x;
@@ -251,23 +256,27 @@ public class CharacterSelectionScreenScript : MonoBehaviour
             savedNum = Num;
             dc.currentChar = player.allCharacters[Num];
             dc.lastButton = characterButtons[Num].transform.parent.gameObject;
-            try
-            {
-                descriptionHeader.text = descText[Num];
-                descriptionBody.text = descText[Num];
-            } catch { Debug.LogError("Description isn't working properly"); }
-           
+
+            descriptionHeader.text = descText[0];
+            descriptionBody.text = descText[1];
         }
     }
 
     public void ChangeSet(int set)
     {
-        for(int i = 0; i < characterSets.Length; i++)
+        int temp = set;
+        StartCoroutine(NewSet(temp));
+    }
+
+    public IEnumerator NewSet(int set)
+    {
+        yield return new WaitForSecondsRealtime(.1f);
+        events.SetSelectedGameObject(null);
+        for (int i = 0; i < characterSets.Length; i++)
         {
             if (i == set)
             {
                 characterSets[set].SetActive(true);
-                events.SetSelectedGameObject(null);
                 events.SetSelectedGameObject(switchCharacter[set]);
             }
             else
