@@ -36,7 +36,7 @@ public class revolvingBullet : MonoBehaviour
         bullet = GetComponent<EnemyBullet>();
         rb = GetComponent<Rigidbody2D>();
         revolve = true;
-        shootTime = Random.Range(4f, 7f);
+        shootTime = Random.Range(3f, 5f);
         baseEnemy.aggroScript.aggro = false;
         rend.enabled = true;
     }
