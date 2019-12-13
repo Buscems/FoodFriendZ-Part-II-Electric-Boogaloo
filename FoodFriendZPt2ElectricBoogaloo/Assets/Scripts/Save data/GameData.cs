@@ -314,7 +314,7 @@ public class GameData
         
          * Array Pos - Character
          */
-         /* 0  */ true,   /* [Cannoli] */
+         /* 0  */ false,   /* [Cannoli] */
          /* 1  */ false,   /* [Cherry] */
          /* 2  */ false,  /* [Cone] */
          /* 3  */ false,  /* [Donut] */
@@ -322,10 +322,10 @@ public class GameData
          /* 5  */ false,  /* [Burger] */
          /* 6  */ false,  /* [Hotdog] */
          /* 7  */ false,  /* [Napolean] */
-         /* 8  */ false,  /* [Onigiri] */
+         /* 8  */ true,  /* [Onigiri] */
          /* 9  */ false,  /* [Sashimi] */
-         /* 10 */ false,  /* [Takoyaki] */
-         /* 11 */ false,  /* [Tofu] */
+         /* 10 */ true,  /* [Takoyaki] */
+         /* 11 */ true,  /* [Tofu] */
          /* 12 */ false,  /* [5RoundBurst] */
          /* 13 */ false,  /* [Blueberry Muffin] */
          /* 14 */ false,  /* [Lobster Tail] */

@@ -285,7 +285,7 @@ public class BaseBoss : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         foreach (GameObject go in extraEnemies)
         {
-            if (go.tag == "SpinningTurret")
+            if (go.tag == "SpinningTurret" || go.tag == "Worm")
             {
                 go.transform.GetChild(0).GetComponent<BaseEnemy>().aggroScript.aggro = true;
             }
