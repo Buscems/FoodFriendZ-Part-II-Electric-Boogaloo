@@ -26,7 +26,15 @@ public class RoomTrigger : MonoBehaviour
             enemyTrue[i] = true;
             try
             {
-                enemies[i].GetComponent<Aggro>().doorEnemy = true;
+
+                if (enemies[i].tag == "SpinningTurret")
+                {
+                    enemies[i].transform.GetChild(0).GetComponent<Aggro>().doorEnemy = true;
+                }
+                else
+                {
+                    enemies[i].GetComponent<Aggro>().doorEnemy = true;
+                }
                 if (!enemies[i].GetComponent<BaseBoss>())
                 {
                     enemies[i].SetActive(false);
@@ -112,7 +120,14 @@ public class RoomTrigger : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         for (int i = 0; i < enemies.Length; i++)
         {
-            enemies[i].GetComponent<BaseEnemy>().aggroScript.aggro = true;
+            if (enemies[i].tag == "SpinningTurret")
+            {
+                enemies[i].transform.GetChild(0).GetComponent<BaseEnemy>().aggroScript.aggro = true;
+            }
+            else
+            {
+                enemies[i].GetComponent<BaseEnemy>().aggroScript.aggro = true;
+            }
         }
     }
 
