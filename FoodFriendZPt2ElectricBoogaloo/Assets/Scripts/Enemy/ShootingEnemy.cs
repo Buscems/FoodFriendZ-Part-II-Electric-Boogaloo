@@ -97,6 +97,7 @@ public class ShootingEnemy : MonoBehaviour
                     nextShot = Time.time + fireRate;
                     var bullet = Instantiate(Projectile, this.transform.position, Quaternion.identity);
                     bullet.GetComponent<EnemyBullet>().velocity = (baseEnemy.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
+                    bullet.GetComponent<EnemyBullet>().transform.up = (baseEnemy.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
                     bullet.GetComponent<EnemyBullet>().speed = projectileSpeed;
                     bullet.GetComponent<EnemyBullet>().damage = bulletDamage;
                 }
@@ -112,6 +113,7 @@ public class ShootingEnemy : MonoBehaviour
                     nextShot = Time.time + fireRate;
                     var bullet = Instantiate(Projectile, this.transform.position, Quaternion.identity);
                     bullet.GetComponent<EnemyBullet>().velocity = (baseBoss.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
+                    bullet.GetComponent<EnemyBullet>().transform.up = (baseBoss.aggroScript.currentTarget.transform.position - this.transform.position).normalized;
                     bullet.GetComponent<EnemyBullet>().speed = projectileSpeed;
                     bullet.GetComponent<EnemyBullet>().damage = bulletDamage;
                     if (slowBullets)

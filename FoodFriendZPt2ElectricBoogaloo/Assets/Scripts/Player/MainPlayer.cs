@@ -12,6 +12,7 @@ public class MainPlayer : MonoBehaviour
 {
     #region All Variables
 
+    public GameObject minimapRep;
 
     public float invincibilityTime;
     private float currentInvinsibilityTime;
@@ -387,7 +388,8 @@ public class MainPlayer : MonoBehaviour
 
     void Update()
     {
-      
+
+        minimapRep.GetComponent<SpriteRenderer>().sprite = currentChar.hudIcon;
             cantGetHitTimer -= Time.deltaTime;
             currentInvinsibilityTime -= Time.deltaTime;
 

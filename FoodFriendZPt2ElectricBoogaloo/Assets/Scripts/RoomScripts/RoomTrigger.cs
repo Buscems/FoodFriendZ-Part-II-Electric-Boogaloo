@@ -18,6 +18,8 @@ public class RoomTrigger : MonoBehaviour
 
     MainPlayer player;
 
+    bool hasEntered;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +77,11 @@ public class RoomTrigger : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.Home))
+        {
+            close = true;
+        }
+
         if (close)
         {
             for (int i = 0; i < doors.Length; i++)
@@ -88,7 +95,7 @@ public class RoomTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //needs fixing to add a second player
-        if(collision.gameObject.tag == "Player1")
+        if(collision.gameObject.tag == "Player1" && !hasEntered)
         {
             player = collision.GetComponent<MainPlayer>();
             player.canMove = false;
@@ -110,6 +117,7 @@ public class RoomTrigger : MonoBehaviour
             {
                 StartCoroutine(SpawnEnemies());
             }
+            hasEntered = true;
         }
     }
 

@@ -98,7 +98,7 @@ public class Spinning : MonoBehaviour
         while (baseEnemy.aggroScript.aggro)
         {
             var temp = Instantiate(bullet, transform.position, Quaternion.identity);
-            temp.transform.parent = transform.parent;
+            //temp.transform.parent = transform.parent;
             //var temp = BulletPool.Instance.SpawnFromPool("Projectile", transform.position, Quaternion.identity);
             var randNum = Random.Range(0, bulletSprite.Length);
             temp.GetComponent<SpriteRenderer>().sprite = bulletSprite[randNum];
