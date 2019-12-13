@@ -398,7 +398,6 @@ public class MainPlayer : MonoBehaviour
 
             else if (currentInvinsibilityTime < 0 && currentInvinsibilityTime > -.1f)
             {
-                Debug.Log("Reset");
                 sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
                 alpha = 1;
             }

@@ -35,7 +35,8 @@ public class InGameFridgeManager : MonoBehaviour
 
     bool playerWithinRange;
 
-    private MainPlayer player;
+    [HideInInspector]
+    public MainPlayer player;
 
     private SaveGame saveManager;
     private GameData gameData;

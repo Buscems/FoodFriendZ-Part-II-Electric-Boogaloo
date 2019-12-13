@@ -19,6 +19,8 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public InGameFridgeManager fridgeManager;
     [HideInInspector] public int savedNum;
 
+    public MainPlayer player;
+
     public Button startCharacter;
 
     //saving stuff
@@ -68,6 +70,9 @@ public class CharacterSelectionScreenScript : MonoBehaviour
     public float joystickThreshold;
     bool hasScrolled;
 
+    public GameObject fridge;
+    public DiscoverCharacter dc;
+
     private void Awake()
     {
         //Rewired Code
@@ -93,7 +98,6 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         saveManager.Load();
         for (int i = 0; i < characterButtons.Length; i++)
         {
-            print(gameData.CharacterListNames[i] + ", " + gameData.CharacterList[i]);
             characterButtons[i].sprite = characterSprites[i];
             if(!gameData.CharacterList[i])
             {
@@ -128,7 +132,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         {
             TurningOn();
         }
-        
+        /*
         //this is handling all of the scrolling code
         if (Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) >= joystickThreshold)
         {
@@ -169,7 +173,7 @@ public class CharacterSelectionScreenScript : MonoBehaviour
         {
             hasScrolled = false;
         }
-        
+        */
         /*
         if (Mathf.Abs(myPlayer.GetAxis("MoveVertical")) >= joystickThreshold)
         {
@@ -245,17 +249,32 @@ public class CharacterSelectionScreenScript : MonoBehaviour
             HighlightedCharacterNameDisplay.text = gameData.CharacterListNames[Num];
             string[] descText = descriptionSections[Num].Split(';');
             savedNum = Num;
-            turnOn = true;
+            dc.currentChar = player.allCharacters[Num];
+            dc.lastButton = characterButtons[Num].transform.parent.gameObject;
             try
             {
                 descriptionHeader.text = descText[Num];
                 descriptionBody.text = descText[Num];
-            } catch { }
+            } catch { Debug.LogError("Description isn't working properly"); }
            
         }
-        else
+    }
+
+    public void ChangeSet(int set)
+    {
+        for(int i = 0; i < characterSets.Length; i++)
         {
-            turnOn = false;
+            if (i == set)
+            {
+                characterSets[set].SetActive(true);
+                events.SetSelectedGameObject(null);
+                events.SetSelectedGameObject(switchCharacter[set]);
+            }
+            else
+            {
+                characterSets[i].SetActive(false);
+            }
+
         }
     }
 

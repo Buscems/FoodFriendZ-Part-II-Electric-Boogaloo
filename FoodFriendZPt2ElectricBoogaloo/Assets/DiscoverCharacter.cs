@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class DiscoverCharacter : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class DiscoverCharacter : MonoBehaviour
 
     public bool chooseSwap = false;
     public bool fridgeSwap = false;
+
+    [HideInInspector]
+    public GameObject lastButton;
+
+    public EventSystem events;
 
     public Image overlay;
 
@@ -70,6 +76,7 @@ public class DiscoverCharacter : MonoBehaviour
         leftCharacter.enabled = false;
         rightCharacter.enabled = false;
         choose.enabled = false;
+        overlay.enabled = false;
 
         player = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
         if (!isFridge)
@@ -144,9 +151,98 @@ public class DiscoverCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (chooseSwap)
+        {
+
+            if (player.myPlayer.GetButtonDown("Square"))
+            {
+                player.CharacterSwap(currentChar, "Square");
+                player.AddCharacterToSaveFile(currentChar.characterName);
+                //player.square = currentChar;
+                upCharacter.enabled = false;
+                downCharacter.enabled = false;
+                leftCharacter.enabled = false;
+                rightCharacter.enabled = false;
+                choose.enabled = false;
+                overlay.enabled = false;
+                if (!isFridge)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    fridgeSwap = false;
+                    events.SetSelectedGameObject(lastButton);
+                }
+            }
+            else if (player.myPlayer.GetButtonDown("Triangle"))
+            {
+                player.CharacterSwap(currentChar, "Triangle");
+                player.AddCharacterToSaveFile(currentChar.characterName);
+                //player.triangle = currentChar;
+                upCharacter.enabled = false;
+                downCharacter.enabled = false;
+                leftCharacter.enabled = false;
+                rightCharacter.enabled = false;
+                choose.enabled = false;
+                overlay.enabled = false;
+                if (!isFridge)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    fridgeSwap = false;
+                    events.SetSelectedGameObject(lastButton);
+                }
+            }
+            else if (player.myPlayer.GetButtonDown("Circle"))
+            {
+                player.CharacterSwap(currentChar, "Circle");
+                player.AddCharacterToSaveFile(currentChar.characterName);
+                //player.circle = currentChar;
+                upCharacter.enabled = false;
+                downCharacter.enabled = false;
+                leftCharacter.enabled = false;
+                rightCharacter.enabled = false;
+                choose.enabled = false;
+                overlay.enabled = false;
+                if (!isFridge)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    fridgeSwap = false;
+                    events.SetSelectedGameObject(lastButton);
+                }
+            }
+            else if (player.myPlayer.GetButtonDown("Cross"))
+            {
+                player.CharacterSwap(currentChar, "Cross");
+                player.AddCharacterToSaveFile(currentChar.characterName);
+                //player.circle = currentChar;
+                upCharacter.enabled = false;
+                downCharacter.enabled = false;
+                leftCharacter.enabled = false;
+                rightCharacter.enabled = false;
+                choose.enabled = false;
+                overlay.enabled = false;
+                if (!isFridge)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    fridgeSwap = false;
+                    events.SetSelectedGameObject(lastButton);
+                }
+            }
+        }
 
         if (fridgeSwap)
         {
+            events.SetSelectedGameObject(null);
             if (player.triangle != null)
             {
                 upCharacter.sprite = player.triangle.hudIcon;
@@ -176,65 +272,15 @@ public class DiscoverCharacter : MonoBehaviour
                 rightCharacter.sprite = player.cross.hudIcon;
                 rightCharacter.color = Color.black;
             }
+            chooseSwap = true;
             upCharacter.enabled = true;
             downCharacter.enabled = true;
             leftCharacter.enabled = true;
             rightCharacter.enabled = true;
             choose.enabled = true;
+            overlay.enabled = true;
         }
 
-        if (chooseSwap)
-        {
-
-            if (player.myPlayer.GetButtonDown("Square"))
-            {
-                player.CharacterSwap(currentChar, "Square");
-                player.AddCharacterToSaveFile(currentChar.characterName);
-                //player.square = currentChar;
-                upCharacter.enabled = false;
-                downCharacter.enabled = false;
-                leftCharacter.enabled = false;
-                rightCharacter.enabled = false;
-                choose.enabled = false;
-                Destroy(gameObject);
-            }
-            else if (player.myPlayer.GetButtonDown("Triangle"))
-            {
-                player.CharacterSwap(currentChar, "Triangle");
-                player.AddCharacterToSaveFile(currentChar.characterName);
-                //player.triangle = currentChar;
-                upCharacter.enabled = false;
-                downCharacter.enabled = false;
-                leftCharacter.enabled = false;
-                rightCharacter.enabled = false;
-                choose.enabled = false;
-                Destroy(gameObject);
-            }
-            else if (player.myPlayer.GetButtonDown("Circle"))
-            {
-                player.CharacterSwap(currentChar, "Circle");
-                player.AddCharacterToSaveFile(currentChar.characterName);
-                //player.circle = currentChar;
-                upCharacter.enabled = false;
-                downCharacter.enabled = false;
-                leftCharacter.enabled = false;
-                rightCharacter.enabled = false;
-                choose.enabled = false;
-                Destroy(gameObject);
-            }
-            else if (player.myPlayer.GetButtonDown("Cross"))
-            {
-                player.CharacterSwap(currentChar, "Cross");
-                player.AddCharacterToSaveFile(currentChar.characterName);
-                //player.circle = currentChar;
-                upCharacter.enabled = false;
-                downCharacter.enabled = false;
-                leftCharacter.enabled = false;
-                rightCharacter.enabled = false;
-                choose.enabled = false;
-                Destroy(gameObject);
-            }
-        }
     }
 
     //[MOVEMENT AND ANIMATION METHODS]
@@ -380,6 +426,7 @@ public class DiscoverCharacter : MonoBehaviour
     public void EnableCharSwap()
     {
         fridgeSwap = true;
+
     }
 
 }
