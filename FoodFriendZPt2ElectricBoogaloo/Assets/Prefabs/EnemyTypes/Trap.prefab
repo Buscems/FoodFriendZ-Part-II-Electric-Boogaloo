@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 15
   m_Sprite: {fileID: -81882357101474289, guid: 3b149d7b96409485f9a057d763ba0406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cbd4de7e5be284e088a84f7005a59236, type: 3}
   deathSound2: {fileID: 4834533482456540045, guid: db04faa4708b80e49a7d972b3b6e6b09,
     type: 3}
+  cantBreakObj: 0
 --- !u!58 &1617325329032379504
 CircleCollider2D:
   m_ObjectHideFlags: 0

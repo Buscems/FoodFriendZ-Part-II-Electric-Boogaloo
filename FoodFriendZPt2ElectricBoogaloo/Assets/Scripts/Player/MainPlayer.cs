@@ -192,6 +192,7 @@ public class MainPlayer : MonoBehaviour
     private Vector3 newPos = Vector3.zero;
 
     public GameObject splat;
+    public GameObject splat1;
     private float endWaitTime = 1;
 
     #endregion
@@ -397,7 +398,6 @@ public class MainPlayer : MonoBehaviour
 
             else if (currentInvinsibilityTime < 0 && currentInvinsibilityTime > -.1f)
             {
-                Debug.Log("Reset");
                 sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
                 alpha = 1;
             }
@@ -517,6 +517,7 @@ public class MainPlayer : MonoBehaviour
                     if(endWaitTime == 1)
                     {
                         Instantiate(splat, transform.position, Quaternion.identity);
+                        Instantiate(splat1, transform.position, Quaternion.identity);
                         sr.enabled = false;
                         pointer.SetActive(false);
                     }
@@ -560,7 +561,11 @@ public class MainPlayer : MonoBehaviour
     {
         if (!startFalling)
         {
-            enterLevelSound.Play();
+            try
+            {
+                enterLevelSound.Play();
+            }
+            catch { }
             //applied player movement
             //Vector3 currentPos = transform.position;
             //currentPos.z = 1;

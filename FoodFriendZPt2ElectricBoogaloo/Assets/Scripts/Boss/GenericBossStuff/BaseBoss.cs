@@ -67,6 +67,9 @@ public class BaseBoss : MonoBehaviour
 
     private SpriteRenderer sr;
 
+    public AudioSource bossGetHit;
+    public AudioSource bossDeathSound;
+
     private void Awake()
     {
         ieScript = GameObject.Find("Player").GetComponent<ItemExtension>();
@@ -313,6 +316,7 @@ public class BaseBoss : MonoBehaviour
             ieScript.hasPlayerHitBoss = true;
         }
 
+        bossGetHit.Play();
         health -= _damage;
         sr.color = new Color(1, .35f, .35f);
     }
@@ -322,6 +326,7 @@ public class BaseBoss : MonoBehaviour
         stage = BossStage.death;
         if (anim != null)
         {
+            bossDeathSound.Play();
             anim.SetTrigger("death");
         }
         if (backAnim != null)

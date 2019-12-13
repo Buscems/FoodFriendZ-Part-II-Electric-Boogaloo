@@ -40,6 +40,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8440268600420723885}
     m_Modifications:
+    - target: {fileID: 2495465283150710499, guid: de868ed188408a54cba5898c50bdddb8,
+        type: 3}
+      propertyPath: m_Name
+      value: Worm
+      objectReference: {fileID: 0}
     - target: {fileID: 1602492700948272547, guid: de868ed188408a54cba5898c50bdddb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -95,16 +100,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2495465283150710499, guid: de868ed188408a54cba5898c50bdddb8,
-        type: 3}
-      propertyPath: m_Name
-      value: Worm
-      objectReference: {fileID: 0}
     - target: {fileID: 7878340689530838319, guid: de868ed188408a54cba5898c50bdddb8,
         type: 3}
       propertyPath: wormItself
       value: 
       objectReference: {fileID: 8440268600420723884}
+    - target: {fileID: 3188649410460410699, guid: de868ed188408a54cba5898c50bdddb8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 19
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de868ed188408a54cba5898c50bdddb8, type: 3}
 --- !u!4 &7141839353895252099 stripped
@@ -120,6 +125,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8440268600420723885}
     m_Modifications:
+    - target: {fileID: 2870627664429115380, guid: 3fdc04c462ef7774e82a02ace126bc15,
+        type: 3}
+      propertyPath: m_Name
+      value: Worm body
+      objectReference: {fileID: 0}
     - target: {fileID: 1389952356637865140, guid: 3fdc04c462ef7774e82a02ace126bc15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -175,10 +185,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870627664429115380, guid: 3fdc04c462ef7774e82a02ace126bc15,
+    - target: {fileID: 2969969388124373596, guid: 3fdc04c462ef7774e82a02ace126bc15,
         type: 3}
-      propertyPath: m_Name
-      value: Worm body
+      propertyPath: m_SortingOrder
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 393828379044904261, guid: 3fdc04c462ef7774e82a02ace126bc15,
         type: 3}
@@ -205,6 +215,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8440268600420723885}
     m_Modifications:
+    - target: {fileID: 2870627664429115380, guid: 3fdc04c462ef7774e82a02ace126bc15,
+        type: 3}
+      propertyPath: m_Name
+      value: Worm body (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 1389952356637865140, guid: 3fdc04c462ef7774e82a02ace126bc15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,10 +275,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2870627664429115380, guid: 3fdc04c462ef7774e82a02ace126bc15,
+    - target: {fileID: 2969969388124373596, guid: 3fdc04c462ef7774e82a02ace126bc15,
         type: 3}
-      propertyPath: m_Name
-      value: Worm body (1)
+      propertyPath: m_SortingOrder
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 393828379044904261, guid: 3fdc04c462ef7774e82a02ace126bc15,
         type: 3}

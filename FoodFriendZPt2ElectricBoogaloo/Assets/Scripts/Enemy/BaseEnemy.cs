@@ -129,7 +129,11 @@ public class BaseEnemy : MonoBehaviour
         }
         catch { }
 
-        sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime);
+        try
+        {
+            sr.color = new Color(1, sr.color.g + 4f * Time.deltaTime, sr.color.b + 4f * Time.deltaTime);
+        }
+        catch { }
         speed = origSpeed * slowDownPercentage;
         StatusEffectTimers();
         StatusEffects();
@@ -301,7 +305,7 @@ public class BaseEnemy : MonoBehaviour
             if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
             {
 
-            StartCoroutine(bufferTime());
+            //StartCoroutine(bufferTime());
                 //item extension script
                 ieScript.bEScript_mAtkPlayer = this;
                 ieScript.hasEnemyHitPlayer = true;
@@ -315,16 +319,18 @@ public class BaseEnemy : MonoBehaviour
         
     }
 
-    IEnumerator bufferTime(){
+IEnumerator bufferTime(){
+
         hit.size = new Vector2(bufferScaleX, bufferScaleY);
         yield return new WaitForSeconds(changeTime);
         hit.size = new Vector2(originalScaleX, originalScaleY);
+
     }
 
     private void OnDestroy()
     {
-        //try
-        //{
+        try
+        {
             if (health <= 0)
             {
                 GameObject g = Instantiate(splat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
@@ -337,8 +343,8 @@ public class BaseEnemy : MonoBehaviour
                     g.transform.parent = transform.parent;
                 }
             }
-        //}
-        //catch { }
+        }
+        catch { }
         try
         {
             Instantiate(deathSound2, transform.position, Quaternion.identity);

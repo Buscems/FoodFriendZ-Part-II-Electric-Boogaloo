@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class DiscoverCharacter : MonoBehaviour
 {
@@ -22,99 +23,135 @@ public class DiscoverCharacter : MonoBehaviour
     public GameObject pickUpSound;
 
     public bool chooseSwap = false;
+    public bool fridgeSwap = false;
 
-    private Image upCharacter;
+    [HideInInspector]
+    public GameObject lastButton;
 
-    private Image downCharacter;
+    public EventSystem events;
 
-    private Image leftCharacter;
+    public Image overlay;
 
-    private Image rightCharacter;
-    private Text choose;
+    public Image upCharacter;
+
+    public Image downCharacter;
+
+    public Image leftCharacter;
+
+    public Image rightCharacter;
+
+    public Text choose;
+
+    public bool isFridge;
 
     // Start is called before the first frame update
     void Start()
     {
-        upCharacter = GameObject.Find("CD_Top").GetComponent<Image>();
-        downCharacter = GameObject.Find("CD_Bottom").GetComponent<Image>();
-        leftCharacter = GameObject.Find("CD_Left").GetComponent<Image>();
-        rightCharacter = GameObject.Find("CD_Right").GetComponent<Image>();
-        choose = GameObject.Find("Choose").GetComponent<Text>();
+        if (upCharacter == null)
+        {
+            upCharacter = GameObject.Find("CD_Top").GetComponent<Image>();
+        }
+        if (downCharacter == null)
+        {
+            downCharacter = GameObject.Find("CD_Bottom").GetComponent<Image>();
+        }
+        if (leftCharacter == null)
+        {
+            leftCharacter = GameObject.Find("CD_Left").GetComponent<Image>();
+        }
+        if (rightCharacter == null)
+        {
+            rightCharacter = GameObject.Find("CD_Right").GetComponent<Image>();
+        }
+        if (choose == null)
+        {
+            choose = GameObject.Find("Choose").GetComponent<Text>();
+        }
+        if(overlay == null)
+        {
+            overlay = GameObject.Find("Overlay").GetComponent<Image>();
+        }
         upCharacter.enabled = false;
         downCharacter.enabled = false;
         leftCharacter.enabled = false;
         rightCharacter.enabled = false;
         choose.enabled = false;
+        overlay.enabled = false;
 
         player = GameObject.FindGameObjectWithTag("Player1").GetComponent<MainPlayer>();
-        anim = GetComponent<Animator>();
-
-        if (spawnThis)
+        if (!isFridge)
         {
-            currentChar = characters[index];
-        }
-        else
-        {
-            int randNum = (int)Random.Range(0, characters.Length);
-            bool check = false;
+            anim = GetComponent<Animator>();
 
-            do
+
+            if (spawnThis)
             {
-                check = false;
+                currentChar = characters[index];
+            }
+            else
+            {
+                int randNum = (int)Random.Range(0, characters.Length);
+                bool check = false;
 
-                //dont spawn one i want to exclude
-                for (int i = 0; i < excludeIndex.Length; i++)
+                do
                 {
-                    if (randNum == excludeIndex[i])
+                    check = false;
+
+                    //dont spawn one i want to exclude
+                    for (int i = 0; i < excludeIndex.Length; i++)
+                    {
+                        if (randNum == excludeIndex[i])
+                        {
+                            check = true;
+                        }
+                    }
+
+                    //make sure doesnt spawn one character has
+                    if (characters[randNum] == player.cross)
                     {
                         check = true;
                     }
-                }
-
-                //make sure doesnt spawn one character has
-                if (characters[randNum] == player.cross)
-                {
-                    check = true;
-                }
-                if (characters[randNum] == player.triangle)
-                {
-                    check = true;
-                }
-                if (characters[randNum] == player.circle)
-                {
-                    check = true;
-                }
-                if (characters[randNum] == player.square)
-                {
-                    check = true;
-                }
-
-                //make sure two dont spawn the same
-                GameObject[] characterDiscover;
-                characterDiscover = GameObject.FindGameObjectsWithTag("CharacterDiscover");
-                foreach (GameObject c in characterDiscover)
-                {
-                    if (c.GetComponent<DiscoverCharacter>().currentChar == characters[randNum])
+                    if (characters[randNum] == player.triangle)
                     {
                         check = true;
                     }
-                }
+                    if (characters[randNum] == player.circle)
+                    {
+                        check = true;
+                    }
+                    if (characters[randNum] == player.square)
+                    {
+                        check = true;
+                    }
 
-                if (check)
-                {
-                    randNum = (int)Random.Range(0, characters.Length);
-                }
+                    //make sure two dont spawn the same
+                    GameObject[] characterDiscover;
+                    characterDiscover = GameObject.FindGameObjectsWithTag("CharacterDiscover");
+                    foreach (GameObject c in characterDiscover)
+                    {
+                        if (c.GetComponent<DiscoverCharacter>().currentChar == characters[randNum])
+                        {
+                            check = true;
+                        }
+                    }
 
-            } while (check == true);
+                    if (check)
+                    {
+                        randNum = (int)Random.Range(0, characters.Length);
+                    }
 
-            currentChar = characters[randNum];
+                } while (check == true);
+
+                currentChar = characters[randNum];
+            }
+            AnimationHandler();
         }
-        AnimationHandler();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (chooseSwap)
         {
 
@@ -128,7 +165,17 @@ public class DiscoverCharacter : MonoBehaviour
                 leftCharacter.enabled = false;
                 rightCharacter.enabled = false;
                 choose.enabled = false;
-                Destroy(gameObject);
+                overlay.enabled = false;
+                if (!isFridge)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    fridgeSwap = false;
+                    chooseSwap = false;
+                    events.SetSelectedGameObject(lastButton);
+                }
             }
             else if (player.myPlayer.GetButtonDown("Triangle"))
             {
@@ -140,7 +187,17 @@ public class DiscoverCharacter : MonoBehaviour
                 leftCharacter.enabled = false;
                 rightCharacter.enabled = false;
                 choose.enabled = false;
-                Destroy(gameObject);
+                overlay.enabled = false;
+                if (!isFridge)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    fridgeSwap = false;
+                    chooseSwap = false;
+                    events.SetSelectedGameObject(lastButton);
+                }
             }
             else if (player.myPlayer.GetButtonDown("Circle"))
             {
@@ -152,7 +209,17 @@ public class DiscoverCharacter : MonoBehaviour
                 leftCharacter.enabled = false;
                 rightCharacter.enabled = false;
                 choose.enabled = false;
-                Destroy(gameObject);
+                overlay.enabled = false;
+                if (!isFridge)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    fridgeSwap = false;
+                    chooseSwap = false;
+                    events.SetSelectedGameObject(lastButton);
+                }
             }
             else if (player.myPlayer.GetButtonDown("Cross"))
             {
@@ -164,9 +231,62 @@ public class DiscoverCharacter : MonoBehaviour
                 leftCharacter.enabled = false;
                 rightCharacter.enabled = false;
                 choose.enabled = false;
-                Destroy(gameObject);
+                overlay.enabled = false;
+                if (!isFridge)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    Debug.Log("Work, yeah?");
+                    fridgeSwap = false;
+                    chooseSwap = false;
+                    events.SetSelectedGameObject(lastButton);
+                }
             }
         }
+
+        if (fridgeSwap)
+        {
+            events.SetSelectedGameObject(null);
+            if (player.triangle != null)
+            {
+                upCharacter.sprite = player.triangle.hudIcon;
+            }
+            else
+            {
+                upCharacter.sprite = player.cross.hudIcon;
+                upCharacter.color = Color.black;
+            }
+            //this will always be a character
+            downCharacter.sprite = player.cross.hudIcon;
+            if (player.square != null)
+            {
+                leftCharacter.sprite = player.square.hudIcon;
+            }
+            else
+            {
+                leftCharacter.sprite = player.cross.hudIcon;
+                leftCharacter.color = Color.black;
+            }
+            if (player.circle != null)
+            {
+                rightCharacter.sprite = player.circle.hudIcon;
+            }
+            else
+            {
+                rightCharacter.sprite = player.cross.hudIcon;
+                rightCharacter.color = Color.black;
+            }
+            chooseSwap = true;
+            upCharacter.enabled = true;
+            downCharacter.enabled = true;
+            leftCharacter.enabled = true;
+            rightCharacter.enabled = true;
+            choose.enabled = true;
+            overlay.enabled = true;
+        }
+
     }
 
     //[MOVEMENT AND ANIMATION METHODS]
@@ -308,4 +428,11 @@ public class DiscoverCharacter : MonoBehaviour
             }
         }
     }
+
+    public void EnableCharSwap()
+    {
+        fridgeSwap = true;
+
+    }
+
 }

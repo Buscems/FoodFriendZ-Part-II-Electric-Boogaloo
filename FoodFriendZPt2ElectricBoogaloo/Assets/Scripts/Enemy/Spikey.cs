@@ -55,8 +55,6 @@ public class Spikey : MonoBehaviour
             //path.enabled = false;
             //Instantiate(spike, frontLeft.transform.position, frontLeft.transform.rotation);
             //reload = true;
-
-            Debug.Log(reload);
         }
 
     }

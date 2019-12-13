@@ -11,6 +11,7 @@ using Rewired.ControllerExtensions;
 public class PauseMenuScript : MonoBehaviour
 {
     public GameObject PauseMenuUI;  //i use this so that i may have the overlay off in the scene window when i work
+    
 
     public static bool IsGamePaused = false;   //used to tell other scripts
 
@@ -37,6 +38,8 @@ public class PauseMenuScript : MonoBehaviour
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
 
+    public CharacterSelectionScreenScript charSelect;
+
     private void Awake()
     {
         PauseMenuUI.SetActive(false); //makes sure the pause screen is off upon loading
@@ -49,19 +52,29 @@ public class PauseMenuScript : MonoBehaviour
     void Update()
     {
         //Pause toggle input
-        if (Input.GetKeyDown(KeyCode.Escape) || myPlayer.GetButtonDown("Pause"))
+        if (myPlayer.GetButtonDown("Pause") && !charSelect.fridge.activeInHierarchy)
         //Input
         {
             //Pause check
             if (IsGamePaused)
             {
                 ResumeGameButtonFunction();
+                PauseMenuUI.SetActive(false);
             }
             else
             {
+                PauseMenuUI.SetActive(true);
                 Pause();
             }
         }
+
+        if (myPlayer.GetButtonDown("Circle") && IsGamePaused)
+        //Input
+        {
+            ResumeGameButtonFunction();
+            PauseMenuUI.SetActive(false);
+        }
+
     }
 
 
@@ -69,7 +82,6 @@ public class PauseMenuScript : MonoBehaviour
     void Pause()
     {
         PauseMenuUI.SetActive(true);
-
         es.SetSelectedGameObject(ResumeGameButton.gameObject);
 
         Time.timeScale = 0f;    //freezes time
@@ -88,6 +100,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void ResumeGameButtonFunction()
     {
+        es.SetSelectedGameObject(null);
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;    //resumes time
         IsGamePaused = false;

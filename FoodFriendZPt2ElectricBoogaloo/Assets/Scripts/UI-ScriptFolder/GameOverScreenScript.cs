@@ -26,7 +26,7 @@ public class GameOverScreenScript : MonoBehaviour
 
     public void RestartButtonFunction()
     {
-        SceneManager.LoadScene("Dans licc center");
+        SceneManager.LoadScene("TitleScreen");
     }
 
     public void ExitButtonFunction()

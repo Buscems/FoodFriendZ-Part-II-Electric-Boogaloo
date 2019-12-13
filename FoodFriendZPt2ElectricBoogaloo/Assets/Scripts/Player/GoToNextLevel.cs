@@ -107,7 +107,6 @@ public class GoToNextLevel : MonoBehaviour
         {
             currentLevelNum = newNumber;
             hasScanned = false;
-            Debug.Log(chooseArray);
             Destroy(currentScene);
             if (chooseArray > 70)
             {
@@ -117,7 +116,6 @@ public class GoToNextLevel : MonoBehaviour
             else
             {
                 currentScene = Instantiate(otherArray[newNumber], otherArray[newNumber].transform.position, Quaternion.identity);
-                Debug.Log(otherArray[newNumber].name);
             }                
             Vector3 spawnPoint = GameObject.Find("SPAWNPOINT").transform.position;
             //print(spawnPoint);
