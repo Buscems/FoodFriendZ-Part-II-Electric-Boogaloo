@@ -320,9 +320,13 @@ public class BaseEnemy : MonoBehaviour
     }
 
     IEnumerator bufferTime(){
-        hit.size = new Vector2(bufferScaleX, bufferScaleY);
-        yield return new WaitForSeconds(changeTime);
-        hit.size = new Vector2(originalScaleX, originalScaleY);
+        try
+        {
+            hit.size = new Vector2(bufferScaleX, bufferScaleY);
+            yield return new WaitForSeconds(changeTime);
+            hit.size = new Vector2(originalScaleX, originalScaleY);
+        }
+        catch { }
     }
 
     private void OnDestroy()
