@@ -31,6 +31,8 @@ public class BaseBoss : MonoBehaviour
     [Tooltip("How much money the boss will drop when killed")]
     public int money;
 
+    public GameObject poof;
+
     [Header("Camera Animations")]
     public GameObject cam;
     [HideInInspector]
@@ -265,15 +267,34 @@ public class BaseBoss : MonoBehaviour
         follow.player.transform.parent.transform.parent.GetComponent<MainPlayer>().canMove = true;
         Time.timeScale = 1;
         aggroScript.aggro = true;
+        StartCoroutine(SpawnEnemies());
+        
+    }
+
+    IEnumerator SpawnEnemies()
+    {
         foreach (GameObject go in extraEnemies)
         {
+            yield return new WaitForSeconds(.1f);
             if (go.GetComponent<BaseEnemy>() != null)
+            {
+                go.SetActive(true);
+                Instantiate(poof, go.transform.position, Quaternion.identity);
+            }
+        }
+        yield return new WaitForSeconds(.5f);
+        foreach (GameObject go in extraEnemies)
+        {
+            if (go.tag == "SpinningTurret")
+            {
+                go.transform.GetChild(0).GetComponent<BaseEnemy>().aggroScript.aggro = true;
+            }
+            else
             {
                 go.GetComponent<BaseEnemy>().aggroScript.aggro = true;
             }
         }
     }
-
 
     private IEnumerator HealthFadeIn()
     {

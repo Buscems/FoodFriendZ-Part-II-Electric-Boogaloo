@@ -337,6 +337,8 @@ public class InGameFridgeManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player1")
         {
+            //sorry Dan
+            /*
             for (int i = 0; i < selectCharUI.Length; i++)
             {
                 selectCharUI[i].GetComponent<SpriteRenderer>().color = alphaOn;
@@ -349,21 +351,24 @@ public class InGameFridgeManager : MonoBehaviour
             {
                 inUseUI[i].GetComponent<SpriteRenderer>().color = alphaOff;
             }
-
+            */
             player = other.gameObject.GetComponent<MainPlayer>();
             playerWithinRange = true;
             currentScrollNum = 0;
             saveManager.Load();
+            /*
             rightArrow.SetActive(true);
             leftArrow.SetActive(true);
             leftArrow.GetComponent<SpriteRenderer>().color = alphaOff;
             rightArrow.GetComponent<SpriteRenderer>().color = alphaOn;
             Scroll();
+            */
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        /*
         for (int i = 0; i < fridgeCharacterPlaceHolders.Length; i++)
         {
             fridgeCharacterPlaceHolders[i].SetActive(false);
@@ -380,6 +385,7 @@ public class InGameFridgeManager : MonoBehaviour
 
         rightArrow.SetActive(false);
         leftArrow.SetActive(false);
+        */
         if (other.gameObject.tag == "Player1")
         {
             playerWithinRange = false;
