@@ -305,7 +305,7 @@ public class BaseEnemy : MonoBehaviour
             if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
             {
 
-            StartCoroutine(bufferTime());
+            //StartCoroutine(bufferTime());
                 //item extension script
                 ieScript.bEScript_mAtkPlayer = this;
                 ieScript.hasEnemyHitPlayer = true;
@@ -319,14 +319,12 @@ public class BaseEnemy : MonoBehaviour
         
     }
 
-    IEnumerator bufferTime(){
-        try
-        {
-            hit.size = new Vector2(bufferScaleX, bufferScaleY);
-            yield return new WaitForSeconds(changeTime);
-            hit.size = new Vector2(originalScaleX, originalScaleY);
-        }
-        catch { }
+IEnumerator bufferTime(){
+
+        hit.size = new Vector2(bufferScaleX, bufferScaleY);
+        yield return new WaitForSeconds(changeTime);
+        hit.size = new Vector2(originalScaleX, originalScaleY);
+
     }
 
     private void OnDestroy()
