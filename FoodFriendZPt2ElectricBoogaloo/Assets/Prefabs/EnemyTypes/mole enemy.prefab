@@ -919,7 +919,7 @@ MonoBehaviour:
   originalScaleX: 1
   originalScaleY: 1
   changeTime: 0
-  hit: {fileID: 0}
+  hit: {fileID: 1615694249915349084}
   deathSound: {fileID: 0}
   deathClips: []
   deathSound2: {fileID: 0}
@@ -1029,6 +1029,12 @@ GameObject:
 --- !u!4 &9043487440141977033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8565507827733616480, guid: 997882740430d0d4ea9cc25bd75a5880,
+    type: 3}
+  m_PrefabInstance: {fileID: 819127458148995753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1615694249915349084 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2103806963633957621, guid: 997882740430d0d4ea9cc25bd75a5880,
     type: 3}
   m_PrefabInstance: {fileID: 819127458148995753}
   m_PrefabAsset: {fileID: 0}
