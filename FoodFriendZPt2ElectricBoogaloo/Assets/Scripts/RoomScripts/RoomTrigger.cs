@@ -24,8 +24,7 @@ public class RoomTrigger : MonoBehaviour
             enemyTrue[i] = true;
             try
             {
-                enemies[i].GetComponent<Aggro>().doorEnemy = true;
-                    
+                enemies[i].GetComponent<Aggro>().doorEnemy = true;    
             }
             catch
             {
@@ -80,32 +79,28 @@ public class RoomTrigger : MonoBehaviour
                 doors[i].GetComponent<Animator>().SetBool("locked", true);
             }
 
-            try
+            if (enemies[0].GetComponent<BaseBoss>() != null)
             {
-                if (enemies[0].GetComponent<BaseBoss>() != null)
+                var boss = enemies[0].GetComponent<BaseBoss>();
+                boss.playerEntered = true;
+                for (int i = 0; i < enemies.Length; i++)
                 {
-                    var boss = enemies[0].GetComponent<BaseBoss>();
-                    boss.playerEntered = true;
+                    boss.extraEnemies.Add(enemies[i]);
                 }
             }
-            catch { }
-
-            for (int i = 0; i < enemies.Length; i++)
+            else
             {
-                try
+                for (int i = 0; i < enemies.Length; i++)
                 {
                     if (enemies[i].GetComponent<BaseEnemy>() != null)
                     {
                         enemies[i].GetComponent<BaseEnemy>().aggroScript.aggro = true;
                     }
                 }
-                catch
-                {
-
-                }
             }
         }
     }
 
+    
 
 }

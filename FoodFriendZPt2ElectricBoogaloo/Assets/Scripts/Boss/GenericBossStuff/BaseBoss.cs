@@ -44,6 +44,8 @@ public class BaseBoss : MonoBehaviour
 
     public GameObject bossName;
 
+    public List<GameObject> extraEnemies;
+
     [Header("Current Aggro Script")]
     public Aggro aggroScript;
 
@@ -263,6 +265,13 @@ public class BaseBoss : MonoBehaviour
         follow.player.transform.parent.transform.parent.GetComponent<MainPlayer>().canMove = true;
         Time.timeScale = 1;
         aggroScript.aggro = true;
+        foreach (GameObject go in extraEnemies)
+        {
+            if (go.GetComponent<BaseEnemy>() != null)
+            {
+                go.GetComponent<BaseEnemy>().aggroScript.aggro = true;
+            }
+        }
     }
 
 

@@ -450,7 +450,7 @@ public class MainPlayer : MonoBehaviour
 
                     //[INTERACTIONS WITH OBJECTS]
                     //this is for interacting with a chest
-                    if (touchingChest && myPlayer.GetButtonDown("Attack"))
+                    if (touchingChest && myPlayer.GetButtonDown("Interact"))
                     {
                         touchingChest = false;
                         currentChest.OpenChest();
