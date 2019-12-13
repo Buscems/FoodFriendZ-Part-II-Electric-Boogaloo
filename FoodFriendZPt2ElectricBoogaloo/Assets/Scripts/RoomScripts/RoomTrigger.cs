@@ -16,6 +16,8 @@ public class RoomTrigger : MonoBehaviour
 
     public GameObject poof;
 
+    MainPlayer player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,8 @@ public class RoomTrigger : MonoBehaviour
         //needs fixing to add a second player
         if(collision.gameObject.tag == "Player1")
         {
+            player = collision.GetComponent<MainPlayer>();
+            player.canMove = false;
             for(int i = 0; i < doors.Length; i++)
             {
                 doors[i].GetComponent<Animator>().SetBool("locked", true);
@@ -118,6 +122,7 @@ public class RoomTrigger : MonoBehaviour
             Instantiate(poof, enemies[i].transform.position, Quaternion.identity);
         }
         yield return new WaitForSeconds(.5f);
+        player.canMove = true;
         for (int i = 0; i < enemies.Length; i++)
         {
             if (enemies[i].tag == "SpinningTurret" || enemies[i].tag == "Worm")
