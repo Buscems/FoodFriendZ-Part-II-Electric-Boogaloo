@@ -151,6 +151,7 @@ public class DiscoverCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (chooseSwap)
         {
 
@@ -172,6 +173,7 @@ public class DiscoverCharacter : MonoBehaviour
                 else
                 {
                     fridgeSwap = false;
+                    chooseSwap = false;
                     events.SetSelectedGameObject(lastButton);
                 }
             }
@@ -193,6 +195,7 @@ public class DiscoverCharacter : MonoBehaviour
                 else
                 {
                     fridgeSwap = false;
+                    chooseSwap = false;
                     events.SetSelectedGameObject(lastButton);
                 }
             }
@@ -214,6 +217,7 @@ public class DiscoverCharacter : MonoBehaviour
                 else
                 {
                     fridgeSwap = false;
+                    chooseSwap = false;
                     events.SetSelectedGameObject(lastButton);
                 }
             }
@@ -234,7 +238,9 @@ public class DiscoverCharacter : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("Work, yeah?");
                     fridgeSwap = false;
+                    chooseSwap = false;
                     events.SetSelectedGameObject(lastButton);
                 }
             }

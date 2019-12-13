@@ -102,7 +102,6 @@ public class InGameFridgeManager : MonoBehaviour
     {
         if (playerWithinRange && myPlayer.GetButtonDown("Interact"))
         {
-            Debug.Log("Yer");
             Fridge.SetActive(true);
 
             events.SetSelectedGameObject(charSelect.startCharacter.gameObject);

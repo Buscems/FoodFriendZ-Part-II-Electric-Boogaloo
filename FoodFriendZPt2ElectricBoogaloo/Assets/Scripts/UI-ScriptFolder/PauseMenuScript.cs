@@ -50,7 +50,7 @@ public class PauseMenuScript : MonoBehaviour
     void Update()
     {
         //Pause toggle input
-        if (myPlayer.GetButtonDown("Circle") || myPlayer.GetButtonDown("Pause"))
+        if (myPlayer.GetButtonDown("Pause"))
         //Input
         {
             //Pause check
@@ -65,6 +65,14 @@ public class PauseMenuScript : MonoBehaviour
                 Pause();
             }
         }
+
+        if (myPlayer.GetButtonDown("Circle") && IsGamePaused)
+        //Input
+        {
+            ResumeGameButtonFunction();
+            PauseMenuUI.SetActive(false);
+        }
+
     }
 
 
@@ -72,7 +80,7 @@ public class PauseMenuScript : MonoBehaviour
     void Pause()
     {
         PauseMenuUI.SetActive(true);
-
+        Debug.Log("Yeah");
         es.SetSelectedGameObject(ResumeGameButton.gameObject);
 
         Time.timeScale = 0f;    //freezes time
@@ -91,6 +99,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void ResumeGameButtonFunction()
     {
+        es.SetSelectedGameObject(null);
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;    //resumes time
         IsGamePaused = false;
