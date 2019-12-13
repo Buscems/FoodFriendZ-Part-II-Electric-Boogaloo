@@ -103,7 +103,7 @@ public class InGameFridgeManager : MonoBehaviour
         if (playerWithinRange && myPlayer.GetButtonDown("Interact"))
         {
             Fridge.SetActive(true);
-
+            saveManager.Load();
             events.SetSelectedGameObject(charSelect.startCharacter.gameObject);
 
             Time.timeScale = 0;
