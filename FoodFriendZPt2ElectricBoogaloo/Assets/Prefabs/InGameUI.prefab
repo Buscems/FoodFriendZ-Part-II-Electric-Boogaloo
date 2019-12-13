@@ -4053,8 +4053,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4165,7 +4165,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4317,7 +4317,7 @@ RectTransform:
   - {fileID: 4875265902764182462}
   - {fileID: 6135713965667986645}
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4498,7 +4498,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4735,7 +4735,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 744030556264351328}
   m_HandleRect: {fileID: 5402685380655788370}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5057,8 +5057,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5931,8 +5931,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5978,7 +5978,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 9
+            m_IntArgument: 10
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -7438,7 +7438,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: select
             m_BoolArgument: 0
@@ -12375,8 +12375,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12422,7 +12422,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 16
+            m_IntArgument: 17
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -17387,8 +17387,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17434,7 +17434,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 12
+            m_IntArgument: 13
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -17793,7 +17793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0.000015258789}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3133694363864017084
@@ -18112,8 +18112,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18159,7 +18159,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 11
+            m_IntArgument: 12
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -18314,8 +18314,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18676,17 +18676,17 @@ RectTransform:
   m_LocalScale: {x: 0.50000006, y: 0.50000006, z: 0.50000006}
   m_Children:
   - {fileID: 8842118537091023294}
-  - {fileID: 386747112595860306}
   - {fileID: 7582083862971876439}
   - {fileID: 378496825184773363}
   - {fileID: 7016796807477597943}
   - {fileID: 1991762173816161770}
   - {fileID: 5351194947035874201}
   - {fileID: 5458342545449986843}
-  - {fileID: 4603489244783649506}
   - {fileID: 6015548874150830651}
   - {fileID: 8528011451096211931}
   - {fileID: 1701523494252695515}
+  - {fileID: 386747112595860306}
+  - {fileID: 4603489244783649506}
   - {fileID: 5765138307571204934}
   m_Father: {fileID: 839983928253053675}
   m_RootOrder: 0
@@ -18729,7 +18729,7 @@ Transform:
   - {fileID: 1311589459321315502}
   - {fileID: 8291288409569005406}
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3982024427166508674
 GameObject:
@@ -18956,7 +18956,7 @@ Transform:
   - {fileID: 8455638122846058818}
   - {fileID: 8662818846896283854}
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 1
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4031965838533772969
 GameObject:
@@ -19204,8 +19204,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19251,7 +19251,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 14
+            m_IntArgument: 15
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -19458,7 +19458,7 @@ Transform:
   - {fileID: 6456232875721762653}
   - {fileID: 458311026267235657}
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4340320631110829008
 GameObject:
@@ -20251,7 +20251,7 @@ RectTransform:
   - {fileID: 3513578154760600975}
   - {fileID: 4451078336486504482}
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20856,8 +20856,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21504,7 +21504,7 @@ RectTransform:
   - {fileID: 4578916121109172021}
   - {fileID: 3629888109747416147}
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21700,8 +21700,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22128,8 +22128,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22175,7 +22175,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 10
+            m_IntArgument: 11
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -22722,7 +22722,7 @@ RectTransform:
   m_LocalScale: {x: 2.500018, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22887,8 +22887,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23159,7 +23159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0.000015258789}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3982448717305027932
@@ -23657,8 +23657,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24165,8 +24165,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24212,7 +24212,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 13
+            m_IntArgument: 14
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -24800,8 +24800,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24912,7 +24912,7 @@ RectTransform:
   m_LocalScale: {x: 2.500018, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25320,8 +25320,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25362,12 +25362,12 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 5397069427689482811}
-          m_MethodName: Donut
-          m_Mode: 1
+          m_MethodName: SwapOut
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
+            m_IntArgument: 9
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -25769,7 +25769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0.000015258789}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6637956817602204885
@@ -25842,7 +25842,7 @@ Transform:
   - {fileID: 9221451523608843862}
   - {fileID: 6899563427470549773}
   m_Father: {fileID: 2671396110153443000}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8825000459760783447
 GameObject:
@@ -26406,8 +26406,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5397069427689482811}
-        m_MethodName: PlayGameFunction
+      - m_Target: {fileID: 175179003}
+        m_MethodName: EnableCharSwap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26453,7 +26453,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 15
+            m_IntArgument: 16
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

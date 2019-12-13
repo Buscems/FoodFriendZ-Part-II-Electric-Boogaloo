@@ -254,9 +254,12 @@ public class CharacterSelectionScreenScript : MonoBehaviour
             HighlightedCharacterNameDisplay.text = gameData.CharacterListNames[Num];
             string[] descText = descriptionSections[Num].Split(';');
             savedNum = Num;
-            dc.currentChar = player.allCharacters[Num];
-            dc.lastButton = characterButtons[Num].transform.parent.gameObject;
-
+            try
+            {
+                dc.currentChar = player.allCharacters[Num];
+                dc.lastButton = characterButtons[Num].transform.parent.gameObject;
+            }
+            catch { }
             descriptionHeader.text = descText[0];
             descriptionBody.text = descText[1];
         }

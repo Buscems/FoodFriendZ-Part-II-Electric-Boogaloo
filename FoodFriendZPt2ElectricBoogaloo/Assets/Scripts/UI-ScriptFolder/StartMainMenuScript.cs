@@ -76,7 +76,11 @@ public class StartMainMenuScript : MonoBehaviour
     {
         LogBookParent.SetActive(false);
         Cursor.visible = false;
+
+        //Rewired Code
+        myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
+
         //Default Title Screen elements
         TitleCard.enabled = true;
         TitleInscruction.enabled = true;
@@ -106,6 +110,16 @@ public class StartMainMenuScript : MonoBehaviour
 
     void Update()
     {
+
+        if (myPlayer.controllers.joystickCount > 0)
+        {
+            controllerConnected = true;
+        }
+        else
+        {
+            controllerConnected = false;
+        }
+
         Debug.Log(controllerConnected);
         try
         {

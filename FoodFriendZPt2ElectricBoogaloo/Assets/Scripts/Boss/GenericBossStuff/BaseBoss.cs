@@ -261,6 +261,7 @@ public class BaseBoss : MonoBehaviour
             yield return null;
         }
         follow.player.transform.parent.transform.parent.GetComponent<MainPlayer>().canMove = true;
+        Time.timeScale = 1;
         aggroScript.aggro = true;
     }
 
@@ -280,9 +281,9 @@ public class BaseBoss : MonoBehaviour
 
         while (healthImage.GetComponent<Image>().color.a < 1 && healthBackground.GetComponent<Image>().color.a < 1 && bossName.GetComponent<TextMeshProUGUI>().color.a < 1)
         {
-            healthImage.GetComponent<Image>().color += new Color(0, 0, 0, fadeInTime * Time.deltaTime);
-            healthBackground.GetComponent<Image>().color += new Color(0, 0, 0, fadeInTime * Time.deltaTime);
-            bossName.GetComponent<TextMeshProUGUI>().color += new Color(0, 0, 0, fadeInTime * Time.deltaTime);
+            healthImage.GetComponent<Image>().color += new Color(0, 0, 0, fadeInTime * Time.unscaledDeltaTime);
+            healthBackground.GetComponent<Image>().color += new Color(0, 0, 0, fadeInTime * Time.unscaledDeltaTime);
+            bossName.GetComponent<TextMeshProUGUI>().color += new Color(0, 0, 0, fadeInTime * Time.unscaledDeltaTime);
             yield return null;
         }
     }

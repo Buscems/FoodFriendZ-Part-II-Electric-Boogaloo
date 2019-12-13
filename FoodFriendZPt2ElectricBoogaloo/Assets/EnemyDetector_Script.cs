@@ -26,7 +26,6 @@ public class EnemyDetector_Script : MonoBehaviour
         {
             //returns bool
             ieScript.areEnemiesInProxy = areEnemiesInProxy(numOfEnemiesInProxy);
-            print(ieScript.areEnemiesInProxy);
 
             //reset detector
             _numOfEnemiesInProxy = numOfEnemiesInProxy;

@@ -390,9 +390,9 @@ MonoBehaviour:
   m_SubmitButton: Select
   m_CancelButton: Back
   m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0
-  m_allowMouseInput: 1
-  m_allowMouseInputIfTouchSupported: 1
+  m_RepeatDelay: 0.1
+  m_allowMouseInput: 0
+  m_allowMouseInputIfTouchSupported: 0
   m_allowTouchInput: 1
   m_ForceModuleActive: 0
 --- !u!1 &115363847
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAnimationController: {fileID: 350234130}
   ControllerMessage: {fileID: 322762988}
-  playerNum: 0
+  playerNum: 1
   TitleInstruction_StartColor: {r: 0.9333334, g: 0.2627451, b: 0.5882353, a: 1}
   TitleInstruction_EndColor: {r: 0.9333334, g: 0.2627451, b: 0.5882353, a: 0}
   TitleCard: {fileID: 502659152}
