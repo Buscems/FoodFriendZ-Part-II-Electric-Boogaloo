@@ -29,8 +29,8 @@ public class SplatChooser : MonoBehaviour
             int splatIndex = Random.Range(0, splats.Length);
             int colorIndex = Random.Range(0, color.Length);
             float size = Random.Range(sizeMin, sizeMax);
-            float positionX = Random.Range(-751, 751);
-            float positionY = Random.Range(-381, 381);
+            float positionX = Random.Range(-345, 345);
+            float positionY = Random.Range(-170, 170);
 
             alpha = .75f;
             img.sprite = splats[splatIndex];
